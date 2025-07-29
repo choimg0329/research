@@ -1,0 +1,24515 @@
+
+/**
+ * Client
+**/
+
+import * as runtime from './runtime/library.js';
+import $Types = runtime.Types // general types
+import $Public = runtime.Types.Public
+import $Utils = runtime.Types.Utils
+import $Extensions = runtime.Types.Extensions
+import $Result = runtime.Types.Result
+
+export type PrismaPromise<T> = $Public.PrismaPromise<T>
+
+
+/**
+ * Model keyword
+ * 
+ */
+export type keyword = $Result.DefaultSelection<Prisma.$keywordPayload>
+/**
+ * Model ipc
+ * 
+ */
+export type ipc = $Result.DefaultSelection<Prisma.$ipcPayload>
+/**
+ * Model patent
+ * 
+ */
+export type patent = $Result.DefaultSelection<Prisma.$patentPayload>
+/**
+ * Model patent_ipc
+ * 
+ */
+export type patent_ipc = $Result.DefaultSelection<Prisma.$patent_ipcPayload>
+/**
+ * Model patent_keyword
+ * 
+ */
+export type patent_keyword = $Result.DefaultSelection<Prisma.$patent_keywordPayload>
+/**
+ * Model journal
+ * 
+ */
+export type journal = $Result.DefaultSelection<Prisma.$journalPayload>
+/**
+ * Model publication
+ * 
+ */
+export type publication = $Result.DefaultSelection<Prisma.$publicationPayload>
+/**
+ * Model publication_keyword
+ * 
+ */
+export type publication_keyword = $Result.DefaultSelection<Prisma.$publication_keywordPayload>
+/**
+ * Model journal_keyword
+ * 
+ */
+export type journal_keyword = $Result.DefaultSelection<Prisma.$journal_keywordPayload>
+/**
+ * Model researcher
+ * 
+ */
+export type researcher = $Result.DefaultSelection<Prisma.$researcherPayload>
+/**
+ * Model researcher_patent
+ * 
+ */
+export type researcher_patent = $Result.DefaultSelection<Prisma.$researcher_patentPayload>
+/**
+ * Model researcher_domain
+ * 
+ */
+export type researcher_domain = $Result.DefaultSelection<Prisma.$researcher_domainPayload>
+/**
+ * Model researcher_publication
+ * 
+ */
+export type researcher_publication = $Result.DefaultSelection<Prisma.$researcher_publicationPayload>
+/**
+ * Model domain
+ * 
+ */
+export type domain = $Result.DefaultSelection<Prisma.$domainPayload>
+
+/**
+ * ##  Prisma Client ʲˢ
+ *
+ * Type-safe database client for TypeScript & Node.js
+ * @example
+ * ```
+ * const prisma = new PrismaClient()
+ * // Fetch zero or more Keywords
+ * const keywords = await prisma.keyword.findMany()
+ * ```
+ *
+ *
+ * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
+ */
+export class PrismaClient<
+  ClientOptions extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
+  U = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never,
+  ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs
+> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
+
+    /**
+   * ##  Prisma Client ʲˢ
+   *
+   * Type-safe database client for TypeScript & Node.js
+   * @example
+   * ```
+   * const prisma = new PrismaClient()
+   * // Fetch zero or more Keywords
+   * const keywords = await prisma.keyword.findMany()
+   * ```
+   *
+   *
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
+   */
+
+  constructor(optionsArg ?: Prisma.Subset<ClientOptions, Prisma.PrismaClientOptions>);
+  $on<V extends U>(eventType: V, callback: (event: V extends 'query' ? Prisma.QueryEvent : Prisma.LogEvent) => void): PrismaClient;
+
+  /**
+   * Connect with the database
+   */
+  $connect(): $Utils.JsPromise<void>;
+
+  /**
+   * Disconnect from the database
+   */
+  $disconnect(): $Utils.JsPromise<void>;
+
+  /**
+   * Add a middleware
+   * @deprecated since 4.16.0. For new code, prefer client extensions instead.
+   * @see https://pris.ly/d/extensions
+   */
+  $use(cb: Prisma.Middleware): void
+
+/**
+   * Executes a prepared raw query and returns the number of affected rows.
+   * @example
+   * ```
+   * const result = await prisma.$executeRaw`UPDATE User SET cool = ${true} WHERE email = ${'user@email.com'};`
+   * ```
+   *
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   */
+  $executeRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<number>;
+
+  /**
+   * Executes a raw query and returns the number of affected rows.
+   * Susceptible to SQL injections, see documentation.
+   * @example
+   * ```
+   * const result = await prisma.$executeRawUnsafe('UPDATE User SET cool = $1 WHERE email = $2 ;', true, 'user@email.com')
+   * ```
+   *
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   */
+  $executeRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<number>;
+
+  /**
+   * Performs a prepared raw query and returns the `SELECT` data.
+   * @example
+   * ```
+   * const result = await prisma.$queryRaw`SELECT * FROM User WHERE id = ${1} OR email = ${'user@email.com'};`
+   * ```
+   *
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   */
+  $queryRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<T>;
+
+  /**
+   * Performs a raw query and returns the `SELECT` data.
+   * Susceptible to SQL injections, see documentation.
+   * @example
+   * ```
+   * const result = await prisma.$queryRawUnsafe('SELECT * FROM User WHERE id = $1 OR email = $2;', 1, 'user@email.com')
+   * ```
+   *
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   */
+  $queryRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<T>;
+
+
+  /**
+   * Allows the running of a sequence of read/write operations that are guaranteed to either succeed or fail as a whole.
+   * @example
+   * ```
+   * const [george, bob, alice] = await prisma.$transaction([
+   *   prisma.user.create({ data: { name: 'George' } }),
+   *   prisma.user.create({ data: { name: 'Bob' } }),
+   *   prisma.user.create({ data: { name: 'Alice' } }),
+   * ])
+   * ```
+   * 
+   * Read more in our [docs](https://www.prisma.io/docs/concepts/components/prisma-client/transactions).
+   */
+  $transaction<P extends Prisma.PrismaPromise<any>[]>(arg: [...P], options?: { isolationLevel?: Prisma.TransactionIsolationLevel }): $Utils.JsPromise<runtime.Types.Utils.UnwrapTuple<P>>
+
+  $transaction<R>(fn: (prisma: Omit<PrismaClient, runtime.ITXClientDenyList>) => $Utils.JsPromise<R>, options?: { maxWait?: number, timeout?: number, isolationLevel?: Prisma.TransactionIsolationLevel }): $Utils.JsPromise<R>
+
+
+  $extends: $Extensions.ExtendsHook<"extends", Prisma.TypeMapCb<ClientOptions>, ExtArgs, $Utils.Call<Prisma.TypeMapCb<ClientOptions>, {
+    extArgs: ExtArgs
+  }>>
+
+      /**
+   * `prisma.keyword`: Exposes CRUD operations for the **keyword** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Keywords
+    * const keywords = await prisma.keyword.findMany()
+    * ```
+    */
+  get keyword(): Prisma.keywordDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.ipc`: Exposes CRUD operations for the **ipc** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Ipcs
+    * const ipcs = await prisma.ipc.findMany()
+    * ```
+    */
+  get ipc(): Prisma.ipcDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.patent`: Exposes CRUD operations for the **patent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Patents
+    * const patents = await prisma.patent.findMany()
+    * ```
+    */
+  get patent(): Prisma.patentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.patent_ipc`: Exposes CRUD operations for the **patent_ipc** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Patent_ipcs
+    * const patent_ipcs = await prisma.patent_ipc.findMany()
+    * ```
+    */
+  get patent_ipc(): Prisma.patent_ipcDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.patent_keyword`: Exposes CRUD operations for the **patent_keyword** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Patent_keywords
+    * const patent_keywords = await prisma.patent_keyword.findMany()
+    * ```
+    */
+  get patent_keyword(): Prisma.patent_keywordDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.journal`: Exposes CRUD operations for the **journal** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Journals
+    * const journals = await prisma.journal.findMany()
+    * ```
+    */
+  get journal(): Prisma.journalDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.publication`: Exposes CRUD operations for the **publication** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Publications
+    * const publications = await prisma.publication.findMany()
+    * ```
+    */
+  get publication(): Prisma.publicationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.publication_keyword`: Exposes CRUD operations for the **publication_keyword** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Publication_keywords
+    * const publication_keywords = await prisma.publication_keyword.findMany()
+    * ```
+    */
+  get publication_keyword(): Prisma.publication_keywordDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.journal_keyword`: Exposes CRUD operations for the **journal_keyword** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Journal_keywords
+    * const journal_keywords = await prisma.journal_keyword.findMany()
+    * ```
+    */
+  get journal_keyword(): Prisma.journal_keywordDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.researcher`: Exposes CRUD operations for the **researcher** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Researchers
+    * const researchers = await prisma.researcher.findMany()
+    * ```
+    */
+  get researcher(): Prisma.researcherDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.researcher_patent`: Exposes CRUD operations for the **researcher_patent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Researcher_patents
+    * const researcher_patents = await prisma.researcher_patent.findMany()
+    * ```
+    */
+  get researcher_patent(): Prisma.researcher_patentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.researcher_domain`: Exposes CRUD operations for the **researcher_domain** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Researcher_domains
+    * const researcher_domains = await prisma.researcher_domain.findMany()
+    * ```
+    */
+  get researcher_domain(): Prisma.researcher_domainDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.researcher_publication`: Exposes CRUD operations for the **researcher_publication** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Researcher_publications
+    * const researcher_publications = await prisma.researcher_publication.findMany()
+    * ```
+    */
+  get researcher_publication(): Prisma.researcher_publicationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.domain`: Exposes CRUD operations for the **domain** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Domains
+    * const domains = await prisma.domain.findMany()
+    * ```
+    */
+  get domain(): Prisma.domainDelegate<ExtArgs, ClientOptions>;
+}
+
+export namespace Prisma {
+  export import DMMF = runtime.DMMF
+
+  export type PrismaPromise<T> = $Public.PrismaPromise<T>
+
+  /**
+   * Validator
+   */
+  export import validator = runtime.Public.validator
+
+  /**
+   * Prisma Errors
+   */
+  export import PrismaClientKnownRequestError = runtime.PrismaClientKnownRequestError
+  export import PrismaClientUnknownRequestError = runtime.PrismaClientUnknownRequestError
+  export import PrismaClientRustPanicError = runtime.PrismaClientRustPanicError
+  export import PrismaClientInitializationError = runtime.PrismaClientInitializationError
+  export import PrismaClientValidationError = runtime.PrismaClientValidationError
+
+  /**
+   * Re-export of sql-template-tag
+   */
+  export import sql = runtime.sqltag
+  export import empty = runtime.empty
+  export import join = runtime.join
+  export import raw = runtime.raw
+  export import Sql = runtime.Sql
+
+
+
+  /**
+   * Decimal.js
+   */
+  export import Decimal = runtime.Decimal
+
+  export type DecimalJsLike = runtime.DecimalJsLike
+
+  /**
+   * Metrics
+   */
+  export type Metrics = runtime.Metrics
+  export type Metric<T> = runtime.Metric<T>
+  export type MetricHistogram = runtime.MetricHistogram
+  export type MetricHistogramBucket = runtime.MetricHistogramBucket
+
+  /**
+  * Extensions
+  */
+  export import Extension = $Extensions.UserArgs
+  export import getExtensionContext = runtime.Extensions.getExtensionContext
+  export import Args = $Public.Args
+  export import Payload = $Public.Payload
+  export import Result = $Public.Result
+  export import Exact = $Public.Exact
+
+  /**
+   * Prisma Client JS version: 6.12.0
+   * Query Engine version: 8047c96bbd92db98a2abc7c9323ce77c02c89dbc
+   */
+  export type PrismaVersion = {
+    client: string
+  }
+
+  export const prismaVersion: PrismaVersion
+
+  /**
+   * Utility Types
+   */
+
+
+  export import JsonObject = runtime.JsonObject
+  export import JsonArray = runtime.JsonArray
+  export import JsonValue = runtime.JsonValue
+  export import InputJsonObject = runtime.InputJsonObject
+  export import InputJsonArray = runtime.InputJsonArray
+  export import InputJsonValue = runtime.InputJsonValue
+
+  /**
+   * Types of the values used to represent different kinds of `null` values when working with JSON fields.
+   *
+   * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+   */
+  namespace NullTypes {
+    /**
+    * Type of `Prisma.DbNull`.
+    *
+    * You cannot use other instances of this class. Please use the `Prisma.DbNull` value.
+    *
+    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+    */
+    class DbNull {
+      private DbNull: never
+      private constructor()
+    }
+
+    /**
+    * Type of `Prisma.JsonNull`.
+    *
+    * You cannot use other instances of this class. Please use the `Prisma.JsonNull` value.
+    *
+    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+    */
+    class JsonNull {
+      private JsonNull: never
+      private constructor()
+    }
+
+    /**
+    * Type of `Prisma.AnyNull`.
+    *
+    * You cannot use other instances of this class. Please use the `Prisma.AnyNull` value.
+    *
+    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+    */
+    class AnyNull {
+      private AnyNull: never
+      private constructor()
+    }
+  }
+
+  /**
+   * Helper for filtering JSON entries that have `null` on the database (empty on the db)
+   *
+   * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+   */
+  export const DbNull: NullTypes.DbNull
+
+  /**
+   * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
+   *
+   * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+   */
+  export const JsonNull: NullTypes.JsonNull
+
+  /**
+   * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
+   *
+   * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+   */
+  export const AnyNull: NullTypes.AnyNull
+
+  type SelectAndInclude = {
+    select: any
+    include: any
+  }
+
+  type SelectAndOmit = {
+    select: any
+    omit: any
+  }
+
+  /**
+   * Get the type of the value, that the Promise holds.
+   */
+  export type PromiseType<T extends PromiseLike<any>> = T extends PromiseLike<infer U> ? U : T;
+
+  /**
+   * Get the return type of a function which returns a Promise.
+   */
+  export type PromiseReturnType<T extends (...args: any) => $Utils.JsPromise<any>> = PromiseType<ReturnType<T>>
+
+  /**
+   * From T, pick a set of properties whose keys are in the union K
+   */
+  type Prisma__Pick<T, K extends keyof T> = {
+      [P in K]: T[P];
+  };
+
+
+  export type Enumerable<T> = T | Array<T>;
+
+  export type RequiredKeys<T> = {
+    [K in keyof T]-?: {} extends Prisma__Pick<T, K> ? never : K
+  }[keyof T]
+
+  export type TruthyKeys<T> = keyof {
+    [K in keyof T as T[K] extends false | undefined | null ? never : K]: K
+  }
+
+  export type TrueKeys<T> = TruthyKeys<Prisma__Pick<T, RequiredKeys<T>>>
+
+  /**
+   * Subset
+   * @desc From `T` pick properties that exist in `U`. Simple version of Intersection
+   */
+  export type Subset<T, U> = {
+    [key in keyof T]: key extends keyof U ? T[key] : never;
+  };
+
+  /**
+   * SelectSubset
+   * @desc From `T` pick properties that exist in `U`. Simple version of Intersection.
+   * Additionally, it validates, if both select and include are present. If the case, it errors.
+   */
+  export type SelectSubset<T, U> = {
+    [key in keyof T]: key extends keyof U ? T[key] : never
+  } &
+    (T extends SelectAndInclude
+      ? 'Please either choose `select` or `include`.'
+      : T extends SelectAndOmit
+        ? 'Please either choose `select` or `omit`.'
+        : {})
+
+  /**
+   * Subset + Intersection
+   * @desc From `T` pick properties that exist in `U` and intersect `K`
+   */
+  export type SubsetIntersection<T, U, K> = {
+    [key in keyof T]: key extends keyof U ? T[key] : never
+  } &
+    K
+
+  type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
+
+  /**
+   * XOR is needed to have a real mutually exclusive union type
+   * https://stackoverflow.com/questions/42123407/does-typescript-support-mutually-exclusive-types
+   */
+  type XOR<T, U> =
+    T extends object ?
+    U extends object ?
+      (Without<T, U> & U) | (Without<U, T> & T)
+    : U : T
+
+
+  /**
+   * Is T a Record?
+   */
+  type IsObject<T extends any> = T extends Array<any>
+  ? False
+  : T extends Date
+  ? False
+  : T extends Uint8Array
+  ? False
+  : T extends BigInt
+  ? False
+  : T extends object
+  ? True
+  : False
+
+
+  /**
+   * If it's T[], return T
+   */
+  export type UnEnumerate<T extends unknown> = T extends Array<infer U> ? U : T
+
+  /**
+   * From ts-toolbelt
+   */
+
+  type __Either<O extends object, K extends Key> = Omit<O, K> &
+    {
+      // Merge all but K
+      [P in K]: Prisma__Pick<O, P & keyof O> // With K possibilities
+    }[K]
+
+  type EitherStrict<O extends object, K extends Key> = Strict<__Either<O, K>>
+
+  type EitherLoose<O extends object, K extends Key> = ComputeRaw<__Either<O, K>>
+
+  type _Either<
+    O extends object,
+    K extends Key,
+    strict extends Boolean
+  > = {
+    1: EitherStrict<O, K>
+    0: EitherLoose<O, K>
+  }[strict]
+
+  type Either<
+    O extends object,
+    K extends Key,
+    strict extends Boolean = 1
+  > = O extends unknown ? _Either<O, K, strict> : never
+
+  export type Union = any
+
+  type PatchUndefined<O extends object, O1 extends object> = {
+    [K in keyof O]: O[K] extends undefined ? At<O1, K> : O[K]
+  } & {}
+
+  /** Helper Types for "Merge" **/
+  export type IntersectOf<U extends Union> = (
+    U extends unknown ? (k: U) => void : never
+  ) extends (k: infer I) => void
+    ? I
+    : never
+
+  export type Overwrite<O extends object, O1 extends object> = {
+      [K in keyof O]: K extends keyof O1 ? O1[K] : O[K];
+  } & {};
+
+  type _Merge<U extends object> = IntersectOf<Overwrite<U, {
+      [K in keyof U]-?: At<U, K>;
+  }>>;
+
+  type Key = string | number | symbol;
+  type AtBasic<O extends object, K extends Key> = K extends keyof O ? O[K] : never;
+  type AtStrict<O extends object, K extends Key> = O[K & keyof O];
+  type AtLoose<O extends object, K extends Key> = O extends unknown ? AtStrict<O, K> : never;
+  export type At<O extends object, K extends Key, strict extends Boolean = 1> = {
+      1: AtStrict<O, K>;
+      0: AtLoose<O, K>;
+  }[strict];
+
+  export type ComputeRaw<A extends any> = A extends Function ? A : {
+    [K in keyof A]: A[K];
+  } & {};
+
+  export type OptionalFlat<O> = {
+    [K in keyof O]?: O[K];
+  } & {};
+
+  type _Record<K extends keyof any, T> = {
+    [P in K]: T;
+  };
+
+  // cause typescript not to expand types and preserve names
+  type NoExpand<T> = T extends unknown ? T : never;
+
+  // this type assumes the passed object is entirely optional
+  type AtLeast<O extends object, K extends string> = NoExpand<
+    O extends unknown
+    ? | (K extends keyof O ? { [P in K]: O[P] } & O : O)
+      | {[P in keyof O as P extends K ? P : never]-?: O[P]} & O
+    : never>;
+
+  type _Strict<U, _U = U> = U extends unknown ? U & OptionalFlat<_Record<Exclude<Keys<_U>, keyof U>, never>> : never;
+
+  export type Strict<U extends object> = ComputeRaw<_Strict<U>>;
+  /** End Helper Types for "Merge" **/
+
+  export type Merge<U extends object> = ComputeRaw<_Merge<Strict<U>>>;
+
+  /**
+  A [[Boolean]]
+  */
+  export type Boolean = True | False
+
+  // /**
+  // 1
+  // */
+  export type True = 1
+
+  /**
+  0
+  */
+  export type False = 0
+
+  export type Not<B extends Boolean> = {
+    0: 1
+    1: 0
+  }[B]
+
+  export type Extends<A1 extends any, A2 extends any> = [A1] extends [never]
+    ? 0 // anything `never` is false
+    : A1 extends A2
+    ? 1
+    : 0
+
+  export type Has<U extends Union, U1 extends Union> = Not<
+    Extends<Exclude<U1, U>, U1>
+  >
+
+  export type Or<B1 extends Boolean, B2 extends Boolean> = {
+    0: {
+      0: 0
+      1: 1
+    }
+    1: {
+      0: 1
+      1: 1
+    }
+  }[B1][B2]
+
+  export type Keys<U extends Union> = U extends unknown ? keyof U : never
+
+  type Cast<A, B> = A extends B ? A : B;
+
+  export const type: unique symbol;
+
+
+
+  /**
+   * Used by group by
+   */
+
+  export type GetScalarType<T, O> = O extends object ? {
+    [P in keyof T]: P extends keyof O
+      ? O[P]
+      : never
+  } : never
+
+  type FieldPaths<
+    T,
+    U = Omit<T, '_avg' | '_sum' | '_count' | '_min' | '_max'>
+  > = IsObject<T> extends True ? U : T
+
+  type GetHavingFields<T> = {
+    [K in keyof T]: Or<
+      Or<Extends<'OR', K>, Extends<'AND', K>>,
+      Extends<'NOT', K>
+    > extends True
+      ? // infer is only needed to not hit TS limit
+        // based on the brilliant idea of Pierre-Antoine Mills
+        // https://github.com/microsoft/TypeScript/issues/30188#issuecomment-478938437
+        T[K] extends infer TK
+        ? GetHavingFields<UnEnumerate<TK> extends object ? Merge<UnEnumerate<TK>> : never>
+        : never
+      : {} extends FieldPaths<T[K]>
+      ? never
+      : K
+  }[keyof T]
+
+  /**
+   * Convert tuple to union
+   */
+  type _TupleToUnion<T> = T extends (infer E)[] ? E : never
+  type TupleToUnion<K extends readonly any[]> = _TupleToUnion<K>
+  type MaybeTupleToUnion<T> = T extends any[] ? TupleToUnion<T> : T
+
+  /**
+   * Like `Pick`, but additionally can also accept an array of keys
+   */
+  type PickEnumerable<T, K extends Enumerable<keyof T> | keyof T> = Prisma__Pick<T, MaybeTupleToUnion<K>>
+
+  /**
+   * Exclude all keys with underscores
+   */
+  type ExcludeUnderscoreKeys<T extends string> = T extends `_${string}` ? never : T
+
+
+  export type FieldRef<Model, FieldType> = runtime.FieldRef<Model, FieldType>
+
+  type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRef<Model, FieldType>
+
+
+  export const ModelName: {
+    keyword: 'keyword',
+    ipc: 'ipc',
+    patent: 'patent',
+    patent_ipc: 'patent_ipc',
+    patent_keyword: 'patent_keyword',
+    journal: 'journal',
+    publication: 'publication',
+    publication_keyword: 'publication_keyword',
+    journal_keyword: 'journal_keyword',
+    researcher: 'researcher',
+    researcher_patent: 'researcher_patent',
+    researcher_domain: 'researcher_domain',
+    researcher_publication: 'researcher_publication',
+    domain: 'domain'
+  };
+
+  export type ModelName = (typeof ModelName)[keyof typeof ModelName]
+
+
+  export type Datasources = {
+    db?: Datasource
+  }
+
+  interface TypeMapCb<ClientOptions = {}> extends $Utils.Fn<{extArgs: $Extensions.InternalArgs }, $Utils.Record<string, any>> {
+    returns: Prisma.TypeMap<this['params']['extArgs'], ClientOptions extends { omit: infer OmitOptions } ? OmitOptions : {}>
+  }
+
+  export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> = {
+    globalOmitOptions: {
+      omit: GlobalOmitOptions
+    }
+    meta: {
+      modelProps: "keyword" | "ipc" | "patent" | "patent_ipc" | "patent_keyword" | "journal" | "publication" | "publication_keyword" | "journal_keyword" | "researcher" | "researcher_patent" | "researcher_domain" | "researcher_publication" | "domain"
+      txIsolationLevel: Prisma.TransactionIsolationLevel
+    }
+    model: {
+      keyword: {
+        payload: Prisma.$keywordPayload<ExtArgs>
+        fields: Prisma.keywordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.keywordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$keywordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.keywordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$keywordPayload>
+          }
+          findFirst: {
+            args: Prisma.keywordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$keywordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.keywordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$keywordPayload>
+          }
+          findMany: {
+            args: Prisma.keywordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$keywordPayload>[]
+          }
+          create: {
+            args: Prisma.keywordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$keywordPayload>
+          }
+          createMany: {
+            args: Prisma.keywordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.keywordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$keywordPayload>[]
+          }
+          delete: {
+            args: Prisma.keywordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$keywordPayload>
+          }
+          update: {
+            args: Prisma.keywordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$keywordPayload>
+          }
+          deleteMany: {
+            args: Prisma.keywordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.keywordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.keywordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$keywordPayload>[]
+          }
+          upsert: {
+            args: Prisma.keywordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$keywordPayload>
+          }
+          aggregate: {
+            args: Prisma.KeywordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateKeyword>
+          }
+          groupBy: {
+            args: Prisma.keywordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<KeywordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.keywordCountArgs<ExtArgs>
+            result: $Utils.Optional<KeywordCountAggregateOutputType> | number
+          }
+        }
+      }
+      ipc: {
+        payload: Prisma.$ipcPayload<ExtArgs>
+        fields: Prisma.ipcFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ipcFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ipcPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ipcFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ipcPayload>
+          }
+          findFirst: {
+            args: Prisma.ipcFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ipcPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ipcFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ipcPayload>
+          }
+          findMany: {
+            args: Prisma.ipcFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ipcPayload>[]
+          }
+          create: {
+            args: Prisma.ipcCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ipcPayload>
+          }
+          createMany: {
+            args: Prisma.ipcCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ipcCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ipcPayload>[]
+          }
+          delete: {
+            args: Prisma.ipcDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ipcPayload>
+          }
+          update: {
+            args: Prisma.ipcUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ipcPayload>
+          }
+          deleteMany: {
+            args: Prisma.ipcDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ipcUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ipcUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ipcPayload>[]
+          }
+          upsert: {
+            args: Prisma.ipcUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ipcPayload>
+          }
+          aggregate: {
+            args: Prisma.IpcAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateIpc>
+          }
+          groupBy: {
+            args: Prisma.ipcGroupByArgs<ExtArgs>
+            result: $Utils.Optional<IpcGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ipcCountArgs<ExtArgs>
+            result: $Utils.Optional<IpcCountAggregateOutputType> | number
+          }
+        }
+      }
+      patent: {
+        payload: Prisma.$patentPayload<ExtArgs>
+        fields: Prisma.patentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.patentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.patentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patentPayload>
+          }
+          findFirst: {
+            args: Prisma.patentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.patentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patentPayload>
+          }
+          findMany: {
+            args: Prisma.patentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patentPayload>[]
+          }
+          create: {
+            args: Prisma.patentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patentPayload>
+          }
+          createMany: {
+            args: Prisma.patentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.patentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patentPayload>[]
+          }
+          delete: {
+            args: Prisma.patentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patentPayload>
+          }
+          update: {
+            args: Prisma.patentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patentPayload>
+          }
+          deleteMany: {
+            args: Prisma.patentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.patentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.patentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patentPayload>[]
+          }
+          upsert: {
+            args: Prisma.patentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patentPayload>
+          }
+          aggregate: {
+            args: Prisma.PatentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePatent>
+          }
+          groupBy: {
+            args: Prisma.patentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PatentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.patentCountArgs<ExtArgs>
+            result: $Utils.Optional<PatentCountAggregateOutputType> | number
+          }
+        }
+      }
+      patent_ipc: {
+        payload: Prisma.$patent_ipcPayload<ExtArgs>
+        fields: Prisma.patent_ipcFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.patent_ipcFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_ipcPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.patent_ipcFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_ipcPayload>
+          }
+          findFirst: {
+            args: Prisma.patent_ipcFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_ipcPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.patent_ipcFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_ipcPayload>
+          }
+          findMany: {
+            args: Prisma.patent_ipcFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_ipcPayload>[]
+          }
+          create: {
+            args: Prisma.patent_ipcCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_ipcPayload>
+          }
+          createMany: {
+            args: Prisma.patent_ipcCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.patent_ipcCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_ipcPayload>[]
+          }
+          delete: {
+            args: Prisma.patent_ipcDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_ipcPayload>
+          }
+          update: {
+            args: Prisma.patent_ipcUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_ipcPayload>
+          }
+          deleteMany: {
+            args: Prisma.patent_ipcDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.patent_ipcUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.patent_ipcUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_ipcPayload>[]
+          }
+          upsert: {
+            args: Prisma.patent_ipcUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_ipcPayload>
+          }
+          aggregate: {
+            args: Prisma.Patent_ipcAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePatent_ipc>
+          }
+          groupBy: {
+            args: Prisma.patent_ipcGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Patent_ipcGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.patent_ipcCountArgs<ExtArgs>
+            result: $Utils.Optional<Patent_ipcCountAggregateOutputType> | number
+          }
+        }
+      }
+      patent_keyword: {
+        payload: Prisma.$patent_keywordPayload<ExtArgs>
+        fields: Prisma.patent_keywordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.patent_keywordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_keywordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.patent_keywordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_keywordPayload>
+          }
+          findFirst: {
+            args: Prisma.patent_keywordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_keywordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.patent_keywordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_keywordPayload>
+          }
+          findMany: {
+            args: Prisma.patent_keywordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_keywordPayload>[]
+          }
+          create: {
+            args: Prisma.patent_keywordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_keywordPayload>
+          }
+          createMany: {
+            args: Prisma.patent_keywordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.patent_keywordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_keywordPayload>[]
+          }
+          delete: {
+            args: Prisma.patent_keywordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_keywordPayload>
+          }
+          update: {
+            args: Prisma.patent_keywordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_keywordPayload>
+          }
+          deleteMany: {
+            args: Prisma.patent_keywordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.patent_keywordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.patent_keywordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_keywordPayload>[]
+          }
+          upsert: {
+            args: Prisma.patent_keywordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$patent_keywordPayload>
+          }
+          aggregate: {
+            args: Prisma.Patent_keywordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePatent_keyword>
+          }
+          groupBy: {
+            args: Prisma.patent_keywordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Patent_keywordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.patent_keywordCountArgs<ExtArgs>
+            result: $Utils.Optional<Patent_keywordCountAggregateOutputType> | number
+          }
+        }
+      }
+      journal: {
+        payload: Prisma.$journalPayload<ExtArgs>
+        fields: Prisma.journalFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.journalFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journalPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.journalFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journalPayload>
+          }
+          findFirst: {
+            args: Prisma.journalFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journalPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.journalFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journalPayload>
+          }
+          findMany: {
+            args: Prisma.journalFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journalPayload>[]
+          }
+          create: {
+            args: Prisma.journalCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journalPayload>
+          }
+          createMany: {
+            args: Prisma.journalCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.journalCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journalPayload>[]
+          }
+          delete: {
+            args: Prisma.journalDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journalPayload>
+          }
+          update: {
+            args: Prisma.journalUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journalPayload>
+          }
+          deleteMany: {
+            args: Prisma.journalDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.journalUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.journalUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journalPayload>[]
+          }
+          upsert: {
+            args: Prisma.journalUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journalPayload>
+          }
+          aggregate: {
+            args: Prisma.JournalAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJournal>
+          }
+          groupBy: {
+            args: Prisma.journalGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JournalGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.journalCountArgs<ExtArgs>
+            result: $Utils.Optional<JournalCountAggregateOutputType> | number
+          }
+        }
+      }
+      publication: {
+        payload: Prisma.$publicationPayload<ExtArgs>
+        fields: Prisma.publicationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.publicationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publicationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.publicationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publicationPayload>
+          }
+          findFirst: {
+            args: Prisma.publicationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publicationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.publicationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publicationPayload>
+          }
+          findMany: {
+            args: Prisma.publicationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publicationPayload>[]
+          }
+          create: {
+            args: Prisma.publicationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publicationPayload>
+          }
+          createMany: {
+            args: Prisma.publicationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.publicationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publicationPayload>[]
+          }
+          delete: {
+            args: Prisma.publicationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publicationPayload>
+          }
+          update: {
+            args: Prisma.publicationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publicationPayload>
+          }
+          deleteMany: {
+            args: Prisma.publicationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.publicationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.publicationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publicationPayload>[]
+          }
+          upsert: {
+            args: Prisma.publicationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publicationPayload>
+          }
+          aggregate: {
+            args: Prisma.PublicationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePublication>
+          }
+          groupBy: {
+            args: Prisma.publicationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PublicationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.publicationCountArgs<ExtArgs>
+            result: $Utils.Optional<PublicationCountAggregateOutputType> | number
+          }
+        }
+      }
+      publication_keyword: {
+        payload: Prisma.$publication_keywordPayload<ExtArgs>
+        fields: Prisma.publication_keywordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.publication_keywordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publication_keywordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.publication_keywordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publication_keywordPayload>
+          }
+          findFirst: {
+            args: Prisma.publication_keywordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publication_keywordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.publication_keywordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publication_keywordPayload>
+          }
+          findMany: {
+            args: Prisma.publication_keywordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publication_keywordPayload>[]
+          }
+          create: {
+            args: Prisma.publication_keywordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publication_keywordPayload>
+          }
+          createMany: {
+            args: Prisma.publication_keywordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.publication_keywordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publication_keywordPayload>[]
+          }
+          delete: {
+            args: Prisma.publication_keywordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publication_keywordPayload>
+          }
+          update: {
+            args: Prisma.publication_keywordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publication_keywordPayload>
+          }
+          deleteMany: {
+            args: Prisma.publication_keywordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.publication_keywordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.publication_keywordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publication_keywordPayload>[]
+          }
+          upsert: {
+            args: Prisma.publication_keywordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$publication_keywordPayload>
+          }
+          aggregate: {
+            args: Prisma.Publication_keywordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePublication_keyword>
+          }
+          groupBy: {
+            args: Prisma.publication_keywordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Publication_keywordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.publication_keywordCountArgs<ExtArgs>
+            result: $Utils.Optional<Publication_keywordCountAggregateOutputType> | number
+          }
+        }
+      }
+      journal_keyword: {
+        payload: Prisma.$journal_keywordPayload<ExtArgs>
+        fields: Prisma.journal_keywordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.journal_keywordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journal_keywordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.journal_keywordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journal_keywordPayload>
+          }
+          findFirst: {
+            args: Prisma.journal_keywordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journal_keywordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.journal_keywordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journal_keywordPayload>
+          }
+          findMany: {
+            args: Prisma.journal_keywordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journal_keywordPayload>[]
+          }
+          create: {
+            args: Prisma.journal_keywordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journal_keywordPayload>
+          }
+          createMany: {
+            args: Prisma.journal_keywordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.journal_keywordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journal_keywordPayload>[]
+          }
+          delete: {
+            args: Prisma.journal_keywordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journal_keywordPayload>
+          }
+          update: {
+            args: Prisma.journal_keywordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journal_keywordPayload>
+          }
+          deleteMany: {
+            args: Prisma.journal_keywordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.journal_keywordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.journal_keywordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journal_keywordPayload>[]
+          }
+          upsert: {
+            args: Prisma.journal_keywordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$journal_keywordPayload>
+          }
+          aggregate: {
+            args: Prisma.Journal_keywordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJournal_keyword>
+          }
+          groupBy: {
+            args: Prisma.journal_keywordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Journal_keywordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.journal_keywordCountArgs<ExtArgs>
+            result: $Utils.Optional<Journal_keywordCountAggregateOutputType> | number
+          }
+        }
+      }
+      researcher: {
+        payload: Prisma.$researcherPayload<ExtArgs>
+        fields: Prisma.researcherFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.researcherFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcherPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.researcherFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcherPayload>
+          }
+          findFirst: {
+            args: Prisma.researcherFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcherPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.researcherFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcherPayload>
+          }
+          findMany: {
+            args: Prisma.researcherFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcherPayload>[]
+          }
+          create: {
+            args: Prisma.researcherCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcherPayload>
+          }
+          createMany: {
+            args: Prisma.researcherCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.researcherCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcherPayload>[]
+          }
+          delete: {
+            args: Prisma.researcherDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcherPayload>
+          }
+          update: {
+            args: Prisma.researcherUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcherPayload>
+          }
+          deleteMany: {
+            args: Prisma.researcherDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.researcherUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.researcherUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcherPayload>[]
+          }
+          upsert: {
+            args: Prisma.researcherUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcherPayload>
+          }
+          aggregate: {
+            args: Prisma.ResearcherAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateResearcher>
+          }
+          groupBy: {
+            args: Prisma.researcherGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ResearcherGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.researcherCountArgs<ExtArgs>
+            result: $Utils.Optional<ResearcherCountAggregateOutputType> | number
+          }
+        }
+      }
+      researcher_patent: {
+        payload: Prisma.$researcher_patentPayload<ExtArgs>
+        fields: Prisma.researcher_patentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.researcher_patentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_patentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.researcher_patentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_patentPayload>
+          }
+          findFirst: {
+            args: Prisma.researcher_patentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_patentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.researcher_patentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_patentPayload>
+          }
+          findMany: {
+            args: Prisma.researcher_patentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_patentPayload>[]
+          }
+          create: {
+            args: Prisma.researcher_patentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_patentPayload>
+          }
+          createMany: {
+            args: Prisma.researcher_patentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.researcher_patentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_patentPayload>[]
+          }
+          delete: {
+            args: Prisma.researcher_patentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_patentPayload>
+          }
+          update: {
+            args: Prisma.researcher_patentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_patentPayload>
+          }
+          deleteMany: {
+            args: Prisma.researcher_patentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.researcher_patentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.researcher_patentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_patentPayload>[]
+          }
+          upsert: {
+            args: Prisma.researcher_patentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_patentPayload>
+          }
+          aggregate: {
+            args: Prisma.Researcher_patentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateResearcher_patent>
+          }
+          groupBy: {
+            args: Prisma.researcher_patentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Researcher_patentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.researcher_patentCountArgs<ExtArgs>
+            result: $Utils.Optional<Researcher_patentCountAggregateOutputType> | number
+          }
+        }
+      }
+      researcher_domain: {
+        payload: Prisma.$researcher_domainPayload<ExtArgs>
+        fields: Prisma.researcher_domainFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.researcher_domainFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_domainPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.researcher_domainFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_domainPayload>
+          }
+          findFirst: {
+            args: Prisma.researcher_domainFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_domainPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.researcher_domainFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_domainPayload>
+          }
+          findMany: {
+            args: Prisma.researcher_domainFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_domainPayload>[]
+          }
+          create: {
+            args: Prisma.researcher_domainCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_domainPayload>
+          }
+          createMany: {
+            args: Prisma.researcher_domainCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.researcher_domainCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_domainPayload>[]
+          }
+          delete: {
+            args: Prisma.researcher_domainDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_domainPayload>
+          }
+          update: {
+            args: Prisma.researcher_domainUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_domainPayload>
+          }
+          deleteMany: {
+            args: Prisma.researcher_domainDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.researcher_domainUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.researcher_domainUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_domainPayload>[]
+          }
+          upsert: {
+            args: Prisma.researcher_domainUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_domainPayload>
+          }
+          aggregate: {
+            args: Prisma.Researcher_domainAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateResearcher_domain>
+          }
+          groupBy: {
+            args: Prisma.researcher_domainGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Researcher_domainGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.researcher_domainCountArgs<ExtArgs>
+            result: $Utils.Optional<Researcher_domainCountAggregateOutputType> | number
+          }
+        }
+      }
+      researcher_publication: {
+        payload: Prisma.$researcher_publicationPayload<ExtArgs>
+        fields: Prisma.researcher_publicationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.researcher_publicationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_publicationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.researcher_publicationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_publicationPayload>
+          }
+          findFirst: {
+            args: Prisma.researcher_publicationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_publicationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.researcher_publicationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_publicationPayload>
+          }
+          findMany: {
+            args: Prisma.researcher_publicationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_publicationPayload>[]
+          }
+          create: {
+            args: Prisma.researcher_publicationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_publicationPayload>
+          }
+          createMany: {
+            args: Prisma.researcher_publicationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.researcher_publicationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_publicationPayload>[]
+          }
+          delete: {
+            args: Prisma.researcher_publicationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_publicationPayload>
+          }
+          update: {
+            args: Prisma.researcher_publicationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_publicationPayload>
+          }
+          deleteMany: {
+            args: Prisma.researcher_publicationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.researcher_publicationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.researcher_publicationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_publicationPayload>[]
+          }
+          upsert: {
+            args: Prisma.researcher_publicationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$researcher_publicationPayload>
+          }
+          aggregate: {
+            args: Prisma.Researcher_publicationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateResearcher_publication>
+          }
+          groupBy: {
+            args: Prisma.researcher_publicationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Researcher_publicationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.researcher_publicationCountArgs<ExtArgs>
+            result: $Utils.Optional<Researcher_publicationCountAggregateOutputType> | number
+          }
+        }
+      }
+      domain: {
+        payload: Prisma.$domainPayload<ExtArgs>
+        fields: Prisma.domainFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.domainFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$domainPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.domainFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$domainPayload>
+          }
+          findFirst: {
+            args: Prisma.domainFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$domainPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.domainFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$domainPayload>
+          }
+          findMany: {
+            args: Prisma.domainFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$domainPayload>[]
+          }
+          create: {
+            args: Prisma.domainCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$domainPayload>
+          }
+          createMany: {
+            args: Prisma.domainCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.domainCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$domainPayload>[]
+          }
+          delete: {
+            args: Prisma.domainDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$domainPayload>
+          }
+          update: {
+            args: Prisma.domainUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$domainPayload>
+          }
+          deleteMany: {
+            args: Prisma.domainDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.domainUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.domainUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$domainPayload>[]
+          }
+          upsert: {
+            args: Prisma.domainUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$domainPayload>
+          }
+          aggregate: {
+            args: Prisma.DomainAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDomain>
+          }
+          groupBy: {
+            args: Prisma.domainGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DomainGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.domainCountArgs<ExtArgs>
+            result: $Utils.Optional<DomainCountAggregateOutputType> | number
+          }
+        }
+      }
+    }
+  } & {
+    other: {
+      payload: any
+      operations: {
+        $executeRaw: {
+          args: [query: TemplateStringsArray | Prisma.Sql, ...values: any[]],
+          result: any
+        }
+        $executeRawUnsafe: {
+          args: [query: string, ...values: any[]],
+          result: any
+        }
+        $queryRaw: {
+          args: [query: TemplateStringsArray | Prisma.Sql, ...values: any[]],
+          result: any
+        }
+        $queryRawUnsafe: {
+          args: [query: string, ...values: any[]],
+          result: any
+        }
+      }
+    }
+  }
+  export const defineExtension: $Extensions.ExtendsHook<"define", Prisma.TypeMapCb, $Extensions.DefaultArgs>
+  export type DefaultPrismaClient = PrismaClient
+  export type ErrorFormat = 'pretty' | 'colorless' | 'minimal'
+  export interface PrismaClientOptions {
+    /**
+     * Overwrites the datasource url from your schema.prisma file
+     */
+    datasources?: Datasources
+    /**
+     * Overwrites the datasource url from your schema.prisma file
+     */
+    datasourceUrl?: string
+    /**
+     * @default "colorless"
+     */
+    errorFormat?: ErrorFormat
+    /**
+     * @example
+     * ```
+     * // Defaults to stdout
+     * log: ['query', 'info', 'warn', 'error']
+     * 
+     * // Emit as events
+     * log: [
+     *   { emit: 'stdout', level: 'query' },
+     *   { emit: 'stdout', level: 'info' },
+     *   { emit: 'stdout', level: 'warn' }
+     *   { emit: 'stdout', level: 'error' }
+     * ]
+     * ```
+     * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/logging#the-log-option).
+     */
+    log?: (LogLevel | LogDefinition)[]
+    /**
+     * The default values for transactionOptions
+     * maxWait ?= 2000
+     * timeout ?= 5000
+     */
+    transactionOptions?: {
+      maxWait?: number
+      timeout?: number
+      isolationLevel?: Prisma.TransactionIsolationLevel
+    }
+    /**
+     * Global configuration for omitting model fields by default.
+     * 
+     * @example
+     * ```
+     * const prisma = new PrismaClient({
+     *   omit: {
+     *     user: {
+     *       password: true
+     *     }
+     *   }
+     * })
+     * ```
+     */
+    omit?: Prisma.GlobalOmitConfig
+  }
+  export type GlobalOmitConfig = {
+    keyword?: keywordOmit
+    ipc?: ipcOmit
+    patent?: patentOmit
+    patent_ipc?: patent_ipcOmit
+    patent_keyword?: patent_keywordOmit
+    journal?: journalOmit
+    publication?: publicationOmit
+    publication_keyword?: publication_keywordOmit
+    journal_keyword?: journal_keywordOmit
+    researcher?: researcherOmit
+    researcher_patent?: researcher_patentOmit
+    researcher_domain?: researcher_domainOmit
+    researcher_publication?: researcher_publicationOmit
+    domain?: domainOmit
+  }
+
+  /* Types for Logging */
+  export type LogLevel = 'info' | 'query' | 'warn' | 'error'
+  export type LogDefinition = {
+    level: LogLevel
+    emit: 'stdout' | 'event'
+  }
+
+  export type GetLogType<T extends LogLevel | LogDefinition> = T extends LogDefinition ? T['emit'] extends 'event' ? T['level'] : never : never
+  export type GetEvents<T extends any> = T extends Array<LogLevel | LogDefinition> ?
+    GetLogType<T[0]> | GetLogType<T[1]> | GetLogType<T[2]> | GetLogType<T[3]>
+    : never
+
+  export type QueryEvent = {
+    timestamp: Date
+    query: string
+    params: string
+    duration: number
+    target: string
+  }
+
+  export type LogEvent = {
+    timestamp: Date
+    message: string
+    target: string
+  }
+  /* End Types for Logging */
+
+
+  export type PrismaAction =
+    | 'findUnique'
+    | 'findUniqueOrThrow'
+    | 'findMany'
+    | 'findFirst'
+    | 'findFirstOrThrow'
+    | 'create'
+    | 'createMany'
+    | 'createManyAndReturn'
+    | 'update'
+    | 'updateMany'
+    | 'updateManyAndReturn'
+    | 'upsert'
+    | 'delete'
+    | 'deleteMany'
+    | 'executeRaw'
+    | 'queryRaw'
+    | 'aggregate'
+    | 'count'
+    | 'runCommandRaw'
+    | 'findRaw'
+    | 'groupBy'
+
+  /**
+   * These options are being passed into the middleware as "params"
+   */
+  export type MiddlewareParams = {
+    model?: ModelName
+    action: PrismaAction
+    args: any
+    dataPath: string[]
+    runInTransaction: boolean
+  }
+
+  /**
+   * The `T` type makes sure, that the `return proceed` is not forgotten in the middleware implementation
+   */
+  export type Middleware<T = any> = (
+    params: MiddlewareParams,
+    next: (params: MiddlewareParams) => $Utils.JsPromise<T>,
+  ) => $Utils.JsPromise<T>
+
+  // tested in getLogLevel.test.ts
+  export function getLogLevel(log: Array<LogLevel | LogDefinition>): LogLevel | undefined;
+
+  /**
+   * `PrismaClient` proxy available in interactive transactions.
+   */
+  export type TransactionClient = Omit<Prisma.DefaultPrismaClient, runtime.ITXClientDenyList>
+
+  export type Datasource = {
+    url?: string
+  }
+
+  /**
+   * Count Types
+   */
+
+
+  /**
+   * Count Type KeywordCountOutputType
+   */
+
+  export type KeywordCountOutputType = {
+    patent_keywords: number
+    journal_keywords: number
+    publication_keywords: number
+  }
+
+  export type KeywordCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patent_keywords?: boolean | KeywordCountOutputTypeCountPatent_keywordsArgs
+    journal_keywords?: boolean | KeywordCountOutputTypeCountJournal_keywordsArgs
+    publication_keywords?: boolean | KeywordCountOutputTypeCountPublication_keywordsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * KeywordCountOutputType without action
+   */
+  export type KeywordCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the KeywordCountOutputType
+     */
+    select?: KeywordCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * KeywordCountOutputType without action
+   */
+  export type KeywordCountOutputTypeCountPatent_keywordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: patent_keywordWhereInput
+  }
+
+  /**
+   * KeywordCountOutputType without action
+   */
+  export type KeywordCountOutputTypeCountJournal_keywordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: journal_keywordWhereInput
+  }
+
+  /**
+   * KeywordCountOutputType without action
+   */
+  export type KeywordCountOutputTypeCountPublication_keywordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: publication_keywordWhereInput
+  }
+
+
+  /**
+   * Count Type IpcCountOutputType
+   */
+
+  export type IpcCountOutputType = {
+    patent_ipcs: number
+  }
+
+  export type IpcCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patent_ipcs?: boolean | IpcCountOutputTypeCountPatent_ipcsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * IpcCountOutputType without action
+   */
+  export type IpcCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IpcCountOutputType
+     */
+    select?: IpcCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * IpcCountOutputType without action
+   */
+  export type IpcCountOutputTypeCountPatent_ipcsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: patent_ipcWhereInput
+  }
+
+
+  /**
+   * Count Type PatentCountOutputType
+   */
+
+  export type PatentCountOutputType = {
+    patent_ipcs: number
+    patent_keywords: number
+    researcher_patents: number
+  }
+
+  export type PatentCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patent_ipcs?: boolean | PatentCountOutputTypeCountPatent_ipcsArgs
+    patent_keywords?: boolean | PatentCountOutputTypeCountPatent_keywordsArgs
+    researcher_patents?: boolean | PatentCountOutputTypeCountResearcher_patentsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PatentCountOutputType without action
+   */
+  export type PatentCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PatentCountOutputType
+     */
+    select?: PatentCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PatentCountOutputType without action
+   */
+  export type PatentCountOutputTypeCountPatent_ipcsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: patent_ipcWhereInput
+  }
+
+  /**
+   * PatentCountOutputType without action
+   */
+  export type PatentCountOutputTypeCountPatent_keywordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: patent_keywordWhereInput
+  }
+
+  /**
+   * PatentCountOutputType without action
+   */
+  export type PatentCountOutputTypeCountResearcher_patentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: researcher_patentWhereInput
+  }
+
+
+  /**
+   * Count Type JournalCountOutputType
+   */
+
+  export type JournalCountOutputType = {
+    publications: number
+    journal_keywords: number
+  }
+
+  export type JournalCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    publications?: boolean | JournalCountOutputTypeCountPublicationsArgs
+    journal_keywords?: boolean | JournalCountOutputTypeCountJournal_keywordsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * JournalCountOutputType without action
+   */
+  export type JournalCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JournalCountOutputType
+     */
+    select?: JournalCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * JournalCountOutputType without action
+   */
+  export type JournalCountOutputTypeCountPublicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: publicationWhereInput
+  }
+
+  /**
+   * JournalCountOutputType without action
+   */
+  export type JournalCountOutputTypeCountJournal_keywordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: journal_keywordWhereInput
+  }
+
+
+  /**
+   * Count Type PublicationCountOutputType
+   */
+
+  export type PublicationCountOutputType = {
+    publication_keywords: number
+    researcher_publications: number
+  }
+
+  export type PublicationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    publication_keywords?: boolean | PublicationCountOutputTypeCountPublication_keywordsArgs
+    researcher_publications?: boolean | PublicationCountOutputTypeCountResearcher_publicationsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PublicationCountOutputType without action
+   */
+  export type PublicationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PublicationCountOutputType
+     */
+    select?: PublicationCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PublicationCountOutputType without action
+   */
+  export type PublicationCountOutputTypeCountPublication_keywordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: publication_keywordWhereInput
+  }
+
+  /**
+   * PublicationCountOutputType without action
+   */
+  export type PublicationCountOutputTypeCountResearcher_publicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: researcher_publicationWhereInput
+  }
+
+
+  /**
+   * Count Type ResearcherCountOutputType
+   */
+
+  export type ResearcherCountOutputType = {
+    researcher_patents: number
+    researcher_domains: number
+    researcher_publications: number
+  }
+
+  export type ResearcherCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher_patents?: boolean | ResearcherCountOutputTypeCountResearcher_patentsArgs
+    researcher_domains?: boolean | ResearcherCountOutputTypeCountResearcher_domainsArgs
+    researcher_publications?: boolean | ResearcherCountOutputTypeCountResearcher_publicationsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ResearcherCountOutputType without action
+   */
+  export type ResearcherCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ResearcherCountOutputType
+     */
+    select?: ResearcherCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ResearcherCountOutputType without action
+   */
+  export type ResearcherCountOutputTypeCountResearcher_patentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: researcher_patentWhereInput
+  }
+
+  /**
+   * ResearcherCountOutputType without action
+   */
+  export type ResearcherCountOutputTypeCountResearcher_domainsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: researcher_domainWhereInput
+  }
+
+  /**
+   * ResearcherCountOutputType without action
+   */
+  export type ResearcherCountOutputTypeCountResearcher_publicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: researcher_publicationWhereInput
+  }
+
+
+  /**
+   * Count Type DomainCountOutputType
+   */
+
+  export type DomainCountOutputType = {
+    researcher_domains: number
+  }
+
+  export type DomainCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher_domains?: boolean | DomainCountOutputTypeCountResearcher_domainsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DomainCountOutputType without action
+   */
+  export type DomainCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DomainCountOutputType
+     */
+    select?: DomainCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DomainCountOutputType without action
+   */
+  export type DomainCountOutputTypeCountResearcher_domainsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: researcher_domainWhereInput
+  }
+
+
+  /**
+   * Models
+   */
+
+  /**
+   * Model keyword
+   */
+
+  export type AggregateKeyword = {
+    _count: KeywordCountAggregateOutputType | null
+    _avg: KeywordAvgAggregateOutputType | null
+    _sum: KeywordSumAggregateOutputType | null
+    _min: KeywordMinAggregateOutputType | null
+    _max: KeywordMaxAggregateOutputType | null
+  }
+
+  export type KeywordAvgAggregateOutputType = {
+    keyword_id: number | null
+    cno: number | null
+    user_no: number | null
+  }
+
+  export type KeywordSumAggregateOutputType = {
+    keyword_id: bigint | null
+    cno: bigint | null
+    user_no: bigint | null
+  }
+
+  export type KeywordMinAggregateOutputType = {
+    keyword_id: bigint | null
+    keyword_name: string | null
+    description: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type KeywordMaxAggregateOutputType = {
+    keyword_id: bigint | null
+    keyword_name: string | null
+    description: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type KeywordCountAggregateOutputType = {
+    keyword_id: number
+    keyword_name: number
+    description: number
+    cno: number
+    user_no: number
+    insert_timestamp: number
+    update_timestamp: number
+    is_deleted: number
+    _all: number
+  }
+
+
+  export type KeywordAvgAggregateInputType = {
+    keyword_id?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type KeywordSumAggregateInputType = {
+    keyword_id?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type KeywordMinAggregateInputType = {
+    keyword_id?: true
+    keyword_name?: true
+    description?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type KeywordMaxAggregateInputType = {
+    keyword_id?: true
+    keyword_name?: true
+    description?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type KeywordCountAggregateInputType = {
+    keyword_id?: true
+    keyword_name?: true
+    description?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+    _all?: true
+  }
+
+  export type KeywordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which keyword to aggregate.
+     */
+    where?: keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of keywords to fetch.
+     */
+    orderBy?: keywordOrderByWithRelationInput | keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` keywords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned keywords
+    **/
+    _count?: true | KeywordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: KeywordAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: KeywordSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: KeywordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: KeywordMaxAggregateInputType
+  }
+
+  export type GetKeywordAggregateType<T extends KeywordAggregateArgs> = {
+        [P in keyof T & keyof AggregateKeyword]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateKeyword[P]>
+      : GetScalarType<T[P], AggregateKeyword[P]>
+  }
+
+
+
+
+  export type keywordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: keywordWhereInput
+    orderBy?: keywordOrderByWithAggregationInput | keywordOrderByWithAggregationInput[]
+    by: KeywordScalarFieldEnum[] | KeywordScalarFieldEnum
+    having?: keywordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: KeywordCountAggregateInputType | true
+    _avg?: KeywordAvgAggregateInputType
+    _sum?: KeywordSumAggregateInputType
+    _min?: KeywordMinAggregateInputType
+    _max?: KeywordMaxAggregateInputType
+  }
+
+  export type KeywordGroupByOutputType = {
+    keyword_id: bigint
+    keyword_name: string | null
+    description: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date
+    update_timestamp: Date
+    is_deleted: boolean
+    _count: KeywordCountAggregateOutputType | null
+    _avg: KeywordAvgAggregateOutputType | null
+    _sum: KeywordSumAggregateOutputType | null
+    _min: KeywordMinAggregateOutputType | null
+    _max: KeywordMaxAggregateOutputType | null
+  }
+
+  type GetKeywordGroupByPayload<T extends keywordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<KeywordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof KeywordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], KeywordGroupByOutputType[P]>
+            : GetScalarType<T[P], KeywordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type keywordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    keyword_id?: boolean
+    keyword_name?: boolean
+    description?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+    patent_keywords?: boolean | keyword$patent_keywordsArgs<ExtArgs>
+    journal_keywords?: boolean | keyword$journal_keywordsArgs<ExtArgs>
+    publication_keywords?: boolean | keyword$publication_keywordsArgs<ExtArgs>
+    _count?: boolean | KeywordCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["keyword"]>
+
+  export type keywordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    keyword_id?: boolean
+    keyword_name?: boolean
+    description?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["keyword"]>
+
+  export type keywordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    keyword_id?: boolean
+    keyword_name?: boolean
+    description?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["keyword"]>
+
+  export type keywordSelectScalar = {
+    keyword_id?: boolean
+    keyword_name?: boolean
+    description?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }
+
+  export type keywordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"keyword_id" | "keyword_name" | "description" | "cno" | "user_no" | "insert_timestamp" | "update_timestamp" | "is_deleted", ExtArgs["result"]["keyword"]>
+  export type keywordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patent_keywords?: boolean | keyword$patent_keywordsArgs<ExtArgs>
+    journal_keywords?: boolean | keyword$journal_keywordsArgs<ExtArgs>
+    publication_keywords?: boolean | keyword$publication_keywordsArgs<ExtArgs>
+    _count?: boolean | KeywordCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type keywordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type keywordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $keywordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "keyword"
+    objects: {
+      patent_keywords: Prisma.$patent_keywordPayload<ExtArgs>[]
+      journal_keywords: Prisma.$journal_keywordPayload<ExtArgs>[]
+      publication_keywords: Prisma.$publication_keywordPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      keyword_id: bigint
+      keyword_name: string | null
+      description: string | null
+      cno: bigint | null
+      user_no: bigint | null
+      insert_timestamp: Date
+      update_timestamp: Date
+      is_deleted: boolean
+    }, ExtArgs["result"]["keyword"]>
+    composites: {}
+  }
+
+  type keywordGetPayload<S extends boolean | null | undefined | keywordDefaultArgs> = $Result.GetResult<Prisma.$keywordPayload, S>
+
+  type keywordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<keywordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: KeywordCountAggregateInputType | true
+    }
+
+  export interface keywordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['keyword'], meta: { name: 'keyword' } }
+    /**
+     * Find zero or one Keyword that matches the filter.
+     * @param {keywordFindUniqueArgs} args - Arguments to find a Keyword
+     * @example
+     * // Get one Keyword
+     * const keyword = await prisma.keyword.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends keywordFindUniqueArgs>(args: SelectSubset<T, keywordFindUniqueArgs<ExtArgs>>): Prisma__keywordClient<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Keyword that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {keywordFindUniqueOrThrowArgs} args - Arguments to find a Keyword
+     * @example
+     * // Get one Keyword
+     * const keyword = await prisma.keyword.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends keywordFindUniqueOrThrowArgs>(args: SelectSubset<T, keywordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__keywordClient<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Keyword that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {keywordFindFirstArgs} args - Arguments to find a Keyword
+     * @example
+     * // Get one Keyword
+     * const keyword = await prisma.keyword.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends keywordFindFirstArgs>(args?: SelectSubset<T, keywordFindFirstArgs<ExtArgs>>): Prisma__keywordClient<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Keyword that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {keywordFindFirstOrThrowArgs} args - Arguments to find a Keyword
+     * @example
+     * // Get one Keyword
+     * const keyword = await prisma.keyword.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends keywordFindFirstOrThrowArgs>(args?: SelectSubset<T, keywordFindFirstOrThrowArgs<ExtArgs>>): Prisma__keywordClient<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Keywords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {keywordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Keywords
+     * const keywords = await prisma.keyword.findMany()
+     * 
+     * // Get first 10 Keywords
+     * const keywords = await prisma.keyword.findMany({ take: 10 })
+     * 
+     * // Only select the `keyword_id`
+     * const keywordWithKeyword_idOnly = await prisma.keyword.findMany({ select: { keyword_id: true } })
+     * 
+     */
+    findMany<T extends keywordFindManyArgs>(args?: SelectSubset<T, keywordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Keyword.
+     * @param {keywordCreateArgs} args - Arguments to create a Keyword.
+     * @example
+     * // Create one Keyword
+     * const Keyword = await prisma.keyword.create({
+     *   data: {
+     *     // ... data to create a Keyword
+     *   }
+     * })
+     * 
+     */
+    create<T extends keywordCreateArgs>(args: SelectSubset<T, keywordCreateArgs<ExtArgs>>): Prisma__keywordClient<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Keywords.
+     * @param {keywordCreateManyArgs} args - Arguments to create many Keywords.
+     * @example
+     * // Create many Keywords
+     * const keyword = await prisma.keyword.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends keywordCreateManyArgs>(args?: SelectSubset<T, keywordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Keywords and returns the data saved in the database.
+     * @param {keywordCreateManyAndReturnArgs} args - Arguments to create many Keywords.
+     * @example
+     * // Create many Keywords
+     * const keyword = await prisma.keyword.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Keywords and only return the `keyword_id`
+     * const keywordWithKeyword_idOnly = await prisma.keyword.createManyAndReturn({
+     *   select: { keyword_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends keywordCreateManyAndReturnArgs>(args?: SelectSubset<T, keywordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Keyword.
+     * @param {keywordDeleteArgs} args - Arguments to delete one Keyword.
+     * @example
+     * // Delete one Keyword
+     * const Keyword = await prisma.keyword.delete({
+     *   where: {
+     *     // ... filter to delete one Keyword
+     *   }
+     * })
+     * 
+     */
+    delete<T extends keywordDeleteArgs>(args: SelectSubset<T, keywordDeleteArgs<ExtArgs>>): Prisma__keywordClient<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Keyword.
+     * @param {keywordUpdateArgs} args - Arguments to update one Keyword.
+     * @example
+     * // Update one Keyword
+     * const keyword = await prisma.keyword.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends keywordUpdateArgs>(args: SelectSubset<T, keywordUpdateArgs<ExtArgs>>): Prisma__keywordClient<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Keywords.
+     * @param {keywordDeleteManyArgs} args - Arguments to filter Keywords to delete.
+     * @example
+     * // Delete a few Keywords
+     * const { count } = await prisma.keyword.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends keywordDeleteManyArgs>(args?: SelectSubset<T, keywordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Keywords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {keywordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Keywords
+     * const keyword = await prisma.keyword.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends keywordUpdateManyArgs>(args: SelectSubset<T, keywordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Keywords and returns the data updated in the database.
+     * @param {keywordUpdateManyAndReturnArgs} args - Arguments to update many Keywords.
+     * @example
+     * // Update many Keywords
+     * const keyword = await prisma.keyword.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Keywords and only return the `keyword_id`
+     * const keywordWithKeyword_idOnly = await prisma.keyword.updateManyAndReturn({
+     *   select: { keyword_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends keywordUpdateManyAndReturnArgs>(args: SelectSubset<T, keywordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Keyword.
+     * @param {keywordUpsertArgs} args - Arguments to update or create a Keyword.
+     * @example
+     * // Update or create a Keyword
+     * const keyword = await prisma.keyword.upsert({
+     *   create: {
+     *     // ... data to create a Keyword
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Keyword we want to update
+     *   }
+     * })
+     */
+    upsert<T extends keywordUpsertArgs>(args: SelectSubset<T, keywordUpsertArgs<ExtArgs>>): Prisma__keywordClient<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Keywords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {keywordCountArgs} args - Arguments to filter Keywords to count.
+     * @example
+     * // Count the number of Keywords
+     * const count = await prisma.keyword.count({
+     *   where: {
+     *     // ... the filter for the Keywords we want to count
+     *   }
+     * })
+    **/
+    count<T extends keywordCountArgs>(
+      args?: Subset<T, keywordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], KeywordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Keyword.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KeywordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends KeywordAggregateArgs>(args: Subset<T, KeywordAggregateArgs>): Prisma.PrismaPromise<GetKeywordAggregateType<T>>
+
+    /**
+     * Group by Keyword.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {keywordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends keywordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: keywordGroupByArgs['orderBy'] }
+        : { orderBy?: keywordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, keywordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetKeywordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the keyword model
+   */
+  readonly fields: keywordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for keyword.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__keywordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    patent_keywords<T extends keyword$patent_keywordsArgs<ExtArgs> = {}>(args?: Subset<T, keyword$patent_keywordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    journal_keywords<T extends keyword$journal_keywordsArgs<ExtArgs> = {}>(args?: Subset<T, keyword$journal_keywordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    publication_keywords<T extends keyword$publication_keywordsArgs<ExtArgs> = {}>(args?: Subset<T, keyword$publication_keywordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the keyword model
+   */
+  interface keywordFieldRefs {
+    readonly keyword_id: FieldRef<"keyword", 'BigInt'>
+    readonly keyword_name: FieldRef<"keyword", 'String'>
+    readonly description: FieldRef<"keyword", 'String'>
+    readonly cno: FieldRef<"keyword", 'BigInt'>
+    readonly user_no: FieldRef<"keyword", 'BigInt'>
+    readonly insert_timestamp: FieldRef<"keyword", 'DateTime'>
+    readonly update_timestamp: FieldRef<"keyword", 'DateTime'>
+    readonly is_deleted: FieldRef<"keyword", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * keyword findUnique
+   */
+  export type keywordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the keyword
+     */
+    select?: keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the keyword
+     */
+    omit?: keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which keyword to fetch.
+     */
+    where: keywordWhereUniqueInput
+  }
+
+  /**
+   * keyword findUniqueOrThrow
+   */
+  export type keywordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the keyword
+     */
+    select?: keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the keyword
+     */
+    omit?: keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which keyword to fetch.
+     */
+    where: keywordWhereUniqueInput
+  }
+
+  /**
+   * keyword findFirst
+   */
+  export type keywordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the keyword
+     */
+    select?: keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the keyword
+     */
+    omit?: keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which keyword to fetch.
+     */
+    where?: keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of keywords to fetch.
+     */
+    orderBy?: keywordOrderByWithRelationInput | keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for keywords.
+     */
+    cursor?: keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` keywords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of keywords.
+     */
+    distinct?: KeywordScalarFieldEnum | KeywordScalarFieldEnum[]
+  }
+
+  /**
+   * keyword findFirstOrThrow
+   */
+  export type keywordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the keyword
+     */
+    select?: keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the keyword
+     */
+    omit?: keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which keyword to fetch.
+     */
+    where?: keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of keywords to fetch.
+     */
+    orderBy?: keywordOrderByWithRelationInput | keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for keywords.
+     */
+    cursor?: keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` keywords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of keywords.
+     */
+    distinct?: KeywordScalarFieldEnum | KeywordScalarFieldEnum[]
+  }
+
+  /**
+   * keyword findMany
+   */
+  export type keywordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the keyword
+     */
+    select?: keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the keyword
+     */
+    omit?: keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which keywords to fetch.
+     */
+    where?: keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of keywords to fetch.
+     */
+    orderBy?: keywordOrderByWithRelationInput | keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing keywords.
+     */
+    cursor?: keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` keywords.
+     */
+    skip?: number
+    distinct?: KeywordScalarFieldEnum | KeywordScalarFieldEnum[]
+  }
+
+  /**
+   * keyword create
+   */
+  export type keywordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the keyword
+     */
+    select?: keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the keyword
+     */
+    omit?: keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: keywordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a keyword.
+     */
+    data: XOR<keywordCreateInput, keywordUncheckedCreateInput>
+  }
+
+  /**
+   * keyword createMany
+   */
+  export type keywordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many keywords.
+     */
+    data: keywordCreateManyInput | keywordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * keyword createManyAndReturn
+   */
+  export type keywordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the keyword
+     */
+    select?: keywordSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the keyword
+     */
+    omit?: keywordOmit<ExtArgs> | null
+    /**
+     * The data used to create many keywords.
+     */
+    data: keywordCreateManyInput | keywordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * keyword update
+   */
+  export type keywordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the keyword
+     */
+    select?: keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the keyword
+     */
+    omit?: keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: keywordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a keyword.
+     */
+    data: XOR<keywordUpdateInput, keywordUncheckedUpdateInput>
+    /**
+     * Choose, which keyword to update.
+     */
+    where: keywordWhereUniqueInput
+  }
+
+  /**
+   * keyword updateMany
+   */
+  export type keywordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update keywords.
+     */
+    data: XOR<keywordUpdateManyMutationInput, keywordUncheckedUpdateManyInput>
+    /**
+     * Filter which keywords to update
+     */
+    where?: keywordWhereInput
+    /**
+     * Limit how many keywords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * keyword updateManyAndReturn
+   */
+  export type keywordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the keyword
+     */
+    select?: keywordSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the keyword
+     */
+    omit?: keywordOmit<ExtArgs> | null
+    /**
+     * The data used to update keywords.
+     */
+    data: XOR<keywordUpdateManyMutationInput, keywordUncheckedUpdateManyInput>
+    /**
+     * Filter which keywords to update
+     */
+    where?: keywordWhereInput
+    /**
+     * Limit how many keywords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * keyword upsert
+   */
+  export type keywordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the keyword
+     */
+    select?: keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the keyword
+     */
+    omit?: keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: keywordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the keyword to update in case it exists.
+     */
+    where: keywordWhereUniqueInput
+    /**
+     * In case the keyword found by the `where` argument doesn't exist, create a new keyword with this data.
+     */
+    create: XOR<keywordCreateInput, keywordUncheckedCreateInput>
+    /**
+     * In case the keyword was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<keywordUpdateInput, keywordUncheckedUpdateInput>
+  }
+
+  /**
+   * keyword delete
+   */
+  export type keywordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the keyword
+     */
+    select?: keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the keyword
+     */
+    omit?: keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: keywordInclude<ExtArgs> | null
+    /**
+     * Filter which keyword to delete.
+     */
+    where: keywordWhereUniqueInput
+  }
+
+  /**
+   * keyword deleteMany
+   */
+  export type keywordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which keywords to delete
+     */
+    where?: keywordWhereInput
+    /**
+     * Limit how many keywords to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * keyword.patent_keywords
+   */
+  export type keyword$patent_keywordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordInclude<ExtArgs> | null
+    where?: patent_keywordWhereInput
+    orderBy?: patent_keywordOrderByWithRelationInput | patent_keywordOrderByWithRelationInput[]
+    cursor?: patent_keywordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Patent_keywordScalarFieldEnum | Patent_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * keyword.journal_keywords
+   */
+  export type keyword$journal_keywordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordInclude<ExtArgs> | null
+    where?: journal_keywordWhereInput
+    orderBy?: journal_keywordOrderByWithRelationInput | journal_keywordOrderByWithRelationInput[]
+    cursor?: journal_keywordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Journal_keywordScalarFieldEnum | Journal_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * keyword.publication_keywords
+   */
+  export type keyword$publication_keywordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordInclude<ExtArgs> | null
+    where?: publication_keywordWhereInput
+    orderBy?: publication_keywordOrderByWithRelationInput | publication_keywordOrderByWithRelationInput[]
+    cursor?: publication_keywordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Publication_keywordScalarFieldEnum | Publication_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * keyword without action
+   */
+  export type keywordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the keyword
+     */
+    select?: keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the keyword
+     */
+    omit?: keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: keywordInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ipc
+   */
+
+  export type AggregateIpc = {
+    _count: IpcCountAggregateOutputType | null
+    _avg: IpcAvgAggregateOutputType | null
+    _sum: IpcSumAggregateOutputType | null
+    _min: IpcMinAggregateOutputType | null
+    _max: IpcMaxAggregateOutputType | null
+  }
+
+  export type IpcAvgAggregateOutputType = {
+    ipc_id: number | null
+    cno: number | null
+    user_no: number | null
+  }
+
+  export type IpcSumAggregateOutputType = {
+    ipc_id: bigint | null
+    cno: bigint | null
+    user_no: bigint | null
+  }
+
+  export type IpcMinAggregateOutputType = {
+    ipc_id: bigint | null
+    ipc_code: string | null
+    description: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type IpcMaxAggregateOutputType = {
+    ipc_id: bigint | null
+    ipc_code: string | null
+    description: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type IpcCountAggregateOutputType = {
+    ipc_id: number
+    ipc_code: number
+    description: number
+    cno: number
+    user_no: number
+    insert_timestamp: number
+    update_timestamp: number
+    is_deleted: number
+    _all: number
+  }
+
+
+  export type IpcAvgAggregateInputType = {
+    ipc_id?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type IpcSumAggregateInputType = {
+    ipc_id?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type IpcMinAggregateInputType = {
+    ipc_id?: true
+    ipc_code?: true
+    description?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type IpcMaxAggregateInputType = {
+    ipc_id?: true
+    ipc_code?: true
+    description?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type IpcCountAggregateInputType = {
+    ipc_id?: true
+    ipc_code?: true
+    description?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+    _all?: true
+  }
+
+  export type IpcAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ipc to aggregate.
+     */
+    where?: ipcWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ipcs to fetch.
+     */
+    orderBy?: ipcOrderByWithRelationInput | ipcOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ipcWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ipcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ipcs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ipcs
+    **/
+    _count?: true | IpcCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: IpcAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: IpcSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: IpcMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: IpcMaxAggregateInputType
+  }
+
+  export type GetIpcAggregateType<T extends IpcAggregateArgs> = {
+        [P in keyof T & keyof AggregateIpc]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateIpc[P]>
+      : GetScalarType<T[P], AggregateIpc[P]>
+  }
+
+
+
+
+  export type ipcGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ipcWhereInput
+    orderBy?: ipcOrderByWithAggregationInput | ipcOrderByWithAggregationInput[]
+    by: IpcScalarFieldEnum[] | IpcScalarFieldEnum
+    having?: ipcScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: IpcCountAggregateInputType | true
+    _avg?: IpcAvgAggregateInputType
+    _sum?: IpcSumAggregateInputType
+    _min?: IpcMinAggregateInputType
+    _max?: IpcMaxAggregateInputType
+  }
+
+  export type IpcGroupByOutputType = {
+    ipc_id: bigint
+    ipc_code: string | null
+    description: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date
+    update_timestamp: Date
+    is_deleted: boolean
+    _count: IpcCountAggregateOutputType | null
+    _avg: IpcAvgAggregateOutputType | null
+    _sum: IpcSumAggregateOutputType | null
+    _min: IpcMinAggregateOutputType | null
+    _max: IpcMaxAggregateOutputType | null
+  }
+
+  type GetIpcGroupByPayload<T extends ipcGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<IpcGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof IpcGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], IpcGroupByOutputType[P]>
+            : GetScalarType<T[P], IpcGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ipcSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    ipc_id?: boolean
+    ipc_code?: boolean
+    description?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+    patent_ipcs?: boolean | ipc$patent_ipcsArgs<ExtArgs>
+    _count?: boolean | IpcCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["ipc"]>
+
+  export type ipcSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    ipc_id?: boolean
+    ipc_code?: boolean
+    description?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["ipc"]>
+
+  export type ipcSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    ipc_id?: boolean
+    ipc_code?: boolean
+    description?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["ipc"]>
+
+  export type ipcSelectScalar = {
+    ipc_id?: boolean
+    ipc_code?: boolean
+    description?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }
+
+  export type ipcOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"ipc_id" | "ipc_code" | "description" | "cno" | "user_no" | "insert_timestamp" | "update_timestamp" | "is_deleted", ExtArgs["result"]["ipc"]>
+  export type ipcInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patent_ipcs?: boolean | ipc$patent_ipcsArgs<ExtArgs>
+    _count?: boolean | IpcCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ipcIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ipcIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $ipcPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ipc"
+    objects: {
+      patent_ipcs: Prisma.$patent_ipcPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      ipc_id: bigint
+      ipc_code: string | null
+      description: string | null
+      cno: bigint | null
+      user_no: bigint | null
+      insert_timestamp: Date
+      update_timestamp: Date
+      is_deleted: boolean
+    }, ExtArgs["result"]["ipc"]>
+    composites: {}
+  }
+
+  type ipcGetPayload<S extends boolean | null | undefined | ipcDefaultArgs> = $Result.GetResult<Prisma.$ipcPayload, S>
+
+  type ipcCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ipcFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: IpcCountAggregateInputType | true
+    }
+
+  export interface ipcDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ipc'], meta: { name: 'ipc' } }
+    /**
+     * Find zero or one Ipc that matches the filter.
+     * @param {ipcFindUniqueArgs} args - Arguments to find a Ipc
+     * @example
+     * // Get one Ipc
+     * const ipc = await prisma.ipc.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ipcFindUniqueArgs>(args: SelectSubset<T, ipcFindUniqueArgs<ExtArgs>>): Prisma__ipcClient<$Result.GetResult<Prisma.$ipcPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Ipc that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ipcFindUniqueOrThrowArgs} args - Arguments to find a Ipc
+     * @example
+     * // Get one Ipc
+     * const ipc = await prisma.ipc.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ipcFindUniqueOrThrowArgs>(args: SelectSubset<T, ipcFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ipcClient<$Result.GetResult<Prisma.$ipcPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Ipc that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ipcFindFirstArgs} args - Arguments to find a Ipc
+     * @example
+     * // Get one Ipc
+     * const ipc = await prisma.ipc.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ipcFindFirstArgs>(args?: SelectSubset<T, ipcFindFirstArgs<ExtArgs>>): Prisma__ipcClient<$Result.GetResult<Prisma.$ipcPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Ipc that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ipcFindFirstOrThrowArgs} args - Arguments to find a Ipc
+     * @example
+     * // Get one Ipc
+     * const ipc = await prisma.ipc.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ipcFindFirstOrThrowArgs>(args?: SelectSubset<T, ipcFindFirstOrThrowArgs<ExtArgs>>): Prisma__ipcClient<$Result.GetResult<Prisma.$ipcPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Ipcs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ipcFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Ipcs
+     * const ipcs = await prisma.ipc.findMany()
+     * 
+     * // Get first 10 Ipcs
+     * const ipcs = await prisma.ipc.findMany({ take: 10 })
+     * 
+     * // Only select the `ipc_id`
+     * const ipcWithIpc_idOnly = await prisma.ipc.findMany({ select: { ipc_id: true } })
+     * 
+     */
+    findMany<T extends ipcFindManyArgs>(args?: SelectSubset<T, ipcFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ipcPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Ipc.
+     * @param {ipcCreateArgs} args - Arguments to create a Ipc.
+     * @example
+     * // Create one Ipc
+     * const Ipc = await prisma.ipc.create({
+     *   data: {
+     *     // ... data to create a Ipc
+     *   }
+     * })
+     * 
+     */
+    create<T extends ipcCreateArgs>(args: SelectSubset<T, ipcCreateArgs<ExtArgs>>): Prisma__ipcClient<$Result.GetResult<Prisma.$ipcPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Ipcs.
+     * @param {ipcCreateManyArgs} args - Arguments to create many Ipcs.
+     * @example
+     * // Create many Ipcs
+     * const ipc = await prisma.ipc.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ipcCreateManyArgs>(args?: SelectSubset<T, ipcCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Ipcs and returns the data saved in the database.
+     * @param {ipcCreateManyAndReturnArgs} args - Arguments to create many Ipcs.
+     * @example
+     * // Create many Ipcs
+     * const ipc = await prisma.ipc.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Ipcs and only return the `ipc_id`
+     * const ipcWithIpc_idOnly = await prisma.ipc.createManyAndReturn({
+     *   select: { ipc_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ipcCreateManyAndReturnArgs>(args?: SelectSubset<T, ipcCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ipcPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Ipc.
+     * @param {ipcDeleteArgs} args - Arguments to delete one Ipc.
+     * @example
+     * // Delete one Ipc
+     * const Ipc = await prisma.ipc.delete({
+     *   where: {
+     *     // ... filter to delete one Ipc
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ipcDeleteArgs>(args: SelectSubset<T, ipcDeleteArgs<ExtArgs>>): Prisma__ipcClient<$Result.GetResult<Prisma.$ipcPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Ipc.
+     * @param {ipcUpdateArgs} args - Arguments to update one Ipc.
+     * @example
+     * // Update one Ipc
+     * const ipc = await prisma.ipc.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ipcUpdateArgs>(args: SelectSubset<T, ipcUpdateArgs<ExtArgs>>): Prisma__ipcClient<$Result.GetResult<Prisma.$ipcPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Ipcs.
+     * @param {ipcDeleteManyArgs} args - Arguments to filter Ipcs to delete.
+     * @example
+     * // Delete a few Ipcs
+     * const { count } = await prisma.ipc.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ipcDeleteManyArgs>(args?: SelectSubset<T, ipcDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Ipcs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ipcUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Ipcs
+     * const ipc = await prisma.ipc.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ipcUpdateManyArgs>(args: SelectSubset<T, ipcUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Ipcs and returns the data updated in the database.
+     * @param {ipcUpdateManyAndReturnArgs} args - Arguments to update many Ipcs.
+     * @example
+     * // Update many Ipcs
+     * const ipc = await prisma.ipc.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Ipcs and only return the `ipc_id`
+     * const ipcWithIpc_idOnly = await prisma.ipc.updateManyAndReturn({
+     *   select: { ipc_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ipcUpdateManyAndReturnArgs>(args: SelectSubset<T, ipcUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ipcPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Ipc.
+     * @param {ipcUpsertArgs} args - Arguments to update or create a Ipc.
+     * @example
+     * // Update or create a Ipc
+     * const ipc = await prisma.ipc.upsert({
+     *   create: {
+     *     // ... data to create a Ipc
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Ipc we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ipcUpsertArgs>(args: SelectSubset<T, ipcUpsertArgs<ExtArgs>>): Prisma__ipcClient<$Result.GetResult<Prisma.$ipcPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Ipcs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ipcCountArgs} args - Arguments to filter Ipcs to count.
+     * @example
+     * // Count the number of Ipcs
+     * const count = await prisma.ipc.count({
+     *   where: {
+     *     // ... the filter for the Ipcs we want to count
+     *   }
+     * })
+    **/
+    count<T extends ipcCountArgs>(
+      args?: Subset<T, ipcCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], IpcCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Ipc.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {IpcAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends IpcAggregateArgs>(args: Subset<T, IpcAggregateArgs>): Prisma.PrismaPromise<GetIpcAggregateType<T>>
+
+    /**
+     * Group by Ipc.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ipcGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ipcGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ipcGroupByArgs['orderBy'] }
+        : { orderBy?: ipcGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ipcGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetIpcGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ipc model
+   */
+  readonly fields: ipcFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ipc.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ipcClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    patent_ipcs<T extends ipc$patent_ipcsArgs<ExtArgs> = {}>(args?: Subset<T, ipc$patent_ipcsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ipc model
+   */
+  interface ipcFieldRefs {
+    readonly ipc_id: FieldRef<"ipc", 'BigInt'>
+    readonly ipc_code: FieldRef<"ipc", 'String'>
+    readonly description: FieldRef<"ipc", 'String'>
+    readonly cno: FieldRef<"ipc", 'BigInt'>
+    readonly user_no: FieldRef<"ipc", 'BigInt'>
+    readonly insert_timestamp: FieldRef<"ipc", 'DateTime'>
+    readonly update_timestamp: FieldRef<"ipc", 'DateTime'>
+    readonly is_deleted: FieldRef<"ipc", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ipc findUnique
+   */
+  export type ipcFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ipc
+     */
+    select?: ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ipc
+     */
+    omit?: ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ipcInclude<ExtArgs> | null
+    /**
+     * Filter, which ipc to fetch.
+     */
+    where: ipcWhereUniqueInput
+  }
+
+  /**
+   * ipc findUniqueOrThrow
+   */
+  export type ipcFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ipc
+     */
+    select?: ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ipc
+     */
+    omit?: ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ipcInclude<ExtArgs> | null
+    /**
+     * Filter, which ipc to fetch.
+     */
+    where: ipcWhereUniqueInput
+  }
+
+  /**
+   * ipc findFirst
+   */
+  export type ipcFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ipc
+     */
+    select?: ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ipc
+     */
+    omit?: ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ipcInclude<ExtArgs> | null
+    /**
+     * Filter, which ipc to fetch.
+     */
+    where?: ipcWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ipcs to fetch.
+     */
+    orderBy?: ipcOrderByWithRelationInput | ipcOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ipcs.
+     */
+    cursor?: ipcWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ipcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ipcs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ipcs.
+     */
+    distinct?: IpcScalarFieldEnum | IpcScalarFieldEnum[]
+  }
+
+  /**
+   * ipc findFirstOrThrow
+   */
+  export type ipcFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ipc
+     */
+    select?: ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ipc
+     */
+    omit?: ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ipcInclude<ExtArgs> | null
+    /**
+     * Filter, which ipc to fetch.
+     */
+    where?: ipcWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ipcs to fetch.
+     */
+    orderBy?: ipcOrderByWithRelationInput | ipcOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ipcs.
+     */
+    cursor?: ipcWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ipcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ipcs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ipcs.
+     */
+    distinct?: IpcScalarFieldEnum | IpcScalarFieldEnum[]
+  }
+
+  /**
+   * ipc findMany
+   */
+  export type ipcFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ipc
+     */
+    select?: ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ipc
+     */
+    omit?: ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ipcInclude<ExtArgs> | null
+    /**
+     * Filter, which ipcs to fetch.
+     */
+    where?: ipcWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ipcs to fetch.
+     */
+    orderBy?: ipcOrderByWithRelationInput | ipcOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ipcs.
+     */
+    cursor?: ipcWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ipcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ipcs.
+     */
+    skip?: number
+    distinct?: IpcScalarFieldEnum | IpcScalarFieldEnum[]
+  }
+
+  /**
+   * ipc create
+   */
+  export type ipcCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ipc
+     */
+    select?: ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ipc
+     */
+    omit?: ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ipcInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ipc.
+     */
+    data: XOR<ipcCreateInput, ipcUncheckedCreateInput>
+  }
+
+  /**
+   * ipc createMany
+   */
+  export type ipcCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ipcs.
+     */
+    data: ipcCreateManyInput | ipcCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ipc createManyAndReturn
+   */
+  export type ipcCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ipc
+     */
+    select?: ipcSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ipc
+     */
+    omit?: ipcOmit<ExtArgs> | null
+    /**
+     * The data used to create many ipcs.
+     */
+    data: ipcCreateManyInput | ipcCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ipc update
+   */
+  export type ipcUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ipc
+     */
+    select?: ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ipc
+     */
+    omit?: ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ipcInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ipc.
+     */
+    data: XOR<ipcUpdateInput, ipcUncheckedUpdateInput>
+    /**
+     * Choose, which ipc to update.
+     */
+    where: ipcWhereUniqueInput
+  }
+
+  /**
+   * ipc updateMany
+   */
+  export type ipcUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ipcs.
+     */
+    data: XOR<ipcUpdateManyMutationInput, ipcUncheckedUpdateManyInput>
+    /**
+     * Filter which ipcs to update
+     */
+    where?: ipcWhereInput
+    /**
+     * Limit how many ipcs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ipc updateManyAndReturn
+   */
+  export type ipcUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ipc
+     */
+    select?: ipcSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ipc
+     */
+    omit?: ipcOmit<ExtArgs> | null
+    /**
+     * The data used to update ipcs.
+     */
+    data: XOR<ipcUpdateManyMutationInput, ipcUncheckedUpdateManyInput>
+    /**
+     * Filter which ipcs to update
+     */
+    where?: ipcWhereInput
+    /**
+     * Limit how many ipcs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ipc upsert
+   */
+  export type ipcUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ipc
+     */
+    select?: ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ipc
+     */
+    omit?: ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ipcInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ipc to update in case it exists.
+     */
+    where: ipcWhereUniqueInput
+    /**
+     * In case the ipc found by the `where` argument doesn't exist, create a new ipc with this data.
+     */
+    create: XOR<ipcCreateInput, ipcUncheckedCreateInput>
+    /**
+     * In case the ipc was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ipcUpdateInput, ipcUncheckedUpdateInput>
+  }
+
+  /**
+   * ipc delete
+   */
+  export type ipcDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ipc
+     */
+    select?: ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ipc
+     */
+    omit?: ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ipcInclude<ExtArgs> | null
+    /**
+     * Filter which ipc to delete.
+     */
+    where: ipcWhereUniqueInput
+  }
+
+  /**
+   * ipc deleteMany
+   */
+  export type ipcDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ipcs to delete
+     */
+    where?: ipcWhereInput
+    /**
+     * Limit how many ipcs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ipc.patent_ipcs
+   */
+  export type ipc$patent_ipcsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcInclude<ExtArgs> | null
+    where?: patent_ipcWhereInput
+    orderBy?: patent_ipcOrderByWithRelationInput | patent_ipcOrderByWithRelationInput[]
+    cursor?: patent_ipcWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Patent_ipcScalarFieldEnum | Patent_ipcScalarFieldEnum[]
+  }
+
+  /**
+   * ipc without action
+   */
+  export type ipcDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ipc
+     */
+    select?: ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ipc
+     */
+    omit?: ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ipcInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model patent
+   */
+
+  export type AggregatePatent = {
+    _count: PatentCountAggregateOutputType | null
+    _avg: PatentAvgAggregateOutputType | null
+    _sum: PatentSumAggregateOutputType | null
+    _min: PatentMinAggregateOutputType | null
+    _max: PatentMaxAggregateOutputType | null
+  }
+
+  export type PatentAvgAggregateOutputType = {
+    patent_id: number | null
+    cno: number | null
+    user_no: number | null
+  }
+
+  export type PatentSumAggregateOutputType = {
+    patent_id: bigint | null
+    cno: bigint | null
+    user_no: bigint | null
+  }
+
+  export type PatentMinAggregateOutputType = {
+    patent_id: bigint | null
+    title: string | null
+    application_number: string | null
+    registration_number: string | null
+    publication_number: string | null
+    country: string | null
+    applicant_name: string | null
+    application_title: string | null
+    applicant: string | null
+    application_date: Date | null
+    registration_date: Date | null
+    publication_date: Date | null
+    summary: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type PatentMaxAggregateOutputType = {
+    patent_id: bigint | null
+    title: string | null
+    application_number: string | null
+    registration_number: string | null
+    publication_number: string | null
+    country: string | null
+    applicant_name: string | null
+    application_title: string | null
+    applicant: string | null
+    application_date: Date | null
+    registration_date: Date | null
+    publication_date: Date | null
+    summary: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type PatentCountAggregateOutputType = {
+    patent_id: number
+    title: number
+    application_number: number
+    registration_number: number
+    publication_number: number
+    country: number
+    applicant_name: number
+    application_title: number
+    applicant: number
+    application_date: number
+    registration_date: number
+    publication_date: number
+    summary: number
+    cno: number
+    user_no: number
+    insert_timestamp: number
+    update_timestamp: number
+    is_deleted: number
+    _all: number
+  }
+
+
+  export type PatentAvgAggregateInputType = {
+    patent_id?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type PatentSumAggregateInputType = {
+    patent_id?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type PatentMinAggregateInputType = {
+    patent_id?: true
+    title?: true
+    application_number?: true
+    registration_number?: true
+    publication_number?: true
+    country?: true
+    applicant_name?: true
+    application_title?: true
+    applicant?: true
+    application_date?: true
+    registration_date?: true
+    publication_date?: true
+    summary?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type PatentMaxAggregateInputType = {
+    patent_id?: true
+    title?: true
+    application_number?: true
+    registration_number?: true
+    publication_number?: true
+    country?: true
+    applicant_name?: true
+    application_title?: true
+    applicant?: true
+    application_date?: true
+    registration_date?: true
+    publication_date?: true
+    summary?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type PatentCountAggregateInputType = {
+    patent_id?: true
+    title?: true
+    application_number?: true
+    registration_number?: true
+    publication_number?: true
+    country?: true
+    applicant_name?: true
+    application_title?: true
+    applicant?: true
+    application_date?: true
+    registration_date?: true
+    publication_date?: true
+    summary?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+    _all?: true
+  }
+
+  export type PatentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which patent to aggregate.
+     */
+    where?: patentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of patents to fetch.
+     */
+    orderBy?: patentOrderByWithRelationInput | patentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: patentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` patents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` patents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned patents
+    **/
+    _count?: true | PatentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PatentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PatentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PatentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PatentMaxAggregateInputType
+  }
+
+  export type GetPatentAggregateType<T extends PatentAggregateArgs> = {
+        [P in keyof T & keyof AggregatePatent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePatent[P]>
+      : GetScalarType<T[P], AggregatePatent[P]>
+  }
+
+
+
+
+  export type patentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: patentWhereInput
+    orderBy?: patentOrderByWithAggregationInput | patentOrderByWithAggregationInput[]
+    by: PatentScalarFieldEnum[] | PatentScalarFieldEnum
+    having?: patentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PatentCountAggregateInputType | true
+    _avg?: PatentAvgAggregateInputType
+    _sum?: PatentSumAggregateInputType
+    _min?: PatentMinAggregateInputType
+    _max?: PatentMaxAggregateInputType
+  }
+
+  export type PatentGroupByOutputType = {
+    patent_id: bigint
+    title: string | null
+    application_number: string | null
+    registration_number: string | null
+    publication_number: string | null
+    country: string | null
+    applicant_name: string | null
+    application_title: string | null
+    applicant: string | null
+    application_date: Date | null
+    registration_date: Date | null
+    publication_date: Date | null
+    summary: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date
+    update_timestamp: Date
+    is_deleted: boolean
+    _count: PatentCountAggregateOutputType | null
+    _avg: PatentAvgAggregateOutputType | null
+    _sum: PatentSumAggregateOutputType | null
+    _min: PatentMinAggregateOutputType | null
+    _max: PatentMaxAggregateOutputType | null
+  }
+
+  type GetPatentGroupByPayload<T extends patentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PatentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PatentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PatentGroupByOutputType[P]>
+            : GetScalarType<T[P], PatentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type patentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    patent_id?: boolean
+    title?: boolean
+    application_number?: boolean
+    registration_number?: boolean
+    publication_number?: boolean
+    country?: boolean
+    applicant_name?: boolean
+    application_title?: boolean
+    applicant?: boolean
+    application_date?: boolean
+    registration_date?: boolean
+    publication_date?: boolean
+    summary?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+    patent_ipcs?: boolean | patent$patent_ipcsArgs<ExtArgs>
+    patent_keywords?: boolean | patent$patent_keywordsArgs<ExtArgs>
+    researcher_patents?: boolean | patent$researcher_patentsArgs<ExtArgs>
+    _count?: boolean | PatentCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["patent"]>
+
+  export type patentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    patent_id?: boolean
+    title?: boolean
+    application_number?: boolean
+    registration_number?: boolean
+    publication_number?: boolean
+    country?: boolean
+    applicant_name?: boolean
+    application_title?: boolean
+    applicant?: boolean
+    application_date?: boolean
+    registration_date?: boolean
+    publication_date?: boolean
+    summary?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["patent"]>
+
+  export type patentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    patent_id?: boolean
+    title?: boolean
+    application_number?: boolean
+    registration_number?: boolean
+    publication_number?: boolean
+    country?: boolean
+    applicant_name?: boolean
+    application_title?: boolean
+    applicant?: boolean
+    application_date?: boolean
+    registration_date?: boolean
+    publication_date?: boolean
+    summary?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["patent"]>
+
+  export type patentSelectScalar = {
+    patent_id?: boolean
+    title?: boolean
+    application_number?: boolean
+    registration_number?: boolean
+    publication_number?: boolean
+    country?: boolean
+    applicant_name?: boolean
+    application_title?: boolean
+    applicant?: boolean
+    application_date?: boolean
+    registration_date?: boolean
+    publication_date?: boolean
+    summary?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }
+
+  export type patentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"patent_id" | "title" | "application_number" | "registration_number" | "publication_number" | "country" | "applicant_name" | "application_title" | "applicant" | "application_date" | "registration_date" | "publication_date" | "summary" | "cno" | "user_no" | "insert_timestamp" | "update_timestamp" | "is_deleted", ExtArgs["result"]["patent"]>
+  export type patentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patent_ipcs?: boolean | patent$patent_ipcsArgs<ExtArgs>
+    patent_keywords?: boolean | patent$patent_keywordsArgs<ExtArgs>
+    researcher_patents?: boolean | patent$researcher_patentsArgs<ExtArgs>
+    _count?: boolean | PatentCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type patentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type patentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $patentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "patent"
+    objects: {
+      patent_ipcs: Prisma.$patent_ipcPayload<ExtArgs>[]
+      patent_keywords: Prisma.$patent_keywordPayload<ExtArgs>[]
+      researcher_patents: Prisma.$researcher_patentPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      patent_id: bigint
+      title: string | null
+      application_number: string | null
+      registration_number: string | null
+      publication_number: string | null
+      country: string | null
+      applicant_name: string | null
+      application_title: string | null
+      applicant: string | null
+      application_date: Date | null
+      registration_date: Date | null
+      publication_date: Date | null
+      summary: string | null
+      cno: bigint | null
+      user_no: bigint | null
+      insert_timestamp: Date
+      update_timestamp: Date
+      is_deleted: boolean
+    }, ExtArgs["result"]["patent"]>
+    composites: {}
+  }
+
+  type patentGetPayload<S extends boolean | null | undefined | patentDefaultArgs> = $Result.GetResult<Prisma.$patentPayload, S>
+
+  type patentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<patentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PatentCountAggregateInputType | true
+    }
+
+  export interface patentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['patent'], meta: { name: 'patent' } }
+    /**
+     * Find zero or one Patent that matches the filter.
+     * @param {patentFindUniqueArgs} args - Arguments to find a Patent
+     * @example
+     * // Get one Patent
+     * const patent = await prisma.patent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends patentFindUniqueArgs>(args: SelectSubset<T, patentFindUniqueArgs<ExtArgs>>): Prisma__patentClient<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Patent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {patentFindUniqueOrThrowArgs} args - Arguments to find a Patent
+     * @example
+     * // Get one Patent
+     * const patent = await prisma.patent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends patentFindUniqueOrThrowArgs>(args: SelectSubset<T, patentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__patentClient<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Patent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patentFindFirstArgs} args - Arguments to find a Patent
+     * @example
+     * // Get one Patent
+     * const patent = await prisma.patent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends patentFindFirstArgs>(args?: SelectSubset<T, patentFindFirstArgs<ExtArgs>>): Prisma__patentClient<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Patent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patentFindFirstOrThrowArgs} args - Arguments to find a Patent
+     * @example
+     * // Get one Patent
+     * const patent = await prisma.patent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends patentFindFirstOrThrowArgs>(args?: SelectSubset<T, patentFindFirstOrThrowArgs<ExtArgs>>): Prisma__patentClient<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Patents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Patents
+     * const patents = await prisma.patent.findMany()
+     * 
+     * // Get first 10 Patents
+     * const patents = await prisma.patent.findMany({ take: 10 })
+     * 
+     * // Only select the `patent_id`
+     * const patentWithPatent_idOnly = await prisma.patent.findMany({ select: { patent_id: true } })
+     * 
+     */
+    findMany<T extends patentFindManyArgs>(args?: SelectSubset<T, patentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Patent.
+     * @param {patentCreateArgs} args - Arguments to create a Patent.
+     * @example
+     * // Create one Patent
+     * const Patent = await prisma.patent.create({
+     *   data: {
+     *     // ... data to create a Patent
+     *   }
+     * })
+     * 
+     */
+    create<T extends patentCreateArgs>(args: SelectSubset<T, patentCreateArgs<ExtArgs>>): Prisma__patentClient<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Patents.
+     * @param {patentCreateManyArgs} args - Arguments to create many Patents.
+     * @example
+     * // Create many Patents
+     * const patent = await prisma.patent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends patentCreateManyArgs>(args?: SelectSubset<T, patentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Patents and returns the data saved in the database.
+     * @param {patentCreateManyAndReturnArgs} args - Arguments to create many Patents.
+     * @example
+     * // Create many Patents
+     * const patent = await prisma.patent.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Patents and only return the `patent_id`
+     * const patentWithPatent_idOnly = await prisma.patent.createManyAndReturn({
+     *   select: { patent_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends patentCreateManyAndReturnArgs>(args?: SelectSubset<T, patentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Patent.
+     * @param {patentDeleteArgs} args - Arguments to delete one Patent.
+     * @example
+     * // Delete one Patent
+     * const Patent = await prisma.patent.delete({
+     *   where: {
+     *     // ... filter to delete one Patent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends patentDeleteArgs>(args: SelectSubset<T, patentDeleteArgs<ExtArgs>>): Prisma__patentClient<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Patent.
+     * @param {patentUpdateArgs} args - Arguments to update one Patent.
+     * @example
+     * // Update one Patent
+     * const patent = await prisma.patent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends patentUpdateArgs>(args: SelectSubset<T, patentUpdateArgs<ExtArgs>>): Prisma__patentClient<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Patents.
+     * @param {patentDeleteManyArgs} args - Arguments to filter Patents to delete.
+     * @example
+     * // Delete a few Patents
+     * const { count } = await prisma.patent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends patentDeleteManyArgs>(args?: SelectSubset<T, patentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Patents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Patents
+     * const patent = await prisma.patent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends patentUpdateManyArgs>(args: SelectSubset<T, patentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Patents and returns the data updated in the database.
+     * @param {patentUpdateManyAndReturnArgs} args - Arguments to update many Patents.
+     * @example
+     * // Update many Patents
+     * const patent = await prisma.patent.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Patents and only return the `patent_id`
+     * const patentWithPatent_idOnly = await prisma.patent.updateManyAndReturn({
+     *   select: { patent_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends patentUpdateManyAndReturnArgs>(args: SelectSubset<T, patentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Patent.
+     * @param {patentUpsertArgs} args - Arguments to update or create a Patent.
+     * @example
+     * // Update or create a Patent
+     * const patent = await prisma.patent.upsert({
+     *   create: {
+     *     // ... data to create a Patent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Patent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends patentUpsertArgs>(args: SelectSubset<T, patentUpsertArgs<ExtArgs>>): Prisma__patentClient<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Patents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patentCountArgs} args - Arguments to filter Patents to count.
+     * @example
+     * // Count the number of Patents
+     * const count = await prisma.patent.count({
+     *   where: {
+     *     // ... the filter for the Patents we want to count
+     *   }
+     * })
+    **/
+    count<T extends patentCountArgs>(
+      args?: Subset<T, patentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PatentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Patent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PatentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PatentAggregateArgs>(args: Subset<T, PatentAggregateArgs>): Prisma.PrismaPromise<GetPatentAggregateType<T>>
+
+    /**
+     * Group by Patent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends patentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: patentGroupByArgs['orderBy'] }
+        : { orderBy?: patentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, patentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPatentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the patent model
+   */
+  readonly fields: patentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for patent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__patentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    patent_ipcs<T extends patent$patent_ipcsArgs<ExtArgs> = {}>(args?: Subset<T, patent$patent_ipcsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    patent_keywords<T extends patent$patent_keywordsArgs<ExtArgs> = {}>(args?: Subset<T, patent$patent_keywordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    researcher_patents<T extends patent$researcher_patentsArgs<ExtArgs> = {}>(args?: Subset<T, patent$researcher_patentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the patent model
+   */
+  interface patentFieldRefs {
+    readonly patent_id: FieldRef<"patent", 'BigInt'>
+    readonly title: FieldRef<"patent", 'String'>
+    readonly application_number: FieldRef<"patent", 'String'>
+    readonly registration_number: FieldRef<"patent", 'String'>
+    readonly publication_number: FieldRef<"patent", 'String'>
+    readonly country: FieldRef<"patent", 'String'>
+    readonly applicant_name: FieldRef<"patent", 'String'>
+    readonly application_title: FieldRef<"patent", 'String'>
+    readonly applicant: FieldRef<"patent", 'String'>
+    readonly application_date: FieldRef<"patent", 'DateTime'>
+    readonly registration_date: FieldRef<"patent", 'DateTime'>
+    readonly publication_date: FieldRef<"patent", 'DateTime'>
+    readonly summary: FieldRef<"patent", 'String'>
+    readonly cno: FieldRef<"patent", 'BigInt'>
+    readonly user_no: FieldRef<"patent", 'BigInt'>
+    readonly insert_timestamp: FieldRef<"patent", 'DateTime'>
+    readonly update_timestamp: FieldRef<"patent", 'DateTime'>
+    readonly is_deleted: FieldRef<"patent", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * patent findUnique
+   */
+  export type patentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent
+     */
+    select?: patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent
+     */
+    omit?: patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patentInclude<ExtArgs> | null
+    /**
+     * Filter, which patent to fetch.
+     */
+    where: patentWhereUniqueInput
+  }
+
+  /**
+   * patent findUniqueOrThrow
+   */
+  export type patentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent
+     */
+    select?: patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent
+     */
+    omit?: patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patentInclude<ExtArgs> | null
+    /**
+     * Filter, which patent to fetch.
+     */
+    where: patentWhereUniqueInput
+  }
+
+  /**
+   * patent findFirst
+   */
+  export type patentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent
+     */
+    select?: patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent
+     */
+    omit?: patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patentInclude<ExtArgs> | null
+    /**
+     * Filter, which patent to fetch.
+     */
+    where?: patentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of patents to fetch.
+     */
+    orderBy?: patentOrderByWithRelationInput | patentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for patents.
+     */
+    cursor?: patentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` patents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` patents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of patents.
+     */
+    distinct?: PatentScalarFieldEnum | PatentScalarFieldEnum[]
+  }
+
+  /**
+   * patent findFirstOrThrow
+   */
+  export type patentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent
+     */
+    select?: patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent
+     */
+    omit?: patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patentInclude<ExtArgs> | null
+    /**
+     * Filter, which patent to fetch.
+     */
+    where?: patentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of patents to fetch.
+     */
+    orderBy?: patentOrderByWithRelationInput | patentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for patents.
+     */
+    cursor?: patentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` patents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` patents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of patents.
+     */
+    distinct?: PatentScalarFieldEnum | PatentScalarFieldEnum[]
+  }
+
+  /**
+   * patent findMany
+   */
+  export type patentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent
+     */
+    select?: patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent
+     */
+    omit?: patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patentInclude<ExtArgs> | null
+    /**
+     * Filter, which patents to fetch.
+     */
+    where?: patentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of patents to fetch.
+     */
+    orderBy?: patentOrderByWithRelationInput | patentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing patents.
+     */
+    cursor?: patentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` patents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` patents.
+     */
+    skip?: number
+    distinct?: PatentScalarFieldEnum | PatentScalarFieldEnum[]
+  }
+
+  /**
+   * patent create
+   */
+  export type patentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent
+     */
+    select?: patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent
+     */
+    omit?: patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a patent.
+     */
+    data: XOR<patentCreateInput, patentUncheckedCreateInput>
+  }
+
+  /**
+   * patent createMany
+   */
+  export type patentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many patents.
+     */
+    data: patentCreateManyInput | patentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * patent createManyAndReturn
+   */
+  export type patentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent
+     */
+    select?: patentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent
+     */
+    omit?: patentOmit<ExtArgs> | null
+    /**
+     * The data used to create many patents.
+     */
+    data: patentCreateManyInput | patentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * patent update
+   */
+  export type patentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent
+     */
+    select?: patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent
+     */
+    omit?: patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a patent.
+     */
+    data: XOR<patentUpdateInput, patentUncheckedUpdateInput>
+    /**
+     * Choose, which patent to update.
+     */
+    where: patentWhereUniqueInput
+  }
+
+  /**
+   * patent updateMany
+   */
+  export type patentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update patents.
+     */
+    data: XOR<patentUpdateManyMutationInput, patentUncheckedUpdateManyInput>
+    /**
+     * Filter which patents to update
+     */
+    where?: patentWhereInput
+    /**
+     * Limit how many patents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * patent updateManyAndReturn
+   */
+  export type patentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent
+     */
+    select?: patentSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent
+     */
+    omit?: patentOmit<ExtArgs> | null
+    /**
+     * The data used to update patents.
+     */
+    data: XOR<patentUpdateManyMutationInput, patentUncheckedUpdateManyInput>
+    /**
+     * Filter which patents to update
+     */
+    where?: patentWhereInput
+    /**
+     * Limit how many patents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * patent upsert
+   */
+  export type patentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent
+     */
+    select?: patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent
+     */
+    omit?: patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the patent to update in case it exists.
+     */
+    where: patentWhereUniqueInput
+    /**
+     * In case the patent found by the `where` argument doesn't exist, create a new patent with this data.
+     */
+    create: XOR<patentCreateInput, patentUncheckedCreateInput>
+    /**
+     * In case the patent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<patentUpdateInput, patentUncheckedUpdateInput>
+  }
+
+  /**
+   * patent delete
+   */
+  export type patentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent
+     */
+    select?: patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent
+     */
+    omit?: patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patentInclude<ExtArgs> | null
+    /**
+     * Filter which patent to delete.
+     */
+    where: patentWhereUniqueInput
+  }
+
+  /**
+   * patent deleteMany
+   */
+  export type patentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which patents to delete
+     */
+    where?: patentWhereInput
+    /**
+     * Limit how many patents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * patent.patent_ipcs
+   */
+  export type patent$patent_ipcsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcInclude<ExtArgs> | null
+    where?: patent_ipcWhereInput
+    orderBy?: patent_ipcOrderByWithRelationInput | patent_ipcOrderByWithRelationInput[]
+    cursor?: patent_ipcWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Patent_ipcScalarFieldEnum | Patent_ipcScalarFieldEnum[]
+  }
+
+  /**
+   * patent.patent_keywords
+   */
+  export type patent$patent_keywordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordInclude<ExtArgs> | null
+    where?: patent_keywordWhereInput
+    orderBy?: patent_keywordOrderByWithRelationInput | patent_keywordOrderByWithRelationInput[]
+    cursor?: patent_keywordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Patent_keywordScalarFieldEnum | Patent_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * patent.researcher_patents
+   */
+  export type patent$researcher_patentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentInclude<ExtArgs> | null
+    where?: researcher_patentWhereInput
+    orderBy?: researcher_patentOrderByWithRelationInput | researcher_patentOrderByWithRelationInput[]
+    cursor?: researcher_patentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Researcher_patentScalarFieldEnum | Researcher_patentScalarFieldEnum[]
+  }
+
+  /**
+   * patent without action
+   */
+  export type patentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent
+     */
+    select?: patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent
+     */
+    omit?: patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model patent_ipc
+   */
+
+  export type AggregatePatent_ipc = {
+    _count: Patent_ipcCountAggregateOutputType | null
+    _avg: Patent_ipcAvgAggregateOutputType | null
+    _sum: Patent_ipcSumAggregateOutputType | null
+    _min: Patent_ipcMinAggregateOutputType | null
+    _max: Patent_ipcMaxAggregateOutputType | null
+  }
+
+  export type Patent_ipcAvgAggregateOutputType = {
+    patent_id: number | null
+    ipc_id: number | null
+  }
+
+  export type Patent_ipcSumAggregateOutputType = {
+    patent_id: bigint | null
+    ipc_id: bigint | null
+  }
+
+  export type Patent_ipcMinAggregateOutputType = {
+    patent_id: bigint | null
+    ipc_id: bigint | null
+  }
+
+  export type Patent_ipcMaxAggregateOutputType = {
+    patent_id: bigint | null
+    ipc_id: bigint | null
+  }
+
+  export type Patent_ipcCountAggregateOutputType = {
+    patent_id: number
+    ipc_id: number
+    _all: number
+  }
+
+
+  export type Patent_ipcAvgAggregateInputType = {
+    patent_id?: true
+    ipc_id?: true
+  }
+
+  export type Patent_ipcSumAggregateInputType = {
+    patent_id?: true
+    ipc_id?: true
+  }
+
+  export type Patent_ipcMinAggregateInputType = {
+    patent_id?: true
+    ipc_id?: true
+  }
+
+  export type Patent_ipcMaxAggregateInputType = {
+    patent_id?: true
+    ipc_id?: true
+  }
+
+  export type Patent_ipcCountAggregateInputType = {
+    patent_id?: true
+    ipc_id?: true
+    _all?: true
+  }
+
+  export type Patent_ipcAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which patent_ipc to aggregate.
+     */
+    where?: patent_ipcWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of patent_ipcs to fetch.
+     */
+    orderBy?: patent_ipcOrderByWithRelationInput | patent_ipcOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: patent_ipcWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` patent_ipcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` patent_ipcs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned patent_ipcs
+    **/
+    _count?: true | Patent_ipcCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Patent_ipcAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Patent_ipcSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Patent_ipcMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Patent_ipcMaxAggregateInputType
+  }
+
+  export type GetPatent_ipcAggregateType<T extends Patent_ipcAggregateArgs> = {
+        [P in keyof T & keyof AggregatePatent_ipc]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePatent_ipc[P]>
+      : GetScalarType<T[P], AggregatePatent_ipc[P]>
+  }
+
+
+
+
+  export type patent_ipcGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: patent_ipcWhereInput
+    orderBy?: patent_ipcOrderByWithAggregationInput | patent_ipcOrderByWithAggregationInput[]
+    by: Patent_ipcScalarFieldEnum[] | Patent_ipcScalarFieldEnum
+    having?: patent_ipcScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Patent_ipcCountAggregateInputType | true
+    _avg?: Patent_ipcAvgAggregateInputType
+    _sum?: Patent_ipcSumAggregateInputType
+    _min?: Patent_ipcMinAggregateInputType
+    _max?: Patent_ipcMaxAggregateInputType
+  }
+
+  export type Patent_ipcGroupByOutputType = {
+    patent_id: bigint
+    ipc_id: bigint
+    _count: Patent_ipcCountAggregateOutputType | null
+    _avg: Patent_ipcAvgAggregateOutputType | null
+    _sum: Patent_ipcSumAggregateOutputType | null
+    _min: Patent_ipcMinAggregateOutputType | null
+    _max: Patent_ipcMaxAggregateOutputType | null
+  }
+
+  type GetPatent_ipcGroupByPayload<T extends patent_ipcGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Patent_ipcGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Patent_ipcGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Patent_ipcGroupByOutputType[P]>
+            : GetScalarType<T[P], Patent_ipcGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type patent_ipcSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    patent_id?: boolean
+    ipc_id?: boolean
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+    ipc?: boolean | ipcDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["patent_ipc"]>
+
+  export type patent_ipcSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    patent_id?: boolean
+    ipc_id?: boolean
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+    ipc?: boolean | ipcDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["patent_ipc"]>
+
+  export type patent_ipcSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    patent_id?: boolean
+    ipc_id?: boolean
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+    ipc?: boolean | ipcDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["patent_ipc"]>
+
+  export type patent_ipcSelectScalar = {
+    patent_id?: boolean
+    ipc_id?: boolean
+  }
+
+  export type patent_ipcOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"patent_id" | "ipc_id", ExtArgs["result"]["patent_ipc"]>
+  export type patent_ipcInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+    ipc?: boolean | ipcDefaultArgs<ExtArgs>
+  }
+  export type patent_ipcIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+    ipc?: boolean | ipcDefaultArgs<ExtArgs>
+  }
+  export type patent_ipcIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+    ipc?: boolean | ipcDefaultArgs<ExtArgs>
+  }
+
+  export type $patent_ipcPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "patent_ipc"
+    objects: {
+      patent: Prisma.$patentPayload<ExtArgs>
+      ipc: Prisma.$ipcPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      patent_id: bigint
+      ipc_id: bigint
+    }, ExtArgs["result"]["patent_ipc"]>
+    composites: {}
+  }
+
+  type patent_ipcGetPayload<S extends boolean | null | undefined | patent_ipcDefaultArgs> = $Result.GetResult<Prisma.$patent_ipcPayload, S>
+
+  type patent_ipcCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<patent_ipcFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Patent_ipcCountAggregateInputType | true
+    }
+
+  export interface patent_ipcDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['patent_ipc'], meta: { name: 'patent_ipc' } }
+    /**
+     * Find zero or one Patent_ipc that matches the filter.
+     * @param {patent_ipcFindUniqueArgs} args - Arguments to find a Patent_ipc
+     * @example
+     * // Get one Patent_ipc
+     * const patent_ipc = await prisma.patent_ipc.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends patent_ipcFindUniqueArgs>(args: SelectSubset<T, patent_ipcFindUniqueArgs<ExtArgs>>): Prisma__patent_ipcClient<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Patent_ipc that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {patent_ipcFindUniqueOrThrowArgs} args - Arguments to find a Patent_ipc
+     * @example
+     * // Get one Patent_ipc
+     * const patent_ipc = await prisma.patent_ipc.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends patent_ipcFindUniqueOrThrowArgs>(args: SelectSubset<T, patent_ipcFindUniqueOrThrowArgs<ExtArgs>>): Prisma__patent_ipcClient<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Patent_ipc that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patent_ipcFindFirstArgs} args - Arguments to find a Patent_ipc
+     * @example
+     * // Get one Patent_ipc
+     * const patent_ipc = await prisma.patent_ipc.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends patent_ipcFindFirstArgs>(args?: SelectSubset<T, patent_ipcFindFirstArgs<ExtArgs>>): Prisma__patent_ipcClient<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Patent_ipc that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patent_ipcFindFirstOrThrowArgs} args - Arguments to find a Patent_ipc
+     * @example
+     * // Get one Patent_ipc
+     * const patent_ipc = await prisma.patent_ipc.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends patent_ipcFindFirstOrThrowArgs>(args?: SelectSubset<T, patent_ipcFindFirstOrThrowArgs<ExtArgs>>): Prisma__patent_ipcClient<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Patent_ipcs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patent_ipcFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Patent_ipcs
+     * const patent_ipcs = await prisma.patent_ipc.findMany()
+     * 
+     * // Get first 10 Patent_ipcs
+     * const patent_ipcs = await prisma.patent_ipc.findMany({ take: 10 })
+     * 
+     * // Only select the `patent_id`
+     * const patent_ipcWithPatent_idOnly = await prisma.patent_ipc.findMany({ select: { patent_id: true } })
+     * 
+     */
+    findMany<T extends patent_ipcFindManyArgs>(args?: SelectSubset<T, patent_ipcFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Patent_ipc.
+     * @param {patent_ipcCreateArgs} args - Arguments to create a Patent_ipc.
+     * @example
+     * // Create one Patent_ipc
+     * const Patent_ipc = await prisma.patent_ipc.create({
+     *   data: {
+     *     // ... data to create a Patent_ipc
+     *   }
+     * })
+     * 
+     */
+    create<T extends patent_ipcCreateArgs>(args: SelectSubset<T, patent_ipcCreateArgs<ExtArgs>>): Prisma__patent_ipcClient<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Patent_ipcs.
+     * @param {patent_ipcCreateManyArgs} args - Arguments to create many Patent_ipcs.
+     * @example
+     * // Create many Patent_ipcs
+     * const patent_ipc = await prisma.patent_ipc.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends patent_ipcCreateManyArgs>(args?: SelectSubset<T, patent_ipcCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Patent_ipcs and returns the data saved in the database.
+     * @param {patent_ipcCreateManyAndReturnArgs} args - Arguments to create many Patent_ipcs.
+     * @example
+     * // Create many Patent_ipcs
+     * const patent_ipc = await prisma.patent_ipc.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Patent_ipcs and only return the `patent_id`
+     * const patent_ipcWithPatent_idOnly = await prisma.patent_ipc.createManyAndReturn({
+     *   select: { patent_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends patent_ipcCreateManyAndReturnArgs>(args?: SelectSubset<T, patent_ipcCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Patent_ipc.
+     * @param {patent_ipcDeleteArgs} args - Arguments to delete one Patent_ipc.
+     * @example
+     * // Delete one Patent_ipc
+     * const Patent_ipc = await prisma.patent_ipc.delete({
+     *   where: {
+     *     // ... filter to delete one Patent_ipc
+     *   }
+     * })
+     * 
+     */
+    delete<T extends patent_ipcDeleteArgs>(args: SelectSubset<T, patent_ipcDeleteArgs<ExtArgs>>): Prisma__patent_ipcClient<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Patent_ipc.
+     * @param {patent_ipcUpdateArgs} args - Arguments to update one Patent_ipc.
+     * @example
+     * // Update one Patent_ipc
+     * const patent_ipc = await prisma.patent_ipc.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends patent_ipcUpdateArgs>(args: SelectSubset<T, patent_ipcUpdateArgs<ExtArgs>>): Prisma__patent_ipcClient<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Patent_ipcs.
+     * @param {patent_ipcDeleteManyArgs} args - Arguments to filter Patent_ipcs to delete.
+     * @example
+     * // Delete a few Patent_ipcs
+     * const { count } = await prisma.patent_ipc.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends patent_ipcDeleteManyArgs>(args?: SelectSubset<T, patent_ipcDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Patent_ipcs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patent_ipcUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Patent_ipcs
+     * const patent_ipc = await prisma.patent_ipc.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends patent_ipcUpdateManyArgs>(args: SelectSubset<T, patent_ipcUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Patent_ipcs and returns the data updated in the database.
+     * @param {patent_ipcUpdateManyAndReturnArgs} args - Arguments to update many Patent_ipcs.
+     * @example
+     * // Update many Patent_ipcs
+     * const patent_ipc = await prisma.patent_ipc.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Patent_ipcs and only return the `patent_id`
+     * const patent_ipcWithPatent_idOnly = await prisma.patent_ipc.updateManyAndReturn({
+     *   select: { patent_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends patent_ipcUpdateManyAndReturnArgs>(args: SelectSubset<T, patent_ipcUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Patent_ipc.
+     * @param {patent_ipcUpsertArgs} args - Arguments to update or create a Patent_ipc.
+     * @example
+     * // Update or create a Patent_ipc
+     * const patent_ipc = await prisma.patent_ipc.upsert({
+     *   create: {
+     *     // ... data to create a Patent_ipc
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Patent_ipc we want to update
+     *   }
+     * })
+     */
+    upsert<T extends patent_ipcUpsertArgs>(args: SelectSubset<T, patent_ipcUpsertArgs<ExtArgs>>): Prisma__patent_ipcClient<$Result.GetResult<Prisma.$patent_ipcPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Patent_ipcs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patent_ipcCountArgs} args - Arguments to filter Patent_ipcs to count.
+     * @example
+     * // Count the number of Patent_ipcs
+     * const count = await prisma.patent_ipc.count({
+     *   where: {
+     *     // ... the filter for the Patent_ipcs we want to count
+     *   }
+     * })
+    **/
+    count<T extends patent_ipcCountArgs>(
+      args?: Subset<T, patent_ipcCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Patent_ipcCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Patent_ipc.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Patent_ipcAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Patent_ipcAggregateArgs>(args: Subset<T, Patent_ipcAggregateArgs>): Prisma.PrismaPromise<GetPatent_ipcAggregateType<T>>
+
+    /**
+     * Group by Patent_ipc.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patent_ipcGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends patent_ipcGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: patent_ipcGroupByArgs['orderBy'] }
+        : { orderBy?: patent_ipcGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, patent_ipcGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPatent_ipcGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the patent_ipc model
+   */
+  readonly fields: patent_ipcFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for patent_ipc.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__patent_ipcClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    patent<T extends patentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, patentDefaultArgs<ExtArgs>>): Prisma__patentClient<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    ipc<T extends ipcDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ipcDefaultArgs<ExtArgs>>): Prisma__ipcClient<$Result.GetResult<Prisma.$ipcPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the patent_ipc model
+   */
+  interface patent_ipcFieldRefs {
+    readonly patent_id: FieldRef<"patent_ipc", 'BigInt'>
+    readonly ipc_id: FieldRef<"patent_ipc", 'BigInt'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * patent_ipc findUnique
+   */
+  export type patent_ipcFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcInclude<ExtArgs> | null
+    /**
+     * Filter, which patent_ipc to fetch.
+     */
+    where: patent_ipcWhereUniqueInput
+  }
+
+  /**
+   * patent_ipc findUniqueOrThrow
+   */
+  export type patent_ipcFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcInclude<ExtArgs> | null
+    /**
+     * Filter, which patent_ipc to fetch.
+     */
+    where: patent_ipcWhereUniqueInput
+  }
+
+  /**
+   * patent_ipc findFirst
+   */
+  export type patent_ipcFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcInclude<ExtArgs> | null
+    /**
+     * Filter, which patent_ipc to fetch.
+     */
+    where?: patent_ipcWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of patent_ipcs to fetch.
+     */
+    orderBy?: patent_ipcOrderByWithRelationInput | patent_ipcOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for patent_ipcs.
+     */
+    cursor?: patent_ipcWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` patent_ipcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` patent_ipcs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of patent_ipcs.
+     */
+    distinct?: Patent_ipcScalarFieldEnum | Patent_ipcScalarFieldEnum[]
+  }
+
+  /**
+   * patent_ipc findFirstOrThrow
+   */
+  export type patent_ipcFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcInclude<ExtArgs> | null
+    /**
+     * Filter, which patent_ipc to fetch.
+     */
+    where?: patent_ipcWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of patent_ipcs to fetch.
+     */
+    orderBy?: patent_ipcOrderByWithRelationInput | patent_ipcOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for patent_ipcs.
+     */
+    cursor?: patent_ipcWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` patent_ipcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` patent_ipcs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of patent_ipcs.
+     */
+    distinct?: Patent_ipcScalarFieldEnum | Patent_ipcScalarFieldEnum[]
+  }
+
+  /**
+   * patent_ipc findMany
+   */
+  export type patent_ipcFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcInclude<ExtArgs> | null
+    /**
+     * Filter, which patent_ipcs to fetch.
+     */
+    where?: patent_ipcWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of patent_ipcs to fetch.
+     */
+    orderBy?: patent_ipcOrderByWithRelationInput | patent_ipcOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing patent_ipcs.
+     */
+    cursor?: patent_ipcWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` patent_ipcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` patent_ipcs.
+     */
+    skip?: number
+    distinct?: Patent_ipcScalarFieldEnum | Patent_ipcScalarFieldEnum[]
+  }
+
+  /**
+   * patent_ipc create
+   */
+  export type patent_ipcCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcInclude<ExtArgs> | null
+    /**
+     * The data needed to create a patent_ipc.
+     */
+    data: XOR<patent_ipcCreateInput, patent_ipcUncheckedCreateInput>
+  }
+
+  /**
+   * patent_ipc createMany
+   */
+  export type patent_ipcCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many patent_ipcs.
+     */
+    data: patent_ipcCreateManyInput | patent_ipcCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * patent_ipc createManyAndReturn
+   */
+  export type patent_ipcCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * The data used to create many patent_ipcs.
+     */
+    data: patent_ipcCreateManyInput | patent_ipcCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * patent_ipc update
+   */
+  export type patent_ipcUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcInclude<ExtArgs> | null
+    /**
+     * The data needed to update a patent_ipc.
+     */
+    data: XOR<patent_ipcUpdateInput, patent_ipcUncheckedUpdateInput>
+    /**
+     * Choose, which patent_ipc to update.
+     */
+    where: patent_ipcWhereUniqueInput
+  }
+
+  /**
+   * patent_ipc updateMany
+   */
+  export type patent_ipcUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update patent_ipcs.
+     */
+    data: XOR<patent_ipcUpdateManyMutationInput, patent_ipcUncheckedUpdateManyInput>
+    /**
+     * Filter which patent_ipcs to update
+     */
+    where?: patent_ipcWhereInput
+    /**
+     * Limit how many patent_ipcs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * patent_ipc updateManyAndReturn
+   */
+  export type patent_ipcUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * The data used to update patent_ipcs.
+     */
+    data: XOR<patent_ipcUpdateManyMutationInput, patent_ipcUncheckedUpdateManyInput>
+    /**
+     * Filter which patent_ipcs to update
+     */
+    where?: patent_ipcWhereInput
+    /**
+     * Limit how many patent_ipcs to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * patent_ipc upsert
+   */
+  export type patent_ipcUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcInclude<ExtArgs> | null
+    /**
+     * The filter to search for the patent_ipc to update in case it exists.
+     */
+    where: patent_ipcWhereUniqueInput
+    /**
+     * In case the patent_ipc found by the `where` argument doesn't exist, create a new patent_ipc with this data.
+     */
+    create: XOR<patent_ipcCreateInput, patent_ipcUncheckedCreateInput>
+    /**
+     * In case the patent_ipc was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<patent_ipcUpdateInput, patent_ipcUncheckedUpdateInput>
+  }
+
+  /**
+   * patent_ipc delete
+   */
+  export type patent_ipcDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcInclude<ExtArgs> | null
+    /**
+     * Filter which patent_ipc to delete.
+     */
+    where: patent_ipcWhereUniqueInput
+  }
+
+  /**
+   * patent_ipc deleteMany
+   */
+  export type patent_ipcDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which patent_ipcs to delete
+     */
+    where?: patent_ipcWhereInput
+    /**
+     * Limit how many patent_ipcs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * patent_ipc without action
+   */
+  export type patent_ipcDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_ipc
+     */
+    select?: patent_ipcSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_ipc
+     */
+    omit?: patent_ipcOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_ipcInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model patent_keyword
+   */
+
+  export type AggregatePatent_keyword = {
+    _count: Patent_keywordCountAggregateOutputType | null
+    _avg: Patent_keywordAvgAggregateOutputType | null
+    _sum: Patent_keywordSumAggregateOutputType | null
+    _min: Patent_keywordMinAggregateOutputType | null
+    _max: Patent_keywordMaxAggregateOutputType | null
+  }
+
+  export type Patent_keywordAvgAggregateOutputType = {
+    patent_id: number | null
+    keyword_id: number | null
+  }
+
+  export type Patent_keywordSumAggregateOutputType = {
+    patent_id: bigint | null
+    keyword_id: bigint | null
+  }
+
+  export type Patent_keywordMinAggregateOutputType = {
+    patent_id: bigint | null
+    keyword_id: bigint | null
+  }
+
+  export type Patent_keywordMaxAggregateOutputType = {
+    patent_id: bigint | null
+    keyword_id: bigint | null
+  }
+
+  export type Patent_keywordCountAggregateOutputType = {
+    patent_id: number
+    keyword_id: number
+    _all: number
+  }
+
+
+  export type Patent_keywordAvgAggregateInputType = {
+    patent_id?: true
+    keyword_id?: true
+  }
+
+  export type Patent_keywordSumAggregateInputType = {
+    patent_id?: true
+    keyword_id?: true
+  }
+
+  export type Patent_keywordMinAggregateInputType = {
+    patent_id?: true
+    keyword_id?: true
+  }
+
+  export type Patent_keywordMaxAggregateInputType = {
+    patent_id?: true
+    keyword_id?: true
+  }
+
+  export type Patent_keywordCountAggregateInputType = {
+    patent_id?: true
+    keyword_id?: true
+    _all?: true
+  }
+
+  export type Patent_keywordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which patent_keyword to aggregate.
+     */
+    where?: patent_keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of patent_keywords to fetch.
+     */
+    orderBy?: patent_keywordOrderByWithRelationInput | patent_keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: patent_keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` patent_keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` patent_keywords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned patent_keywords
+    **/
+    _count?: true | Patent_keywordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Patent_keywordAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Patent_keywordSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Patent_keywordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Patent_keywordMaxAggregateInputType
+  }
+
+  export type GetPatent_keywordAggregateType<T extends Patent_keywordAggregateArgs> = {
+        [P in keyof T & keyof AggregatePatent_keyword]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePatent_keyword[P]>
+      : GetScalarType<T[P], AggregatePatent_keyword[P]>
+  }
+
+
+
+
+  export type patent_keywordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: patent_keywordWhereInput
+    orderBy?: patent_keywordOrderByWithAggregationInput | patent_keywordOrderByWithAggregationInput[]
+    by: Patent_keywordScalarFieldEnum[] | Patent_keywordScalarFieldEnum
+    having?: patent_keywordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Patent_keywordCountAggregateInputType | true
+    _avg?: Patent_keywordAvgAggregateInputType
+    _sum?: Patent_keywordSumAggregateInputType
+    _min?: Patent_keywordMinAggregateInputType
+    _max?: Patent_keywordMaxAggregateInputType
+  }
+
+  export type Patent_keywordGroupByOutputType = {
+    patent_id: bigint
+    keyword_id: bigint
+    _count: Patent_keywordCountAggregateOutputType | null
+    _avg: Patent_keywordAvgAggregateOutputType | null
+    _sum: Patent_keywordSumAggregateOutputType | null
+    _min: Patent_keywordMinAggregateOutputType | null
+    _max: Patent_keywordMaxAggregateOutputType | null
+  }
+
+  type GetPatent_keywordGroupByPayload<T extends patent_keywordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Patent_keywordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Patent_keywordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Patent_keywordGroupByOutputType[P]>
+            : GetScalarType<T[P], Patent_keywordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type patent_keywordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    patent_id?: boolean
+    keyword_id?: boolean
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["patent_keyword"]>
+
+  export type patent_keywordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    patent_id?: boolean
+    keyword_id?: boolean
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["patent_keyword"]>
+
+  export type patent_keywordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    patent_id?: boolean
+    keyword_id?: boolean
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["patent_keyword"]>
+
+  export type patent_keywordSelectScalar = {
+    patent_id?: boolean
+    keyword_id?: boolean
+  }
+
+  export type patent_keywordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"patent_id" | "keyword_id", ExtArgs["result"]["patent_keyword"]>
+  export type patent_keywordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }
+  export type patent_keywordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }
+  export type patent_keywordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }
+
+  export type $patent_keywordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "patent_keyword"
+    objects: {
+      patent: Prisma.$patentPayload<ExtArgs>
+      keyword: Prisma.$keywordPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      patent_id: bigint
+      keyword_id: bigint
+    }, ExtArgs["result"]["patent_keyword"]>
+    composites: {}
+  }
+
+  type patent_keywordGetPayload<S extends boolean | null | undefined | patent_keywordDefaultArgs> = $Result.GetResult<Prisma.$patent_keywordPayload, S>
+
+  type patent_keywordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<patent_keywordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Patent_keywordCountAggregateInputType | true
+    }
+
+  export interface patent_keywordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['patent_keyword'], meta: { name: 'patent_keyword' } }
+    /**
+     * Find zero or one Patent_keyword that matches the filter.
+     * @param {patent_keywordFindUniqueArgs} args - Arguments to find a Patent_keyword
+     * @example
+     * // Get one Patent_keyword
+     * const patent_keyword = await prisma.patent_keyword.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends patent_keywordFindUniqueArgs>(args: SelectSubset<T, patent_keywordFindUniqueArgs<ExtArgs>>): Prisma__patent_keywordClient<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Patent_keyword that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {patent_keywordFindUniqueOrThrowArgs} args - Arguments to find a Patent_keyword
+     * @example
+     * // Get one Patent_keyword
+     * const patent_keyword = await prisma.patent_keyword.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends patent_keywordFindUniqueOrThrowArgs>(args: SelectSubset<T, patent_keywordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__patent_keywordClient<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Patent_keyword that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patent_keywordFindFirstArgs} args - Arguments to find a Patent_keyword
+     * @example
+     * // Get one Patent_keyword
+     * const patent_keyword = await prisma.patent_keyword.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends patent_keywordFindFirstArgs>(args?: SelectSubset<T, patent_keywordFindFirstArgs<ExtArgs>>): Prisma__patent_keywordClient<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Patent_keyword that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patent_keywordFindFirstOrThrowArgs} args - Arguments to find a Patent_keyword
+     * @example
+     * // Get one Patent_keyword
+     * const patent_keyword = await prisma.patent_keyword.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends patent_keywordFindFirstOrThrowArgs>(args?: SelectSubset<T, patent_keywordFindFirstOrThrowArgs<ExtArgs>>): Prisma__patent_keywordClient<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Patent_keywords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patent_keywordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Patent_keywords
+     * const patent_keywords = await prisma.patent_keyword.findMany()
+     * 
+     * // Get first 10 Patent_keywords
+     * const patent_keywords = await prisma.patent_keyword.findMany({ take: 10 })
+     * 
+     * // Only select the `patent_id`
+     * const patent_keywordWithPatent_idOnly = await prisma.patent_keyword.findMany({ select: { patent_id: true } })
+     * 
+     */
+    findMany<T extends patent_keywordFindManyArgs>(args?: SelectSubset<T, patent_keywordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Patent_keyword.
+     * @param {patent_keywordCreateArgs} args - Arguments to create a Patent_keyword.
+     * @example
+     * // Create one Patent_keyword
+     * const Patent_keyword = await prisma.patent_keyword.create({
+     *   data: {
+     *     // ... data to create a Patent_keyword
+     *   }
+     * })
+     * 
+     */
+    create<T extends patent_keywordCreateArgs>(args: SelectSubset<T, patent_keywordCreateArgs<ExtArgs>>): Prisma__patent_keywordClient<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Patent_keywords.
+     * @param {patent_keywordCreateManyArgs} args - Arguments to create many Patent_keywords.
+     * @example
+     * // Create many Patent_keywords
+     * const patent_keyword = await prisma.patent_keyword.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends patent_keywordCreateManyArgs>(args?: SelectSubset<T, patent_keywordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Patent_keywords and returns the data saved in the database.
+     * @param {patent_keywordCreateManyAndReturnArgs} args - Arguments to create many Patent_keywords.
+     * @example
+     * // Create many Patent_keywords
+     * const patent_keyword = await prisma.patent_keyword.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Patent_keywords and only return the `patent_id`
+     * const patent_keywordWithPatent_idOnly = await prisma.patent_keyword.createManyAndReturn({
+     *   select: { patent_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends patent_keywordCreateManyAndReturnArgs>(args?: SelectSubset<T, patent_keywordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Patent_keyword.
+     * @param {patent_keywordDeleteArgs} args - Arguments to delete one Patent_keyword.
+     * @example
+     * // Delete one Patent_keyword
+     * const Patent_keyword = await prisma.patent_keyword.delete({
+     *   where: {
+     *     // ... filter to delete one Patent_keyword
+     *   }
+     * })
+     * 
+     */
+    delete<T extends patent_keywordDeleteArgs>(args: SelectSubset<T, patent_keywordDeleteArgs<ExtArgs>>): Prisma__patent_keywordClient<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Patent_keyword.
+     * @param {patent_keywordUpdateArgs} args - Arguments to update one Patent_keyword.
+     * @example
+     * // Update one Patent_keyword
+     * const patent_keyword = await prisma.patent_keyword.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends patent_keywordUpdateArgs>(args: SelectSubset<T, patent_keywordUpdateArgs<ExtArgs>>): Prisma__patent_keywordClient<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Patent_keywords.
+     * @param {patent_keywordDeleteManyArgs} args - Arguments to filter Patent_keywords to delete.
+     * @example
+     * // Delete a few Patent_keywords
+     * const { count } = await prisma.patent_keyword.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends patent_keywordDeleteManyArgs>(args?: SelectSubset<T, patent_keywordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Patent_keywords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patent_keywordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Patent_keywords
+     * const patent_keyword = await prisma.patent_keyword.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends patent_keywordUpdateManyArgs>(args: SelectSubset<T, patent_keywordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Patent_keywords and returns the data updated in the database.
+     * @param {patent_keywordUpdateManyAndReturnArgs} args - Arguments to update many Patent_keywords.
+     * @example
+     * // Update many Patent_keywords
+     * const patent_keyword = await prisma.patent_keyword.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Patent_keywords and only return the `patent_id`
+     * const patent_keywordWithPatent_idOnly = await prisma.patent_keyword.updateManyAndReturn({
+     *   select: { patent_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends patent_keywordUpdateManyAndReturnArgs>(args: SelectSubset<T, patent_keywordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Patent_keyword.
+     * @param {patent_keywordUpsertArgs} args - Arguments to update or create a Patent_keyword.
+     * @example
+     * // Update or create a Patent_keyword
+     * const patent_keyword = await prisma.patent_keyword.upsert({
+     *   create: {
+     *     // ... data to create a Patent_keyword
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Patent_keyword we want to update
+     *   }
+     * })
+     */
+    upsert<T extends patent_keywordUpsertArgs>(args: SelectSubset<T, patent_keywordUpsertArgs<ExtArgs>>): Prisma__patent_keywordClient<$Result.GetResult<Prisma.$patent_keywordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Patent_keywords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patent_keywordCountArgs} args - Arguments to filter Patent_keywords to count.
+     * @example
+     * // Count the number of Patent_keywords
+     * const count = await prisma.patent_keyword.count({
+     *   where: {
+     *     // ... the filter for the Patent_keywords we want to count
+     *   }
+     * })
+    **/
+    count<T extends patent_keywordCountArgs>(
+      args?: Subset<T, patent_keywordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Patent_keywordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Patent_keyword.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Patent_keywordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Patent_keywordAggregateArgs>(args: Subset<T, Patent_keywordAggregateArgs>): Prisma.PrismaPromise<GetPatent_keywordAggregateType<T>>
+
+    /**
+     * Group by Patent_keyword.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {patent_keywordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends patent_keywordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: patent_keywordGroupByArgs['orderBy'] }
+        : { orderBy?: patent_keywordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, patent_keywordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPatent_keywordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the patent_keyword model
+   */
+  readonly fields: patent_keywordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for patent_keyword.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__patent_keywordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    patent<T extends patentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, patentDefaultArgs<ExtArgs>>): Prisma__patentClient<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    keyword<T extends keywordDefaultArgs<ExtArgs> = {}>(args?: Subset<T, keywordDefaultArgs<ExtArgs>>): Prisma__keywordClient<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the patent_keyword model
+   */
+  interface patent_keywordFieldRefs {
+    readonly patent_id: FieldRef<"patent_keyword", 'BigInt'>
+    readonly keyword_id: FieldRef<"patent_keyword", 'BigInt'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * patent_keyword findUnique
+   */
+  export type patent_keywordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which patent_keyword to fetch.
+     */
+    where: patent_keywordWhereUniqueInput
+  }
+
+  /**
+   * patent_keyword findUniqueOrThrow
+   */
+  export type patent_keywordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which patent_keyword to fetch.
+     */
+    where: patent_keywordWhereUniqueInput
+  }
+
+  /**
+   * patent_keyword findFirst
+   */
+  export type patent_keywordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which patent_keyword to fetch.
+     */
+    where?: patent_keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of patent_keywords to fetch.
+     */
+    orderBy?: patent_keywordOrderByWithRelationInput | patent_keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for patent_keywords.
+     */
+    cursor?: patent_keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` patent_keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` patent_keywords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of patent_keywords.
+     */
+    distinct?: Patent_keywordScalarFieldEnum | Patent_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * patent_keyword findFirstOrThrow
+   */
+  export type patent_keywordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which patent_keyword to fetch.
+     */
+    where?: patent_keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of patent_keywords to fetch.
+     */
+    orderBy?: patent_keywordOrderByWithRelationInput | patent_keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for patent_keywords.
+     */
+    cursor?: patent_keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` patent_keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` patent_keywords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of patent_keywords.
+     */
+    distinct?: Patent_keywordScalarFieldEnum | Patent_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * patent_keyword findMany
+   */
+  export type patent_keywordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which patent_keywords to fetch.
+     */
+    where?: patent_keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of patent_keywords to fetch.
+     */
+    orderBy?: patent_keywordOrderByWithRelationInput | patent_keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing patent_keywords.
+     */
+    cursor?: patent_keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` patent_keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` patent_keywords.
+     */
+    skip?: number
+    distinct?: Patent_keywordScalarFieldEnum | Patent_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * patent_keyword create
+   */
+  export type patent_keywordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a patent_keyword.
+     */
+    data: XOR<patent_keywordCreateInput, patent_keywordUncheckedCreateInput>
+  }
+
+  /**
+   * patent_keyword createMany
+   */
+  export type patent_keywordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many patent_keywords.
+     */
+    data: patent_keywordCreateManyInput | patent_keywordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * patent_keyword createManyAndReturn
+   */
+  export type patent_keywordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * The data used to create many patent_keywords.
+     */
+    data: patent_keywordCreateManyInput | patent_keywordCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * patent_keyword update
+   */
+  export type patent_keywordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a patent_keyword.
+     */
+    data: XOR<patent_keywordUpdateInput, patent_keywordUncheckedUpdateInput>
+    /**
+     * Choose, which patent_keyword to update.
+     */
+    where: patent_keywordWhereUniqueInput
+  }
+
+  /**
+   * patent_keyword updateMany
+   */
+  export type patent_keywordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update patent_keywords.
+     */
+    data: XOR<patent_keywordUpdateManyMutationInput, patent_keywordUncheckedUpdateManyInput>
+    /**
+     * Filter which patent_keywords to update
+     */
+    where?: patent_keywordWhereInput
+    /**
+     * Limit how many patent_keywords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * patent_keyword updateManyAndReturn
+   */
+  export type patent_keywordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * The data used to update patent_keywords.
+     */
+    data: XOR<patent_keywordUpdateManyMutationInput, patent_keywordUncheckedUpdateManyInput>
+    /**
+     * Filter which patent_keywords to update
+     */
+    where?: patent_keywordWhereInput
+    /**
+     * Limit how many patent_keywords to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * patent_keyword upsert
+   */
+  export type patent_keywordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the patent_keyword to update in case it exists.
+     */
+    where: patent_keywordWhereUniqueInput
+    /**
+     * In case the patent_keyword found by the `where` argument doesn't exist, create a new patent_keyword with this data.
+     */
+    create: XOR<patent_keywordCreateInput, patent_keywordUncheckedCreateInput>
+    /**
+     * In case the patent_keyword was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<patent_keywordUpdateInput, patent_keywordUncheckedUpdateInput>
+  }
+
+  /**
+   * patent_keyword delete
+   */
+  export type patent_keywordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordInclude<ExtArgs> | null
+    /**
+     * Filter which patent_keyword to delete.
+     */
+    where: patent_keywordWhereUniqueInput
+  }
+
+  /**
+   * patent_keyword deleteMany
+   */
+  export type patent_keywordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which patent_keywords to delete
+     */
+    where?: patent_keywordWhereInput
+    /**
+     * Limit how many patent_keywords to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * patent_keyword without action
+   */
+  export type patent_keywordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the patent_keyword
+     */
+    select?: patent_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the patent_keyword
+     */
+    omit?: patent_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: patent_keywordInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model journal
+   */
+
+  export type AggregateJournal = {
+    _count: JournalCountAggregateOutputType | null
+    _avg: JournalAvgAggregateOutputType | null
+    _sum: JournalSumAggregateOutputType | null
+    _min: JournalMinAggregateOutputType | null
+    _max: JournalMaxAggregateOutputType | null
+  }
+
+  export type JournalAvgAggregateOutputType = {
+    journal_id: number | null
+    impact_factor: Decimal | null
+    cno: number | null
+    user_no: number | null
+  }
+
+  export type JournalSumAggregateOutputType = {
+    journal_id: bigint | null
+    impact_factor: Decimal | null
+    cno: bigint | null
+    user_no: bigint | null
+  }
+
+  export type JournalMinAggregateOutputType = {
+    journal_id: bigint | null
+    name: string | null
+    publisher: string | null
+    issn: string | null
+    impact_factor: Decimal | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type JournalMaxAggregateOutputType = {
+    journal_id: bigint | null
+    name: string | null
+    publisher: string | null
+    issn: string | null
+    impact_factor: Decimal | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type JournalCountAggregateOutputType = {
+    journal_id: number
+    name: number
+    publisher: number
+    issn: number
+    impact_factor: number
+    cno: number
+    user_no: number
+    insert_timestamp: number
+    update_timestamp: number
+    is_deleted: number
+    _all: number
+  }
+
+
+  export type JournalAvgAggregateInputType = {
+    journal_id?: true
+    impact_factor?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type JournalSumAggregateInputType = {
+    journal_id?: true
+    impact_factor?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type JournalMinAggregateInputType = {
+    journal_id?: true
+    name?: true
+    publisher?: true
+    issn?: true
+    impact_factor?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type JournalMaxAggregateInputType = {
+    journal_id?: true
+    name?: true
+    publisher?: true
+    issn?: true
+    impact_factor?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type JournalCountAggregateInputType = {
+    journal_id?: true
+    name?: true
+    publisher?: true
+    issn?: true
+    impact_factor?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+    _all?: true
+  }
+
+  export type JournalAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which journal to aggregate.
+     */
+    where?: journalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of journals to fetch.
+     */
+    orderBy?: journalOrderByWithRelationInput | journalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: journalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` journals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` journals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned journals
+    **/
+    _count?: true | JournalCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: JournalAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: JournalSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JournalMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JournalMaxAggregateInputType
+  }
+
+  export type GetJournalAggregateType<T extends JournalAggregateArgs> = {
+        [P in keyof T & keyof AggregateJournal]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJournal[P]>
+      : GetScalarType<T[P], AggregateJournal[P]>
+  }
+
+
+
+
+  export type journalGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: journalWhereInput
+    orderBy?: journalOrderByWithAggregationInput | journalOrderByWithAggregationInput[]
+    by: JournalScalarFieldEnum[] | JournalScalarFieldEnum
+    having?: journalScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JournalCountAggregateInputType | true
+    _avg?: JournalAvgAggregateInputType
+    _sum?: JournalSumAggregateInputType
+    _min?: JournalMinAggregateInputType
+    _max?: JournalMaxAggregateInputType
+  }
+
+  export type JournalGroupByOutputType = {
+    journal_id: bigint
+    name: string | null
+    publisher: string | null
+    issn: string | null
+    impact_factor: Decimal | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date
+    update_timestamp: Date
+    is_deleted: boolean
+    _count: JournalCountAggregateOutputType | null
+    _avg: JournalAvgAggregateOutputType | null
+    _sum: JournalSumAggregateOutputType | null
+    _min: JournalMinAggregateOutputType | null
+    _max: JournalMaxAggregateOutputType | null
+  }
+
+  type GetJournalGroupByPayload<T extends journalGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JournalGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JournalGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JournalGroupByOutputType[P]>
+            : GetScalarType<T[P], JournalGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type journalSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    journal_id?: boolean
+    name?: boolean
+    publisher?: boolean
+    issn?: boolean
+    impact_factor?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+    publications?: boolean | journal$publicationsArgs<ExtArgs>
+    journal_keywords?: boolean | journal$journal_keywordsArgs<ExtArgs>
+    _count?: boolean | JournalCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["journal"]>
+
+  export type journalSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    journal_id?: boolean
+    name?: boolean
+    publisher?: boolean
+    issn?: boolean
+    impact_factor?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["journal"]>
+
+  export type journalSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    journal_id?: boolean
+    name?: boolean
+    publisher?: boolean
+    issn?: boolean
+    impact_factor?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["journal"]>
+
+  export type journalSelectScalar = {
+    journal_id?: boolean
+    name?: boolean
+    publisher?: boolean
+    issn?: boolean
+    impact_factor?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }
+
+  export type journalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"journal_id" | "name" | "publisher" | "issn" | "impact_factor" | "cno" | "user_no" | "insert_timestamp" | "update_timestamp" | "is_deleted", ExtArgs["result"]["journal"]>
+  export type journalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    publications?: boolean | journal$publicationsArgs<ExtArgs>
+    journal_keywords?: boolean | journal$journal_keywordsArgs<ExtArgs>
+    _count?: boolean | JournalCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type journalIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type journalIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $journalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "journal"
+    objects: {
+      publications: Prisma.$publicationPayload<ExtArgs>[]
+      journal_keywords: Prisma.$journal_keywordPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      journal_id: bigint
+      name: string | null
+      publisher: string | null
+      issn: string | null
+      impact_factor: Prisma.Decimal | null
+      cno: bigint | null
+      user_no: bigint | null
+      insert_timestamp: Date
+      update_timestamp: Date
+      is_deleted: boolean
+    }, ExtArgs["result"]["journal"]>
+    composites: {}
+  }
+
+  type journalGetPayload<S extends boolean | null | undefined | journalDefaultArgs> = $Result.GetResult<Prisma.$journalPayload, S>
+
+  type journalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<journalFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JournalCountAggregateInputType | true
+    }
+
+  export interface journalDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['journal'], meta: { name: 'journal' } }
+    /**
+     * Find zero or one Journal that matches the filter.
+     * @param {journalFindUniqueArgs} args - Arguments to find a Journal
+     * @example
+     * // Get one Journal
+     * const journal = await prisma.journal.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends journalFindUniqueArgs>(args: SelectSubset<T, journalFindUniqueArgs<ExtArgs>>): Prisma__journalClient<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Journal that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {journalFindUniqueOrThrowArgs} args - Arguments to find a Journal
+     * @example
+     * // Get one Journal
+     * const journal = await prisma.journal.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends journalFindUniqueOrThrowArgs>(args: SelectSubset<T, journalFindUniqueOrThrowArgs<ExtArgs>>): Prisma__journalClient<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Journal that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {journalFindFirstArgs} args - Arguments to find a Journal
+     * @example
+     * // Get one Journal
+     * const journal = await prisma.journal.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends journalFindFirstArgs>(args?: SelectSubset<T, journalFindFirstArgs<ExtArgs>>): Prisma__journalClient<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Journal that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {journalFindFirstOrThrowArgs} args - Arguments to find a Journal
+     * @example
+     * // Get one Journal
+     * const journal = await prisma.journal.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends journalFindFirstOrThrowArgs>(args?: SelectSubset<T, journalFindFirstOrThrowArgs<ExtArgs>>): Prisma__journalClient<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Journals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {journalFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Journals
+     * const journals = await prisma.journal.findMany()
+     * 
+     * // Get first 10 Journals
+     * const journals = await prisma.journal.findMany({ take: 10 })
+     * 
+     * // Only select the `journal_id`
+     * const journalWithJournal_idOnly = await prisma.journal.findMany({ select: { journal_id: true } })
+     * 
+     */
+    findMany<T extends journalFindManyArgs>(args?: SelectSubset<T, journalFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Journal.
+     * @param {journalCreateArgs} args - Arguments to create a Journal.
+     * @example
+     * // Create one Journal
+     * const Journal = await prisma.journal.create({
+     *   data: {
+     *     // ... data to create a Journal
+     *   }
+     * })
+     * 
+     */
+    create<T extends journalCreateArgs>(args: SelectSubset<T, journalCreateArgs<ExtArgs>>): Prisma__journalClient<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Journals.
+     * @param {journalCreateManyArgs} args - Arguments to create many Journals.
+     * @example
+     * // Create many Journals
+     * const journal = await prisma.journal.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends journalCreateManyArgs>(args?: SelectSubset<T, journalCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Journals and returns the data saved in the database.
+     * @param {journalCreateManyAndReturnArgs} args - Arguments to create many Journals.
+     * @example
+     * // Create many Journals
+     * const journal = await prisma.journal.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Journals and only return the `journal_id`
+     * const journalWithJournal_idOnly = await prisma.journal.createManyAndReturn({
+     *   select: { journal_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends journalCreateManyAndReturnArgs>(args?: SelectSubset<T, journalCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Journal.
+     * @param {journalDeleteArgs} args - Arguments to delete one Journal.
+     * @example
+     * // Delete one Journal
+     * const Journal = await prisma.journal.delete({
+     *   where: {
+     *     // ... filter to delete one Journal
+     *   }
+     * })
+     * 
+     */
+    delete<T extends journalDeleteArgs>(args: SelectSubset<T, journalDeleteArgs<ExtArgs>>): Prisma__journalClient<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Journal.
+     * @param {journalUpdateArgs} args - Arguments to update one Journal.
+     * @example
+     * // Update one Journal
+     * const journal = await prisma.journal.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends journalUpdateArgs>(args: SelectSubset<T, journalUpdateArgs<ExtArgs>>): Prisma__journalClient<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Journals.
+     * @param {journalDeleteManyArgs} args - Arguments to filter Journals to delete.
+     * @example
+     * // Delete a few Journals
+     * const { count } = await prisma.journal.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends journalDeleteManyArgs>(args?: SelectSubset<T, journalDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Journals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {journalUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Journals
+     * const journal = await prisma.journal.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends journalUpdateManyArgs>(args: SelectSubset<T, journalUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Journals and returns the data updated in the database.
+     * @param {journalUpdateManyAndReturnArgs} args - Arguments to update many Journals.
+     * @example
+     * // Update many Journals
+     * const journal = await prisma.journal.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Journals and only return the `journal_id`
+     * const journalWithJournal_idOnly = await prisma.journal.updateManyAndReturn({
+     *   select: { journal_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends journalUpdateManyAndReturnArgs>(args: SelectSubset<T, journalUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Journal.
+     * @param {journalUpsertArgs} args - Arguments to update or create a Journal.
+     * @example
+     * // Update or create a Journal
+     * const journal = await prisma.journal.upsert({
+     *   create: {
+     *     // ... data to create a Journal
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Journal we want to update
+     *   }
+     * })
+     */
+    upsert<T extends journalUpsertArgs>(args: SelectSubset<T, journalUpsertArgs<ExtArgs>>): Prisma__journalClient<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Journals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {journalCountArgs} args - Arguments to filter Journals to count.
+     * @example
+     * // Count the number of Journals
+     * const count = await prisma.journal.count({
+     *   where: {
+     *     // ... the filter for the Journals we want to count
+     *   }
+     * })
+    **/
+    count<T extends journalCountArgs>(
+      args?: Subset<T, journalCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JournalCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Journal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JournalAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JournalAggregateArgs>(args: Subset<T, JournalAggregateArgs>): Prisma.PrismaPromise<GetJournalAggregateType<T>>
+
+    /**
+     * Group by Journal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {journalGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends journalGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: journalGroupByArgs['orderBy'] }
+        : { orderBy?: journalGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, journalGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJournalGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the journal model
+   */
+  readonly fields: journalFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for journal.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__journalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    publications<T extends journal$publicationsArgs<ExtArgs> = {}>(args?: Subset<T, journal$publicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    journal_keywords<T extends journal$journal_keywordsArgs<ExtArgs> = {}>(args?: Subset<T, journal$journal_keywordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the journal model
+   */
+  interface journalFieldRefs {
+    readonly journal_id: FieldRef<"journal", 'BigInt'>
+    readonly name: FieldRef<"journal", 'String'>
+    readonly publisher: FieldRef<"journal", 'String'>
+    readonly issn: FieldRef<"journal", 'String'>
+    readonly impact_factor: FieldRef<"journal", 'Decimal'>
+    readonly cno: FieldRef<"journal", 'BigInt'>
+    readonly user_no: FieldRef<"journal", 'BigInt'>
+    readonly insert_timestamp: FieldRef<"journal", 'DateTime'>
+    readonly update_timestamp: FieldRef<"journal", 'DateTime'>
+    readonly is_deleted: FieldRef<"journal", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * journal findUnique
+   */
+  export type journalFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journalInclude<ExtArgs> | null
+    /**
+     * Filter, which journal to fetch.
+     */
+    where: journalWhereUniqueInput
+  }
+
+  /**
+   * journal findUniqueOrThrow
+   */
+  export type journalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journalInclude<ExtArgs> | null
+    /**
+     * Filter, which journal to fetch.
+     */
+    where: journalWhereUniqueInput
+  }
+
+  /**
+   * journal findFirst
+   */
+  export type journalFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journalInclude<ExtArgs> | null
+    /**
+     * Filter, which journal to fetch.
+     */
+    where?: journalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of journals to fetch.
+     */
+    orderBy?: journalOrderByWithRelationInput | journalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for journals.
+     */
+    cursor?: journalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` journals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` journals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of journals.
+     */
+    distinct?: JournalScalarFieldEnum | JournalScalarFieldEnum[]
+  }
+
+  /**
+   * journal findFirstOrThrow
+   */
+  export type journalFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journalInclude<ExtArgs> | null
+    /**
+     * Filter, which journal to fetch.
+     */
+    where?: journalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of journals to fetch.
+     */
+    orderBy?: journalOrderByWithRelationInput | journalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for journals.
+     */
+    cursor?: journalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` journals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` journals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of journals.
+     */
+    distinct?: JournalScalarFieldEnum | JournalScalarFieldEnum[]
+  }
+
+  /**
+   * journal findMany
+   */
+  export type journalFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journalInclude<ExtArgs> | null
+    /**
+     * Filter, which journals to fetch.
+     */
+    where?: journalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of journals to fetch.
+     */
+    orderBy?: journalOrderByWithRelationInput | journalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing journals.
+     */
+    cursor?: journalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` journals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` journals.
+     */
+    skip?: number
+    distinct?: JournalScalarFieldEnum | JournalScalarFieldEnum[]
+  }
+
+  /**
+   * journal create
+   */
+  export type journalCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journalInclude<ExtArgs> | null
+    /**
+     * The data needed to create a journal.
+     */
+    data: XOR<journalCreateInput, journalUncheckedCreateInput>
+  }
+
+  /**
+   * journal createMany
+   */
+  export type journalCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many journals.
+     */
+    data: journalCreateManyInput | journalCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * journal createManyAndReturn
+   */
+  export type journalCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * The data used to create many journals.
+     */
+    data: journalCreateManyInput | journalCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * journal update
+   */
+  export type journalUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journalInclude<ExtArgs> | null
+    /**
+     * The data needed to update a journal.
+     */
+    data: XOR<journalUpdateInput, journalUncheckedUpdateInput>
+    /**
+     * Choose, which journal to update.
+     */
+    where: journalWhereUniqueInput
+  }
+
+  /**
+   * journal updateMany
+   */
+  export type journalUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update journals.
+     */
+    data: XOR<journalUpdateManyMutationInput, journalUncheckedUpdateManyInput>
+    /**
+     * Filter which journals to update
+     */
+    where?: journalWhereInput
+    /**
+     * Limit how many journals to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * journal updateManyAndReturn
+   */
+  export type journalUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * The data used to update journals.
+     */
+    data: XOR<journalUpdateManyMutationInput, journalUncheckedUpdateManyInput>
+    /**
+     * Filter which journals to update
+     */
+    where?: journalWhereInput
+    /**
+     * Limit how many journals to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * journal upsert
+   */
+  export type journalUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journalInclude<ExtArgs> | null
+    /**
+     * The filter to search for the journal to update in case it exists.
+     */
+    where: journalWhereUniqueInput
+    /**
+     * In case the journal found by the `where` argument doesn't exist, create a new journal with this data.
+     */
+    create: XOR<journalCreateInput, journalUncheckedCreateInput>
+    /**
+     * In case the journal was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<journalUpdateInput, journalUncheckedUpdateInput>
+  }
+
+  /**
+   * journal delete
+   */
+  export type journalDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journalInclude<ExtArgs> | null
+    /**
+     * Filter which journal to delete.
+     */
+    where: journalWhereUniqueInput
+  }
+
+  /**
+   * journal deleteMany
+   */
+  export type journalDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which journals to delete
+     */
+    where?: journalWhereInput
+    /**
+     * Limit how many journals to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * journal.publications
+   */
+  export type journal$publicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationInclude<ExtArgs> | null
+    where?: publicationWhereInput
+    orderBy?: publicationOrderByWithRelationInput | publicationOrderByWithRelationInput[]
+    cursor?: publicationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PublicationScalarFieldEnum | PublicationScalarFieldEnum[]
+  }
+
+  /**
+   * journal.journal_keywords
+   */
+  export type journal$journal_keywordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordInclude<ExtArgs> | null
+    where?: journal_keywordWhereInput
+    orderBy?: journal_keywordOrderByWithRelationInput | journal_keywordOrderByWithRelationInput[]
+    cursor?: journal_keywordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Journal_keywordScalarFieldEnum | Journal_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * journal without action
+   */
+  export type journalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journalInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model publication
+   */
+
+  export type AggregatePublication = {
+    _count: PublicationCountAggregateOutputType | null
+    _avg: PublicationAvgAggregateOutputType | null
+    _sum: PublicationSumAggregateOutputType | null
+    _min: PublicationMinAggregateOutputType | null
+    _max: PublicationMaxAggregateOutputType | null
+  }
+
+  export type PublicationAvgAggregateOutputType = {
+    publication_id: number | null
+    journal_id: number | null
+    cno: number | null
+    user_no: number | null
+  }
+
+  export type PublicationSumAggregateOutputType = {
+    publication_id: bigint | null
+    journal_id: bigint | null
+    cno: bigint | null
+    user_no: bigint | null
+  }
+
+  export type PublicationMinAggregateOutputType = {
+    publication_id: bigint | null
+    title: string | null
+    abstract: string | null
+    publication_date: Date | null
+    journal_id: bigint | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type PublicationMaxAggregateOutputType = {
+    publication_id: bigint | null
+    title: string | null
+    abstract: string | null
+    publication_date: Date | null
+    journal_id: bigint | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type PublicationCountAggregateOutputType = {
+    publication_id: number
+    title: number
+    abstract: number
+    publication_date: number
+    journal_id: number
+    cno: number
+    user_no: number
+    insert_timestamp: number
+    update_timestamp: number
+    is_deleted: number
+    _all: number
+  }
+
+
+  export type PublicationAvgAggregateInputType = {
+    publication_id?: true
+    journal_id?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type PublicationSumAggregateInputType = {
+    publication_id?: true
+    journal_id?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type PublicationMinAggregateInputType = {
+    publication_id?: true
+    title?: true
+    abstract?: true
+    publication_date?: true
+    journal_id?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type PublicationMaxAggregateInputType = {
+    publication_id?: true
+    title?: true
+    abstract?: true
+    publication_date?: true
+    journal_id?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type PublicationCountAggregateInputType = {
+    publication_id?: true
+    title?: true
+    abstract?: true
+    publication_date?: true
+    journal_id?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+    _all?: true
+  }
+
+  export type PublicationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which publication to aggregate.
+     */
+    where?: publicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of publications to fetch.
+     */
+    orderBy?: publicationOrderByWithRelationInput | publicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: publicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` publications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` publications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned publications
+    **/
+    _count?: true | PublicationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PublicationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PublicationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PublicationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PublicationMaxAggregateInputType
+  }
+
+  export type GetPublicationAggregateType<T extends PublicationAggregateArgs> = {
+        [P in keyof T & keyof AggregatePublication]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePublication[P]>
+      : GetScalarType<T[P], AggregatePublication[P]>
+  }
+
+
+
+
+  export type publicationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: publicationWhereInput
+    orderBy?: publicationOrderByWithAggregationInput | publicationOrderByWithAggregationInput[]
+    by: PublicationScalarFieldEnum[] | PublicationScalarFieldEnum
+    having?: publicationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PublicationCountAggregateInputType | true
+    _avg?: PublicationAvgAggregateInputType
+    _sum?: PublicationSumAggregateInputType
+    _min?: PublicationMinAggregateInputType
+    _max?: PublicationMaxAggregateInputType
+  }
+
+  export type PublicationGroupByOutputType = {
+    publication_id: bigint
+    title: string | null
+    abstract: string | null
+    publication_date: Date | null
+    journal_id: bigint | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date
+    update_timestamp: Date
+    is_deleted: boolean
+    _count: PublicationCountAggregateOutputType | null
+    _avg: PublicationAvgAggregateOutputType | null
+    _sum: PublicationSumAggregateOutputType | null
+    _min: PublicationMinAggregateOutputType | null
+    _max: PublicationMaxAggregateOutputType | null
+  }
+
+  type GetPublicationGroupByPayload<T extends publicationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PublicationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PublicationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PublicationGroupByOutputType[P]>
+            : GetScalarType<T[P], PublicationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type publicationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    publication_id?: boolean
+    title?: boolean
+    abstract?: boolean
+    publication_date?: boolean
+    journal_id?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+    journal?: boolean | publication$journalArgs<ExtArgs>
+    publication_keywords?: boolean | publication$publication_keywordsArgs<ExtArgs>
+    researcher_publications?: boolean | publication$researcher_publicationsArgs<ExtArgs>
+    _count?: boolean | PublicationCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["publication"]>
+
+  export type publicationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    publication_id?: boolean
+    title?: boolean
+    abstract?: boolean
+    publication_date?: boolean
+    journal_id?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+    journal?: boolean | publication$journalArgs<ExtArgs>
+  }, ExtArgs["result"]["publication"]>
+
+  export type publicationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    publication_id?: boolean
+    title?: boolean
+    abstract?: boolean
+    publication_date?: boolean
+    journal_id?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+    journal?: boolean | publication$journalArgs<ExtArgs>
+  }, ExtArgs["result"]["publication"]>
+
+  export type publicationSelectScalar = {
+    publication_id?: boolean
+    title?: boolean
+    abstract?: boolean
+    publication_date?: boolean
+    journal_id?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }
+
+  export type publicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"publication_id" | "title" | "abstract" | "publication_date" | "journal_id" | "cno" | "user_no" | "insert_timestamp" | "update_timestamp" | "is_deleted", ExtArgs["result"]["publication"]>
+  export type publicationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    journal?: boolean | publication$journalArgs<ExtArgs>
+    publication_keywords?: boolean | publication$publication_keywordsArgs<ExtArgs>
+    researcher_publications?: boolean | publication$researcher_publicationsArgs<ExtArgs>
+    _count?: boolean | PublicationCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type publicationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    journal?: boolean | publication$journalArgs<ExtArgs>
+  }
+  export type publicationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    journal?: boolean | publication$journalArgs<ExtArgs>
+  }
+
+  export type $publicationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "publication"
+    objects: {
+      journal: Prisma.$journalPayload<ExtArgs> | null
+      publication_keywords: Prisma.$publication_keywordPayload<ExtArgs>[]
+      researcher_publications: Prisma.$researcher_publicationPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      publication_id: bigint
+      title: string | null
+      abstract: string | null
+      publication_date: Date | null
+      journal_id: bigint | null
+      cno: bigint | null
+      user_no: bigint | null
+      insert_timestamp: Date
+      update_timestamp: Date
+      is_deleted: boolean
+    }, ExtArgs["result"]["publication"]>
+    composites: {}
+  }
+
+  type publicationGetPayload<S extends boolean | null | undefined | publicationDefaultArgs> = $Result.GetResult<Prisma.$publicationPayload, S>
+
+  type publicationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<publicationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PublicationCountAggregateInputType | true
+    }
+
+  export interface publicationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['publication'], meta: { name: 'publication' } }
+    /**
+     * Find zero or one Publication that matches the filter.
+     * @param {publicationFindUniqueArgs} args - Arguments to find a Publication
+     * @example
+     * // Get one Publication
+     * const publication = await prisma.publication.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends publicationFindUniqueArgs>(args: SelectSubset<T, publicationFindUniqueArgs<ExtArgs>>): Prisma__publicationClient<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Publication that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {publicationFindUniqueOrThrowArgs} args - Arguments to find a Publication
+     * @example
+     * // Get one Publication
+     * const publication = await prisma.publication.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends publicationFindUniqueOrThrowArgs>(args: SelectSubset<T, publicationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__publicationClient<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Publication that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {publicationFindFirstArgs} args - Arguments to find a Publication
+     * @example
+     * // Get one Publication
+     * const publication = await prisma.publication.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends publicationFindFirstArgs>(args?: SelectSubset<T, publicationFindFirstArgs<ExtArgs>>): Prisma__publicationClient<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Publication that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {publicationFindFirstOrThrowArgs} args - Arguments to find a Publication
+     * @example
+     * // Get one Publication
+     * const publication = await prisma.publication.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends publicationFindFirstOrThrowArgs>(args?: SelectSubset<T, publicationFindFirstOrThrowArgs<ExtArgs>>): Prisma__publicationClient<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Publications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {publicationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Publications
+     * const publications = await prisma.publication.findMany()
+     * 
+     * // Get first 10 Publications
+     * const publications = await prisma.publication.findMany({ take: 10 })
+     * 
+     * // Only select the `publication_id`
+     * const publicationWithPublication_idOnly = await prisma.publication.findMany({ select: { publication_id: true } })
+     * 
+     */
+    findMany<T extends publicationFindManyArgs>(args?: SelectSubset<T, publicationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Publication.
+     * @param {publicationCreateArgs} args - Arguments to create a Publication.
+     * @example
+     * // Create one Publication
+     * const Publication = await prisma.publication.create({
+     *   data: {
+     *     // ... data to create a Publication
+     *   }
+     * })
+     * 
+     */
+    create<T extends publicationCreateArgs>(args: SelectSubset<T, publicationCreateArgs<ExtArgs>>): Prisma__publicationClient<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Publications.
+     * @param {publicationCreateManyArgs} args - Arguments to create many Publications.
+     * @example
+     * // Create many Publications
+     * const publication = await prisma.publication.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends publicationCreateManyArgs>(args?: SelectSubset<T, publicationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Publications and returns the data saved in the database.
+     * @param {publicationCreateManyAndReturnArgs} args - Arguments to create many Publications.
+     * @example
+     * // Create many Publications
+     * const publication = await prisma.publication.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Publications and only return the `publication_id`
+     * const publicationWithPublication_idOnly = await prisma.publication.createManyAndReturn({
+     *   select: { publication_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends publicationCreateManyAndReturnArgs>(args?: SelectSubset<T, publicationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Publication.
+     * @param {publicationDeleteArgs} args - Arguments to delete one Publication.
+     * @example
+     * // Delete one Publication
+     * const Publication = await prisma.publication.delete({
+     *   where: {
+     *     // ... filter to delete one Publication
+     *   }
+     * })
+     * 
+     */
+    delete<T extends publicationDeleteArgs>(args: SelectSubset<T, publicationDeleteArgs<ExtArgs>>): Prisma__publicationClient<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Publication.
+     * @param {publicationUpdateArgs} args - Arguments to update one Publication.
+     * @example
+     * // Update one Publication
+     * const publication = await prisma.publication.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends publicationUpdateArgs>(args: SelectSubset<T, publicationUpdateArgs<ExtArgs>>): Prisma__publicationClient<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Publications.
+     * @param {publicationDeleteManyArgs} args - Arguments to filter Publications to delete.
+     * @example
+     * // Delete a few Publications
+     * const { count } = await prisma.publication.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends publicationDeleteManyArgs>(args?: SelectSubset<T, publicationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Publications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {publicationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Publications
+     * const publication = await prisma.publication.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends publicationUpdateManyArgs>(args: SelectSubset<T, publicationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Publications and returns the data updated in the database.
+     * @param {publicationUpdateManyAndReturnArgs} args - Arguments to update many Publications.
+     * @example
+     * // Update many Publications
+     * const publication = await prisma.publication.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Publications and only return the `publication_id`
+     * const publicationWithPublication_idOnly = await prisma.publication.updateManyAndReturn({
+     *   select: { publication_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends publicationUpdateManyAndReturnArgs>(args: SelectSubset<T, publicationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Publication.
+     * @param {publicationUpsertArgs} args - Arguments to update or create a Publication.
+     * @example
+     * // Update or create a Publication
+     * const publication = await prisma.publication.upsert({
+     *   create: {
+     *     // ... data to create a Publication
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Publication we want to update
+     *   }
+     * })
+     */
+    upsert<T extends publicationUpsertArgs>(args: SelectSubset<T, publicationUpsertArgs<ExtArgs>>): Prisma__publicationClient<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Publications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {publicationCountArgs} args - Arguments to filter Publications to count.
+     * @example
+     * // Count the number of Publications
+     * const count = await prisma.publication.count({
+     *   where: {
+     *     // ... the filter for the Publications we want to count
+     *   }
+     * })
+    **/
+    count<T extends publicationCountArgs>(
+      args?: Subset<T, publicationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PublicationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Publication.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PublicationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PublicationAggregateArgs>(args: Subset<T, PublicationAggregateArgs>): Prisma.PrismaPromise<GetPublicationAggregateType<T>>
+
+    /**
+     * Group by Publication.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {publicationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends publicationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: publicationGroupByArgs['orderBy'] }
+        : { orderBy?: publicationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, publicationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPublicationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the publication model
+   */
+  readonly fields: publicationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for publication.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__publicationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    journal<T extends publication$journalArgs<ExtArgs> = {}>(args?: Subset<T, publication$journalArgs<ExtArgs>>): Prisma__journalClient<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    publication_keywords<T extends publication$publication_keywordsArgs<ExtArgs> = {}>(args?: Subset<T, publication$publication_keywordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    researcher_publications<T extends publication$researcher_publicationsArgs<ExtArgs> = {}>(args?: Subset<T, publication$researcher_publicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the publication model
+   */
+  interface publicationFieldRefs {
+    readonly publication_id: FieldRef<"publication", 'BigInt'>
+    readonly title: FieldRef<"publication", 'String'>
+    readonly abstract: FieldRef<"publication", 'String'>
+    readonly publication_date: FieldRef<"publication", 'DateTime'>
+    readonly journal_id: FieldRef<"publication", 'BigInt'>
+    readonly cno: FieldRef<"publication", 'BigInt'>
+    readonly user_no: FieldRef<"publication", 'BigInt'>
+    readonly insert_timestamp: FieldRef<"publication", 'DateTime'>
+    readonly update_timestamp: FieldRef<"publication", 'DateTime'>
+    readonly is_deleted: FieldRef<"publication", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * publication findUnique
+   */
+  export type publicationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationInclude<ExtArgs> | null
+    /**
+     * Filter, which publication to fetch.
+     */
+    where: publicationWhereUniqueInput
+  }
+
+  /**
+   * publication findUniqueOrThrow
+   */
+  export type publicationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationInclude<ExtArgs> | null
+    /**
+     * Filter, which publication to fetch.
+     */
+    where: publicationWhereUniqueInput
+  }
+
+  /**
+   * publication findFirst
+   */
+  export type publicationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationInclude<ExtArgs> | null
+    /**
+     * Filter, which publication to fetch.
+     */
+    where?: publicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of publications to fetch.
+     */
+    orderBy?: publicationOrderByWithRelationInput | publicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for publications.
+     */
+    cursor?: publicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` publications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` publications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of publications.
+     */
+    distinct?: PublicationScalarFieldEnum | PublicationScalarFieldEnum[]
+  }
+
+  /**
+   * publication findFirstOrThrow
+   */
+  export type publicationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationInclude<ExtArgs> | null
+    /**
+     * Filter, which publication to fetch.
+     */
+    where?: publicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of publications to fetch.
+     */
+    orderBy?: publicationOrderByWithRelationInput | publicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for publications.
+     */
+    cursor?: publicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` publications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` publications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of publications.
+     */
+    distinct?: PublicationScalarFieldEnum | PublicationScalarFieldEnum[]
+  }
+
+  /**
+   * publication findMany
+   */
+  export type publicationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationInclude<ExtArgs> | null
+    /**
+     * Filter, which publications to fetch.
+     */
+    where?: publicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of publications to fetch.
+     */
+    orderBy?: publicationOrderByWithRelationInput | publicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing publications.
+     */
+    cursor?: publicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` publications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` publications.
+     */
+    skip?: number
+    distinct?: PublicationScalarFieldEnum | PublicationScalarFieldEnum[]
+  }
+
+  /**
+   * publication create
+   */
+  export type publicationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a publication.
+     */
+    data: XOR<publicationCreateInput, publicationUncheckedCreateInput>
+  }
+
+  /**
+   * publication createMany
+   */
+  export type publicationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many publications.
+     */
+    data: publicationCreateManyInput | publicationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * publication createManyAndReturn
+   */
+  export type publicationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * The data used to create many publications.
+     */
+    data: publicationCreateManyInput | publicationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * publication update
+   */
+  export type publicationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a publication.
+     */
+    data: XOR<publicationUpdateInput, publicationUncheckedUpdateInput>
+    /**
+     * Choose, which publication to update.
+     */
+    where: publicationWhereUniqueInput
+  }
+
+  /**
+   * publication updateMany
+   */
+  export type publicationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update publications.
+     */
+    data: XOR<publicationUpdateManyMutationInput, publicationUncheckedUpdateManyInput>
+    /**
+     * Filter which publications to update
+     */
+    where?: publicationWhereInput
+    /**
+     * Limit how many publications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * publication updateManyAndReturn
+   */
+  export type publicationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * The data used to update publications.
+     */
+    data: XOR<publicationUpdateManyMutationInput, publicationUncheckedUpdateManyInput>
+    /**
+     * Filter which publications to update
+     */
+    where?: publicationWhereInput
+    /**
+     * Limit how many publications to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * publication upsert
+   */
+  export type publicationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the publication to update in case it exists.
+     */
+    where: publicationWhereUniqueInput
+    /**
+     * In case the publication found by the `where` argument doesn't exist, create a new publication with this data.
+     */
+    create: XOR<publicationCreateInput, publicationUncheckedCreateInput>
+    /**
+     * In case the publication was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<publicationUpdateInput, publicationUncheckedUpdateInput>
+  }
+
+  /**
+   * publication delete
+   */
+  export type publicationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationInclude<ExtArgs> | null
+    /**
+     * Filter which publication to delete.
+     */
+    where: publicationWhereUniqueInput
+  }
+
+  /**
+   * publication deleteMany
+   */
+  export type publicationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which publications to delete
+     */
+    where?: publicationWhereInput
+    /**
+     * Limit how many publications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * publication.journal
+   */
+  export type publication$journalArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal
+     */
+    select?: journalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal
+     */
+    omit?: journalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journalInclude<ExtArgs> | null
+    where?: journalWhereInput
+  }
+
+  /**
+   * publication.publication_keywords
+   */
+  export type publication$publication_keywordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordInclude<ExtArgs> | null
+    where?: publication_keywordWhereInput
+    orderBy?: publication_keywordOrderByWithRelationInput | publication_keywordOrderByWithRelationInput[]
+    cursor?: publication_keywordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Publication_keywordScalarFieldEnum | Publication_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * publication.researcher_publications
+   */
+  export type publication$researcher_publicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationInclude<ExtArgs> | null
+    where?: researcher_publicationWhereInput
+    orderBy?: researcher_publicationOrderByWithRelationInput | researcher_publicationOrderByWithRelationInput[]
+    cursor?: researcher_publicationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Researcher_publicationScalarFieldEnum | Researcher_publicationScalarFieldEnum[]
+  }
+
+  /**
+   * publication without action
+   */
+  export type publicationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication
+     */
+    select?: publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication
+     */
+    omit?: publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publicationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model publication_keyword
+   */
+
+  export type AggregatePublication_keyword = {
+    _count: Publication_keywordCountAggregateOutputType | null
+    _avg: Publication_keywordAvgAggregateOutputType | null
+    _sum: Publication_keywordSumAggregateOutputType | null
+    _min: Publication_keywordMinAggregateOutputType | null
+    _max: Publication_keywordMaxAggregateOutputType | null
+  }
+
+  export type Publication_keywordAvgAggregateOutputType = {
+    publication_id: number | null
+    keyword_id: number | null
+  }
+
+  export type Publication_keywordSumAggregateOutputType = {
+    publication_id: bigint | null
+    keyword_id: bigint | null
+  }
+
+  export type Publication_keywordMinAggregateOutputType = {
+    publication_id: bigint | null
+    keyword_id: bigint | null
+  }
+
+  export type Publication_keywordMaxAggregateOutputType = {
+    publication_id: bigint | null
+    keyword_id: bigint | null
+  }
+
+  export type Publication_keywordCountAggregateOutputType = {
+    publication_id: number
+    keyword_id: number
+    _all: number
+  }
+
+
+  export type Publication_keywordAvgAggregateInputType = {
+    publication_id?: true
+    keyword_id?: true
+  }
+
+  export type Publication_keywordSumAggregateInputType = {
+    publication_id?: true
+    keyword_id?: true
+  }
+
+  export type Publication_keywordMinAggregateInputType = {
+    publication_id?: true
+    keyword_id?: true
+  }
+
+  export type Publication_keywordMaxAggregateInputType = {
+    publication_id?: true
+    keyword_id?: true
+  }
+
+  export type Publication_keywordCountAggregateInputType = {
+    publication_id?: true
+    keyword_id?: true
+    _all?: true
+  }
+
+  export type Publication_keywordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which publication_keyword to aggregate.
+     */
+    where?: publication_keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of publication_keywords to fetch.
+     */
+    orderBy?: publication_keywordOrderByWithRelationInput | publication_keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: publication_keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` publication_keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` publication_keywords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned publication_keywords
+    **/
+    _count?: true | Publication_keywordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Publication_keywordAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Publication_keywordSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Publication_keywordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Publication_keywordMaxAggregateInputType
+  }
+
+  export type GetPublication_keywordAggregateType<T extends Publication_keywordAggregateArgs> = {
+        [P in keyof T & keyof AggregatePublication_keyword]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePublication_keyword[P]>
+      : GetScalarType<T[P], AggregatePublication_keyword[P]>
+  }
+
+
+
+
+  export type publication_keywordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: publication_keywordWhereInput
+    orderBy?: publication_keywordOrderByWithAggregationInput | publication_keywordOrderByWithAggregationInput[]
+    by: Publication_keywordScalarFieldEnum[] | Publication_keywordScalarFieldEnum
+    having?: publication_keywordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Publication_keywordCountAggregateInputType | true
+    _avg?: Publication_keywordAvgAggregateInputType
+    _sum?: Publication_keywordSumAggregateInputType
+    _min?: Publication_keywordMinAggregateInputType
+    _max?: Publication_keywordMaxAggregateInputType
+  }
+
+  export type Publication_keywordGroupByOutputType = {
+    publication_id: bigint
+    keyword_id: bigint
+    _count: Publication_keywordCountAggregateOutputType | null
+    _avg: Publication_keywordAvgAggregateOutputType | null
+    _sum: Publication_keywordSumAggregateOutputType | null
+    _min: Publication_keywordMinAggregateOutputType | null
+    _max: Publication_keywordMaxAggregateOutputType | null
+  }
+
+  type GetPublication_keywordGroupByPayload<T extends publication_keywordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Publication_keywordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Publication_keywordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Publication_keywordGroupByOutputType[P]>
+            : GetScalarType<T[P], Publication_keywordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type publication_keywordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    publication_id?: boolean
+    keyword_id?: boolean
+    publication?: boolean | publicationDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["publication_keyword"]>
+
+  export type publication_keywordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    publication_id?: boolean
+    keyword_id?: boolean
+    publication?: boolean | publicationDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["publication_keyword"]>
+
+  export type publication_keywordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    publication_id?: boolean
+    keyword_id?: boolean
+    publication?: boolean | publicationDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["publication_keyword"]>
+
+  export type publication_keywordSelectScalar = {
+    publication_id?: boolean
+    keyword_id?: boolean
+  }
+
+  export type publication_keywordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"publication_id" | "keyword_id", ExtArgs["result"]["publication_keyword"]>
+  export type publication_keywordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    publication?: boolean | publicationDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }
+  export type publication_keywordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    publication?: boolean | publicationDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }
+  export type publication_keywordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    publication?: boolean | publicationDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }
+
+  export type $publication_keywordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "publication_keyword"
+    objects: {
+      publication: Prisma.$publicationPayload<ExtArgs>
+      keyword: Prisma.$keywordPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      publication_id: bigint
+      keyword_id: bigint
+    }, ExtArgs["result"]["publication_keyword"]>
+    composites: {}
+  }
+
+  type publication_keywordGetPayload<S extends boolean | null | undefined | publication_keywordDefaultArgs> = $Result.GetResult<Prisma.$publication_keywordPayload, S>
+
+  type publication_keywordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<publication_keywordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Publication_keywordCountAggregateInputType | true
+    }
+
+  export interface publication_keywordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['publication_keyword'], meta: { name: 'publication_keyword' } }
+    /**
+     * Find zero or one Publication_keyword that matches the filter.
+     * @param {publication_keywordFindUniqueArgs} args - Arguments to find a Publication_keyword
+     * @example
+     * // Get one Publication_keyword
+     * const publication_keyword = await prisma.publication_keyword.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends publication_keywordFindUniqueArgs>(args: SelectSubset<T, publication_keywordFindUniqueArgs<ExtArgs>>): Prisma__publication_keywordClient<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Publication_keyword that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {publication_keywordFindUniqueOrThrowArgs} args - Arguments to find a Publication_keyword
+     * @example
+     * // Get one Publication_keyword
+     * const publication_keyword = await prisma.publication_keyword.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends publication_keywordFindUniqueOrThrowArgs>(args: SelectSubset<T, publication_keywordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__publication_keywordClient<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Publication_keyword that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {publication_keywordFindFirstArgs} args - Arguments to find a Publication_keyword
+     * @example
+     * // Get one Publication_keyword
+     * const publication_keyword = await prisma.publication_keyword.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends publication_keywordFindFirstArgs>(args?: SelectSubset<T, publication_keywordFindFirstArgs<ExtArgs>>): Prisma__publication_keywordClient<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Publication_keyword that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {publication_keywordFindFirstOrThrowArgs} args - Arguments to find a Publication_keyword
+     * @example
+     * // Get one Publication_keyword
+     * const publication_keyword = await prisma.publication_keyword.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends publication_keywordFindFirstOrThrowArgs>(args?: SelectSubset<T, publication_keywordFindFirstOrThrowArgs<ExtArgs>>): Prisma__publication_keywordClient<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Publication_keywords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {publication_keywordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Publication_keywords
+     * const publication_keywords = await prisma.publication_keyword.findMany()
+     * 
+     * // Get first 10 Publication_keywords
+     * const publication_keywords = await prisma.publication_keyword.findMany({ take: 10 })
+     * 
+     * // Only select the `publication_id`
+     * const publication_keywordWithPublication_idOnly = await prisma.publication_keyword.findMany({ select: { publication_id: true } })
+     * 
+     */
+    findMany<T extends publication_keywordFindManyArgs>(args?: SelectSubset<T, publication_keywordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Publication_keyword.
+     * @param {publication_keywordCreateArgs} args - Arguments to create a Publication_keyword.
+     * @example
+     * // Create one Publication_keyword
+     * const Publication_keyword = await prisma.publication_keyword.create({
+     *   data: {
+     *     // ... data to create a Publication_keyword
+     *   }
+     * })
+     * 
+     */
+    create<T extends publication_keywordCreateArgs>(args: SelectSubset<T, publication_keywordCreateArgs<ExtArgs>>): Prisma__publication_keywordClient<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Publication_keywords.
+     * @param {publication_keywordCreateManyArgs} args - Arguments to create many Publication_keywords.
+     * @example
+     * // Create many Publication_keywords
+     * const publication_keyword = await prisma.publication_keyword.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends publication_keywordCreateManyArgs>(args?: SelectSubset<T, publication_keywordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Publication_keywords and returns the data saved in the database.
+     * @param {publication_keywordCreateManyAndReturnArgs} args - Arguments to create many Publication_keywords.
+     * @example
+     * // Create many Publication_keywords
+     * const publication_keyword = await prisma.publication_keyword.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Publication_keywords and only return the `publication_id`
+     * const publication_keywordWithPublication_idOnly = await prisma.publication_keyword.createManyAndReturn({
+     *   select: { publication_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends publication_keywordCreateManyAndReturnArgs>(args?: SelectSubset<T, publication_keywordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Publication_keyword.
+     * @param {publication_keywordDeleteArgs} args - Arguments to delete one Publication_keyword.
+     * @example
+     * // Delete one Publication_keyword
+     * const Publication_keyword = await prisma.publication_keyword.delete({
+     *   where: {
+     *     // ... filter to delete one Publication_keyword
+     *   }
+     * })
+     * 
+     */
+    delete<T extends publication_keywordDeleteArgs>(args: SelectSubset<T, publication_keywordDeleteArgs<ExtArgs>>): Prisma__publication_keywordClient<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Publication_keyword.
+     * @param {publication_keywordUpdateArgs} args - Arguments to update one Publication_keyword.
+     * @example
+     * // Update one Publication_keyword
+     * const publication_keyword = await prisma.publication_keyword.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends publication_keywordUpdateArgs>(args: SelectSubset<T, publication_keywordUpdateArgs<ExtArgs>>): Prisma__publication_keywordClient<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Publication_keywords.
+     * @param {publication_keywordDeleteManyArgs} args - Arguments to filter Publication_keywords to delete.
+     * @example
+     * // Delete a few Publication_keywords
+     * const { count } = await prisma.publication_keyword.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends publication_keywordDeleteManyArgs>(args?: SelectSubset<T, publication_keywordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Publication_keywords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {publication_keywordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Publication_keywords
+     * const publication_keyword = await prisma.publication_keyword.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends publication_keywordUpdateManyArgs>(args: SelectSubset<T, publication_keywordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Publication_keywords and returns the data updated in the database.
+     * @param {publication_keywordUpdateManyAndReturnArgs} args - Arguments to update many Publication_keywords.
+     * @example
+     * // Update many Publication_keywords
+     * const publication_keyword = await prisma.publication_keyword.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Publication_keywords and only return the `publication_id`
+     * const publication_keywordWithPublication_idOnly = await prisma.publication_keyword.updateManyAndReturn({
+     *   select: { publication_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends publication_keywordUpdateManyAndReturnArgs>(args: SelectSubset<T, publication_keywordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Publication_keyword.
+     * @param {publication_keywordUpsertArgs} args - Arguments to update or create a Publication_keyword.
+     * @example
+     * // Update or create a Publication_keyword
+     * const publication_keyword = await prisma.publication_keyword.upsert({
+     *   create: {
+     *     // ... data to create a Publication_keyword
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Publication_keyword we want to update
+     *   }
+     * })
+     */
+    upsert<T extends publication_keywordUpsertArgs>(args: SelectSubset<T, publication_keywordUpsertArgs<ExtArgs>>): Prisma__publication_keywordClient<$Result.GetResult<Prisma.$publication_keywordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Publication_keywords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {publication_keywordCountArgs} args - Arguments to filter Publication_keywords to count.
+     * @example
+     * // Count the number of Publication_keywords
+     * const count = await prisma.publication_keyword.count({
+     *   where: {
+     *     // ... the filter for the Publication_keywords we want to count
+     *   }
+     * })
+    **/
+    count<T extends publication_keywordCountArgs>(
+      args?: Subset<T, publication_keywordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Publication_keywordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Publication_keyword.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Publication_keywordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Publication_keywordAggregateArgs>(args: Subset<T, Publication_keywordAggregateArgs>): Prisma.PrismaPromise<GetPublication_keywordAggregateType<T>>
+
+    /**
+     * Group by Publication_keyword.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {publication_keywordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends publication_keywordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: publication_keywordGroupByArgs['orderBy'] }
+        : { orderBy?: publication_keywordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, publication_keywordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPublication_keywordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the publication_keyword model
+   */
+  readonly fields: publication_keywordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for publication_keyword.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__publication_keywordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    publication<T extends publicationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, publicationDefaultArgs<ExtArgs>>): Prisma__publicationClient<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    keyword<T extends keywordDefaultArgs<ExtArgs> = {}>(args?: Subset<T, keywordDefaultArgs<ExtArgs>>): Prisma__keywordClient<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the publication_keyword model
+   */
+  interface publication_keywordFieldRefs {
+    readonly publication_id: FieldRef<"publication_keyword", 'BigInt'>
+    readonly keyword_id: FieldRef<"publication_keyword", 'BigInt'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * publication_keyword findUnique
+   */
+  export type publication_keywordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which publication_keyword to fetch.
+     */
+    where: publication_keywordWhereUniqueInput
+  }
+
+  /**
+   * publication_keyword findUniqueOrThrow
+   */
+  export type publication_keywordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which publication_keyword to fetch.
+     */
+    where: publication_keywordWhereUniqueInput
+  }
+
+  /**
+   * publication_keyword findFirst
+   */
+  export type publication_keywordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which publication_keyword to fetch.
+     */
+    where?: publication_keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of publication_keywords to fetch.
+     */
+    orderBy?: publication_keywordOrderByWithRelationInput | publication_keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for publication_keywords.
+     */
+    cursor?: publication_keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` publication_keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` publication_keywords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of publication_keywords.
+     */
+    distinct?: Publication_keywordScalarFieldEnum | Publication_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * publication_keyword findFirstOrThrow
+   */
+  export type publication_keywordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which publication_keyword to fetch.
+     */
+    where?: publication_keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of publication_keywords to fetch.
+     */
+    orderBy?: publication_keywordOrderByWithRelationInput | publication_keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for publication_keywords.
+     */
+    cursor?: publication_keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` publication_keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` publication_keywords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of publication_keywords.
+     */
+    distinct?: Publication_keywordScalarFieldEnum | Publication_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * publication_keyword findMany
+   */
+  export type publication_keywordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which publication_keywords to fetch.
+     */
+    where?: publication_keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of publication_keywords to fetch.
+     */
+    orderBy?: publication_keywordOrderByWithRelationInput | publication_keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing publication_keywords.
+     */
+    cursor?: publication_keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` publication_keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` publication_keywords.
+     */
+    skip?: number
+    distinct?: Publication_keywordScalarFieldEnum | Publication_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * publication_keyword create
+   */
+  export type publication_keywordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a publication_keyword.
+     */
+    data: XOR<publication_keywordCreateInput, publication_keywordUncheckedCreateInput>
+  }
+
+  /**
+   * publication_keyword createMany
+   */
+  export type publication_keywordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many publication_keywords.
+     */
+    data: publication_keywordCreateManyInput | publication_keywordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * publication_keyword createManyAndReturn
+   */
+  export type publication_keywordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * The data used to create many publication_keywords.
+     */
+    data: publication_keywordCreateManyInput | publication_keywordCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * publication_keyword update
+   */
+  export type publication_keywordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a publication_keyword.
+     */
+    data: XOR<publication_keywordUpdateInput, publication_keywordUncheckedUpdateInput>
+    /**
+     * Choose, which publication_keyword to update.
+     */
+    where: publication_keywordWhereUniqueInput
+  }
+
+  /**
+   * publication_keyword updateMany
+   */
+  export type publication_keywordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update publication_keywords.
+     */
+    data: XOR<publication_keywordUpdateManyMutationInput, publication_keywordUncheckedUpdateManyInput>
+    /**
+     * Filter which publication_keywords to update
+     */
+    where?: publication_keywordWhereInput
+    /**
+     * Limit how many publication_keywords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * publication_keyword updateManyAndReturn
+   */
+  export type publication_keywordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * The data used to update publication_keywords.
+     */
+    data: XOR<publication_keywordUpdateManyMutationInput, publication_keywordUncheckedUpdateManyInput>
+    /**
+     * Filter which publication_keywords to update
+     */
+    where?: publication_keywordWhereInput
+    /**
+     * Limit how many publication_keywords to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * publication_keyword upsert
+   */
+  export type publication_keywordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the publication_keyword to update in case it exists.
+     */
+    where: publication_keywordWhereUniqueInput
+    /**
+     * In case the publication_keyword found by the `where` argument doesn't exist, create a new publication_keyword with this data.
+     */
+    create: XOR<publication_keywordCreateInput, publication_keywordUncheckedCreateInput>
+    /**
+     * In case the publication_keyword was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<publication_keywordUpdateInput, publication_keywordUncheckedUpdateInput>
+  }
+
+  /**
+   * publication_keyword delete
+   */
+  export type publication_keywordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordInclude<ExtArgs> | null
+    /**
+     * Filter which publication_keyword to delete.
+     */
+    where: publication_keywordWhereUniqueInput
+  }
+
+  /**
+   * publication_keyword deleteMany
+   */
+  export type publication_keywordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which publication_keywords to delete
+     */
+    where?: publication_keywordWhereInput
+    /**
+     * Limit how many publication_keywords to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * publication_keyword without action
+   */
+  export type publication_keywordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the publication_keyword
+     */
+    select?: publication_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the publication_keyword
+     */
+    omit?: publication_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: publication_keywordInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model journal_keyword
+   */
+
+  export type AggregateJournal_keyword = {
+    _count: Journal_keywordCountAggregateOutputType | null
+    _avg: Journal_keywordAvgAggregateOutputType | null
+    _sum: Journal_keywordSumAggregateOutputType | null
+    _min: Journal_keywordMinAggregateOutputType | null
+    _max: Journal_keywordMaxAggregateOutputType | null
+  }
+
+  export type Journal_keywordAvgAggregateOutputType = {
+    journal_id: number | null
+    keyword_id: number | null
+  }
+
+  export type Journal_keywordSumAggregateOutputType = {
+    journal_id: bigint | null
+    keyword_id: bigint | null
+  }
+
+  export type Journal_keywordMinAggregateOutputType = {
+    journal_id: bigint | null
+    keyword_id: bigint | null
+  }
+
+  export type Journal_keywordMaxAggregateOutputType = {
+    journal_id: bigint | null
+    keyword_id: bigint | null
+  }
+
+  export type Journal_keywordCountAggregateOutputType = {
+    journal_id: number
+    keyword_id: number
+    _all: number
+  }
+
+
+  export type Journal_keywordAvgAggregateInputType = {
+    journal_id?: true
+    keyword_id?: true
+  }
+
+  export type Journal_keywordSumAggregateInputType = {
+    journal_id?: true
+    keyword_id?: true
+  }
+
+  export type Journal_keywordMinAggregateInputType = {
+    journal_id?: true
+    keyword_id?: true
+  }
+
+  export type Journal_keywordMaxAggregateInputType = {
+    journal_id?: true
+    keyword_id?: true
+  }
+
+  export type Journal_keywordCountAggregateInputType = {
+    journal_id?: true
+    keyword_id?: true
+    _all?: true
+  }
+
+  export type Journal_keywordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which journal_keyword to aggregate.
+     */
+    where?: journal_keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of journal_keywords to fetch.
+     */
+    orderBy?: journal_keywordOrderByWithRelationInput | journal_keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: journal_keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` journal_keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` journal_keywords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned journal_keywords
+    **/
+    _count?: true | Journal_keywordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Journal_keywordAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Journal_keywordSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Journal_keywordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Journal_keywordMaxAggregateInputType
+  }
+
+  export type GetJournal_keywordAggregateType<T extends Journal_keywordAggregateArgs> = {
+        [P in keyof T & keyof AggregateJournal_keyword]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJournal_keyword[P]>
+      : GetScalarType<T[P], AggregateJournal_keyword[P]>
+  }
+
+
+
+
+  export type journal_keywordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: journal_keywordWhereInput
+    orderBy?: journal_keywordOrderByWithAggregationInput | journal_keywordOrderByWithAggregationInput[]
+    by: Journal_keywordScalarFieldEnum[] | Journal_keywordScalarFieldEnum
+    having?: journal_keywordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Journal_keywordCountAggregateInputType | true
+    _avg?: Journal_keywordAvgAggregateInputType
+    _sum?: Journal_keywordSumAggregateInputType
+    _min?: Journal_keywordMinAggregateInputType
+    _max?: Journal_keywordMaxAggregateInputType
+  }
+
+  export type Journal_keywordGroupByOutputType = {
+    journal_id: bigint
+    keyword_id: bigint
+    _count: Journal_keywordCountAggregateOutputType | null
+    _avg: Journal_keywordAvgAggregateOutputType | null
+    _sum: Journal_keywordSumAggregateOutputType | null
+    _min: Journal_keywordMinAggregateOutputType | null
+    _max: Journal_keywordMaxAggregateOutputType | null
+  }
+
+  type GetJournal_keywordGroupByPayload<T extends journal_keywordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Journal_keywordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Journal_keywordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Journal_keywordGroupByOutputType[P]>
+            : GetScalarType<T[P], Journal_keywordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type journal_keywordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    journal_id?: boolean
+    keyword_id?: boolean
+    journal?: boolean | journalDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["journal_keyword"]>
+
+  export type journal_keywordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    journal_id?: boolean
+    keyword_id?: boolean
+    journal?: boolean | journalDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["journal_keyword"]>
+
+  export type journal_keywordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    journal_id?: boolean
+    keyword_id?: boolean
+    journal?: boolean | journalDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["journal_keyword"]>
+
+  export type journal_keywordSelectScalar = {
+    journal_id?: boolean
+    keyword_id?: boolean
+  }
+
+  export type journal_keywordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"journal_id" | "keyword_id", ExtArgs["result"]["journal_keyword"]>
+  export type journal_keywordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    journal?: boolean | journalDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }
+  export type journal_keywordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    journal?: boolean | journalDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }
+  export type journal_keywordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    journal?: boolean | journalDefaultArgs<ExtArgs>
+    keyword?: boolean | keywordDefaultArgs<ExtArgs>
+  }
+
+  export type $journal_keywordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "journal_keyword"
+    objects: {
+      journal: Prisma.$journalPayload<ExtArgs>
+      keyword: Prisma.$keywordPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      journal_id: bigint
+      keyword_id: bigint
+    }, ExtArgs["result"]["journal_keyword"]>
+    composites: {}
+  }
+
+  type journal_keywordGetPayload<S extends boolean | null | undefined | journal_keywordDefaultArgs> = $Result.GetResult<Prisma.$journal_keywordPayload, S>
+
+  type journal_keywordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<journal_keywordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Journal_keywordCountAggregateInputType | true
+    }
+
+  export interface journal_keywordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['journal_keyword'], meta: { name: 'journal_keyword' } }
+    /**
+     * Find zero or one Journal_keyword that matches the filter.
+     * @param {journal_keywordFindUniqueArgs} args - Arguments to find a Journal_keyword
+     * @example
+     * // Get one Journal_keyword
+     * const journal_keyword = await prisma.journal_keyword.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends journal_keywordFindUniqueArgs>(args: SelectSubset<T, journal_keywordFindUniqueArgs<ExtArgs>>): Prisma__journal_keywordClient<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Journal_keyword that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {journal_keywordFindUniqueOrThrowArgs} args - Arguments to find a Journal_keyword
+     * @example
+     * // Get one Journal_keyword
+     * const journal_keyword = await prisma.journal_keyword.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends journal_keywordFindUniqueOrThrowArgs>(args: SelectSubset<T, journal_keywordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__journal_keywordClient<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Journal_keyword that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {journal_keywordFindFirstArgs} args - Arguments to find a Journal_keyword
+     * @example
+     * // Get one Journal_keyword
+     * const journal_keyword = await prisma.journal_keyword.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends journal_keywordFindFirstArgs>(args?: SelectSubset<T, journal_keywordFindFirstArgs<ExtArgs>>): Prisma__journal_keywordClient<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Journal_keyword that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {journal_keywordFindFirstOrThrowArgs} args - Arguments to find a Journal_keyword
+     * @example
+     * // Get one Journal_keyword
+     * const journal_keyword = await prisma.journal_keyword.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends journal_keywordFindFirstOrThrowArgs>(args?: SelectSubset<T, journal_keywordFindFirstOrThrowArgs<ExtArgs>>): Prisma__journal_keywordClient<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Journal_keywords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {journal_keywordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Journal_keywords
+     * const journal_keywords = await prisma.journal_keyword.findMany()
+     * 
+     * // Get first 10 Journal_keywords
+     * const journal_keywords = await prisma.journal_keyword.findMany({ take: 10 })
+     * 
+     * // Only select the `journal_id`
+     * const journal_keywordWithJournal_idOnly = await prisma.journal_keyword.findMany({ select: { journal_id: true } })
+     * 
+     */
+    findMany<T extends journal_keywordFindManyArgs>(args?: SelectSubset<T, journal_keywordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Journal_keyword.
+     * @param {journal_keywordCreateArgs} args - Arguments to create a Journal_keyword.
+     * @example
+     * // Create one Journal_keyword
+     * const Journal_keyword = await prisma.journal_keyword.create({
+     *   data: {
+     *     // ... data to create a Journal_keyword
+     *   }
+     * })
+     * 
+     */
+    create<T extends journal_keywordCreateArgs>(args: SelectSubset<T, journal_keywordCreateArgs<ExtArgs>>): Prisma__journal_keywordClient<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Journal_keywords.
+     * @param {journal_keywordCreateManyArgs} args - Arguments to create many Journal_keywords.
+     * @example
+     * // Create many Journal_keywords
+     * const journal_keyword = await prisma.journal_keyword.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends journal_keywordCreateManyArgs>(args?: SelectSubset<T, journal_keywordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Journal_keywords and returns the data saved in the database.
+     * @param {journal_keywordCreateManyAndReturnArgs} args - Arguments to create many Journal_keywords.
+     * @example
+     * // Create many Journal_keywords
+     * const journal_keyword = await prisma.journal_keyword.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Journal_keywords and only return the `journal_id`
+     * const journal_keywordWithJournal_idOnly = await prisma.journal_keyword.createManyAndReturn({
+     *   select: { journal_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends journal_keywordCreateManyAndReturnArgs>(args?: SelectSubset<T, journal_keywordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Journal_keyword.
+     * @param {journal_keywordDeleteArgs} args - Arguments to delete one Journal_keyword.
+     * @example
+     * // Delete one Journal_keyword
+     * const Journal_keyword = await prisma.journal_keyword.delete({
+     *   where: {
+     *     // ... filter to delete one Journal_keyword
+     *   }
+     * })
+     * 
+     */
+    delete<T extends journal_keywordDeleteArgs>(args: SelectSubset<T, journal_keywordDeleteArgs<ExtArgs>>): Prisma__journal_keywordClient<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Journal_keyword.
+     * @param {journal_keywordUpdateArgs} args - Arguments to update one Journal_keyword.
+     * @example
+     * // Update one Journal_keyword
+     * const journal_keyword = await prisma.journal_keyword.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends journal_keywordUpdateArgs>(args: SelectSubset<T, journal_keywordUpdateArgs<ExtArgs>>): Prisma__journal_keywordClient<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Journal_keywords.
+     * @param {journal_keywordDeleteManyArgs} args - Arguments to filter Journal_keywords to delete.
+     * @example
+     * // Delete a few Journal_keywords
+     * const { count } = await prisma.journal_keyword.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends journal_keywordDeleteManyArgs>(args?: SelectSubset<T, journal_keywordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Journal_keywords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {journal_keywordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Journal_keywords
+     * const journal_keyword = await prisma.journal_keyword.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends journal_keywordUpdateManyArgs>(args: SelectSubset<T, journal_keywordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Journal_keywords and returns the data updated in the database.
+     * @param {journal_keywordUpdateManyAndReturnArgs} args - Arguments to update many Journal_keywords.
+     * @example
+     * // Update many Journal_keywords
+     * const journal_keyword = await prisma.journal_keyword.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Journal_keywords and only return the `journal_id`
+     * const journal_keywordWithJournal_idOnly = await prisma.journal_keyword.updateManyAndReturn({
+     *   select: { journal_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends journal_keywordUpdateManyAndReturnArgs>(args: SelectSubset<T, journal_keywordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Journal_keyword.
+     * @param {journal_keywordUpsertArgs} args - Arguments to update or create a Journal_keyword.
+     * @example
+     * // Update or create a Journal_keyword
+     * const journal_keyword = await prisma.journal_keyword.upsert({
+     *   create: {
+     *     // ... data to create a Journal_keyword
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Journal_keyword we want to update
+     *   }
+     * })
+     */
+    upsert<T extends journal_keywordUpsertArgs>(args: SelectSubset<T, journal_keywordUpsertArgs<ExtArgs>>): Prisma__journal_keywordClient<$Result.GetResult<Prisma.$journal_keywordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Journal_keywords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {journal_keywordCountArgs} args - Arguments to filter Journal_keywords to count.
+     * @example
+     * // Count the number of Journal_keywords
+     * const count = await prisma.journal_keyword.count({
+     *   where: {
+     *     // ... the filter for the Journal_keywords we want to count
+     *   }
+     * })
+    **/
+    count<T extends journal_keywordCountArgs>(
+      args?: Subset<T, journal_keywordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Journal_keywordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Journal_keyword.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Journal_keywordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Journal_keywordAggregateArgs>(args: Subset<T, Journal_keywordAggregateArgs>): Prisma.PrismaPromise<GetJournal_keywordAggregateType<T>>
+
+    /**
+     * Group by Journal_keyword.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {journal_keywordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends journal_keywordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: journal_keywordGroupByArgs['orderBy'] }
+        : { orderBy?: journal_keywordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, journal_keywordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJournal_keywordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the journal_keyword model
+   */
+  readonly fields: journal_keywordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for journal_keyword.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__journal_keywordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    journal<T extends journalDefaultArgs<ExtArgs> = {}>(args?: Subset<T, journalDefaultArgs<ExtArgs>>): Prisma__journalClient<$Result.GetResult<Prisma.$journalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    keyword<T extends keywordDefaultArgs<ExtArgs> = {}>(args?: Subset<T, keywordDefaultArgs<ExtArgs>>): Prisma__keywordClient<$Result.GetResult<Prisma.$keywordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the journal_keyword model
+   */
+  interface journal_keywordFieldRefs {
+    readonly journal_id: FieldRef<"journal_keyword", 'BigInt'>
+    readonly keyword_id: FieldRef<"journal_keyword", 'BigInt'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * journal_keyword findUnique
+   */
+  export type journal_keywordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which journal_keyword to fetch.
+     */
+    where: journal_keywordWhereUniqueInput
+  }
+
+  /**
+   * journal_keyword findUniqueOrThrow
+   */
+  export type journal_keywordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which journal_keyword to fetch.
+     */
+    where: journal_keywordWhereUniqueInput
+  }
+
+  /**
+   * journal_keyword findFirst
+   */
+  export type journal_keywordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which journal_keyword to fetch.
+     */
+    where?: journal_keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of journal_keywords to fetch.
+     */
+    orderBy?: journal_keywordOrderByWithRelationInput | journal_keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for journal_keywords.
+     */
+    cursor?: journal_keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` journal_keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` journal_keywords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of journal_keywords.
+     */
+    distinct?: Journal_keywordScalarFieldEnum | Journal_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * journal_keyword findFirstOrThrow
+   */
+  export type journal_keywordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which journal_keyword to fetch.
+     */
+    where?: journal_keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of journal_keywords to fetch.
+     */
+    orderBy?: journal_keywordOrderByWithRelationInput | journal_keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for journal_keywords.
+     */
+    cursor?: journal_keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` journal_keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` journal_keywords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of journal_keywords.
+     */
+    distinct?: Journal_keywordScalarFieldEnum | Journal_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * journal_keyword findMany
+   */
+  export type journal_keywordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordInclude<ExtArgs> | null
+    /**
+     * Filter, which journal_keywords to fetch.
+     */
+    where?: journal_keywordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of journal_keywords to fetch.
+     */
+    orderBy?: journal_keywordOrderByWithRelationInput | journal_keywordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing journal_keywords.
+     */
+    cursor?: journal_keywordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` journal_keywords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` journal_keywords.
+     */
+    skip?: number
+    distinct?: Journal_keywordScalarFieldEnum | Journal_keywordScalarFieldEnum[]
+  }
+
+  /**
+   * journal_keyword create
+   */
+  export type journal_keywordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a journal_keyword.
+     */
+    data: XOR<journal_keywordCreateInput, journal_keywordUncheckedCreateInput>
+  }
+
+  /**
+   * journal_keyword createMany
+   */
+  export type journal_keywordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many journal_keywords.
+     */
+    data: journal_keywordCreateManyInput | journal_keywordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * journal_keyword createManyAndReturn
+   */
+  export type journal_keywordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * The data used to create many journal_keywords.
+     */
+    data: journal_keywordCreateManyInput | journal_keywordCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * journal_keyword update
+   */
+  export type journal_keywordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a journal_keyword.
+     */
+    data: XOR<journal_keywordUpdateInput, journal_keywordUncheckedUpdateInput>
+    /**
+     * Choose, which journal_keyword to update.
+     */
+    where: journal_keywordWhereUniqueInput
+  }
+
+  /**
+   * journal_keyword updateMany
+   */
+  export type journal_keywordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update journal_keywords.
+     */
+    data: XOR<journal_keywordUpdateManyMutationInput, journal_keywordUncheckedUpdateManyInput>
+    /**
+     * Filter which journal_keywords to update
+     */
+    where?: journal_keywordWhereInput
+    /**
+     * Limit how many journal_keywords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * journal_keyword updateManyAndReturn
+   */
+  export type journal_keywordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * The data used to update journal_keywords.
+     */
+    data: XOR<journal_keywordUpdateManyMutationInput, journal_keywordUncheckedUpdateManyInput>
+    /**
+     * Filter which journal_keywords to update
+     */
+    where?: journal_keywordWhereInput
+    /**
+     * Limit how many journal_keywords to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * journal_keyword upsert
+   */
+  export type journal_keywordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the journal_keyword to update in case it exists.
+     */
+    where: journal_keywordWhereUniqueInput
+    /**
+     * In case the journal_keyword found by the `where` argument doesn't exist, create a new journal_keyword with this data.
+     */
+    create: XOR<journal_keywordCreateInput, journal_keywordUncheckedCreateInput>
+    /**
+     * In case the journal_keyword was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<journal_keywordUpdateInput, journal_keywordUncheckedUpdateInput>
+  }
+
+  /**
+   * journal_keyword delete
+   */
+  export type journal_keywordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordInclude<ExtArgs> | null
+    /**
+     * Filter which journal_keyword to delete.
+     */
+    where: journal_keywordWhereUniqueInput
+  }
+
+  /**
+   * journal_keyword deleteMany
+   */
+  export type journal_keywordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which journal_keywords to delete
+     */
+    where?: journal_keywordWhereInput
+    /**
+     * Limit how many journal_keywords to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * journal_keyword without action
+   */
+  export type journal_keywordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the journal_keyword
+     */
+    select?: journal_keywordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the journal_keyword
+     */
+    omit?: journal_keywordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: journal_keywordInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model researcher
+   */
+
+  export type AggregateResearcher = {
+    _count: ResearcherCountAggregateOutputType | null
+    _avg: ResearcherAvgAggregateOutputType | null
+    _sum: ResearcherSumAggregateOutputType | null
+    _min: ResearcherMinAggregateOutputType | null
+    _max: ResearcherMaxAggregateOutputType | null
+  }
+
+  export type ResearcherAvgAggregateOutputType = {
+    researcher_id: number | null
+    cno: number | null
+    user_no: number | null
+  }
+
+  export type ResearcherSumAggregateOutputType = {
+    researcher_id: bigint | null
+    cno: bigint | null
+    user_no: bigint | null
+  }
+
+  export type ResearcherMinAggregateOutputType = {
+    researcher_id: bigint | null
+    name: string | null
+    affiliation: string | null
+    email: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type ResearcherMaxAggregateOutputType = {
+    researcher_id: bigint | null
+    name: string | null
+    affiliation: string | null
+    email: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type ResearcherCountAggregateOutputType = {
+    researcher_id: number
+    name: number
+    affiliation: number
+    email: number
+    cno: number
+    user_no: number
+    insert_timestamp: number
+    update_timestamp: number
+    is_deleted: number
+    _all: number
+  }
+
+
+  export type ResearcherAvgAggregateInputType = {
+    researcher_id?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type ResearcherSumAggregateInputType = {
+    researcher_id?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type ResearcherMinAggregateInputType = {
+    researcher_id?: true
+    name?: true
+    affiliation?: true
+    email?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type ResearcherMaxAggregateInputType = {
+    researcher_id?: true
+    name?: true
+    affiliation?: true
+    email?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type ResearcherCountAggregateInputType = {
+    researcher_id?: true
+    name?: true
+    affiliation?: true
+    email?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+    _all?: true
+  }
+
+  export type ResearcherAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which researcher to aggregate.
+     */
+    where?: researcherWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researchers to fetch.
+     */
+    orderBy?: researcherOrderByWithRelationInput | researcherOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: researcherWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researchers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researchers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned researchers
+    **/
+    _count?: true | ResearcherCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ResearcherAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ResearcherSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ResearcherMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ResearcherMaxAggregateInputType
+  }
+
+  export type GetResearcherAggregateType<T extends ResearcherAggregateArgs> = {
+        [P in keyof T & keyof AggregateResearcher]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateResearcher[P]>
+      : GetScalarType<T[P], AggregateResearcher[P]>
+  }
+
+
+
+
+  export type researcherGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: researcherWhereInput
+    orderBy?: researcherOrderByWithAggregationInput | researcherOrderByWithAggregationInput[]
+    by: ResearcherScalarFieldEnum[] | ResearcherScalarFieldEnum
+    having?: researcherScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ResearcherCountAggregateInputType | true
+    _avg?: ResearcherAvgAggregateInputType
+    _sum?: ResearcherSumAggregateInputType
+    _min?: ResearcherMinAggregateInputType
+    _max?: ResearcherMaxAggregateInputType
+  }
+
+  export type ResearcherGroupByOutputType = {
+    researcher_id: bigint
+    name: string | null
+    affiliation: string | null
+    email: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date
+    update_timestamp: Date
+    is_deleted: boolean
+    _count: ResearcherCountAggregateOutputType | null
+    _avg: ResearcherAvgAggregateOutputType | null
+    _sum: ResearcherSumAggregateOutputType | null
+    _min: ResearcherMinAggregateOutputType | null
+    _max: ResearcherMaxAggregateOutputType | null
+  }
+
+  type GetResearcherGroupByPayload<T extends researcherGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ResearcherGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ResearcherGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ResearcherGroupByOutputType[P]>
+            : GetScalarType<T[P], ResearcherGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type researcherSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    researcher_id?: boolean
+    name?: boolean
+    affiliation?: boolean
+    email?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+    researcher_patents?: boolean | researcher$researcher_patentsArgs<ExtArgs>
+    researcher_domains?: boolean | researcher$researcher_domainsArgs<ExtArgs>
+    researcher_publications?: boolean | researcher$researcher_publicationsArgs<ExtArgs>
+    _count?: boolean | ResearcherCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["researcher"]>
+
+  export type researcherSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    researcher_id?: boolean
+    name?: boolean
+    affiliation?: boolean
+    email?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["researcher"]>
+
+  export type researcherSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    researcher_id?: boolean
+    name?: boolean
+    affiliation?: boolean
+    email?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["researcher"]>
+
+  export type researcherSelectScalar = {
+    researcher_id?: boolean
+    name?: boolean
+    affiliation?: boolean
+    email?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }
+
+  export type researcherOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"researcher_id" | "name" | "affiliation" | "email" | "cno" | "user_no" | "insert_timestamp" | "update_timestamp" | "is_deleted", ExtArgs["result"]["researcher"]>
+  export type researcherInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher_patents?: boolean | researcher$researcher_patentsArgs<ExtArgs>
+    researcher_domains?: boolean | researcher$researcher_domainsArgs<ExtArgs>
+    researcher_publications?: boolean | researcher$researcher_publicationsArgs<ExtArgs>
+    _count?: boolean | ResearcherCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type researcherIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type researcherIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $researcherPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "researcher"
+    objects: {
+      researcher_patents: Prisma.$researcher_patentPayload<ExtArgs>[]
+      researcher_domains: Prisma.$researcher_domainPayload<ExtArgs>[]
+      researcher_publications: Prisma.$researcher_publicationPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      researcher_id: bigint
+      name: string | null
+      affiliation: string | null
+      email: string | null
+      cno: bigint | null
+      user_no: bigint | null
+      insert_timestamp: Date
+      update_timestamp: Date
+      is_deleted: boolean
+    }, ExtArgs["result"]["researcher"]>
+    composites: {}
+  }
+
+  type researcherGetPayload<S extends boolean | null | undefined | researcherDefaultArgs> = $Result.GetResult<Prisma.$researcherPayload, S>
+
+  type researcherCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<researcherFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ResearcherCountAggregateInputType | true
+    }
+
+  export interface researcherDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['researcher'], meta: { name: 'researcher' } }
+    /**
+     * Find zero or one Researcher that matches the filter.
+     * @param {researcherFindUniqueArgs} args - Arguments to find a Researcher
+     * @example
+     * // Get one Researcher
+     * const researcher = await prisma.researcher.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends researcherFindUniqueArgs>(args: SelectSubset<T, researcherFindUniqueArgs<ExtArgs>>): Prisma__researcherClient<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Researcher that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {researcherFindUniqueOrThrowArgs} args - Arguments to find a Researcher
+     * @example
+     * // Get one Researcher
+     * const researcher = await prisma.researcher.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends researcherFindUniqueOrThrowArgs>(args: SelectSubset<T, researcherFindUniqueOrThrowArgs<ExtArgs>>): Prisma__researcherClient<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Researcher that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcherFindFirstArgs} args - Arguments to find a Researcher
+     * @example
+     * // Get one Researcher
+     * const researcher = await prisma.researcher.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends researcherFindFirstArgs>(args?: SelectSubset<T, researcherFindFirstArgs<ExtArgs>>): Prisma__researcherClient<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Researcher that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcherFindFirstOrThrowArgs} args - Arguments to find a Researcher
+     * @example
+     * // Get one Researcher
+     * const researcher = await prisma.researcher.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends researcherFindFirstOrThrowArgs>(args?: SelectSubset<T, researcherFindFirstOrThrowArgs<ExtArgs>>): Prisma__researcherClient<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Researchers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcherFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Researchers
+     * const researchers = await prisma.researcher.findMany()
+     * 
+     * // Get first 10 Researchers
+     * const researchers = await prisma.researcher.findMany({ take: 10 })
+     * 
+     * // Only select the `researcher_id`
+     * const researcherWithResearcher_idOnly = await prisma.researcher.findMany({ select: { researcher_id: true } })
+     * 
+     */
+    findMany<T extends researcherFindManyArgs>(args?: SelectSubset<T, researcherFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Researcher.
+     * @param {researcherCreateArgs} args - Arguments to create a Researcher.
+     * @example
+     * // Create one Researcher
+     * const Researcher = await prisma.researcher.create({
+     *   data: {
+     *     // ... data to create a Researcher
+     *   }
+     * })
+     * 
+     */
+    create<T extends researcherCreateArgs>(args: SelectSubset<T, researcherCreateArgs<ExtArgs>>): Prisma__researcherClient<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Researchers.
+     * @param {researcherCreateManyArgs} args - Arguments to create many Researchers.
+     * @example
+     * // Create many Researchers
+     * const researcher = await prisma.researcher.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends researcherCreateManyArgs>(args?: SelectSubset<T, researcherCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Researchers and returns the data saved in the database.
+     * @param {researcherCreateManyAndReturnArgs} args - Arguments to create many Researchers.
+     * @example
+     * // Create many Researchers
+     * const researcher = await prisma.researcher.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Researchers and only return the `researcher_id`
+     * const researcherWithResearcher_idOnly = await prisma.researcher.createManyAndReturn({
+     *   select: { researcher_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends researcherCreateManyAndReturnArgs>(args?: SelectSubset<T, researcherCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Researcher.
+     * @param {researcherDeleteArgs} args - Arguments to delete one Researcher.
+     * @example
+     * // Delete one Researcher
+     * const Researcher = await prisma.researcher.delete({
+     *   where: {
+     *     // ... filter to delete one Researcher
+     *   }
+     * })
+     * 
+     */
+    delete<T extends researcherDeleteArgs>(args: SelectSubset<T, researcherDeleteArgs<ExtArgs>>): Prisma__researcherClient<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Researcher.
+     * @param {researcherUpdateArgs} args - Arguments to update one Researcher.
+     * @example
+     * // Update one Researcher
+     * const researcher = await prisma.researcher.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends researcherUpdateArgs>(args: SelectSubset<T, researcherUpdateArgs<ExtArgs>>): Prisma__researcherClient<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Researchers.
+     * @param {researcherDeleteManyArgs} args - Arguments to filter Researchers to delete.
+     * @example
+     * // Delete a few Researchers
+     * const { count } = await prisma.researcher.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends researcherDeleteManyArgs>(args?: SelectSubset<T, researcherDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Researchers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcherUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Researchers
+     * const researcher = await prisma.researcher.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends researcherUpdateManyArgs>(args: SelectSubset<T, researcherUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Researchers and returns the data updated in the database.
+     * @param {researcherUpdateManyAndReturnArgs} args - Arguments to update many Researchers.
+     * @example
+     * // Update many Researchers
+     * const researcher = await prisma.researcher.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Researchers and only return the `researcher_id`
+     * const researcherWithResearcher_idOnly = await prisma.researcher.updateManyAndReturn({
+     *   select: { researcher_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends researcherUpdateManyAndReturnArgs>(args: SelectSubset<T, researcherUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Researcher.
+     * @param {researcherUpsertArgs} args - Arguments to update or create a Researcher.
+     * @example
+     * // Update or create a Researcher
+     * const researcher = await prisma.researcher.upsert({
+     *   create: {
+     *     // ... data to create a Researcher
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Researcher we want to update
+     *   }
+     * })
+     */
+    upsert<T extends researcherUpsertArgs>(args: SelectSubset<T, researcherUpsertArgs<ExtArgs>>): Prisma__researcherClient<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Researchers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcherCountArgs} args - Arguments to filter Researchers to count.
+     * @example
+     * // Count the number of Researchers
+     * const count = await prisma.researcher.count({
+     *   where: {
+     *     // ... the filter for the Researchers we want to count
+     *   }
+     * })
+    **/
+    count<T extends researcherCountArgs>(
+      args?: Subset<T, researcherCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ResearcherCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Researcher.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ResearcherAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ResearcherAggregateArgs>(args: Subset<T, ResearcherAggregateArgs>): Prisma.PrismaPromise<GetResearcherAggregateType<T>>
+
+    /**
+     * Group by Researcher.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcherGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends researcherGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: researcherGroupByArgs['orderBy'] }
+        : { orderBy?: researcherGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, researcherGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetResearcherGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the researcher model
+   */
+  readonly fields: researcherFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for researcher.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__researcherClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    researcher_patents<T extends researcher$researcher_patentsArgs<ExtArgs> = {}>(args?: Subset<T, researcher$researcher_patentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    researcher_domains<T extends researcher$researcher_domainsArgs<ExtArgs> = {}>(args?: Subset<T, researcher$researcher_domainsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    researcher_publications<T extends researcher$researcher_publicationsArgs<ExtArgs> = {}>(args?: Subset<T, researcher$researcher_publicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the researcher model
+   */
+  interface researcherFieldRefs {
+    readonly researcher_id: FieldRef<"researcher", 'BigInt'>
+    readonly name: FieldRef<"researcher", 'String'>
+    readonly affiliation: FieldRef<"researcher", 'String'>
+    readonly email: FieldRef<"researcher", 'String'>
+    readonly cno: FieldRef<"researcher", 'BigInt'>
+    readonly user_no: FieldRef<"researcher", 'BigInt'>
+    readonly insert_timestamp: FieldRef<"researcher", 'DateTime'>
+    readonly update_timestamp: FieldRef<"researcher", 'DateTime'>
+    readonly is_deleted: FieldRef<"researcher", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * researcher findUnique
+   */
+  export type researcherFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher
+     */
+    select?: researcherSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher
+     */
+    omit?: researcherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcherInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher to fetch.
+     */
+    where: researcherWhereUniqueInput
+  }
+
+  /**
+   * researcher findUniqueOrThrow
+   */
+  export type researcherFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher
+     */
+    select?: researcherSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher
+     */
+    omit?: researcherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcherInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher to fetch.
+     */
+    where: researcherWhereUniqueInput
+  }
+
+  /**
+   * researcher findFirst
+   */
+  export type researcherFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher
+     */
+    select?: researcherSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher
+     */
+    omit?: researcherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcherInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher to fetch.
+     */
+    where?: researcherWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researchers to fetch.
+     */
+    orderBy?: researcherOrderByWithRelationInput | researcherOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for researchers.
+     */
+    cursor?: researcherWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researchers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researchers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of researchers.
+     */
+    distinct?: ResearcherScalarFieldEnum | ResearcherScalarFieldEnum[]
+  }
+
+  /**
+   * researcher findFirstOrThrow
+   */
+  export type researcherFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher
+     */
+    select?: researcherSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher
+     */
+    omit?: researcherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcherInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher to fetch.
+     */
+    where?: researcherWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researchers to fetch.
+     */
+    orderBy?: researcherOrderByWithRelationInput | researcherOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for researchers.
+     */
+    cursor?: researcherWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researchers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researchers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of researchers.
+     */
+    distinct?: ResearcherScalarFieldEnum | ResearcherScalarFieldEnum[]
+  }
+
+  /**
+   * researcher findMany
+   */
+  export type researcherFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher
+     */
+    select?: researcherSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher
+     */
+    omit?: researcherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcherInclude<ExtArgs> | null
+    /**
+     * Filter, which researchers to fetch.
+     */
+    where?: researcherWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researchers to fetch.
+     */
+    orderBy?: researcherOrderByWithRelationInput | researcherOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing researchers.
+     */
+    cursor?: researcherWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researchers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researchers.
+     */
+    skip?: number
+    distinct?: ResearcherScalarFieldEnum | ResearcherScalarFieldEnum[]
+  }
+
+  /**
+   * researcher create
+   */
+  export type researcherCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher
+     */
+    select?: researcherSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher
+     */
+    omit?: researcherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcherInclude<ExtArgs> | null
+    /**
+     * The data needed to create a researcher.
+     */
+    data: XOR<researcherCreateInput, researcherUncheckedCreateInput>
+  }
+
+  /**
+   * researcher createMany
+   */
+  export type researcherCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many researchers.
+     */
+    data: researcherCreateManyInput | researcherCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * researcher createManyAndReturn
+   */
+  export type researcherCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher
+     */
+    select?: researcherSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher
+     */
+    omit?: researcherOmit<ExtArgs> | null
+    /**
+     * The data used to create many researchers.
+     */
+    data: researcherCreateManyInput | researcherCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * researcher update
+   */
+  export type researcherUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher
+     */
+    select?: researcherSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher
+     */
+    omit?: researcherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcherInclude<ExtArgs> | null
+    /**
+     * The data needed to update a researcher.
+     */
+    data: XOR<researcherUpdateInput, researcherUncheckedUpdateInput>
+    /**
+     * Choose, which researcher to update.
+     */
+    where: researcherWhereUniqueInput
+  }
+
+  /**
+   * researcher updateMany
+   */
+  export type researcherUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update researchers.
+     */
+    data: XOR<researcherUpdateManyMutationInput, researcherUncheckedUpdateManyInput>
+    /**
+     * Filter which researchers to update
+     */
+    where?: researcherWhereInput
+    /**
+     * Limit how many researchers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * researcher updateManyAndReturn
+   */
+  export type researcherUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher
+     */
+    select?: researcherSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher
+     */
+    omit?: researcherOmit<ExtArgs> | null
+    /**
+     * The data used to update researchers.
+     */
+    data: XOR<researcherUpdateManyMutationInput, researcherUncheckedUpdateManyInput>
+    /**
+     * Filter which researchers to update
+     */
+    where?: researcherWhereInput
+    /**
+     * Limit how many researchers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * researcher upsert
+   */
+  export type researcherUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher
+     */
+    select?: researcherSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher
+     */
+    omit?: researcherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcherInclude<ExtArgs> | null
+    /**
+     * The filter to search for the researcher to update in case it exists.
+     */
+    where: researcherWhereUniqueInput
+    /**
+     * In case the researcher found by the `where` argument doesn't exist, create a new researcher with this data.
+     */
+    create: XOR<researcherCreateInput, researcherUncheckedCreateInput>
+    /**
+     * In case the researcher was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<researcherUpdateInput, researcherUncheckedUpdateInput>
+  }
+
+  /**
+   * researcher delete
+   */
+  export type researcherDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher
+     */
+    select?: researcherSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher
+     */
+    omit?: researcherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcherInclude<ExtArgs> | null
+    /**
+     * Filter which researcher to delete.
+     */
+    where: researcherWhereUniqueInput
+  }
+
+  /**
+   * researcher deleteMany
+   */
+  export type researcherDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which researchers to delete
+     */
+    where?: researcherWhereInput
+    /**
+     * Limit how many researchers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * researcher.researcher_patents
+   */
+  export type researcher$researcher_patentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentInclude<ExtArgs> | null
+    where?: researcher_patentWhereInput
+    orderBy?: researcher_patentOrderByWithRelationInput | researcher_patentOrderByWithRelationInput[]
+    cursor?: researcher_patentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Researcher_patentScalarFieldEnum | Researcher_patentScalarFieldEnum[]
+  }
+
+  /**
+   * researcher.researcher_domains
+   */
+  export type researcher$researcher_domainsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainInclude<ExtArgs> | null
+    where?: researcher_domainWhereInput
+    orderBy?: researcher_domainOrderByWithRelationInput | researcher_domainOrderByWithRelationInput[]
+    cursor?: researcher_domainWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Researcher_domainScalarFieldEnum | Researcher_domainScalarFieldEnum[]
+  }
+
+  /**
+   * researcher.researcher_publications
+   */
+  export type researcher$researcher_publicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationInclude<ExtArgs> | null
+    where?: researcher_publicationWhereInput
+    orderBy?: researcher_publicationOrderByWithRelationInput | researcher_publicationOrderByWithRelationInput[]
+    cursor?: researcher_publicationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Researcher_publicationScalarFieldEnum | Researcher_publicationScalarFieldEnum[]
+  }
+
+  /**
+   * researcher without action
+   */
+  export type researcherDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher
+     */
+    select?: researcherSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher
+     */
+    omit?: researcherOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcherInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model researcher_patent
+   */
+
+  export type AggregateResearcher_patent = {
+    _count: Researcher_patentCountAggregateOutputType | null
+    _avg: Researcher_patentAvgAggregateOutputType | null
+    _sum: Researcher_patentSumAggregateOutputType | null
+    _min: Researcher_patentMinAggregateOutputType | null
+    _max: Researcher_patentMaxAggregateOutputType | null
+  }
+
+  export type Researcher_patentAvgAggregateOutputType = {
+    researcher_id: number | null
+    patent_id: number | null
+  }
+
+  export type Researcher_patentSumAggregateOutputType = {
+    researcher_id: bigint | null
+    patent_id: bigint | null
+  }
+
+  export type Researcher_patentMinAggregateOutputType = {
+    researcher_id: bigint | null
+    patent_id: bigint | null
+  }
+
+  export type Researcher_patentMaxAggregateOutputType = {
+    researcher_id: bigint | null
+    patent_id: bigint | null
+  }
+
+  export type Researcher_patentCountAggregateOutputType = {
+    researcher_id: number
+    patent_id: number
+    _all: number
+  }
+
+
+  export type Researcher_patentAvgAggregateInputType = {
+    researcher_id?: true
+    patent_id?: true
+  }
+
+  export type Researcher_patentSumAggregateInputType = {
+    researcher_id?: true
+    patent_id?: true
+  }
+
+  export type Researcher_patentMinAggregateInputType = {
+    researcher_id?: true
+    patent_id?: true
+  }
+
+  export type Researcher_patentMaxAggregateInputType = {
+    researcher_id?: true
+    patent_id?: true
+  }
+
+  export type Researcher_patentCountAggregateInputType = {
+    researcher_id?: true
+    patent_id?: true
+    _all?: true
+  }
+
+  export type Researcher_patentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which researcher_patent to aggregate.
+     */
+    where?: researcher_patentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researcher_patents to fetch.
+     */
+    orderBy?: researcher_patentOrderByWithRelationInput | researcher_patentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: researcher_patentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researcher_patents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researcher_patents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned researcher_patents
+    **/
+    _count?: true | Researcher_patentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Researcher_patentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Researcher_patentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Researcher_patentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Researcher_patentMaxAggregateInputType
+  }
+
+  export type GetResearcher_patentAggregateType<T extends Researcher_patentAggregateArgs> = {
+        [P in keyof T & keyof AggregateResearcher_patent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateResearcher_patent[P]>
+      : GetScalarType<T[P], AggregateResearcher_patent[P]>
+  }
+
+
+
+
+  export type researcher_patentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: researcher_patentWhereInput
+    orderBy?: researcher_patentOrderByWithAggregationInput | researcher_patentOrderByWithAggregationInput[]
+    by: Researcher_patentScalarFieldEnum[] | Researcher_patentScalarFieldEnum
+    having?: researcher_patentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Researcher_patentCountAggregateInputType | true
+    _avg?: Researcher_patentAvgAggregateInputType
+    _sum?: Researcher_patentSumAggregateInputType
+    _min?: Researcher_patentMinAggregateInputType
+    _max?: Researcher_patentMaxAggregateInputType
+  }
+
+  export type Researcher_patentGroupByOutputType = {
+    researcher_id: bigint
+    patent_id: bigint
+    _count: Researcher_patentCountAggregateOutputType | null
+    _avg: Researcher_patentAvgAggregateOutputType | null
+    _sum: Researcher_patentSumAggregateOutputType | null
+    _min: Researcher_patentMinAggregateOutputType | null
+    _max: Researcher_patentMaxAggregateOutputType | null
+  }
+
+  type GetResearcher_patentGroupByPayload<T extends researcher_patentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Researcher_patentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Researcher_patentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Researcher_patentGroupByOutputType[P]>
+            : GetScalarType<T[P], Researcher_patentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type researcher_patentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    researcher_id?: boolean
+    patent_id?: boolean
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["researcher_patent"]>
+
+  export type researcher_patentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    researcher_id?: boolean
+    patent_id?: boolean
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["researcher_patent"]>
+
+  export type researcher_patentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    researcher_id?: boolean
+    patent_id?: boolean
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["researcher_patent"]>
+
+  export type researcher_patentSelectScalar = {
+    researcher_id?: boolean
+    patent_id?: boolean
+  }
+
+  export type researcher_patentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"researcher_id" | "patent_id", ExtArgs["result"]["researcher_patent"]>
+  export type researcher_patentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+  }
+  export type researcher_patentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+  }
+  export type researcher_patentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    patent?: boolean | patentDefaultArgs<ExtArgs>
+  }
+
+  export type $researcher_patentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "researcher_patent"
+    objects: {
+      researcher: Prisma.$researcherPayload<ExtArgs>
+      patent: Prisma.$patentPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      researcher_id: bigint
+      patent_id: bigint
+    }, ExtArgs["result"]["researcher_patent"]>
+    composites: {}
+  }
+
+  type researcher_patentGetPayload<S extends boolean | null | undefined | researcher_patentDefaultArgs> = $Result.GetResult<Prisma.$researcher_patentPayload, S>
+
+  type researcher_patentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<researcher_patentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Researcher_patentCountAggregateInputType | true
+    }
+
+  export interface researcher_patentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['researcher_patent'], meta: { name: 'researcher_patent' } }
+    /**
+     * Find zero or one Researcher_patent that matches the filter.
+     * @param {researcher_patentFindUniqueArgs} args - Arguments to find a Researcher_patent
+     * @example
+     * // Get one Researcher_patent
+     * const researcher_patent = await prisma.researcher_patent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends researcher_patentFindUniqueArgs>(args: SelectSubset<T, researcher_patentFindUniqueArgs<ExtArgs>>): Prisma__researcher_patentClient<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Researcher_patent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {researcher_patentFindUniqueOrThrowArgs} args - Arguments to find a Researcher_patent
+     * @example
+     * // Get one Researcher_patent
+     * const researcher_patent = await prisma.researcher_patent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends researcher_patentFindUniqueOrThrowArgs>(args: SelectSubset<T, researcher_patentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__researcher_patentClient<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Researcher_patent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_patentFindFirstArgs} args - Arguments to find a Researcher_patent
+     * @example
+     * // Get one Researcher_patent
+     * const researcher_patent = await prisma.researcher_patent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends researcher_patentFindFirstArgs>(args?: SelectSubset<T, researcher_patentFindFirstArgs<ExtArgs>>): Prisma__researcher_patentClient<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Researcher_patent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_patentFindFirstOrThrowArgs} args - Arguments to find a Researcher_patent
+     * @example
+     * // Get one Researcher_patent
+     * const researcher_patent = await prisma.researcher_patent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends researcher_patentFindFirstOrThrowArgs>(args?: SelectSubset<T, researcher_patentFindFirstOrThrowArgs<ExtArgs>>): Prisma__researcher_patentClient<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Researcher_patents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_patentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Researcher_patents
+     * const researcher_patents = await prisma.researcher_patent.findMany()
+     * 
+     * // Get first 10 Researcher_patents
+     * const researcher_patents = await prisma.researcher_patent.findMany({ take: 10 })
+     * 
+     * // Only select the `researcher_id`
+     * const researcher_patentWithResearcher_idOnly = await prisma.researcher_patent.findMany({ select: { researcher_id: true } })
+     * 
+     */
+    findMany<T extends researcher_patentFindManyArgs>(args?: SelectSubset<T, researcher_patentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Researcher_patent.
+     * @param {researcher_patentCreateArgs} args - Arguments to create a Researcher_patent.
+     * @example
+     * // Create one Researcher_patent
+     * const Researcher_patent = await prisma.researcher_patent.create({
+     *   data: {
+     *     // ... data to create a Researcher_patent
+     *   }
+     * })
+     * 
+     */
+    create<T extends researcher_patentCreateArgs>(args: SelectSubset<T, researcher_patentCreateArgs<ExtArgs>>): Prisma__researcher_patentClient<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Researcher_patents.
+     * @param {researcher_patentCreateManyArgs} args - Arguments to create many Researcher_patents.
+     * @example
+     * // Create many Researcher_patents
+     * const researcher_patent = await prisma.researcher_patent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends researcher_patentCreateManyArgs>(args?: SelectSubset<T, researcher_patentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Researcher_patents and returns the data saved in the database.
+     * @param {researcher_patentCreateManyAndReturnArgs} args - Arguments to create many Researcher_patents.
+     * @example
+     * // Create many Researcher_patents
+     * const researcher_patent = await prisma.researcher_patent.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Researcher_patents and only return the `researcher_id`
+     * const researcher_patentWithResearcher_idOnly = await prisma.researcher_patent.createManyAndReturn({
+     *   select: { researcher_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends researcher_patentCreateManyAndReturnArgs>(args?: SelectSubset<T, researcher_patentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Researcher_patent.
+     * @param {researcher_patentDeleteArgs} args - Arguments to delete one Researcher_patent.
+     * @example
+     * // Delete one Researcher_patent
+     * const Researcher_patent = await prisma.researcher_patent.delete({
+     *   where: {
+     *     // ... filter to delete one Researcher_patent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends researcher_patentDeleteArgs>(args: SelectSubset<T, researcher_patentDeleteArgs<ExtArgs>>): Prisma__researcher_patentClient<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Researcher_patent.
+     * @param {researcher_patentUpdateArgs} args - Arguments to update one Researcher_patent.
+     * @example
+     * // Update one Researcher_patent
+     * const researcher_patent = await prisma.researcher_patent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends researcher_patentUpdateArgs>(args: SelectSubset<T, researcher_patentUpdateArgs<ExtArgs>>): Prisma__researcher_patentClient<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Researcher_patents.
+     * @param {researcher_patentDeleteManyArgs} args - Arguments to filter Researcher_patents to delete.
+     * @example
+     * // Delete a few Researcher_patents
+     * const { count } = await prisma.researcher_patent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends researcher_patentDeleteManyArgs>(args?: SelectSubset<T, researcher_patentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Researcher_patents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_patentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Researcher_patents
+     * const researcher_patent = await prisma.researcher_patent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends researcher_patentUpdateManyArgs>(args: SelectSubset<T, researcher_patentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Researcher_patents and returns the data updated in the database.
+     * @param {researcher_patentUpdateManyAndReturnArgs} args - Arguments to update many Researcher_patents.
+     * @example
+     * // Update many Researcher_patents
+     * const researcher_patent = await prisma.researcher_patent.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Researcher_patents and only return the `researcher_id`
+     * const researcher_patentWithResearcher_idOnly = await prisma.researcher_patent.updateManyAndReturn({
+     *   select: { researcher_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends researcher_patentUpdateManyAndReturnArgs>(args: SelectSubset<T, researcher_patentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Researcher_patent.
+     * @param {researcher_patentUpsertArgs} args - Arguments to update or create a Researcher_patent.
+     * @example
+     * // Update or create a Researcher_patent
+     * const researcher_patent = await prisma.researcher_patent.upsert({
+     *   create: {
+     *     // ... data to create a Researcher_patent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Researcher_patent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends researcher_patentUpsertArgs>(args: SelectSubset<T, researcher_patentUpsertArgs<ExtArgs>>): Prisma__researcher_patentClient<$Result.GetResult<Prisma.$researcher_patentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Researcher_patents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_patentCountArgs} args - Arguments to filter Researcher_patents to count.
+     * @example
+     * // Count the number of Researcher_patents
+     * const count = await prisma.researcher_patent.count({
+     *   where: {
+     *     // ... the filter for the Researcher_patents we want to count
+     *   }
+     * })
+    **/
+    count<T extends researcher_patentCountArgs>(
+      args?: Subset<T, researcher_patentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Researcher_patentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Researcher_patent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Researcher_patentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Researcher_patentAggregateArgs>(args: Subset<T, Researcher_patentAggregateArgs>): Prisma.PrismaPromise<GetResearcher_patentAggregateType<T>>
+
+    /**
+     * Group by Researcher_patent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_patentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends researcher_patentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: researcher_patentGroupByArgs['orderBy'] }
+        : { orderBy?: researcher_patentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, researcher_patentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetResearcher_patentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the researcher_patent model
+   */
+  readonly fields: researcher_patentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for researcher_patent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__researcher_patentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    researcher<T extends researcherDefaultArgs<ExtArgs> = {}>(args?: Subset<T, researcherDefaultArgs<ExtArgs>>): Prisma__researcherClient<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    patent<T extends patentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, patentDefaultArgs<ExtArgs>>): Prisma__patentClient<$Result.GetResult<Prisma.$patentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the researcher_patent model
+   */
+  interface researcher_patentFieldRefs {
+    readonly researcher_id: FieldRef<"researcher_patent", 'BigInt'>
+    readonly patent_id: FieldRef<"researcher_patent", 'BigInt'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * researcher_patent findUnique
+   */
+  export type researcher_patentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_patent to fetch.
+     */
+    where: researcher_patentWhereUniqueInput
+  }
+
+  /**
+   * researcher_patent findUniqueOrThrow
+   */
+  export type researcher_patentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_patent to fetch.
+     */
+    where: researcher_patentWhereUniqueInput
+  }
+
+  /**
+   * researcher_patent findFirst
+   */
+  export type researcher_patentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_patent to fetch.
+     */
+    where?: researcher_patentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researcher_patents to fetch.
+     */
+    orderBy?: researcher_patentOrderByWithRelationInput | researcher_patentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for researcher_patents.
+     */
+    cursor?: researcher_patentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researcher_patents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researcher_patents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of researcher_patents.
+     */
+    distinct?: Researcher_patentScalarFieldEnum | Researcher_patentScalarFieldEnum[]
+  }
+
+  /**
+   * researcher_patent findFirstOrThrow
+   */
+  export type researcher_patentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_patent to fetch.
+     */
+    where?: researcher_patentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researcher_patents to fetch.
+     */
+    orderBy?: researcher_patentOrderByWithRelationInput | researcher_patentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for researcher_patents.
+     */
+    cursor?: researcher_patentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researcher_patents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researcher_patents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of researcher_patents.
+     */
+    distinct?: Researcher_patentScalarFieldEnum | Researcher_patentScalarFieldEnum[]
+  }
+
+  /**
+   * researcher_patent findMany
+   */
+  export type researcher_patentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_patents to fetch.
+     */
+    where?: researcher_patentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researcher_patents to fetch.
+     */
+    orderBy?: researcher_patentOrderByWithRelationInput | researcher_patentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing researcher_patents.
+     */
+    cursor?: researcher_patentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researcher_patents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researcher_patents.
+     */
+    skip?: number
+    distinct?: Researcher_patentScalarFieldEnum | Researcher_patentScalarFieldEnum[]
+  }
+
+  /**
+   * researcher_patent create
+   */
+  export type researcher_patentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a researcher_patent.
+     */
+    data: XOR<researcher_patentCreateInput, researcher_patentUncheckedCreateInput>
+  }
+
+  /**
+   * researcher_patent createMany
+   */
+  export type researcher_patentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many researcher_patents.
+     */
+    data: researcher_patentCreateManyInput | researcher_patentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * researcher_patent createManyAndReturn
+   */
+  export type researcher_patentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * The data used to create many researcher_patents.
+     */
+    data: researcher_patentCreateManyInput | researcher_patentCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * researcher_patent update
+   */
+  export type researcher_patentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a researcher_patent.
+     */
+    data: XOR<researcher_patentUpdateInput, researcher_patentUncheckedUpdateInput>
+    /**
+     * Choose, which researcher_patent to update.
+     */
+    where: researcher_patentWhereUniqueInput
+  }
+
+  /**
+   * researcher_patent updateMany
+   */
+  export type researcher_patentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update researcher_patents.
+     */
+    data: XOR<researcher_patentUpdateManyMutationInput, researcher_patentUncheckedUpdateManyInput>
+    /**
+     * Filter which researcher_patents to update
+     */
+    where?: researcher_patentWhereInput
+    /**
+     * Limit how many researcher_patents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * researcher_patent updateManyAndReturn
+   */
+  export type researcher_patentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * The data used to update researcher_patents.
+     */
+    data: XOR<researcher_patentUpdateManyMutationInput, researcher_patentUncheckedUpdateManyInput>
+    /**
+     * Filter which researcher_patents to update
+     */
+    where?: researcher_patentWhereInput
+    /**
+     * Limit how many researcher_patents to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * researcher_patent upsert
+   */
+  export type researcher_patentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the researcher_patent to update in case it exists.
+     */
+    where: researcher_patentWhereUniqueInput
+    /**
+     * In case the researcher_patent found by the `where` argument doesn't exist, create a new researcher_patent with this data.
+     */
+    create: XOR<researcher_patentCreateInput, researcher_patentUncheckedCreateInput>
+    /**
+     * In case the researcher_patent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<researcher_patentUpdateInput, researcher_patentUncheckedUpdateInput>
+  }
+
+  /**
+   * researcher_patent delete
+   */
+  export type researcher_patentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentInclude<ExtArgs> | null
+    /**
+     * Filter which researcher_patent to delete.
+     */
+    where: researcher_patentWhereUniqueInput
+  }
+
+  /**
+   * researcher_patent deleteMany
+   */
+  export type researcher_patentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which researcher_patents to delete
+     */
+    where?: researcher_patentWhereInput
+    /**
+     * Limit how many researcher_patents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * researcher_patent without action
+   */
+  export type researcher_patentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_patent
+     */
+    select?: researcher_patentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_patent
+     */
+    omit?: researcher_patentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_patentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model researcher_domain
+   */
+
+  export type AggregateResearcher_domain = {
+    _count: Researcher_domainCountAggregateOutputType | null
+    _avg: Researcher_domainAvgAggregateOutputType | null
+    _sum: Researcher_domainSumAggregateOutputType | null
+    _min: Researcher_domainMinAggregateOutputType | null
+    _max: Researcher_domainMaxAggregateOutputType | null
+  }
+
+  export type Researcher_domainAvgAggregateOutputType = {
+    researcher_id: number | null
+    domain_id: number | null
+  }
+
+  export type Researcher_domainSumAggregateOutputType = {
+    researcher_id: bigint | null
+    domain_id: bigint | null
+  }
+
+  export type Researcher_domainMinAggregateOutputType = {
+    researcher_id: bigint | null
+    domain_id: bigint | null
+  }
+
+  export type Researcher_domainMaxAggregateOutputType = {
+    researcher_id: bigint | null
+    domain_id: bigint | null
+  }
+
+  export type Researcher_domainCountAggregateOutputType = {
+    researcher_id: number
+    domain_id: number
+    _all: number
+  }
+
+
+  export type Researcher_domainAvgAggregateInputType = {
+    researcher_id?: true
+    domain_id?: true
+  }
+
+  export type Researcher_domainSumAggregateInputType = {
+    researcher_id?: true
+    domain_id?: true
+  }
+
+  export type Researcher_domainMinAggregateInputType = {
+    researcher_id?: true
+    domain_id?: true
+  }
+
+  export type Researcher_domainMaxAggregateInputType = {
+    researcher_id?: true
+    domain_id?: true
+  }
+
+  export type Researcher_domainCountAggregateInputType = {
+    researcher_id?: true
+    domain_id?: true
+    _all?: true
+  }
+
+  export type Researcher_domainAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which researcher_domain to aggregate.
+     */
+    where?: researcher_domainWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researcher_domains to fetch.
+     */
+    orderBy?: researcher_domainOrderByWithRelationInput | researcher_domainOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: researcher_domainWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researcher_domains from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researcher_domains.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned researcher_domains
+    **/
+    _count?: true | Researcher_domainCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Researcher_domainAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Researcher_domainSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Researcher_domainMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Researcher_domainMaxAggregateInputType
+  }
+
+  export type GetResearcher_domainAggregateType<T extends Researcher_domainAggregateArgs> = {
+        [P in keyof T & keyof AggregateResearcher_domain]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateResearcher_domain[P]>
+      : GetScalarType<T[P], AggregateResearcher_domain[P]>
+  }
+
+
+
+
+  export type researcher_domainGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: researcher_domainWhereInput
+    orderBy?: researcher_domainOrderByWithAggregationInput | researcher_domainOrderByWithAggregationInput[]
+    by: Researcher_domainScalarFieldEnum[] | Researcher_domainScalarFieldEnum
+    having?: researcher_domainScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Researcher_domainCountAggregateInputType | true
+    _avg?: Researcher_domainAvgAggregateInputType
+    _sum?: Researcher_domainSumAggregateInputType
+    _min?: Researcher_domainMinAggregateInputType
+    _max?: Researcher_domainMaxAggregateInputType
+  }
+
+  export type Researcher_domainGroupByOutputType = {
+    researcher_id: bigint
+    domain_id: bigint
+    _count: Researcher_domainCountAggregateOutputType | null
+    _avg: Researcher_domainAvgAggregateOutputType | null
+    _sum: Researcher_domainSumAggregateOutputType | null
+    _min: Researcher_domainMinAggregateOutputType | null
+    _max: Researcher_domainMaxAggregateOutputType | null
+  }
+
+  type GetResearcher_domainGroupByPayload<T extends researcher_domainGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Researcher_domainGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Researcher_domainGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Researcher_domainGroupByOutputType[P]>
+            : GetScalarType<T[P], Researcher_domainGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type researcher_domainSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    researcher_id?: boolean
+    domain_id?: boolean
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    domain?: boolean | domainDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["researcher_domain"]>
+
+  export type researcher_domainSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    researcher_id?: boolean
+    domain_id?: boolean
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    domain?: boolean | domainDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["researcher_domain"]>
+
+  export type researcher_domainSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    researcher_id?: boolean
+    domain_id?: boolean
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    domain?: boolean | domainDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["researcher_domain"]>
+
+  export type researcher_domainSelectScalar = {
+    researcher_id?: boolean
+    domain_id?: boolean
+  }
+
+  export type researcher_domainOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"researcher_id" | "domain_id", ExtArgs["result"]["researcher_domain"]>
+  export type researcher_domainInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    domain?: boolean | domainDefaultArgs<ExtArgs>
+  }
+  export type researcher_domainIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    domain?: boolean | domainDefaultArgs<ExtArgs>
+  }
+  export type researcher_domainIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    domain?: boolean | domainDefaultArgs<ExtArgs>
+  }
+
+  export type $researcher_domainPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "researcher_domain"
+    objects: {
+      researcher: Prisma.$researcherPayload<ExtArgs>
+      domain: Prisma.$domainPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      researcher_id: bigint
+      domain_id: bigint
+    }, ExtArgs["result"]["researcher_domain"]>
+    composites: {}
+  }
+
+  type researcher_domainGetPayload<S extends boolean | null | undefined | researcher_domainDefaultArgs> = $Result.GetResult<Prisma.$researcher_domainPayload, S>
+
+  type researcher_domainCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<researcher_domainFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Researcher_domainCountAggregateInputType | true
+    }
+
+  export interface researcher_domainDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['researcher_domain'], meta: { name: 'researcher_domain' } }
+    /**
+     * Find zero or one Researcher_domain that matches the filter.
+     * @param {researcher_domainFindUniqueArgs} args - Arguments to find a Researcher_domain
+     * @example
+     * // Get one Researcher_domain
+     * const researcher_domain = await prisma.researcher_domain.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends researcher_domainFindUniqueArgs>(args: SelectSubset<T, researcher_domainFindUniqueArgs<ExtArgs>>): Prisma__researcher_domainClient<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Researcher_domain that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {researcher_domainFindUniqueOrThrowArgs} args - Arguments to find a Researcher_domain
+     * @example
+     * // Get one Researcher_domain
+     * const researcher_domain = await prisma.researcher_domain.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends researcher_domainFindUniqueOrThrowArgs>(args: SelectSubset<T, researcher_domainFindUniqueOrThrowArgs<ExtArgs>>): Prisma__researcher_domainClient<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Researcher_domain that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_domainFindFirstArgs} args - Arguments to find a Researcher_domain
+     * @example
+     * // Get one Researcher_domain
+     * const researcher_domain = await prisma.researcher_domain.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends researcher_domainFindFirstArgs>(args?: SelectSubset<T, researcher_domainFindFirstArgs<ExtArgs>>): Prisma__researcher_domainClient<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Researcher_domain that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_domainFindFirstOrThrowArgs} args - Arguments to find a Researcher_domain
+     * @example
+     * // Get one Researcher_domain
+     * const researcher_domain = await prisma.researcher_domain.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends researcher_domainFindFirstOrThrowArgs>(args?: SelectSubset<T, researcher_domainFindFirstOrThrowArgs<ExtArgs>>): Prisma__researcher_domainClient<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Researcher_domains that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_domainFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Researcher_domains
+     * const researcher_domains = await prisma.researcher_domain.findMany()
+     * 
+     * // Get first 10 Researcher_domains
+     * const researcher_domains = await prisma.researcher_domain.findMany({ take: 10 })
+     * 
+     * // Only select the `researcher_id`
+     * const researcher_domainWithResearcher_idOnly = await prisma.researcher_domain.findMany({ select: { researcher_id: true } })
+     * 
+     */
+    findMany<T extends researcher_domainFindManyArgs>(args?: SelectSubset<T, researcher_domainFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Researcher_domain.
+     * @param {researcher_domainCreateArgs} args - Arguments to create a Researcher_domain.
+     * @example
+     * // Create one Researcher_domain
+     * const Researcher_domain = await prisma.researcher_domain.create({
+     *   data: {
+     *     // ... data to create a Researcher_domain
+     *   }
+     * })
+     * 
+     */
+    create<T extends researcher_domainCreateArgs>(args: SelectSubset<T, researcher_domainCreateArgs<ExtArgs>>): Prisma__researcher_domainClient<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Researcher_domains.
+     * @param {researcher_domainCreateManyArgs} args - Arguments to create many Researcher_domains.
+     * @example
+     * // Create many Researcher_domains
+     * const researcher_domain = await prisma.researcher_domain.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends researcher_domainCreateManyArgs>(args?: SelectSubset<T, researcher_domainCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Researcher_domains and returns the data saved in the database.
+     * @param {researcher_domainCreateManyAndReturnArgs} args - Arguments to create many Researcher_domains.
+     * @example
+     * // Create many Researcher_domains
+     * const researcher_domain = await prisma.researcher_domain.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Researcher_domains and only return the `researcher_id`
+     * const researcher_domainWithResearcher_idOnly = await prisma.researcher_domain.createManyAndReturn({
+     *   select: { researcher_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends researcher_domainCreateManyAndReturnArgs>(args?: SelectSubset<T, researcher_domainCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Researcher_domain.
+     * @param {researcher_domainDeleteArgs} args - Arguments to delete one Researcher_domain.
+     * @example
+     * // Delete one Researcher_domain
+     * const Researcher_domain = await prisma.researcher_domain.delete({
+     *   where: {
+     *     // ... filter to delete one Researcher_domain
+     *   }
+     * })
+     * 
+     */
+    delete<T extends researcher_domainDeleteArgs>(args: SelectSubset<T, researcher_domainDeleteArgs<ExtArgs>>): Prisma__researcher_domainClient<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Researcher_domain.
+     * @param {researcher_domainUpdateArgs} args - Arguments to update one Researcher_domain.
+     * @example
+     * // Update one Researcher_domain
+     * const researcher_domain = await prisma.researcher_domain.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends researcher_domainUpdateArgs>(args: SelectSubset<T, researcher_domainUpdateArgs<ExtArgs>>): Prisma__researcher_domainClient<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Researcher_domains.
+     * @param {researcher_domainDeleteManyArgs} args - Arguments to filter Researcher_domains to delete.
+     * @example
+     * // Delete a few Researcher_domains
+     * const { count } = await prisma.researcher_domain.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends researcher_domainDeleteManyArgs>(args?: SelectSubset<T, researcher_domainDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Researcher_domains.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_domainUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Researcher_domains
+     * const researcher_domain = await prisma.researcher_domain.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends researcher_domainUpdateManyArgs>(args: SelectSubset<T, researcher_domainUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Researcher_domains and returns the data updated in the database.
+     * @param {researcher_domainUpdateManyAndReturnArgs} args - Arguments to update many Researcher_domains.
+     * @example
+     * // Update many Researcher_domains
+     * const researcher_domain = await prisma.researcher_domain.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Researcher_domains and only return the `researcher_id`
+     * const researcher_domainWithResearcher_idOnly = await prisma.researcher_domain.updateManyAndReturn({
+     *   select: { researcher_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends researcher_domainUpdateManyAndReturnArgs>(args: SelectSubset<T, researcher_domainUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Researcher_domain.
+     * @param {researcher_domainUpsertArgs} args - Arguments to update or create a Researcher_domain.
+     * @example
+     * // Update or create a Researcher_domain
+     * const researcher_domain = await prisma.researcher_domain.upsert({
+     *   create: {
+     *     // ... data to create a Researcher_domain
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Researcher_domain we want to update
+     *   }
+     * })
+     */
+    upsert<T extends researcher_domainUpsertArgs>(args: SelectSubset<T, researcher_domainUpsertArgs<ExtArgs>>): Prisma__researcher_domainClient<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Researcher_domains.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_domainCountArgs} args - Arguments to filter Researcher_domains to count.
+     * @example
+     * // Count the number of Researcher_domains
+     * const count = await prisma.researcher_domain.count({
+     *   where: {
+     *     // ... the filter for the Researcher_domains we want to count
+     *   }
+     * })
+    **/
+    count<T extends researcher_domainCountArgs>(
+      args?: Subset<T, researcher_domainCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Researcher_domainCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Researcher_domain.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Researcher_domainAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Researcher_domainAggregateArgs>(args: Subset<T, Researcher_domainAggregateArgs>): Prisma.PrismaPromise<GetResearcher_domainAggregateType<T>>
+
+    /**
+     * Group by Researcher_domain.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_domainGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends researcher_domainGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: researcher_domainGroupByArgs['orderBy'] }
+        : { orderBy?: researcher_domainGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, researcher_domainGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetResearcher_domainGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the researcher_domain model
+   */
+  readonly fields: researcher_domainFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for researcher_domain.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__researcher_domainClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    researcher<T extends researcherDefaultArgs<ExtArgs> = {}>(args?: Subset<T, researcherDefaultArgs<ExtArgs>>): Prisma__researcherClient<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    domain<T extends domainDefaultArgs<ExtArgs> = {}>(args?: Subset<T, domainDefaultArgs<ExtArgs>>): Prisma__domainClient<$Result.GetResult<Prisma.$domainPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the researcher_domain model
+   */
+  interface researcher_domainFieldRefs {
+    readonly researcher_id: FieldRef<"researcher_domain", 'BigInt'>
+    readonly domain_id: FieldRef<"researcher_domain", 'BigInt'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * researcher_domain findUnique
+   */
+  export type researcher_domainFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_domain to fetch.
+     */
+    where: researcher_domainWhereUniqueInput
+  }
+
+  /**
+   * researcher_domain findUniqueOrThrow
+   */
+  export type researcher_domainFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_domain to fetch.
+     */
+    where: researcher_domainWhereUniqueInput
+  }
+
+  /**
+   * researcher_domain findFirst
+   */
+  export type researcher_domainFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_domain to fetch.
+     */
+    where?: researcher_domainWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researcher_domains to fetch.
+     */
+    orderBy?: researcher_domainOrderByWithRelationInput | researcher_domainOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for researcher_domains.
+     */
+    cursor?: researcher_domainWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researcher_domains from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researcher_domains.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of researcher_domains.
+     */
+    distinct?: Researcher_domainScalarFieldEnum | Researcher_domainScalarFieldEnum[]
+  }
+
+  /**
+   * researcher_domain findFirstOrThrow
+   */
+  export type researcher_domainFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_domain to fetch.
+     */
+    where?: researcher_domainWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researcher_domains to fetch.
+     */
+    orderBy?: researcher_domainOrderByWithRelationInput | researcher_domainOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for researcher_domains.
+     */
+    cursor?: researcher_domainWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researcher_domains from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researcher_domains.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of researcher_domains.
+     */
+    distinct?: Researcher_domainScalarFieldEnum | Researcher_domainScalarFieldEnum[]
+  }
+
+  /**
+   * researcher_domain findMany
+   */
+  export type researcher_domainFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_domains to fetch.
+     */
+    where?: researcher_domainWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researcher_domains to fetch.
+     */
+    orderBy?: researcher_domainOrderByWithRelationInput | researcher_domainOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing researcher_domains.
+     */
+    cursor?: researcher_domainWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researcher_domains from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researcher_domains.
+     */
+    skip?: number
+    distinct?: Researcher_domainScalarFieldEnum | Researcher_domainScalarFieldEnum[]
+  }
+
+  /**
+   * researcher_domain create
+   */
+  export type researcher_domainCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainInclude<ExtArgs> | null
+    /**
+     * The data needed to create a researcher_domain.
+     */
+    data: XOR<researcher_domainCreateInput, researcher_domainUncheckedCreateInput>
+  }
+
+  /**
+   * researcher_domain createMany
+   */
+  export type researcher_domainCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many researcher_domains.
+     */
+    data: researcher_domainCreateManyInput | researcher_domainCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * researcher_domain createManyAndReturn
+   */
+  export type researcher_domainCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * The data used to create many researcher_domains.
+     */
+    data: researcher_domainCreateManyInput | researcher_domainCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * researcher_domain update
+   */
+  export type researcher_domainUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainInclude<ExtArgs> | null
+    /**
+     * The data needed to update a researcher_domain.
+     */
+    data: XOR<researcher_domainUpdateInput, researcher_domainUncheckedUpdateInput>
+    /**
+     * Choose, which researcher_domain to update.
+     */
+    where: researcher_domainWhereUniqueInput
+  }
+
+  /**
+   * researcher_domain updateMany
+   */
+  export type researcher_domainUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update researcher_domains.
+     */
+    data: XOR<researcher_domainUpdateManyMutationInput, researcher_domainUncheckedUpdateManyInput>
+    /**
+     * Filter which researcher_domains to update
+     */
+    where?: researcher_domainWhereInput
+    /**
+     * Limit how many researcher_domains to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * researcher_domain updateManyAndReturn
+   */
+  export type researcher_domainUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * The data used to update researcher_domains.
+     */
+    data: XOR<researcher_domainUpdateManyMutationInput, researcher_domainUncheckedUpdateManyInput>
+    /**
+     * Filter which researcher_domains to update
+     */
+    where?: researcher_domainWhereInput
+    /**
+     * Limit how many researcher_domains to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * researcher_domain upsert
+   */
+  export type researcher_domainUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainInclude<ExtArgs> | null
+    /**
+     * The filter to search for the researcher_domain to update in case it exists.
+     */
+    where: researcher_domainWhereUniqueInput
+    /**
+     * In case the researcher_domain found by the `where` argument doesn't exist, create a new researcher_domain with this data.
+     */
+    create: XOR<researcher_domainCreateInput, researcher_domainUncheckedCreateInput>
+    /**
+     * In case the researcher_domain was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<researcher_domainUpdateInput, researcher_domainUncheckedUpdateInput>
+  }
+
+  /**
+   * researcher_domain delete
+   */
+  export type researcher_domainDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainInclude<ExtArgs> | null
+    /**
+     * Filter which researcher_domain to delete.
+     */
+    where: researcher_domainWhereUniqueInput
+  }
+
+  /**
+   * researcher_domain deleteMany
+   */
+  export type researcher_domainDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which researcher_domains to delete
+     */
+    where?: researcher_domainWhereInput
+    /**
+     * Limit how many researcher_domains to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * researcher_domain without action
+   */
+  export type researcher_domainDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model researcher_publication
+   */
+
+  export type AggregateResearcher_publication = {
+    _count: Researcher_publicationCountAggregateOutputType | null
+    _avg: Researcher_publicationAvgAggregateOutputType | null
+    _sum: Researcher_publicationSumAggregateOutputType | null
+    _min: Researcher_publicationMinAggregateOutputType | null
+    _max: Researcher_publicationMaxAggregateOutputType | null
+  }
+
+  export type Researcher_publicationAvgAggregateOutputType = {
+    researcher_id: number | null
+    publication_id: number | null
+  }
+
+  export type Researcher_publicationSumAggregateOutputType = {
+    researcher_id: bigint | null
+    publication_id: bigint | null
+  }
+
+  export type Researcher_publicationMinAggregateOutputType = {
+    researcher_id: bigint | null
+    publication_id: bigint | null
+  }
+
+  export type Researcher_publicationMaxAggregateOutputType = {
+    researcher_id: bigint | null
+    publication_id: bigint | null
+  }
+
+  export type Researcher_publicationCountAggregateOutputType = {
+    researcher_id: number
+    publication_id: number
+    _all: number
+  }
+
+
+  export type Researcher_publicationAvgAggregateInputType = {
+    researcher_id?: true
+    publication_id?: true
+  }
+
+  export type Researcher_publicationSumAggregateInputType = {
+    researcher_id?: true
+    publication_id?: true
+  }
+
+  export type Researcher_publicationMinAggregateInputType = {
+    researcher_id?: true
+    publication_id?: true
+  }
+
+  export type Researcher_publicationMaxAggregateInputType = {
+    researcher_id?: true
+    publication_id?: true
+  }
+
+  export type Researcher_publicationCountAggregateInputType = {
+    researcher_id?: true
+    publication_id?: true
+    _all?: true
+  }
+
+  export type Researcher_publicationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which researcher_publication to aggregate.
+     */
+    where?: researcher_publicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researcher_publications to fetch.
+     */
+    orderBy?: researcher_publicationOrderByWithRelationInput | researcher_publicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: researcher_publicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researcher_publications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researcher_publications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned researcher_publications
+    **/
+    _count?: true | Researcher_publicationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Researcher_publicationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Researcher_publicationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Researcher_publicationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Researcher_publicationMaxAggregateInputType
+  }
+
+  export type GetResearcher_publicationAggregateType<T extends Researcher_publicationAggregateArgs> = {
+        [P in keyof T & keyof AggregateResearcher_publication]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateResearcher_publication[P]>
+      : GetScalarType<T[P], AggregateResearcher_publication[P]>
+  }
+
+
+
+
+  export type researcher_publicationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: researcher_publicationWhereInput
+    orderBy?: researcher_publicationOrderByWithAggregationInput | researcher_publicationOrderByWithAggregationInput[]
+    by: Researcher_publicationScalarFieldEnum[] | Researcher_publicationScalarFieldEnum
+    having?: researcher_publicationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Researcher_publicationCountAggregateInputType | true
+    _avg?: Researcher_publicationAvgAggregateInputType
+    _sum?: Researcher_publicationSumAggregateInputType
+    _min?: Researcher_publicationMinAggregateInputType
+    _max?: Researcher_publicationMaxAggregateInputType
+  }
+
+  export type Researcher_publicationGroupByOutputType = {
+    researcher_id: bigint
+    publication_id: bigint
+    _count: Researcher_publicationCountAggregateOutputType | null
+    _avg: Researcher_publicationAvgAggregateOutputType | null
+    _sum: Researcher_publicationSumAggregateOutputType | null
+    _min: Researcher_publicationMinAggregateOutputType | null
+    _max: Researcher_publicationMaxAggregateOutputType | null
+  }
+
+  type GetResearcher_publicationGroupByPayload<T extends researcher_publicationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Researcher_publicationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Researcher_publicationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Researcher_publicationGroupByOutputType[P]>
+            : GetScalarType<T[P], Researcher_publicationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type researcher_publicationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    researcher_id?: boolean
+    publication_id?: boolean
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    publication?: boolean | publicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["researcher_publication"]>
+
+  export type researcher_publicationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    researcher_id?: boolean
+    publication_id?: boolean
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    publication?: boolean | publicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["researcher_publication"]>
+
+  export type researcher_publicationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    researcher_id?: boolean
+    publication_id?: boolean
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    publication?: boolean | publicationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["researcher_publication"]>
+
+  export type researcher_publicationSelectScalar = {
+    researcher_id?: boolean
+    publication_id?: boolean
+  }
+
+  export type researcher_publicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"researcher_id" | "publication_id", ExtArgs["result"]["researcher_publication"]>
+  export type researcher_publicationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    publication?: boolean | publicationDefaultArgs<ExtArgs>
+  }
+  export type researcher_publicationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    publication?: boolean | publicationDefaultArgs<ExtArgs>
+  }
+  export type researcher_publicationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher?: boolean | researcherDefaultArgs<ExtArgs>
+    publication?: boolean | publicationDefaultArgs<ExtArgs>
+  }
+
+  export type $researcher_publicationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "researcher_publication"
+    objects: {
+      researcher: Prisma.$researcherPayload<ExtArgs>
+      publication: Prisma.$publicationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      researcher_id: bigint
+      publication_id: bigint
+    }, ExtArgs["result"]["researcher_publication"]>
+    composites: {}
+  }
+
+  type researcher_publicationGetPayload<S extends boolean | null | undefined | researcher_publicationDefaultArgs> = $Result.GetResult<Prisma.$researcher_publicationPayload, S>
+
+  type researcher_publicationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<researcher_publicationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Researcher_publicationCountAggregateInputType | true
+    }
+
+  export interface researcher_publicationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['researcher_publication'], meta: { name: 'researcher_publication' } }
+    /**
+     * Find zero or one Researcher_publication that matches the filter.
+     * @param {researcher_publicationFindUniqueArgs} args - Arguments to find a Researcher_publication
+     * @example
+     * // Get one Researcher_publication
+     * const researcher_publication = await prisma.researcher_publication.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends researcher_publicationFindUniqueArgs>(args: SelectSubset<T, researcher_publicationFindUniqueArgs<ExtArgs>>): Prisma__researcher_publicationClient<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Researcher_publication that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {researcher_publicationFindUniqueOrThrowArgs} args - Arguments to find a Researcher_publication
+     * @example
+     * // Get one Researcher_publication
+     * const researcher_publication = await prisma.researcher_publication.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends researcher_publicationFindUniqueOrThrowArgs>(args: SelectSubset<T, researcher_publicationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__researcher_publicationClient<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Researcher_publication that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_publicationFindFirstArgs} args - Arguments to find a Researcher_publication
+     * @example
+     * // Get one Researcher_publication
+     * const researcher_publication = await prisma.researcher_publication.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends researcher_publicationFindFirstArgs>(args?: SelectSubset<T, researcher_publicationFindFirstArgs<ExtArgs>>): Prisma__researcher_publicationClient<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Researcher_publication that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_publicationFindFirstOrThrowArgs} args - Arguments to find a Researcher_publication
+     * @example
+     * // Get one Researcher_publication
+     * const researcher_publication = await prisma.researcher_publication.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends researcher_publicationFindFirstOrThrowArgs>(args?: SelectSubset<T, researcher_publicationFindFirstOrThrowArgs<ExtArgs>>): Prisma__researcher_publicationClient<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Researcher_publications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_publicationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Researcher_publications
+     * const researcher_publications = await prisma.researcher_publication.findMany()
+     * 
+     * // Get first 10 Researcher_publications
+     * const researcher_publications = await prisma.researcher_publication.findMany({ take: 10 })
+     * 
+     * // Only select the `researcher_id`
+     * const researcher_publicationWithResearcher_idOnly = await prisma.researcher_publication.findMany({ select: { researcher_id: true } })
+     * 
+     */
+    findMany<T extends researcher_publicationFindManyArgs>(args?: SelectSubset<T, researcher_publicationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Researcher_publication.
+     * @param {researcher_publicationCreateArgs} args - Arguments to create a Researcher_publication.
+     * @example
+     * // Create one Researcher_publication
+     * const Researcher_publication = await prisma.researcher_publication.create({
+     *   data: {
+     *     // ... data to create a Researcher_publication
+     *   }
+     * })
+     * 
+     */
+    create<T extends researcher_publicationCreateArgs>(args: SelectSubset<T, researcher_publicationCreateArgs<ExtArgs>>): Prisma__researcher_publicationClient<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Researcher_publications.
+     * @param {researcher_publicationCreateManyArgs} args - Arguments to create many Researcher_publications.
+     * @example
+     * // Create many Researcher_publications
+     * const researcher_publication = await prisma.researcher_publication.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends researcher_publicationCreateManyArgs>(args?: SelectSubset<T, researcher_publicationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Researcher_publications and returns the data saved in the database.
+     * @param {researcher_publicationCreateManyAndReturnArgs} args - Arguments to create many Researcher_publications.
+     * @example
+     * // Create many Researcher_publications
+     * const researcher_publication = await prisma.researcher_publication.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Researcher_publications and only return the `researcher_id`
+     * const researcher_publicationWithResearcher_idOnly = await prisma.researcher_publication.createManyAndReturn({
+     *   select: { researcher_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends researcher_publicationCreateManyAndReturnArgs>(args?: SelectSubset<T, researcher_publicationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Researcher_publication.
+     * @param {researcher_publicationDeleteArgs} args - Arguments to delete one Researcher_publication.
+     * @example
+     * // Delete one Researcher_publication
+     * const Researcher_publication = await prisma.researcher_publication.delete({
+     *   where: {
+     *     // ... filter to delete one Researcher_publication
+     *   }
+     * })
+     * 
+     */
+    delete<T extends researcher_publicationDeleteArgs>(args: SelectSubset<T, researcher_publicationDeleteArgs<ExtArgs>>): Prisma__researcher_publicationClient<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Researcher_publication.
+     * @param {researcher_publicationUpdateArgs} args - Arguments to update one Researcher_publication.
+     * @example
+     * // Update one Researcher_publication
+     * const researcher_publication = await prisma.researcher_publication.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends researcher_publicationUpdateArgs>(args: SelectSubset<T, researcher_publicationUpdateArgs<ExtArgs>>): Prisma__researcher_publicationClient<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Researcher_publications.
+     * @param {researcher_publicationDeleteManyArgs} args - Arguments to filter Researcher_publications to delete.
+     * @example
+     * // Delete a few Researcher_publications
+     * const { count } = await prisma.researcher_publication.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends researcher_publicationDeleteManyArgs>(args?: SelectSubset<T, researcher_publicationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Researcher_publications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_publicationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Researcher_publications
+     * const researcher_publication = await prisma.researcher_publication.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends researcher_publicationUpdateManyArgs>(args: SelectSubset<T, researcher_publicationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Researcher_publications and returns the data updated in the database.
+     * @param {researcher_publicationUpdateManyAndReturnArgs} args - Arguments to update many Researcher_publications.
+     * @example
+     * // Update many Researcher_publications
+     * const researcher_publication = await prisma.researcher_publication.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Researcher_publications and only return the `researcher_id`
+     * const researcher_publicationWithResearcher_idOnly = await prisma.researcher_publication.updateManyAndReturn({
+     *   select: { researcher_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends researcher_publicationUpdateManyAndReturnArgs>(args: SelectSubset<T, researcher_publicationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Researcher_publication.
+     * @param {researcher_publicationUpsertArgs} args - Arguments to update or create a Researcher_publication.
+     * @example
+     * // Update or create a Researcher_publication
+     * const researcher_publication = await prisma.researcher_publication.upsert({
+     *   create: {
+     *     // ... data to create a Researcher_publication
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Researcher_publication we want to update
+     *   }
+     * })
+     */
+    upsert<T extends researcher_publicationUpsertArgs>(args: SelectSubset<T, researcher_publicationUpsertArgs<ExtArgs>>): Prisma__researcher_publicationClient<$Result.GetResult<Prisma.$researcher_publicationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Researcher_publications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_publicationCountArgs} args - Arguments to filter Researcher_publications to count.
+     * @example
+     * // Count the number of Researcher_publications
+     * const count = await prisma.researcher_publication.count({
+     *   where: {
+     *     // ... the filter for the Researcher_publications we want to count
+     *   }
+     * })
+    **/
+    count<T extends researcher_publicationCountArgs>(
+      args?: Subset<T, researcher_publicationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Researcher_publicationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Researcher_publication.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Researcher_publicationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Researcher_publicationAggregateArgs>(args: Subset<T, Researcher_publicationAggregateArgs>): Prisma.PrismaPromise<GetResearcher_publicationAggregateType<T>>
+
+    /**
+     * Group by Researcher_publication.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {researcher_publicationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends researcher_publicationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: researcher_publicationGroupByArgs['orderBy'] }
+        : { orderBy?: researcher_publicationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, researcher_publicationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetResearcher_publicationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the researcher_publication model
+   */
+  readonly fields: researcher_publicationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for researcher_publication.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__researcher_publicationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    researcher<T extends researcherDefaultArgs<ExtArgs> = {}>(args?: Subset<T, researcherDefaultArgs<ExtArgs>>): Prisma__researcherClient<$Result.GetResult<Prisma.$researcherPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    publication<T extends publicationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, publicationDefaultArgs<ExtArgs>>): Prisma__publicationClient<$Result.GetResult<Prisma.$publicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the researcher_publication model
+   */
+  interface researcher_publicationFieldRefs {
+    readonly researcher_id: FieldRef<"researcher_publication", 'BigInt'>
+    readonly publication_id: FieldRef<"researcher_publication", 'BigInt'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * researcher_publication findUnique
+   */
+  export type researcher_publicationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_publication to fetch.
+     */
+    where: researcher_publicationWhereUniqueInput
+  }
+
+  /**
+   * researcher_publication findUniqueOrThrow
+   */
+  export type researcher_publicationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_publication to fetch.
+     */
+    where: researcher_publicationWhereUniqueInput
+  }
+
+  /**
+   * researcher_publication findFirst
+   */
+  export type researcher_publicationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_publication to fetch.
+     */
+    where?: researcher_publicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researcher_publications to fetch.
+     */
+    orderBy?: researcher_publicationOrderByWithRelationInput | researcher_publicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for researcher_publications.
+     */
+    cursor?: researcher_publicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researcher_publications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researcher_publications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of researcher_publications.
+     */
+    distinct?: Researcher_publicationScalarFieldEnum | Researcher_publicationScalarFieldEnum[]
+  }
+
+  /**
+   * researcher_publication findFirstOrThrow
+   */
+  export type researcher_publicationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_publication to fetch.
+     */
+    where?: researcher_publicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researcher_publications to fetch.
+     */
+    orderBy?: researcher_publicationOrderByWithRelationInput | researcher_publicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for researcher_publications.
+     */
+    cursor?: researcher_publicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researcher_publications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researcher_publications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of researcher_publications.
+     */
+    distinct?: Researcher_publicationScalarFieldEnum | Researcher_publicationScalarFieldEnum[]
+  }
+
+  /**
+   * researcher_publication findMany
+   */
+  export type researcher_publicationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationInclude<ExtArgs> | null
+    /**
+     * Filter, which researcher_publications to fetch.
+     */
+    where?: researcher_publicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of researcher_publications to fetch.
+     */
+    orderBy?: researcher_publicationOrderByWithRelationInput | researcher_publicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing researcher_publications.
+     */
+    cursor?: researcher_publicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` researcher_publications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` researcher_publications.
+     */
+    skip?: number
+    distinct?: Researcher_publicationScalarFieldEnum | Researcher_publicationScalarFieldEnum[]
+  }
+
+  /**
+   * researcher_publication create
+   */
+  export type researcher_publicationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a researcher_publication.
+     */
+    data: XOR<researcher_publicationCreateInput, researcher_publicationUncheckedCreateInput>
+  }
+
+  /**
+   * researcher_publication createMany
+   */
+  export type researcher_publicationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many researcher_publications.
+     */
+    data: researcher_publicationCreateManyInput | researcher_publicationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * researcher_publication createManyAndReturn
+   */
+  export type researcher_publicationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * The data used to create many researcher_publications.
+     */
+    data: researcher_publicationCreateManyInput | researcher_publicationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * researcher_publication update
+   */
+  export type researcher_publicationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a researcher_publication.
+     */
+    data: XOR<researcher_publicationUpdateInput, researcher_publicationUncheckedUpdateInput>
+    /**
+     * Choose, which researcher_publication to update.
+     */
+    where: researcher_publicationWhereUniqueInput
+  }
+
+  /**
+   * researcher_publication updateMany
+   */
+  export type researcher_publicationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update researcher_publications.
+     */
+    data: XOR<researcher_publicationUpdateManyMutationInput, researcher_publicationUncheckedUpdateManyInput>
+    /**
+     * Filter which researcher_publications to update
+     */
+    where?: researcher_publicationWhereInput
+    /**
+     * Limit how many researcher_publications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * researcher_publication updateManyAndReturn
+   */
+  export type researcher_publicationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * The data used to update researcher_publications.
+     */
+    data: XOR<researcher_publicationUpdateManyMutationInput, researcher_publicationUncheckedUpdateManyInput>
+    /**
+     * Filter which researcher_publications to update
+     */
+    where?: researcher_publicationWhereInput
+    /**
+     * Limit how many researcher_publications to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * researcher_publication upsert
+   */
+  export type researcher_publicationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the researcher_publication to update in case it exists.
+     */
+    where: researcher_publicationWhereUniqueInput
+    /**
+     * In case the researcher_publication found by the `where` argument doesn't exist, create a new researcher_publication with this data.
+     */
+    create: XOR<researcher_publicationCreateInput, researcher_publicationUncheckedCreateInput>
+    /**
+     * In case the researcher_publication was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<researcher_publicationUpdateInput, researcher_publicationUncheckedUpdateInput>
+  }
+
+  /**
+   * researcher_publication delete
+   */
+  export type researcher_publicationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationInclude<ExtArgs> | null
+    /**
+     * Filter which researcher_publication to delete.
+     */
+    where: researcher_publicationWhereUniqueInput
+  }
+
+  /**
+   * researcher_publication deleteMany
+   */
+  export type researcher_publicationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which researcher_publications to delete
+     */
+    where?: researcher_publicationWhereInput
+    /**
+     * Limit how many researcher_publications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * researcher_publication without action
+   */
+  export type researcher_publicationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_publication
+     */
+    select?: researcher_publicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_publication
+     */
+    omit?: researcher_publicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_publicationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model domain
+   */
+
+  export type AggregateDomain = {
+    _count: DomainCountAggregateOutputType | null
+    _avg: DomainAvgAggregateOutputType | null
+    _sum: DomainSumAggregateOutputType | null
+    _min: DomainMinAggregateOutputType | null
+    _max: DomainMaxAggregateOutputType | null
+  }
+
+  export type DomainAvgAggregateOutputType = {
+    domain_id: number | null
+    cno: number | null
+    user_no: number | null
+  }
+
+  export type DomainSumAggregateOutputType = {
+    domain_id: bigint | null
+    cno: bigint | null
+    user_no: bigint | null
+  }
+
+  export type DomainMinAggregateOutputType = {
+    domain_id: bigint | null
+    name: string | null
+    description: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type DomainMaxAggregateOutputType = {
+    domain_id: bigint | null
+    name: string | null
+    description: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date | null
+    update_timestamp: Date | null
+    is_deleted: boolean | null
+  }
+
+  export type DomainCountAggregateOutputType = {
+    domain_id: number
+    name: number
+    description: number
+    cno: number
+    user_no: number
+    insert_timestamp: number
+    update_timestamp: number
+    is_deleted: number
+    _all: number
+  }
+
+
+  export type DomainAvgAggregateInputType = {
+    domain_id?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type DomainSumAggregateInputType = {
+    domain_id?: true
+    cno?: true
+    user_no?: true
+  }
+
+  export type DomainMinAggregateInputType = {
+    domain_id?: true
+    name?: true
+    description?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type DomainMaxAggregateInputType = {
+    domain_id?: true
+    name?: true
+    description?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+  }
+
+  export type DomainCountAggregateInputType = {
+    domain_id?: true
+    name?: true
+    description?: true
+    cno?: true
+    user_no?: true
+    insert_timestamp?: true
+    update_timestamp?: true
+    is_deleted?: true
+    _all?: true
+  }
+
+  export type DomainAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which domain to aggregate.
+     */
+    where?: domainWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of domains to fetch.
+     */
+    orderBy?: domainOrderByWithRelationInput | domainOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: domainWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` domains from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` domains.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned domains
+    **/
+    _count?: true | DomainCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DomainAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DomainSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DomainMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DomainMaxAggregateInputType
+  }
+
+  export type GetDomainAggregateType<T extends DomainAggregateArgs> = {
+        [P in keyof T & keyof AggregateDomain]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDomain[P]>
+      : GetScalarType<T[P], AggregateDomain[P]>
+  }
+
+
+
+
+  export type domainGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: domainWhereInput
+    orderBy?: domainOrderByWithAggregationInput | domainOrderByWithAggregationInput[]
+    by: DomainScalarFieldEnum[] | DomainScalarFieldEnum
+    having?: domainScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DomainCountAggregateInputType | true
+    _avg?: DomainAvgAggregateInputType
+    _sum?: DomainSumAggregateInputType
+    _min?: DomainMinAggregateInputType
+    _max?: DomainMaxAggregateInputType
+  }
+
+  export type DomainGroupByOutputType = {
+    domain_id: bigint
+    name: string | null
+    description: string | null
+    cno: bigint | null
+    user_no: bigint | null
+    insert_timestamp: Date
+    update_timestamp: Date
+    is_deleted: boolean
+    _count: DomainCountAggregateOutputType | null
+    _avg: DomainAvgAggregateOutputType | null
+    _sum: DomainSumAggregateOutputType | null
+    _min: DomainMinAggregateOutputType | null
+    _max: DomainMaxAggregateOutputType | null
+  }
+
+  type GetDomainGroupByPayload<T extends domainGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DomainGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DomainGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DomainGroupByOutputType[P]>
+            : GetScalarType<T[P], DomainGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type domainSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    domain_id?: boolean
+    name?: boolean
+    description?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+    researcher_domains?: boolean | domain$researcher_domainsArgs<ExtArgs>
+    _count?: boolean | DomainCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["domain"]>
+
+  export type domainSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    domain_id?: boolean
+    name?: boolean
+    description?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["domain"]>
+
+  export type domainSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    domain_id?: boolean
+    name?: boolean
+    description?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["domain"]>
+
+  export type domainSelectScalar = {
+    domain_id?: boolean
+    name?: boolean
+    description?: boolean
+    cno?: boolean
+    user_no?: boolean
+    insert_timestamp?: boolean
+    update_timestamp?: boolean
+    is_deleted?: boolean
+  }
+
+  export type domainOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"domain_id" | "name" | "description" | "cno" | "user_no" | "insert_timestamp" | "update_timestamp" | "is_deleted", ExtArgs["result"]["domain"]>
+  export type domainInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    researcher_domains?: boolean | domain$researcher_domainsArgs<ExtArgs>
+    _count?: boolean | DomainCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type domainIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type domainIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $domainPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "domain"
+    objects: {
+      researcher_domains: Prisma.$researcher_domainPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      domain_id: bigint
+      name: string | null
+      description: string | null
+      cno: bigint | null
+      user_no: bigint | null
+      insert_timestamp: Date
+      update_timestamp: Date
+      is_deleted: boolean
+    }, ExtArgs["result"]["domain"]>
+    composites: {}
+  }
+
+  type domainGetPayload<S extends boolean | null | undefined | domainDefaultArgs> = $Result.GetResult<Prisma.$domainPayload, S>
+
+  type domainCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<domainFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DomainCountAggregateInputType | true
+    }
+
+  export interface domainDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['domain'], meta: { name: 'domain' } }
+    /**
+     * Find zero or one Domain that matches the filter.
+     * @param {domainFindUniqueArgs} args - Arguments to find a Domain
+     * @example
+     * // Get one Domain
+     * const domain = await prisma.domain.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends domainFindUniqueArgs>(args: SelectSubset<T, domainFindUniqueArgs<ExtArgs>>): Prisma__domainClient<$Result.GetResult<Prisma.$domainPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Domain that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {domainFindUniqueOrThrowArgs} args - Arguments to find a Domain
+     * @example
+     * // Get one Domain
+     * const domain = await prisma.domain.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends domainFindUniqueOrThrowArgs>(args: SelectSubset<T, domainFindUniqueOrThrowArgs<ExtArgs>>): Prisma__domainClient<$Result.GetResult<Prisma.$domainPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Domain that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {domainFindFirstArgs} args - Arguments to find a Domain
+     * @example
+     * // Get one Domain
+     * const domain = await prisma.domain.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends domainFindFirstArgs>(args?: SelectSubset<T, domainFindFirstArgs<ExtArgs>>): Prisma__domainClient<$Result.GetResult<Prisma.$domainPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Domain that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {domainFindFirstOrThrowArgs} args - Arguments to find a Domain
+     * @example
+     * // Get one Domain
+     * const domain = await prisma.domain.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends domainFindFirstOrThrowArgs>(args?: SelectSubset<T, domainFindFirstOrThrowArgs<ExtArgs>>): Prisma__domainClient<$Result.GetResult<Prisma.$domainPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Domains that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {domainFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Domains
+     * const domains = await prisma.domain.findMany()
+     * 
+     * // Get first 10 Domains
+     * const domains = await prisma.domain.findMany({ take: 10 })
+     * 
+     * // Only select the `domain_id`
+     * const domainWithDomain_idOnly = await prisma.domain.findMany({ select: { domain_id: true } })
+     * 
+     */
+    findMany<T extends domainFindManyArgs>(args?: SelectSubset<T, domainFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$domainPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Domain.
+     * @param {domainCreateArgs} args - Arguments to create a Domain.
+     * @example
+     * // Create one Domain
+     * const Domain = await prisma.domain.create({
+     *   data: {
+     *     // ... data to create a Domain
+     *   }
+     * })
+     * 
+     */
+    create<T extends domainCreateArgs>(args: SelectSubset<T, domainCreateArgs<ExtArgs>>): Prisma__domainClient<$Result.GetResult<Prisma.$domainPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Domains.
+     * @param {domainCreateManyArgs} args - Arguments to create many Domains.
+     * @example
+     * // Create many Domains
+     * const domain = await prisma.domain.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends domainCreateManyArgs>(args?: SelectSubset<T, domainCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Domains and returns the data saved in the database.
+     * @param {domainCreateManyAndReturnArgs} args - Arguments to create many Domains.
+     * @example
+     * // Create many Domains
+     * const domain = await prisma.domain.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Domains and only return the `domain_id`
+     * const domainWithDomain_idOnly = await prisma.domain.createManyAndReturn({
+     *   select: { domain_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends domainCreateManyAndReturnArgs>(args?: SelectSubset<T, domainCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$domainPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Domain.
+     * @param {domainDeleteArgs} args - Arguments to delete one Domain.
+     * @example
+     * // Delete one Domain
+     * const Domain = await prisma.domain.delete({
+     *   where: {
+     *     // ... filter to delete one Domain
+     *   }
+     * })
+     * 
+     */
+    delete<T extends domainDeleteArgs>(args: SelectSubset<T, domainDeleteArgs<ExtArgs>>): Prisma__domainClient<$Result.GetResult<Prisma.$domainPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Domain.
+     * @param {domainUpdateArgs} args - Arguments to update one Domain.
+     * @example
+     * // Update one Domain
+     * const domain = await prisma.domain.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends domainUpdateArgs>(args: SelectSubset<T, domainUpdateArgs<ExtArgs>>): Prisma__domainClient<$Result.GetResult<Prisma.$domainPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Domains.
+     * @param {domainDeleteManyArgs} args - Arguments to filter Domains to delete.
+     * @example
+     * // Delete a few Domains
+     * const { count } = await prisma.domain.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends domainDeleteManyArgs>(args?: SelectSubset<T, domainDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Domains.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {domainUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Domains
+     * const domain = await prisma.domain.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends domainUpdateManyArgs>(args: SelectSubset<T, domainUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Domains and returns the data updated in the database.
+     * @param {domainUpdateManyAndReturnArgs} args - Arguments to update many Domains.
+     * @example
+     * // Update many Domains
+     * const domain = await prisma.domain.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Domains and only return the `domain_id`
+     * const domainWithDomain_idOnly = await prisma.domain.updateManyAndReturn({
+     *   select: { domain_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends domainUpdateManyAndReturnArgs>(args: SelectSubset<T, domainUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$domainPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Domain.
+     * @param {domainUpsertArgs} args - Arguments to update or create a Domain.
+     * @example
+     * // Update or create a Domain
+     * const domain = await prisma.domain.upsert({
+     *   create: {
+     *     // ... data to create a Domain
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Domain we want to update
+     *   }
+     * })
+     */
+    upsert<T extends domainUpsertArgs>(args: SelectSubset<T, domainUpsertArgs<ExtArgs>>): Prisma__domainClient<$Result.GetResult<Prisma.$domainPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Domains.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {domainCountArgs} args - Arguments to filter Domains to count.
+     * @example
+     * // Count the number of Domains
+     * const count = await prisma.domain.count({
+     *   where: {
+     *     // ... the filter for the Domains we want to count
+     *   }
+     * })
+    **/
+    count<T extends domainCountArgs>(
+      args?: Subset<T, domainCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DomainCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Domain.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DomainAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DomainAggregateArgs>(args: Subset<T, DomainAggregateArgs>): Prisma.PrismaPromise<GetDomainAggregateType<T>>
+
+    /**
+     * Group by Domain.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {domainGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends domainGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: domainGroupByArgs['orderBy'] }
+        : { orderBy?: domainGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, domainGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDomainGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the domain model
+   */
+  readonly fields: domainFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for domain.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__domainClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    researcher_domains<T extends domain$researcher_domainsArgs<ExtArgs> = {}>(args?: Subset<T, domain$researcher_domainsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$researcher_domainPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the domain model
+   */
+  interface domainFieldRefs {
+    readonly domain_id: FieldRef<"domain", 'BigInt'>
+    readonly name: FieldRef<"domain", 'String'>
+    readonly description: FieldRef<"domain", 'String'>
+    readonly cno: FieldRef<"domain", 'BigInt'>
+    readonly user_no: FieldRef<"domain", 'BigInt'>
+    readonly insert_timestamp: FieldRef<"domain", 'DateTime'>
+    readonly update_timestamp: FieldRef<"domain", 'DateTime'>
+    readonly is_deleted: FieldRef<"domain", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * domain findUnique
+   */
+  export type domainFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the domain
+     */
+    select?: domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the domain
+     */
+    omit?: domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: domainInclude<ExtArgs> | null
+    /**
+     * Filter, which domain to fetch.
+     */
+    where: domainWhereUniqueInput
+  }
+
+  /**
+   * domain findUniqueOrThrow
+   */
+  export type domainFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the domain
+     */
+    select?: domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the domain
+     */
+    omit?: domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: domainInclude<ExtArgs> | null
+    /**
+     * Filter, which domain to fetch.
+     */
+    where: domainWhereUniqueInput
+  }
+
+  /**
+   * domain findFirst
+   */
+  export type domainFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the domain
+     */
+    select?: domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the domain
+     */
+    omit?: domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: domainInclude<ExtArgs> | null
+    /**
+     * Filter, which domain to fetch.
+     */
+    where?: domainWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of domains to fetch.
+     */
+    orderBy?: domainOrderByWithRelationInput | domainOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for domains.
+     */
+    cursor?: domainWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` domains from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` domains.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of domains.
+     */
+    distinct?: DomainScalarFieldEnum | DomainScalarFieldEnum[]
+  }
+
+  /**
+   * domain findFirstOrThrow
+   */
+  export type domainFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the domain
+     */
+    select?: domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the domain
+     */
+    omit?: domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: domainInclude<ExtArgs> | null
+    /**
+     * Filter, which domain to fetch.
+     */
+    where?: domainWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of domains to fetch.
+     */
+    orderBy?: domainOrderByWithRelationInput | domainOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for domains.
+     */
+    cursor?: domainWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` domains from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` domains.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of domains.
+     */
+    distinct?: DomainScalarFieldEnum | DomainScalarFieldEnum[]
+  }
+
+  /**
+   * domain findMany
+   */
+  export type domainFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the domain
+     */
+    select?: domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the domain
+     */
+    omit?: domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: domainInclude<ExtArgs> | null
+    /**
+     * Filter, which domains to fetch.
+     */
+    where?: domainWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of domains to fetch.
+     */
+    orderBy?: domainOrderByWithRelationInput | domainOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing domains.
+     */
+    cursor?: domainWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` domains from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` domains.
+     */
+    skip?: number
+    distinct?: DomainScalarFieldEnum | DomainScalarFieldEnum[]
+  }
+
+  /**
+   * domain create
+   */
+  export type domainCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the domain
+     */
+    select?: domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the domain
+     */
+    omit?: domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: domainInclude<ExtArgs> | null
+    /**
+     * The data needed to create a domain.
+     */
+    data: XOR<domainCreateInput, domainUncheckedCreateInput>
+  }
+
+  /**
+   * domain createMany
+   */
+  export type domainCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many domains.
+     */
+    data: domainCreateManyInput | domainCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * domain createManyAndReturn
+   */
+  export type domainCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the domain
+     */
+    select?: domainSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the domain
+     */
+    omit?: domainOmit<ExtArgs> | null
+    /**
+     * The data used to create many domains.
+     */
+    data: domainCreateManyInput | domainCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * domain update
+   */
+  export type domainUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the domain
+     */
+    select?: domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the domain
+     */
+    omit?: domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: domainInclude<ExtArgs> | null
+    /**
+     * The data needed to update a domain.
+     */
+    data: XOR<domainUpdateInput, domainUncheckedUpdateInput>
+    /**
+     * Choose, which domain to update.
+     */
+    where: domainWhereUniqueInput
+  }
+
+  /**
+   * domain updateMany
+   */
+  export type domainUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update domains.
+     */
+    data: XOR<domainUpdateManyMutationInput, domainUncheckedUpdateManyInput>
+    /**
+     * Filter which domains to update
+     */
+    where?: domainWhereInput
+    /**
+     * Limit how many domains to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * domain updateManyAndReturn
+   */
+  export type domainUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the domain
+     */
+    select?: domainSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the domain
+     */
+    omit?: domainOmit<ExtArgs> | null
+    /**
+     * The data used to update domains.
+     */
+    data: XOR<domainUpdateManyMutationInput, domainUncheckedUpdateManyInput>
+    /**
+     * Filter which domains to update
+     */
+    where?: domainWhereInput
+    /**
+     * Limit how many domains to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * domain upsert
+   */
+  export type domainUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the domain
+     */
+    select?: domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the domain
+     */
+    omit?: domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: domainInclude<ExtArgs> | null
+    /**
+     * The filter to search for the domain to update in case it exists.
+     */
+    where: domainWhereUniqueInput
+    /**
+     * In case the domain found by the `where` argument doesn't exist, create a new domain with this data.
+     */
+    create: XOR<domainCreateInput, domainUncheckedCreateInput>
+    /**
+     * In case the domain was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<domainUpdateInput, domainUncheckedUpdateInput>
+  }
+
+  /**
+   * domain delete
+   */
+  export type domainDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the domain
+     */
+    select?: domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the domain
+     */
+    omit?: domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: domainInclude<ExtArgs> | null
+    /**
+     * Filter which domain to delete.
+     */
+    where: domainWhereUniqueInput
+  }
+
+  /**
+   * domain deleteMany
+   */
+  export type domainDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which domains to delete
+     */
+    where?: domainWhereInput
+    /**
+     * Limit how many domains to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * domain.researcher_domains
+   */
+  export type domain$researcher_domainsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the researcher_domain
+     */
+    select?: researcher_domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the researcher_domain
+     */
+    omit?: researcher_domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: researcher_domainInclude<ExtArgs> | null
+    where?: researcher_domainWhereInput
+    orderBy?: researcher_domainOrderByWithRelationInput | researcher_domainOrderByWithRelationInput[]
+    cursor?: researcher_domainWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Researcher_domainScalarFieldEnum | Researcher_domainScalarFieldEnum[]
+  }
+
+  /**
+   * domain without action
+   */
+  export type domainDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the domain
+     */
+    select?: domainSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the domain
+     */
+    omit?: domainOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: domainInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Enums
+   */
+
+  export const TransactionIsolationLevel: {
+    ReadUncommitted: 'ReadUncommitted',
+    ReadCommitted: 'ReadCommitted',
+    RepeatableRead: 'RepeatableRead',
+    Serializable: 'Serializable'
+  };
+
+  export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+  export const KeywordScalarFieldEnum: {
+    keyword_id: 'keyword_id',
+    keyword_name: 'keyword_name',
+    description: 'description',
+    cno: 'cno',
+    user_no: 'user_no',
+    insert_timestamp: 'insert_timestamp',
+    update_timestamp: 'update_timestamp',
+    is_deleted: 'is_deleted'
+  };
+
+  export type KeywordScalarFieldEnum = (typeof KeywordScalarFieldEnum)[keyof typeof KeywordScalarFieldEnum]
+
+
+  export const IpcScalarFieldEnum: {
+    ipc_id: 'ipc_id',
+    ipc_code: 'ipc_code',
+    description: 'description',
+    cno: 'cno',
+    user_no: 'user_no',
+    insert_timestamp: 'insert_timestamp',
+    update_timestamp: 'update_timestamp',
+    is_deleted: 'is_deleted'
+  };
+
+  export type IpcScalarFieldEnum = (typeof IpcScalarFieldEnum)[keyof typeof IpcScalarFieldEnum]
+
+
+  export const PatentScalarFieldEnum: {
+    patent_id: 'patent_id',
+    title: 'title',
+    application_number: 'application_number',
+    registration_number: 'registration_number',
+    publication_number: 'publication_number',
+    country: 'country',
+    applicant_name: 'applicant_name',
+    application_title: 'application_title',
+    applicant: 'applicant',
+    application_date: 'application_date',
+    registration_date: 'registration_date',
+    publication_date: 'publication_date',
+    summary: 'summary',
+    cno: 'cno',
+    user_no: 'user_no',
+    insert_timestamp: 'insert_timestamp',
+    update_timestamp: 'update_timestamp',
+    is_deleted: 'is_deleted'
+  };
+
+  export type PatentScalarFieldEnum = (typeof PatentScalarFieldEnum)[keyof typeof PatentScalarFieldEnum]
+
+
+  export const Patent_ipcScalarFieldEnum: {
+    patent_id: 'patent_id',
+    ipc_id: 'ipc_id'
+  };
+
+  export type Patent_ipcScalarFieldEnum = (typeof Patent_ipcScalarFieldEnum)[keyof typeof Patent_ipcScalarFieldEnum]
+
+
+  export const Patent_keywordScalarFieldEnum: {
+    patent_id: 'patent_id',
+    keyword_id: 'keyword_id'
+  };
+
+  export type Patent_keywordScalarFieldEnum = (typeof Patent_keywordScalarFieldEnum)[keyof typeof Patent_keywordScalarFieldEnum]
+
+
+  export const JournalScalarFieldEnum: {
+    journal_id: 'journal_id',
+    name: 'name',
+    publisher: 'publisher',
+    issn: 'issn',
+    impact_factor: 'impact_factor',
+    cno: 'cno',
+    user_no: 'user_no',
+    insert_timestamp: 'insert_timestamp',
+    update_timestamp: 'update_timestamp',
+    is_deleted: 'is_deleted'
+  };
+
+  export type JournalScalarFieldEnum = (typeof JournalScalarFieldEnum)[keyof typeof JournalScalarFieldEnum]
+
+
+  export const PublicationScalarFieldEnum: {
+    publication_id: 'publication_id',
+    title: 'title',
+    abstract: 'abstract',
+    publication_date: 'publication_date',
+    journal_id: 'journal_id',
+    cno: 'cno',
+    user_no: 'user_no',
+    insert_timestamp: 'insert_timestamp',
+    update_timestamp: 'update_timestamp',
+    is_deleted: 'is_deleted'
+  };
+
+  export type PublicationScalarFieldEnum = (typeof PublicationScalarFieldEnum)[keyof typeof PublicationScalarFieldEnum]
+
+
+  export const Publication_keywordScalarFieldEnum: {
+    publication_id: 'publication_id',
+    keyword_id: 'keyword_id'
+  };
+
+  export type Publication_keywordScalarFieldEnum = (typeof Publication_keywordScalarFieldEnum)[keyof typeof Publication_keywordScalarFieldEnum]
+
+
+  export const Journal_keywordScalarFieldEnum: {
+    journal_id: 'journal_id',
+    keyword_id: 'keyword_id'
+  };
+
+  export type Journal_keywordScalarFieldEnum = (typeof Journal_keywordScalarFieldEnum)[keyof typeof Journal_keywordScalarFieldEnum]
+
+
+  export const ResearcherScalarFieldEnum: {
+    researcher_id: 'researcher_id',
+    name: 'name',
+    affiliation: 'affiliation',
+    email: 'email',
+    cno: 'cno',
+    user_no: 'user_no',
+    insert_timestamp: 'insert_timestamp',
+    update_timestamp: 'update_timestamp',
+    is_deleted: 'is_deleted'
+  };
+
+  export type ResearcherScalarFieldEnum = (typeof ResearcherScalarFieldEnum)[keyof typeof ResearcherScalarFieldEnum]
+
+
+  export const Researcher_patentScalarFieldEnum: {
+    researcher_id: 'researcher_id',
+    patent_id: 'patent_id'
+  };
+
+  export type Researcher_patentScalarFieldEnum = (typeof Researcher_patentScalarFieldEnum)[keyof typeof Researcher_patentScalarFieldEnum]
+
+
+  export const Researcher_domainScalarFieldEnum: {
+    researcher_id: 'researcher_id',
+    domain_id: 'domain_id'
+  };
+
+  export type Researcher_domainScalarFieldEnum = (typeof Researcher_domainScalarFieldEnum)[keyof typeof Researcher_domainScalarFieldEnum]
+
+
+  export const Researcher_publicationScalarFieldEnum: {
+    researcher_id: 'researcher_id',
+    publication_id: 'publication_id'
+  };
+
+  export type Researcher_publicationScalarFieldEnum = (typeof Researcher_publicationScalarFieldEnum)[keyof typeof Researcher_publicationScalarFieldEnum]
+
+
+  export const DomainScalarFieldEnum: {
+    domain_id: 'domain_id',
+    name: 'name',
+    description: 'description',
+    cno: 'cno',
+    user_no: 'user_no',
+    insert_timestamp: 'insert_timestamp',
+    update_timestamp: 'update_timestamp',
+    is_deleted: 'is_deleted'
+  };
+
+  export type DomainScalarFieldEnum = (typeof DomainScalarFieldEnum)[keyof typeof DomainScalarFieldEnum]
+
+
+  export const SortOrder: {
+    asc: 'asc',
+    desc: 'desc'
+  };
+
+  export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  /**
+   * Field references
+   */
+
+
+  /**
+   * Reference to a field of type 'BigInt'
+   */
+  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+    
+
+
+  /**
+   * Reference to a field of type 'BigInt[]'
+   */
+  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'String'
+   */
+  export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+  /**
+   * Reference to a field of type 'String[]'
+   */
+  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal[]'
+   */
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+  /**
+   * Deep Input Types
+   */
+
+
+  export type keywordWhereInput = {
+    AND?: keywordWhereInput | keywordWhereInput[]
+    OR?: keywordWhereInput[]
+    NOT?: keywordWhereInput | keywordWhereInput[]
+    keyword_id?: BigIntFilter<"keyword"> | bigint | number
+    keyword_name?: StringNullableFilter<"keyword"> | string | null
+    description?: StringNullableFilter<"keyword"> | string | null
+    cno?: BigIntNullableFilter<"keyword"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"keyword"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"keyword"> | Date | string
+    update_timestamp?: DateTimeFilter<"keyword"> | Date | string
+    is_deleted?: BoolFilter<"keyword"> | boolean
+    patent_keywords?: Patent_keywordListRelationFilter
+    journal_keywords?: Journal_keywordListRelationFilter
+    publication_keywords?: Publication_keywordListRelationFilter
+  }
+
+  export type keywordOrderByWithRelationInput = {
+    keyword_id?: SortOrder
+    keyword_name?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    patent_keywords?: patent_keywordOrderByRelationAggregateInput
+    journal_keywords?: journal_keywordOrderByRelationAggregateInput
+    publication_keywords?: publication_keywordOrderByRelationAggregateInput
+  }
+
+  export type keywordWhereUniqueInput = Prisma.AtLeast<{
+    keyword_id?: bigint | number
+    AND?: keywordWhereInput | keywordWhereInput[]
+    OR?: keywordWhereInput[]
+    NOT?: keywordWhereInput | keywordWhereInput[]
+    keyword_name?: StringNullableFilter<"keyword"> | string | null
+    description?: StringNullableFilter<"keyword"> | string | null
+    cno?: BigIntNullableFilter<"keyword"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"keyword"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"keyword"> | Date | string
+    update_timestamp?: DateTimeFilter<"keyword"> | Date | string
+    is_deleted?: BoolFilter<"keyword"> | boolean
+    patent_keywords?: Patent_keywordListRelationFilter
+    journal_keywords?: Journal_keywordListRelationFilter
+    publication_keywords?: Publication_keywordListRelationFilter
+  }, "keyword_id">
+
+  export type keywordOrderByWithAggregationInput = {
+    keyword_id?: SortOrder
+    keyword_name?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    _count?: keywordCountOrderByAggregateInput
+    _avg?: keywordAvgOrderByAggregateInput
+    _max?: keywordMaxOrderByAggregateInput
+    _min?: keywordMinOrderByAggregateInput
+    _sum?: keywordSumOrderByAggregateInput
+  }
+
+  export type keywordScalarWhereWithAggregatesInput = {
+    AND?: keywordScalarWhereWithAggregatesInput | keywordScalarWhereWithAggregatesInput[]
+    OR?: keywordScalarWhereWithAggregatesInput[]
+    NOT?: keywordScalarWhereWithAggregatesInput | keywordScalarWhereWithAggregatesInput[]
+    keyword_id?: BigIntWithAggregatesFilter<"keyword"> | bigint | number
+    keyword_name?: StringNullableWithAggregatesFilter<"keyword"> | string | null
+    description?: StringNullableWithAggregatesFilter<"keyword"> | string | null
+    cno?: BigIntNullableWithAggregatesFilter<"keyword"> | bigint | number | null
+    user_no?: BigIntNullableWithAggregatesFilter<"keyword"> | bigint | number | null
+    insert_timestamp?: DateTimeWithAggregatesFilter<"keyword"> | Date | string
+    update_timestamp?: DateTimeWithAggregatesFilter<"keyword"> | Date | string
+    is_deleted?: BoolWithAggregatesFilter<"keyword"> | boolean
+  }
+
+  export type ipcWhereInput = {
+    AND?: ipcWhereInput | ipcWhereInput[]
+    OR?: ipcWhereInput[]
+    NOT?: ipcWhereInput | ipcWhereInput[]
+    ipc_id?: BigIntFilter<"ipc"> | bigint | number
+    ipc_code?: StringNullableFilter<"ipc"> | string | null
+    description?: StringNullableFilter<"ipc"> | string | null
+    cno?: BigIntNullableFilter<"ipc"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"ipc"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"ipc"> | Date | string
+    update_timestamp?: DateTimeFilter<"ipc"> | Date | string
+    is_deleted?: BoolFilter<"ipc"> | boolean
+    patent_ipcs?: Patent_ipcListRelationFilter
+  }
+
+  export type ipcOrderByWithRelationInput = {
+    ipc_id?: SortOrder
+    ipc_code?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    patent_ipcs?: patent_ipcOrderByRelationAggregateInput
+  }
+
+  export type ipcWhereUniqueInput = Prisma.AtLeast<{
+    ipc_id?: bigint | number
+    AND?: ipcWhereInput | ipcWhereInput[]
+    OR?: ipcWhereInput[]
+    NOT?: ipcWhereInput | ipcWhereInput[]
+    ipc_code?: StringNullableFilter<"ipc"> | string | null
+    description?: StringNullableFilter<"ipc"> | string | null
+    cno?: BigIntNullableFilter<"ipc"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"ipc"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"ipc"> | Date | string
+    update_timestamp?: DateTimeFilter<"ipc"> | Date | string
+    is_deleted?: BoolFilter<"ipc"> | boolean
+    patent_ipcs?: Patent_ipcListRelationFilter
+  }, "ipc_id">
+
+  export type ipcOrderByWithAggregationInput = {
+    ipc_id?: SortOrder
+    ipc_code?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    _count?: ipcCountOrderByAggregateInput
+    _avg?: ipcAvgOrderByAggregateInput
+    _max?: ipcMaxOrderByAggregateInput
+    _min?: ipcMinOrderByAggregateInput
+    _sum?: ipcSumOrderByAggregateInput
+  }
+
+  export type ipcScalarWhereWithAggregatesInput = {
+    AND?: ipcScalarWhereWithAggregatesInput | ipcScalarWhereWithAggregatesInput[]
+    OR?: ipcScalarWhereWithAggregatesInput[]
+    NOT?: ipcScalarWhereWithAggregatesInput | ipcScalarWhereWithAggregatesInput[]
+    ipc_id?: BigIntWithAggregatesFilter<"ipc"> | bigint | number
+    ipc_code?: StringNullableWithAggregatesFilter<"ipc"> | string | null
+    description?: StringNullableWithAggregatesFilter<"ipc"> | string | null
+    cno?: BigIntNullableWithAggregatesFilter<"ipc"> | bigint | number | null
+    user_no?: BigIntNullableWithAggregatesFilter<"ipc"> | bigint | number | null
+    insert_timestamp?: DateTimeWithAggregatesFilter<"ipc"> | Date | string
+    update_timestamp?: DateTimeWithAggregatesFilter<"ipc"> | Date | string
+    is_deleted?: BoolWithAggregatesFilter<"ipc"> | boolean
+  }
+
+  export type patentWhereInput = {
+    AND?: patentWhereInput | patentWhereInput[]
+    OR?: patentWhereInput[]
+    NOT?: patentWhereInput | patentWhereInput[]
+    patent_id?: BigIntFilter<"patent"> | bigint | number
+    title?: StringNullableFilter<"patent"> | string | null
+    application_number?: StringNullableFilter<"patent"> | string | null
+    registration_number?: StringNullableFilter<"patent"> | string | null
+    publication_number?: StringNullableFilter<"patent"> | string | null
+    country?: StringNullableFilter<"patent"> | string | null
+    applicant_name?: StringNullableFilter<"patent"> | string | null
+    application_title?: StringNullableFilter<"patent"> | string | null
+    applicant?: StringNullableFilter<"patent"> | string | null
+    application_date?: DateTimeNullableFilter<"patent"> | Date | string | null
+    registration_date?: DateTimeNullableFilter<"patent"> | Date | string | null
+    publication_date?: DateTimeNullableFilter<"patent"> | Date | string | null
+    summary?: StringNullableFilter<"patent"> | string | null
+    cno?: BigIntNullableFilter<"patent"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"patent"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"patent"> | Date | string
+    update_timestamp?: DateTimeFilter<"patent"> | Date | string
+    is_deleted?: BoolFilter<"patent"> | boolean
+    patent_ipcs?: Patent_ipcListRelationFilter
+    patent_keywords?: Patent_keywordListRelationFilter
+    researcher_patents?: Researcher_patentListRelationFilter
+  }
+
+  export type patentOrderByWithRelationInput = {
+    patent_id?: SortOrder
+    title?: SortOrderInput | SortOrder
+    application_number?: SortOrderInput | SortOrder
+    registration_number?: SortOrderInput | SortOrder
+    publication_number?: SortOrderInput | SortOrder
+    country?: SortOrderInput | SortOrder
+    applicant_name?: SortOrderInput | SortOrder
+    application_title?: SortOrderInput | SortOrder
+    applicant?: SortOrderInput | SortOrder
+    application_date?: SortOrderInput | SortOrder
+    registration_date?: SortOrderInput | SortOrder
+    publication_date?: SortOrderInput | SortOrder
+    summary?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    patent_ipcs?: patent_ipcOrderByRelationAggregateInput
+    patent_keywords?: patent_keywordOrderByRelationAggregateInput
+    researcher_patents?: researcher_patentOrderByRelationAggregateInput
+  }
+
+  export type patentWhereUniqueInput = Prisma.AtLeast<{
+    patent_id?: bigint | number
+    AND?: patentWhereInput | patentWhereInput[]
+    OR?: patentWhereInput[]
+    NOT?: patentWhereInput | patentWhereInput[]
+    title?: StringNullableFilter<"patent"> | string | null
+    application_number?: StringNullableFilter<"patent"> | string | null
+    registration_number?: StringNullableFilter<"patent"> | string | null
+    publication_number?: StringNullableFilter<"patent"> | string | null
+    country?: StringNullableFilter<"patent"> | string | null
+    applicant_name?: StringNullableFilter<"patent"> | string | null
+    application_title?: StringNullableFilter<"patent"> | string | null
+    applicant?: StringNullableFilter<"patent"> | string | null
+    application_date?: DateTimeNullableFilter<"patent"> | Date | string | null
+    registration_date?: DateTimeNullableFilter<"patent"> | Date | string | null
+    publication_date?: DateTimeNullableFilter<"patent"> | Date | string | null
+    summary?: StringNullableFilter<"patent"> | string | null
+    cno?: BigIntNullableFilter<"patent"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"patent"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"patent"> | Date | string
+    update_timestamp?: DateTimeFilter<"patent"> | Date | string
+    is_deleted?: BoolFilter<"patent"> | boolean
+    patent_ipcs?: Patent_ipcListRelationFilter
+    patent_keywords?: Patent_keywordListRelationFilter
+    researcher_patents?: Researcher_patentListRelationFilter
+  }, "patent_id">
+
+  export type patentOrderByWithAggregationInput = {
+    patent_id?: SortOrder
+    title?: SortOrderInput | SortOrder
+    application_number?: SortOrderInput | SortOrder
+    registration_number?: SortOrderInput | SortOrder
+    publication_number?: SortOrderInput | SortOrder
+    country?: SortOrderInput | SortOrder
+    applicant_name?: SortOrderInput | SortOrder
+    application_title?: SortOrderInput | SortOrder
+    applicant?: SortOrderInput | SortOrder
+    application_date?: SortOrderInput | SortOrder
+    registration_date?: SortOrderInput | SortOrder
+    publication_date?: SortOrderInput | SortOrder
+    summary?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    _count?: patentCountOrderByAggregateInput
+    _avg?: patentAvgOrderByAggregateInput
+    _max?: patentMaxOrderByAggregateInput
+    _min?: patentMinOrderByAggregateInput
+    _sum?: patentSumOrderByAggregateInput
+  }
+
+  export type patentScalarWhereWithAggregatesInput = {
+    AND?: patentScalarWhereWithAggregatesInput | patentScalarWhereWithAggregatesInput[]
+    OR?: patentScalarWhereWithAggregatesInput[]
+    NOT?: patentScalarWhereWithAggregatesInput | patentScalarWhereWithAggregatesInput[]
+    patent_id?: BigIntWithAggregatesFilter<"patent"> | bigint | number
+    title?: StringNullableWithAggregatesFilter<"patent"> | string | null
+    application_number?: StringNullableWithAggregatesFilter<"patent"> | string | null
+    registration_number?: StringNullableWithAggregatesFilter<"patent"> | string | null
+    publication_number?: StringNullableWithAggregatesFilter<"patent"> | string | null
+    country?: StringNullableWithAggregatesFilter<"patent"> | string | null
+    applicant_name?: StringNullableWithAggregatesFilter<"patent"> | string | null
+    application_title?: StringNullableWithAggregatesFilter<"patent"> | string | null
+    applicant?: StringNullableWithAggregatesFilter<"patent"> | string | null
+    application_date?: DateTimeNullableWithAggregatesFilter<"patent"> | Date | string | null
+    registration_date?: DateTimeNullableWithAggregatesFilter<"patent"> | Date | string | null
+    publication_date?: DateTimeNullableWithAggregatesFilter<"patent"> | Date | string | null
+    summary?: StringNullableWithAggregatesFilter<"patent"> | string | null
+    cno?: BigIntNullableWithAggregatesFilter<"patent"> | bigint | number | null
+    user_no?: BigIntNullableWithAggregatesFilter<"patent"> | bigint | number | null
+    insert_timestamp?: DateTimeWithAggregatesFilter<"patent"> | Date | string
+    update_timestamp?: DateTimeWithAggregatesFilter<"patent"> | Date | string
+    is_deleted?: BoolWithAggregatesFilter<"patent"> | boolean
+  }
+
+  export type patent_ipcWhereInput = {
+    AND?: patent_ipcWhereInput | patent_ipcWhereInput[]
+    OR?: patent_ipcWhereInput[]
+    NOT?: patent_ipcWhereInput | patent_ipcWhereInput[]
+    patent_id?: BigIntFilter<"patent_ipc"> | bigint | number
+    ipc_id?: BigIntFilter<"patent_ipc"> | bigint | number
+    patent?: XOR<PatentScalarRelationFilter, patentWhereInput>
+    ipc?: XOR<IpcScalarRelationFilter, ipcWhereInput>
+  }
+
+  export type patent_ipcOrderByWithRelationInput = {
+    patent_id?: SortOrder
+    ipc_id?: SortOrder
+    patent?: patentOrderByWithRelationInput
+    ipc?: ipcOrderByWithRelationInput
+  }
+
+  export type patent_ipcWhereUniqueInput = Prisma.AtLeast<{
+    patent_id_ipc_id?: patent_ipcPatent_idIpc_idCompoundUniqueInput
+    AND?: patent_ipcWhereInput | patent_ipcWhereInput[]
+    OR?: patent_ipcWhereInput[]
+    NOT?: patent_ipcWhereInput | patent_ipcWhereInput[]
+    patent_id?: BigIntFilter<"patent_ipc"> | bigint | number
+    ipc_id?: BigIntFilter<"patent_ipc"> | bigint | number
+    patent?: XOR<PatentScalarRelationFilter, patentWhereInput>
+    ipc?: XOR<IpcScalarRelationFilter, ipcWhereInput>
+  }, "patent_id_ipc_id">
+
+  export type patent_ipcOrderByWithAggregationInput = {
+    patent_id?: SortOrder
+    ipc_id?: SortOrder
+    _count?: patent_ipcCountOrderByAggregateInput
+    _avg?: patent_ipcAvgOrderByAggregateInput
+    _max?: patent_ipcMaxOrderByAggregateInput
+    _min?: patent_ipcMinOrderByAggregateInput
+    _sum?: patent_ipcSumOrderByAggregateInput
+  }
+
+  export type patent_ipcScalarWhereWithAggregatesInput = {
+    AND?: patent_ipcScalarWhereWithAggregatesInput | patent_ipcScalarWhereWithAggregatesInput[]
+    OR?: patent_ipcScalarWhereWithAggregatesInput[]
+    NOT?: patent_ipcScalarWhereWithAggregatesInput | patent_ipcScalarWhereWithAggregatesInput[]
+    patent_id?: BigIntWithAggregatesFilter<"patent_ipc"> | bigint | number
+    ipc_id?: BigIntWithAggregatesFilter<"patent_ipc"> | bigint | number
+  }
+
+  export type patent_keywordWhereInput = {
+    AND?: patent_keywordWhereInput | patent_keywordWhereInput[]
+    OR?: patent_keywordWhereInput[]
+    NOT?: patent_keywordWhereInput | patent_keywordWhereInput[]
+    patent_id?: BigIntFilter<"patent_keyword"> | bigint | number
+    keyword_id?: BigIntFilter<"patent_keyword"> | bigint | number
+    patent?: XOR<PatentScalarRelationFilter, patentWhereInput>
+    keyword?: XOR<KeywordScalarRelationFilter, keywordWhereInput>
+  }
+
+  export type patent_keywordOrderByWithRelationInput = {
+    patent_id?: SortOrder
+    keyword_id?: SortOrder
+    patent?: patentOrderByWithRelationInput
+    keyword?: keywordOrderByWithRelationInput
+  }
+
+  export type patent_keywordWhereUniqueInput = Prisma.AtLeast<{
+    patent_id_keyword_id?: patent_keywordPatent_idKeyword_idCompoundUniqueInput
+    AND?: patent_keywordWhereInput | patent_keywordWhereInput[]
+    OR?: patent_keywordWhereInput[]
+    NOT?: patent_keywordWhereInput | patent_keywordWhereInput[]
+    patent_id?: BigIntFilter<"patent_keyword"> | bigint | number
+    keyword_id?: BigIntFilter<"patent_keyword"> | bigint | number
+    patent?: XOR<PatentScalarRelationFilter, patentWhereInput>
+    keyword?: XOR<KeywordScalarRelationFilter, keywordWhereInput>
+  }, "patent_id_keyword_id">
+
+  export type patent_keywordOrderByWithAggregationInput = {
+    patent_id?: SortOrder
+    keyword_id?: SortOrder
+    _count?: patent_keywordCountOrderByAggregateInput
+    _avg?: patent_keywordAvgOrderByAggregateInput
+    _max?: patent_keywordMaxOrderByAggregateInput
+    _min?: patent_keywordMinOrderByAggregateInput
+    _sum?: patent_keywordSumOrderByAggregateInput
+  }
+
+  export type patent_keywordScalarWhereWithAggregatesInput = {
+    AND?: patent_keywordScalarWhereWithAggregatesInput | patent_keywordScalarWhereWithAggregatesInput[]
+    OR?: patent_keywordScalarWhereWithAggregatesInput[]
+    NOT?: patent_keywordScalarWhereWithAggregatesInput | patent_keywordScalarWhereWithAggregatesInput[]
+    patent_id?: BigIntWithAggregatesFilter<"patent_keyword"> | bigint | number
+    keyword_id?: BigIntWithAggregatesFilter<"patent_keyword"> | bigint | number
+  }
+
+  export type journalWhereInput = {
+    AND?: journalWhereInput | journalWhereInput[]
+    OR?: journalWhereInput[]
+    NOT?: journalWhereInput | journalWhereInput[]
+    journal_id?: BigIntFilter<"journal"> | bigint | number
+    name?: StringNullableFilter<"journal"> | string | null
+    publisher?: StringNullableFilter<"journal"> | string | null
+    issn?: StringNullableFilter<"journal"> | string | null
+    impact_factor?: DecimalNullableFilter<"journal"> | Decimal | DecimalJsLike | number | string | null
+    cno?: BigIntNullableFilter<"journal"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"journal"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"journal"> | Date | string
+    update_timestamp?: DateTimeFilter<"journal"> | Date | string
+    is_deleted?: BoolFilter<"journal"> | boolean
+    publications?: PublicationListRelationFilter
+    journal_keywords?: Journal_keywordListRelationFilter
+  }
+
+  export type journalOrderByWithRelationInput = {
+    journal_id?: SortOrder
+    name?: SortOrderInput | SortOrder
+    publisher?: SortOrderInput | SortOrder
+    issn?: SortOrderInput | SortOrder
+    impact_factor?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    publications?: publicationOrderByRelationAggregateInput
+    journal_keywords?: journal_keywordOrderByRelationAggregateInput
+  }
+
+  export type journalWhereUniqueInput = Prisma.AtLeast<{
+    journal_id?: bigint | number
+    AND?: journalWhereInput | journalWhereInput[]
+    OR?: journalWhereInput[]
+    NOT?: journalWhereInput | journalWhereInput[]
+    name?: StringNullableFilter<"journal"> | string | null
+    publisher?: StringNullableFilter<"journal"> | string | null
+    issn?: StringNullableFilter<"journal"> | string | null
+    impact_factor?: DecimalNullableFilter<"journal"> | Decimal | DecimalJsLike | number | string | null
+    cno?: BigIntNullableFilter<"journal"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"journal"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"journal"> | Date | string
+    update_timestamp?: DateTimeFilter<"journal"> | Date | string
+    is_deleted?: BoolFilter<"journal"> | boolean
+    publications?: PublicationListRelationFilter
+    journal_keywords?: Journal_keywordListRelationFilter
+  }, "journal_id">
+
+  export type journalOrderByWithAggregationInput = {
+    journal_id?: SortOrder
+    name?: SortOrderInput | SortOrder
+    publisher?: SortOrderInput | SortOrder
+    issn?: SortOrderInput | SortOrder
+    impact_factor?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    _count?: journalCountOrderByAggregateInput
+    _avg?: journalAvgOrderByAggregateInput
+    _max?: journalMaxOrderByAggregateInput
+    _min?: journalMinOrderByAggregateInput
+    _sum?: journalSumOrderByAggregateInput
+  }
+
+  export type journalScalarWhereWithAggregatesInput = {
+    AND?: journalScalarWhereWithAggregatesInput | journalScalarWhereWithAggregatesInput[]
+    OR?: journalScalarWhereWithAggregatesInput[]
+    NOT?: journalScalarWhereWithAggregatesInput | journalScalarWhereWithAggregatesInput[]
+    journal_id?: BigIntWithAggregatesFilter<"journal"> | bigint | number
+    name?: StringNullableWithAggregatesFilter<"journal"> | string | null
+    publisher?: StringNullableWithAggregatesFilter<"journal"> | string | null
+    issn?: StringNullableWithAggregatesFilter<"journal"> | string | null
+    impact_factor?: DecimalNullableWithAggregatesFilter<"journal"> | Decimal | DecimalJsLike | number | string | null
+    cno?: BigIntNullableWithAggregatesFilter<"journal"> | bigint | number | null
+    user_no?: BigIntNullableWithAggregatesFilter<"journal"> | bigint | number | null
+    insert_timestamp?: DateTimeWithAggregatesFilter<"journal"> | Date | string
+    update_timestamp?: DateTimeWithAggregatesFilter<"journal"> | Date | string
+    is_deleted?: BoolWithAggregatesFilter<"journal"> | boolean
+  }
+
+  export type publicationWhereInput = {
+    AND?: publicationWhereInput | publicationWhereInput[]
+    OR?: publicationWhereInput[]
+    NOT?: publicationWhereInput | publicationWhereInput[]
+    publication_id?: BigIntFilter<"publication"> | bigint | number
+    title?: StringNullableFilter<"publication"> | string | null
+    abstract?: StringNullableFilter<"publication"> | string | null
+    publication_date?: DateTimeNullableFilter<"publication"> | Date | string | null
+    journal_id?: BigIntNullableFilter<"publication"> | bigint | number | null
+    cno?: BigIntNullableFilter<"publication"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"publication"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"publication"> | Date | string
+    update_timestamp?: DateTimeFilter<"publication"> | Date | string
+    is_deleted?: BoolFilter<"publication"> | boolean
+    journal?: XOR<JournalNullableScalarRelationFilter, journalWhereInput> | null
+    publication_keywords?: Publication_keywordListRelationFilter
+    researcher_publications?: Researcher_publicationListRelationFilter
+  }
+
+  export type publicationOrderByWithRelationInput = {
+    publication_id?: SortOrder
+    title?: SortOrderInput | SortOrder
+    abstract?: SortOrderInput | SortOrder
+    publication_date?: SortOrderInput | SortOrder
+    journal_id?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    journal?: journalOrderByWithRelationInput
+    publication_keywords?: publication_keywordOrderByRelationAggregateInput
+    researcher_publications?: researcher_publicationOrderByRelationAggregateInput
+  }
+
+  export type publicationWhereUniqueInput = Prisma.AtLeast<{
+    publication_id?: bigint | number
+    AND?: publicationWhereInput | publicationWhereInput[]
+    OR?: publicationWhereInput[]
+    NOT?: publicationWhereInput | publicationWhereInput[]
+    title?: StringNullableFilter<"publication"> | string | null
+    abstract?: StringNullableFilter<"publication"> | string | null
+    publication_date?: DateTimeNullableFilter<"publication"> | Date | string | null
+    journal_id?: BigIntNullableFilter<"publication"> | bigint | number | null
+    cno?: BigIntNullableFilter<"publication"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"publication"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"publication"> | Date | string
+    update_timestamp?: DateTimeFilter<"publication"> | Date | string
+    is_deleted?: BoolFilter<"publication"> | boolean
+    journal?: XOR<JournalNullableScalarRelationFilter, journalWhereInput> | null
+    publication_keywords?: Publication_keywordListRelationFilter
+    researcher_publications?: Researcher_publicationListRelationFilter
+  }, "publication_id">
+
+  export type publicationOrderByWithAggregationInput = {
+    publication_id?: SortOrder
+    title?: SortOrderInput | SortOrder
+    abstract?: SortOrderInput | SortOrder
+    publication_date?: SortOrderInput | SortOrder
+    journal_id?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    _count?: publicationCountOrderByAggregateInput
+    _avg?: publicationAvgOrderByAggregateInput
+    _max?: publicationMaxOrderByAggregateInput
+    _min?: publicationMinOrderByAggregateInput
+    _sum?: publicationSumOrderByAggregateInput
+  }
+
+  export type publicationScalarWhereWithAggregatesInput = {
+    AND?: publicationScalarWhereWithAggregatesInput | publicationScalarWhereWithAggregatesInput[]
+    OR?: publicationScalarWhereWithAggregatesInput[]
+    NOT?: publicationScalarWhereWithAggregatesInput | publicationScalarWhereWithAggregatesInput[]
+    publication_id?: BigIntWithAggregatesFilter<"publication"> | bigint | number
+    title?: StringNullableWithAggregatesFilter<"publication"> | string | null
+    abstract?: StringNullableWithAggregatesFilter<"publication"> | string | null
+    publication_date?: DateTimeNullableWithAggregatesFilter<"publication"> | Date | string | null
+    journal_id?: BigIntNullableWithAggregatesFilter<"publication"> | bigint | number | null
+    cno?: BigIntNullableWithAggregatesFilter<"publication"> | bigint | number | null
+    user_no?: BigIntNullableWithAggregatesFilter<"publication"> | bigint | number | null
+    insert_timestamp?: DateTimeWithAggregatesFilter<"publication"> | Date | string
+    update_timestamp?: DateTimeWithAggregatesFilter<"publication"> | Date | string
+    is_deleted?: BoolWithAggregatesFilter<"publication"> | boolean
+  }
+
+  export type publication_keywordWhereInput = {
+    AND?: publication_keywordWhereInput | publication_keywordWhereInput[]
+    OR?: publication_keywordWhereInput[]
+    NOT?: publication_keywordWhereInput | publication_keywordWhereInput[]
+    publication_id?: BigIntFilter<"publication_keyword"> | bigint | number
+    keyword_id?: BigIntFilter<"publication_keyword"> | bigint | number
+    publication?: XOR<PublicationScalarRelationFilter, publicationWhereInput>
+    keyword?: XOR<KeywordScalarRelationFilter, keywordWhereInput>
+  }
+
+  export type publication_keywordOrderByWithRelationInput = {
+    publication_id?: SortOrder
+    keyword_id?: SortOrder
+    publication?: publicationOrderByWithRelationInput
+    keyword?: keywordOrderByWithRelationInput
+  }
+
+  export type publication_keywordWhereUniqueInput = Prisma.AtLeast<{
+    publication_id_keyword_id?: publication_keywordPublication_idKeyword_idCompoundUniqueInput
+    AND?: publication_keywordWhereInput | publication_keywordWhereInput[]
+    OR?: publication_keywordWhereInput[]
+    NOT?: publication_keywordWhereInput | publication_keywordWhereInput[]
+    publication_id?: BigIntFilter<"publication_keyword"> | bigint | number
+    keyword_id?: BigIntFilter<"publication_keyword"> | bigint | number
+    publication?: XOR<PublicationScalarRelationFilter, publicationWhereInput>
+    keyword?: XOR<KeywordScalarRelationFilter, keywordWhereInput>
+  }, "publication_id_keyword_id">
+
+  export type publication_keywordOrderByWithAggregationInput = {
+    publication_id?: SortOrder
+    keyword_id?: SortOrder
+    _count?: publication_keywordCountOrderByAggregateInput
+    _avg?: publication_keywordAvgOrderByAggregateInput
+    _max?: publication_keywordMaxOrderByAggregateInput
+    _min?: publication_keywordMinOrderByAggregateInput
+    _sum?: publication_keywordSumOrderByAggregateInput
+  }
+
+  export type publication_keywordScalarWhereWithAggregatesInput = {
+    AND?: publication_keywordScalarWhereWithAggregatesInput | publication_keywordScalarWhereWithAggregatesInput[]
+    OR?: publication_keywordScalarWhereWithAggregatesInput[]
+    NOT?: publication_keywordScalarWhereWithAggregatesInput | publication_keywordScalarWhereWithAggregatesInput[]
+    publication_id?: BigIntWithAggregatesFilter<"publication_keyword"> | bigint | number
+    keyword_id?: BigIntWithAggregatesFilter<"publication_keyword"> | bigint | number
+  }
+
+  export type journal_keywordWhereInput = {
+    AND?: journal_keywordWhereInput | journal_keywordWhereInput[]
+    OR?: journal_keywordWhereInput[]
+    NOT?: journal_keywordWhereInput | journal_keywordWhereInput[]
+    journal_id?: BigIntFilter<"journal_keyword"> | bigint | number
+    keyword_id?: BigIntFilter<"journal_keyword"> | bigint | number
+    journal?: XOR<JournalScalarRelationFilter, journalWhereInput>
+    keyword?: XOR<KeywordScalarRelationFilter, keywordWhereInput>
+  }
+
+  export type journal_keywordOrderByWithRelationInput = {
+    journal_id?: SortOrder
+    keyword_id?: SortOrder
+    journal?: journalOrderByWithRelationInput
+    keyword?: keywordOrderByWithRelationInput
+  }
+
+  export type journal_keywordWhereUniqueInput = Prisma.AtLeast<{
+    journal_id_keyword_id?: journal_keywordJournal_idKeyword_idCompoundUniqueInput
+    AND?: journal_keywordWhereInput | journal_keywordWhereInput[]
+    OR?: journal_keywordWhereInput[]
+    NOT?: journal_keywordWhereInput | journal_keywordWhereInput[]
+    journal_id?: BigIntFilter<"journal_keyword"> | bigint | number
+    keyword_id?: BigIntFilter<"journal_keyword"> | bigint | number
+    journal?: XOR<JournalScalarRelationFilter, journalWhereInput>
+    keyword?: XOR<KeywordScalarRelationFilter, keywordWhereInput>
+  }, "journal_id_keyword_id">
+
+  export type journal_keywordOrderByWithAggregationInput = {
+    journal_id?: SortOrder
+    keyword_id?: SortOrder
+    _count?: journal_keywordCountOrderByAggregateInput
+    _avg?: journal_keywordAvgOrderByAggregateInput
+    _max?: journal_keywordMaxOrderByAggregateInput
+    _min?: journal_keywordMinOrderByAggregateInput
+    _sum?: journal_keywordSumOrderByAggregateInput
+  }
+
+  export type journal_keywordScalarWhereWithAggregatesInput = {
+    AND?: journal_keywordScalarWhereWithAggregatesInput | journal_keywordScalarWhereWithAggregatesInput[]
+    OR?: journal_keywordScalarWhereWithAggregatesInput[]
+    NOT?: journal_keywordScalarWhereWithAggregatesInput | journal_keywordScalarWhereWithAggregatesInput[]
+    journal_id?: BigIntWithAggregatesFilter<"journal_keyword"> | bigint | number
+    keyword_id?: BigIntWithAggregatesFilter<"journal_keyword"> | bigint | number
+  }
+
+  export type researcherWhereInput = {
+    AND?: researcherWhereInput | researcherWhereInput[]
+    OR?: researcherWhereInput[]
+    NOT?: researcherWhereInput | researcherWhereInput[]
+    researcher_id?: BigIntFilter<"researcher"> | bigint | number
+    name?: StringNullableFilter<"researcher"> | string | null
+    affiliation?: StringNullableFilter<"researcher"> | string | null
+    email?: StringNullableFilter<"researcher"> | string | null
+    cno?: BigIntNullableFilter<"researcher"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"researcher"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"researcher"> | Date | string
+    update_timestamp?: DateTimeFilter<"researcher"> | Date | string
+    is_deleted?: BoolFilter<"researcher"> | boolean
+    researcher_patents?: Researcher_patentListRelationFilter
+    researcher_domains?: Researcher_domainListRelationFilter
+    researcher_publications?: Researcher_publicationListRelationFilter
+  }
+
+  export type researcherOrderByWithRelationInput = {
+    researcher_id?: SortOrder
+    name?: SortOrderInput | SortOrder
+    affiliation?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    researcher_patents?: researcher_patentOrderByRelationAggregateInput
+    researcher_domains?: researcher_domainOrderByRelationAggregateInput
+    researcher_publications?: researcher_publicationOrderByRelationAggregateInput
+  }
+
+  export type researcherWhereUniqueInput = Prisma.AtLeast<{
+    researcher_id?: bigint | number
+    AND?: researcherWhereInput | researcherWhereInput[]
+    OR?: researcherWhereInput[]
+    NOT?: researcherWhereInput | researcherWhereInput[]
+    name?: StringNullableFilter<"researcher"> | string | null
+    affiliation?: StringNullableFilter<"researcher"> | string | null
+    email?: StringNullableFilter<"researcher"> | string | null
+    cno?: BigIntNullableFilter<"researcher"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"researcher"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"researcher"> | Date | string
+    update_timestamp?: DateTimeFilter<"researcher"> | Date | string
+    is_deleted?: BoolFilter<"researcher"> | boolean
+    researcher_patents?: Researcher_patentListRelationFilter
+    researcher_domains?: Researcher_domainListRelationFilter
+    researcher_publications?: Researcher_publicationListRelationFilter
+  }, "researcher_id">
+
+  export type researcherOrderByWithAggregationInput = {
+    researcher_id?: SortOrder
+    name?: SortOrderInput | SortOrder
+    affiliation?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    _count?: researcherCountOrderByAggregateInput
+    _avg?: researcherAvgOrderByAggregateInput
+    _max?: researcherMaxOrderByAggregateInput
+    _min?: researcherMinOrderByAggregateInput
+    _sum?: researcherSumOrderByAggregateInput
+  }
+
+  export type researcherScalarWhereWithAggregatesInput = {
+    AND?: researcherScalarWhereWithAggregatesInput | researcherScalarWhereWithAggregatesInput[]
+    OR?: researcherScalarWhereWithAggregatesInput[]
+    NOT?: researcherScalarWhereWithAggregatesInput | researcherScalarWhereWithAggregatesInput[]
+    researcher_id?: BigIntWithAggregatesFilter<"researcher"> | bigint | number
+    name?: StringNullableWithAggregatesFilter<"researcher"> | string | null
+    affiliation?: StringNullableWithAggregatesFilter<"researcher"> | string | null
+    email?: StringNullableWithAggregatesFilter<"researcher"> | string | null
+    cno?: BigIntNullableWithAggregatesFilter<"researcher"> | bigint | number | null
+    user_no?: BigIntNullableWithAggregatesFilter<"researcher"> | bigint | number | null
+    insert_timestamp?: DateTimeWithAggregatesFilter<"researcher"> | Date | string
+    update_timestamp?: DateTimeWithAggregatesFilter<"researcher"> | Date | string
+    is_deleted?: BoolWithAggregatesFilter<"researcher"> | boolean
+  }
+
+  export type researcher_patentWhereInput = {
+    AND?: researcher_patentWhereInput | researcher_patentWhereInput[]
+    OR?: researcher_patentWhereInput[]
+    NOT?: researcher_patentWhereInput | researcher_patentWhereInput[]
+    researcher_id?: BigIntFilter<"researcher_patent"> | bigint | number
+    patent_id?: BigIntFilter<"researcher_patent"> | bigint | number
+    researcher?: XOR<ResearcherScalarRelationFilter, researcherWhereInput>
+    patent?: XOR<PatentScalarRelationFilter, patentWhereInput>
+  }
+
+  export type researcher_patentOrderByWithRelationInput = {
+    researcher_id?: SortOrder
+    patent_id?: SortOrder
+    researcher?: researcherOrderByWithRelationInput
+    patent?: patentOrderByWithRelationInput
+  }
+
+  export type researcher_patentWhereUniqueInput = Prisma.AtLeast<{
+    researcher_id_patent_id?: researcher_patentResearcher_idPatent_idCompoundUniqueInput
+    AND?: researcher_patentWhereInput | researcher_patentWhereInput[]
+    OR?: researcher_patentWhereInput[]
+    NOT?: researcher_patentWhereInput | researcher_patentWhereInput[]
+    researcher_id?: BigIntFilter<"researcher_patent"> | bigint | number
+    patent_id?: BigIntFilter<"researcher_patent"> | bigint | number
+    researcher?: XOR<ResearcherScalarRelationFilter, researcherWhereInput>
+    patent?: XOR<PatentScalarRelationFilter, patentWhereInput>
+  }, "researcher_id_patent_id">
+
+  export type researcher_patentOrderByWithAggregationInput = {
+    researcher_id?: SortOrder
+    patent_id?: SortOrder
+    _count?: researcher_patentCountOrderByAggregateInput
+    _avg?: researcher_patentAvgOrderByAggregateInput
+    _max?: researcher_patentMaxOrderByAggregateInput
+    _min?: researcher_patentMinOrderByAggregateInput
+    _sum?: researcher_patentSumOrderByAggregateInput
+  }
+
+  export type researcher_patentScalarWhereWithAggregatesInput = {
+    AND?: researcher_patentScalarWhereWithAggregatesInput | researcher_patentScalarWhereWithAggregatesInput[]
+    OR?: researcher_patentScalarWhereWithAggregatesInput[]
+    NOT?: researcher_patentScalarWhereWithAggregatesInput | researcher_patentScalarWhereWithAggregatesInput[]
+    researcher_id?: BigIntWithAggregatesFilter<"researcher_patent"> | bigint | number
+    patent_id?: BigIntWithAggregatesFilter<"researcher_patent"> | bigint | number
+  }
+
+  export type researcher_domainWhereInput = {
+    AND?: researcher_domainWhereInput | researcher_domainWhereInput[]
+    OR?: researcher_domainWhereInput[]
+    NOT?: researcher_domainWhereInput | researcher_domainWhereInput[]
+    researcher_id?: BigIntFilter<"researcher_domain"> | bigint | number
+    domain_id?: BigIntFilter<"researcher_domain"> | bigint | number
+    researcher?: XOR<ResearcherScalarRelationFilter, researcherWhereInput>
+    domain?: XOR<DomainScalarRelationFilter, domainWhereInput>
+  }
+
+  export type researcher_domainOrderByWithRelationInput = {
+    researcher_id?: SortOrder
+    domain_id?: SortOrder
+    researcher?: researcherOrderByWithRelationInput
+    domain?: domainOrderByWithRelationInput
+  }
+
+  export type researcher_domainWhereUniqueInput = Prisma.AtLeast<{
+    researcher_id_domain_id?: researcher_domainResearcher_idDomain_idCompoundUniqueInput
+    AND?: researcher_domainWhereInput | researcher_domainWhereInput[]
+    OR?: researcher_domainWhereInput[]
+    NOT?: researcher_domainWhereInput | researcher_domainWhereInput[]
+    researcher_id?: BigIntFilter<"researcher_domain"> | bigint | number
+    domain_id?: BigIntFilter<"researcher_domain"> | bigint | number
+    researcher?: XOR<ResearcherScalarRelationFilter, researcherWhereInput>
+    domain?: XOR<DomainScalarRelationFilter, domainWhereInput>
+  }, "researcher_id_domain_id">
+
+  export type researcher_domainOrderByWithAggregationInput = {
+    researcher_id?: SortOrder
+    domain_id?: SortOrder
+    _count?: researcher_domainCountOrderByAggregateInput
+    _avg?: researcher_domainAvgOrderByAggregateInput
+    _max?: researcher_domainMaxOrderByAggregateInput
+    _min?: researcher_domainMinOrderByAggregateInput
+    _sum?: researcher_domainSumOrderByAggregateInput
+  }
+
+  export type researcher_domainScalarWhereWithAggregatesInput = {
+    AND?: researcher_domainScalarWhereWithAggregatesInput | researcher_domainScalarWhereWithAggregatesInput[]
+    OR?: researcher_domainScalarWhereWithAggregatesInput[]
+    NOT?: researcher_domainScalarWhereWithAggregatesInput | researcher_domainScalarWhereWithAggregatesInput[]
+    researcher_id?: BigIntWithAggregatesFilter<"researcher_domain"> | bigint | number
+    domain_id?: BigIntWithAggregatesFilter<"researcher_domain"> | bigint | number
+  }
+
+  export type researcher_publicationWhereInput = {
+    AND?: researcher_publicationWhereInput | researcher_publicationWhereInput[]
+    OR?: researcher_publicationWhereInput[]
+    NOT?: researcher_publicationWhereInput | researcher_publicationWhereInput[]
+    researcher_id?: BigIntFilter<"researcher_publication"> | bigint | number
+    publication_id?: BigIntFilter<"researcher_publication"> | bigint | number
+    researcher?: XOR<ResearcherScalarRelationFilter, researcherWhereInput>
+    publication?: XOR<PublicationScalarRelationFilter, publicationWhereInput>
+  }
+
+  export type researcher_publicationOrderByWithRelationInput = {
+    researcher_id?: SortOrder
+    publication_id?: SortOrder
+    researcher?: researcherOrderByWithRelationInput
+    publication?: publicationOrderByWithRelationInput
+  }
+
+  export type researcher_publicationWhereUniqueInput = Prisma.AtLeast<{
+    researcher_id_publication_id?: researcher_publicationResearcher_idPublication_idCompoundUniqueInput
+    AND?: researcher_publicationWhereInput | researcher_publicationWhereInput[]
+    OR?: researcher_publicationWhereInput[]
+    NOT?: researcher_publicationWhereInput | researcher_publicationWhereInput[]
+    researcher_id?: BigIntFilter<"researcher_publication"> | bigint | number
+    publication_id?: BigIntFilter<"researcher_publication"> | bigint | number
+    researcher?: XOR<ResearcherScalarRelationFilter, researcherWhereInput>
+    publication?: XOR<PublicationScalarRelationFilter, publicationWhereInput>
+  }, "researcher_id_publication_id">
+
+  export type researcher_publicationOrderByWithAggregationInput = {
+    researcher_id?: SortOrder
+    publication_id?: SortOrder
+    _count?: researcher_publicationCountOrderByAggregateInput
+    _avg?: researcher_publicationAvgOrderByAggregateInput
+    _max?: researcher_publicationMaxOrderByAggregateInput
+    _min?: researcher_publicationMinOrderByAggregateInput
+    _sum?: researcher_publicationSumOrderByAggregateInput
+  }
+
+  export type researcher_publicationScalarWhereWithAggregatesInput = {
+    AND?: researcher_publicationScalarWhereWithAggregatesInput | researcher_publicationScalarWhereWithAggregatesInput[]
+    OR?: researcher_publicationScalarWhereWithAggregatesInput[]
+    NOT?: researcher_publicationScalarWhereWithAggregatesInput | researcher_publicationScalarWhereWithAggregatesInput[]
+    researcher_id?: BigIntWithAggregatesFilter<"researcher_publication"> | bigint | number
+    publication_id?: BigIntWithAggregatesFilter<"researcher_publication"> | bigint | number
+  }
+
+  export type domainWhereInput = {
+    AND?: domainWhereInput | domainWhereInput[]
+    OR?: domainWhereInput[]
+    NOT?: domainWhereInput | domainWhereInput[]
+    domain_id?: BigIntFilter<"domain"> | bigint | number
+    name?: StringNullableFilter<"domain"> | string | null
+    description?: StringNullableFilter<"domain"> | string | null
+    cno?: BigIntNullableFilter<"domain"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"domain"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"domain"> | Date | string
+    update_timestamp?: DateTimeFilter<"domain"> | Date | string
+    is_deleted?: BoolFilter<"domain"> | boolean
+    researcher_domains?: Researcher_domainListRelationFilter
+  }
+
+  export type domainOrderByWithRelationInput = {
+    domain_id?: SortOrder
+    name?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    researcher_domains?: researcher_domainOrderByRelationAggregateInput
+  }
+
+  export type domainWhereUniqueInput = Prisma.AtLeast<{
+    domain_id?: bigint | number
+    AND?: domainWhereInput | domainWhereInput[]
+    OR?: domainWhereInput[]
+    NOT?: domainWhereInput | domainWhereInput[]
+    name?: StringNullableFilter<"domain"> | string | null
+    description?: StringNullableFilter<"domain"> | string | null
+    cno?: BigIntNullableFilter<"domain"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"domain"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"domain"> | Date | string
+    update_timestamp?: DateTimeFilter<"domain"> | Date | string
+    is_deleted?: BoolFilter<"domain"> | boolean
+    researcher_domains?: Researcher_domainListRelationFilter
+  }, "domain_id">
+
+  export type domainOrderByWithAggregationInput = {
+    domain_id?: SortOrder
+    name?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    cno?: SortOrderInput | SortOrder
+    user_no?: SortOrderInput | SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+    _count?: domainCountOrderByAggregateInput
+    _avg?: domainAvgOrderByAggregateInput
+    _max?: domainMaxOrderByAggregateInput
+    _min?: domainMinOrderByAggregateInput
+    _sum?: domainSumOrderByAggregateInput
+  }
+
+  export type domainScalarWhereWithAggregatesInput = {
+    AND?: domainScalarWhereWithAggregatesInput | domainScalarWhereWithAggregatesInput[]
+    OR?: domainScalarWhereWithAggregatesInput[]
+    NOT?: domainScalarWhereWithAggregatesInput | domainScalarWhereWithAggregatesInput[]
+    domain_id?: BigIntWithAggregatesFilter<"domain"> | bigint | number
+    name?: StringNullableWithAggregatesFilter<"domain"> | string | null
+    description?: StringNullableWithAggregatesFilter<"domain"> | string | null
+    cno?: BigIntNullableWithAggregatesFilter<"domain"> | bigint | number | null
+    user_no?: BigIntNullableWithAggregatesFilter<"domain"> | bigint | number | null
+    insert_timestamp?: DateTimeWithAggregatesFilter<"domain"> | Date | string
+    update_timestamp?: DateTimeWithAggregatesFilter<"domain"> | Date | string
+    is_deleted?: BoolWithAggregatesFilter<"domain"> | boolean
+  }
+
+  export type keywordCreateInput = {
+    keyword_id: bigint | number
+    keyword_name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_keywords?: patent_keywordCreateNestedManyWithoutKeywordInput
+    journal_keywords?: journal_keywordCreateNestedManyWithoutKeywordInput
+    publication_keywords?: publication_keywordCreateNestedManyWithoutKeywordInput
+  }
+
+  export type keywordUncheckedCreateInput = {
+    keyword_id: bigint | number
+    keyword_name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_keywords?: patent_keywordUncheckedCreateNestedManyWithoutKeywordInput
+    journal_keywords?: journal_keywordUncheckedCreateNestedManyWithoutKeywordInput
+    publication_keywords?: publication_keywordUncheckedCreateNestedManyWithoutKeywordInput
+  }
+
+  export type keywordUpdateInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_keywords?: patent_keywordUpdateManyWithoutKeywordNestedInput
+    journal_keywords?: journal_keywordUpdateManyWithoutKeywordNestedInput
+    publication_keywords?: publication_keywordUpdateManyWithoutKeywordNestedInput
+  }
+
+  export type keywordUncheckedUpdateInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_keywords?: patent_keywordUncheckedUpdateManyWithoutKeywordNestedInput
+    journal_keywords?: journal_keywordUncheckedUpdateManyWithoutKeywordNestedInput
+    publication_keywords?: publication_keywordUncheckedUpdateManyWithoutKeywordNestedInput
+  }
+
+  export type keywordCreateManyInput = {
+    keyword_id: bigint | number
+    keyword_name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+  }
+
+  export type keywordUpdateManyMutationInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type keywordUncheckedUpdateManyInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ipcCreateInput = {
+    ipc_id: bigint | number
+    ipc_code?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_ipcs?: patent_ipcCreateNestedManyWithoutIpcInput
+  }
+
+  export type ipcUncheckedCreateInput = {
+    ipc_id: bigint | number
+    ipc_code?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_ipcs?: patent_ipcUncheckedCreateNestedManyWithoutIpcInput
+  }
+
+  export type ipcUpdateInput = {
+    ipc_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    ipc_code?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_ipcs?: patent_ipcUpdateManyWithoutIpcNestedInput
+  }
+
+  export type ipcUncheckedUpdateInput = {
+    ipc_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    ipc_code?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_ipcs?: patent_ipcUncheckedUpdateManyWithoutIpcNestedInput
+  }
+
+  export type ipcCreateManyInput = {
+    ipc_id: bigint | number
+    ipc_code?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+  }
+
+  export type ipcUpdateManyMutationInput = {
+    ipc_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    ipc_code?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ipcUncheckedUpdateManyInput = {
+    ipc_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    ipc_code?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type patentCreateInput = {
+    patent_id: bigint | number
+    title?: string | null
+    application_number?: string | null
+    registration_number?: string | null
+    publication_number?: string | null
+    country?: string | null
+    applicant_name?: string | null
+    application_title?: string | null
+    applicant?: string | null
+    application_date?: Date | string | null
+    registration_date?: Date | string | null
+    publication_date?: Date | string | null
+    summary?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_ipcs?: patent_ipcCreateNestedManyWithoutPatentInput
+    patent_keywords?: patent_keywordCreateNestedManyWithoutPatentInput
+    researcher_patents?: researcher_patentCreateNestedManyWithoutPatentInput
+  }
+
+  export type patentUncheckedCreateInput = {
+    patent_id: bigint | number
+    title?: string | null
+    application_number?: string | null
+    registration_number?: string | null
+    publication_number?: string | null
+    country?: string | null
+    applicant_name?: string | null
+    application_title?: string | null
+    applicant?: string | null
+    application_date?: Date | string | null
+    registration_date?: Date | string | null
+    publication_date?: Date | string | null
+    summary?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_ipcs?: patent_ipcUncheckedCreateNestedManyWithoutPatentInput
+    patent_keywords?: patent_keywordUncheckedCreateNestedManyWithoutPatentInput
+    researcher_patents?: researcher_patentUncheckedCreateNestedManyWithoutPatentInput
+  }
+
+  export type patentUpdateInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    application_number?: NullableStringFieldUpdateOperationsInput | string | null
+    registration_number?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_number?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant_name?: NullableStringFieldUpdateOperationsInput | string | null
+    application_title?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant?: NullableStringFieldUpdateOperationsInput | string | null
+    application_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    registration_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_ipcs?: patent_ipcUpdateManyWithoutPatentNestedInput
+    patent_keywords?: patent_keywordUpdateManyWithoutPatentNestedInput
+    researcher_patents?: researcher_patentUpdateManyWithoutPatentNestedInput
+  }
+
+  export type patentUncheckedUpdateInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    application_number?: NullableStringFieldUpdateOperationsInput | string | null
+    registration_number?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_number?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant_name?: NullableStringFieldUpdateOperationsInput | string | null
+    application_title?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant?: NullableStringFieldUpdateOperationsInput | string | null
+    application_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    registration_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_ipcs?: patent_ipcUncheckedUpdateManyWithoutPatentNestedInput
+    patent_keywords?: patent_keywordUncheckedUpdateManyWithoutPatentNestedInput
+    researcher_patents?: researcher_patentUncheckedUpdateManyWithoutPatentNestedInput
+  }
+
+  export type patentCreateManyInput = {
+    patent_id: bigint | number
+    title?: string | null
+    application_number?: string | null
+    registration_number?: string | null
+    publication_number?: string | null
+    country?: string | null
+    applicant_name?: string | null
+    application_title?: string | null
+    applicant?: string | null
+    application_date?: Date | string | null
+    registration_date?: Date | string | null
+    publication_date?: Date | string | null
+    summary?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+  }
+
+  export type patentUpdateManyMutationInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    application_number?: NullableStringFieldUpdateOperationsInput | string | null
+    registration_number?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_number?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant_name?: NullableStringFieldUpdateOperationsInput | string | null
+    application_title?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant?: NullableStringFieldUpdateOperationsInput | string | null
+    application_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    registration_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type patentUncheckedUpdateManyInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    application_number?: NullableStringFieldUpdateOperationsInput | string | null
+    registration_number?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_number?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant_name?: NullableStringFieldUpdateOperationsInput | string | null
+    application_title?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant?: NullableStringFieldUpdateOperationsInput | string | null
+    application_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    registration_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type patent_ipcCreateInput = {
+    patent: patentCreateNestedOneWithoutPatent_ipcsInput
+    ipc: ipcCreateNestedOneWithoutPatent_ipcsInput
+  }
+
+  export type patent_ipcUncheckedCreateInput = {
+    patent_id: bigint | number
+    ipc_id: bigint | number
+  }
+
+  export type patent_ipcUpdateInput = {
+    patent?: patentUpdateOneRequiredWithoutPatent_ipcsNestedInput
+    ipc?: ipcUpdateOneRequiredWithoutPatent_ipcsNestedInput
+  }
+
+  export type patent_ipcUncheckedUpdateInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    ipc_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type patent_ipcCreateManyInput = {
+    patent_id: bigint | number
+    ipc_id: bigint | number
+  }
+
+  export type patent_ipcUpdateManyMutationInput = {
+
+  }
+
+  export type patent_ipcUncheckedUpdateManyInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    ipc_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type patent_keywordCreateInput = {
+    patent: patentCreateNestedOneWithoutPatent_keywordsInput
+    keyword: keywordCreateNestedOneWithoutPatent_keywordsInput
+  }
+
+  export type patent_keywordUncheckedCreateInput = {
+    patent_id: bigint | number
+    keyword_id: bigint | number
+  }
+
+  export type patent_keywordUpdateInput = {
+    patent?: patentUpdateOneRequiredWithoutPatent_keywordsNestedInput
+    keyword?: keywordUpdateOneRequiredWithoutPatent_keywordsNestedInput
+  }
+
+  export type patent_keywordUncheckedUpdateInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type patent_keywordCreateManyInput = {
+    patent_id: bigint | number
+    keyword_id: bigint | number
+  }
+
+  export type patent_keywordUpdateManyMutationInput = {
+
+  }
+
+  export type patent_keywordUncheckedUpdateManyInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type journalCreateInput = {
+    journal_id: bigint | number
+    name?: string | null
+    publisher?: string | null
+    issn?: string | null
+    impact_factor?: Decimal | DecimalJsLike | number | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    publications?: publicationCreateNestedManyWithoutJournalInput
+    journal_keywords?: journal_keywordCreateNestedManyWithoutJournalInput
+  }
+
+  export type journalUncheckedCreateInput = {
+    journal_id: bigint | number
+    name?: string | null
+    publisher?: string | null
+    issn?: string | null
+    impact_factor?: Decimal | DecimalJsLike | number | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    publications?: publicationUncheckedCreateNestedManyWithoutJournalInput
+    journal_keywords?: journal_keywordUncheckedCreateNestedManyWithoutJournalInput
+  }
+
+  export type journalUpdateInput = {
+    journal_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    issn?: NullableStringFieldUpdateOperationsInput | string | null
+    impact_factor?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    publications?: publicationUpdateManyWithoutJournalNestedInput
+    journal_keywords?: journal_keywordUpdateManyWithoutJournalNestedInput
+  }
+
+  export type journalUncheckedUpdateInput = {
+    journal_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    issn?: NullableStringFieldUpdateOperationsInput | string | null
+    impact_factor?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    publications?: publicationUncheckedUpdateManyWithoutJournalNestedInput
+    journal_keywords?: journal_keywordUncheckedUpdateManyWithoutJournalNestedInput
+  }
+
+  export type journalCreateManyInput = {
+    journal_id: bigint | number
+    name?: string | null
+    publisher?: string | null
+    issn?: string | null
+    impact_factor?: Decimal | DecimalJsLike | number | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+  }
+
+  export type journalUpdateManyMutationInput = {
+    journal_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    issn?: NullableStringFieldUpdateOperationsInput | string | null
+    impact_factor?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type journalUncheckedUpdateManyInput = {
+    journal_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    issn?: NullableStringFieldUpdateOperationsInput | string | null
+    impact_factor?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type publicationCreateInput = {
+    publication_id: bigint | number
+    title?: string | null
+    abstract?: string | null
+    publication_date?: Date | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    journal?: journalCreateNestedOneWithoutPublicationsInput
+    publication_keywords?: publication_keywordCreateNestedManyWithoutPublicationInput
+    researcher_publications?: researcher_publicationCreateNestedManyWithoutPublicationInput
+  }
+
+  export type publicationUncheckedCreateInput = {
+    publication_id: bigint | number
+    title?: string | null
+    abstract?: string | null
+    publication_date?: Date | string | null
+    journal_id?: bigint | number | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    publication_keywords?: publication_keywordUncheckedCreateNestedManyWithoutPublicationInput
+    researcher_publications?: researcher_publicationUncheckedCreateNestedManyWithoutPublicationInput
+  }
+
+  export type publicationUpdateInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    abstract?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    journal?: journalUpdateOneWithoutPublicationsNestedInput
+    publication_keywords?: publication_keywordUpdateManyWithoutPublicationNestedInput
+    researcher_publications?: researcher_publicationUpdateManyWithoutPublicationNestedInput
+  }
+
+  export type publicationUncheckedUpdateInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    abstract?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    journal_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    publication_keywords?: publication_keywordUncheckedUpdateManyWithoutPublicationNestedInput
+    researcher_publications?: researcher_publicationUncheckedUpdateManyWithoutPublicationNestedInput
+  }
+
+  export type publicationCreateManyInput = {
+    publication_id: bigint | number
+    title?: string | null
+    abstract?: string | null
+    publication_date?: Date | string | null
+    journal_id?: bigint | number | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+  }
+
+  export type publicationUpdateManyMutationInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    abstract?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type publicationUncheckedUpdateManyInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    abstract?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    journal_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type publication_keywordCreateInput = {
+    publication: publicationCreateNestedOneWithoutPublication_keywordsInput
+    keyword: keywordCreateNestedOneWithoutPublication_keywordsInput
+  }
+
+  export type publication_keywordUncheckedCreateInput = {
+    publication_id: bigint | number
+    keyword_id: bigint | number
+  }
+
+  export type publication_keywordUpdateInput = {
+    publication?: publicationUpdateOneRequiredWithoutPublication_keywordsNestedInput
+    keyword?: keywordUpdateOneRequiredWithoutPublication_keywordsNestedInput
+  }
+
+  export type publication_keywordUncheckedUpdateInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type publication_keywordCreateManyInput = {
+    publication_id: bigint | number
+    keyword_id: bigint | number
+  }
+
+  export type publication_keywordUpdateManyMutationInput = {
+
+  }
+
+  export type publication_keywordUncheckedUpdateManyInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type journal_keywordCreateInput = {
+    journal: journalCreateNestedOneWithoutJournal_keywordsInput
+    keyword: keywordCreateNestedOneWithoutJournal_keywordsInput
+  }
+
+  export type journal_keywordUncheckedCreateInput = {
+    journal_id: bigint | number
+    keyword_id: bigint | number
+  }
+
+  export type journal_keywordUpdateInput = {
+    journal?: journalUpdateOneRequiredWithoutJournal_keywordsNestedInput
+    keyword?: keywordUpdateOneRequiredWithoutJournal_keywordsNestedInput
+  }
+
+  export type journal_keywordUncheckedUpdateInput = {
+    journal_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type journal_keywordCreateManyInput = {
+    journal_id: bigint | number
+    keyword_id: bigint | number
+  }
+
+  export type journal_keywordUpdateManyMutationInput = {
+
+  }
+
+  export type journal_keywordUncheckedUpdateManyInput = {
+    journal_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcherCreateInput = {
+    researcher_id: bigint | number
+    name?: string | null
+    affiliation?: string | null
+    email?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    researcher_patents?: researcher_patentCreateNestedManyWithoutResearcherInput
+    researcher_domains?: researcher_domainCreateNestedManyWithoutResearcherInput
+    researcher_publications?: researcher_publicationCreateNestedManyWithoutResearcherInput
+  }
+
+  export type researcherUncheckedCreateInput = {
+    researcher_id: bigint | number
+    name?: string | null
+    affiliation?: string | null
+    email?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    researcher_patents?: researcher_patentUncheckedCreateNestedManyWithoutResearcherInput
+    researcher_domains?: researcher_domainUncheckedCreateNestedManyWithoutResearcherInput
+    researcher_publications?: researcher_publicationUncheckedCreateNestedManyWithoutResearcherInput
+  }
+
+  export type researcherUpdateInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    researcher_patents?: researcher_patentUpdateManyWithoutResearcherNestedInput
+    researcher_domains?: researcher_domainUpdateManyWithoutResearcherNestedInput
+    researcher_publications?: researcher_publicationUpdateManyWithoutResearcherNestedInput
+  }
+
+  export type researcherUncheckedUpdateInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    researcher_patents?: researcher_patentUncheckedUpdateManyWithoutResearcherNestedInput
+    researcher_domains?: researcher_domainUncheckedUpdateManyWithoutResearcherNestedInput
+    researcher_publications?: researcher_publicationUncheckedUpdateManyWithoutResearcherNestedInput
+  }
+
+  export type researcherCreateManyInput = {
+    researcher_id: bigint | number
+    name?: string | null
+    affiliation?: string | null
+    email?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+  }
+
+  export type researcherUpdateManyMutationInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type researcherUncheckedUpdateManyInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type researcher_patentCreateInput = {
+    researcher: researcherCreateNestedOneWithoutResearcher_patentsInput
+    patent: patentCreateNestedOneWithoutResearcher_patentsInput
+  }
+
+  export type researcher_patentUncheckedCreateInput = {
+    researcher_id: bigint | number
+    patent_id: bigint | number
+  }
+
+  export type researcher_patentUpdateInput = {
+    researcher?: researcherUpdateOneRequiredWithoutResearcher_patentsNestedInput
+    patent?: patentUpdateOneRequiredWithoutResearcher_patentsNestedInput
+  }
+
+  export type researcher_patentUncheckedUpdateInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_patentCreateManyInput = {
+    researcher_id: bigint | number
+    patent_id: bigint | number
+  }
+
+  export type researcher_patentUpdateManyMutationInput = {
+
+  }
+
+  export type researcher_patentUncheckedUpdateManyInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_domainCreateInput = {
+    researcher: researcherCreateNestedOneWithoutResearcher_domainsInput
+    domain: domainCreateNestedOneWithoutResearcher_domainsInput
+  }
+
+  export type researcher_domainUncheckedCreateInput = {
+    researcher_id: bigint | number
+    domain_id: bigint | number
+  }
+
+  export type researcher_domainUpdateInput = {
+    researcher?: researcherUpdateOneRequiredWithoutResearcher_domainsNestedInput
+    domain?: domainUpdateOneRequiredWithoutResearcher_domainsNestedInput
+  }
+
+  export type researcher_domainUncheckedUpdateInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    domain_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_domainCreateManyInput = {
+    researcher_id: bigint | number
+    domain_id: bigint | number
+  }
+
+  export type researcher_domainUpdateManyMutationInput = {
+
+  }
+
+  export type researcher_domainUncheckedUpdateManyInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    domain_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_publicationCreateInput = {
+    researcher: researcherCreateNestedOneWithoutResearcher_publicationsInput
+    publication: publicationCreateNestedOneWithoutResearcher_publicationsInput
+  }
+
+  export type researcher_publicationUncheckedCreateInput = {
+    researcher_id: bigint | number
+    publication_id: bigint | number
+  }
+
+  export type researcher_publicationUpdateInput = {
+    researcher?: researcherUpdateOneRequiredWithoutResearcher_publicationsNestedInput
+    publication?: publicationUpdateOneRequiredWithoutResearcher_publicationsNestedInput
+  }
+
+  export type researcher_publicationUncheckedUpdateInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_publicationCreateManyInput = {
+    researcher_id: bigint | number
+    publication_id: bigint | number
+  }
+
+  export type researcher_publicationUpdateManyMutationInput = {
+
+  }
+
+  export type researcher_publicationUncheckedUpdateManyInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type domainCreateInput = {
+    domain_id: bigint | number
+    name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    researcher_domains?: researcher_domainCreateNestedManyWithoutDomainInput
+  }
+
+  export type domainUncheckedCreateInput = {
+    domain_id: bigint | number
+    name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    researcher_domains?: researcher_domainUncheckedCreateNestedManyWithoutDomainInput
+  }
+
+  export type domainUpdateInput = {
+    domain_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    researcher_domains?: researcher_domainUpdateManyWithoutDomainNestedInput
+  }
+
+  export type domainUncheckedUpdateInput = {
+    domain_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    researcher_domains?: researcher_domainUncheckedUpdateManyWithoutDomainNestedInput
+  }
+
+  export type domainCreateManyInput = {
+    domain_id: bigint | number
+    name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+  }
+
+  export type domainUpdateManyMutationInput = {
+    domain_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type domainUncheckedUpdateManyInput = {
+    domain_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type BigIntFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type BigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type Patent_keywordListRelationFilter = {
+    every?: patent_keywordWhereInput
+    some?: patent_keywordWhereInput
+    none?: patent_keywordWhereInput
+  }
+
+  export type Journal_keywordListRelationFilter = {
+    every?: journal_keywordWhereInput
+    some?: journal_keywordWhereInput
+    none?: journal_keywordWhereInput
+  }
+
+  export type Publication_keywordListRelationFilter = {
+    every?: publication_keywordWhereInput
+    some?: publication_keywordWhereInput
+    none?: publication_keywordWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type patent_keywordOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type journal_keywordOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type publication_keywordOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type keywordCountOrderByAggregateInput = {
+    keyword_id?: SortOrder
+    keyword_name?: SortOrder
+    description?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type keywordAvgOrderByAggregateInput = {
+    keyword_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type keywordMaxOrderByAggregateInput = {
+    keyword_id?: SortOrder
+    keyword_name?: SortOrder
+    description?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type keywordMinOrderByAggregateInput = {
+    keyword_id?: SortOrder
+    keyword_name?: SortOrder
+    description?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type keywordSumOrderByAggregateInput = {
+    keyword_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedBigIntFilter<$PrismaModel>
+    _min?: NestedBigIntFilter<$PrismaModel>
+    _max?: NestedBigIntFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedBigIntNullableFilter<$PrismaModel>
+    _min?: NestedBigIntNullableFilter<$PrismaModel>
+    _max?: NestedBigIntNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type Patent_ipcListRelationFilter = {
+    every?: patent_ipcWhereInput
+    some?: patent_ipcWhereInput
+    none?: patent_ipcWhereInput
+  }
+
+  export type patent_ipcOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ipcCountOrderByAggregateInput = {
+    ipc_id?: SortOrder
+    ipc_code?: SortOrder
+    description?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type ipcAvgOrderByAggregateInput = {
+    ipc_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type ipcMaxOrderByAggregateInput = {
+    ipc_id?: SortOrder
+    ipc_code?: SortOrder
+    description?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type ipcMinOrderByAggregateInput = {
+    ipc_id?: SortOrder
+    ipc_code?: SortOrder
+    description?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type ipcSumOrderByAggregateInput = {
+    ipc_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type Researcher_patentListRelationFilter = {
+    every?: researcher_patentWhereInput
+    some?: researcher_patentWhereInput
+    none?: researcher_patentWhereInput
+  }
+
+  export type researcher_patentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type patentCountOrderByAggregateInput = {
+    patent_id?: SortOrder
+    title?: SortOrder
+    application_number?: SortOrder
+    registration_number?: SortOrder
+    publication_number?: SortOrder
+    country?: SortOrder
+    applicant_name?: SortOrder
+    application_title?: SortOrder
+    applicant?: SortOrder
+    application_date?: SortOrder
+    registration_date?: SortOrder
+    publication_date?: SortOrder
+    summary?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type patentAvgOrderByAggregateInput = {
+    patent_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type patentMaxOrderByAggregateInput = {
+    patent_id?: SortOrder
+    title?: SortOrder
+    application_number?: SortOrder
+    registration_number?: SortOrder
+    publication_number?: SortOrder
+    country?: SortOrder
+    applicant_name?: SortOrder
+    application_title?: SortOrder
+    applicant?: SortOrder
+    application_date?: SortOrder
+    registration_date?: SortOrder
+    publication_date?: SortOrder
+    summary?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type patentMinOrderByAggregateInput = {
+    patent_id?: SortOrder
+    title?: SortOrder
+    application_number?: SortOrder
+    registration_number?: SortOrder
+    publication_number?: SortOrder
+    country?: SortOrder
+    applicant_name?: SortOrder
+    application_title?: SortOrder
+    applicant?: SortOrder
+    application_date?: SortOrder
+    registration_date?: SortOrder
+    publication_date?: SortOrder
+    summary?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type patentSumOrderByAggregateInput = {
+    patent_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type PatentScalarRelationFilter = {
+    is?: patentWhereInput
+    isNot?: patentWhereInput
+  }
+
+  export type IpcScalarRelationFilter = {
+    is?: ipcWhereInput
+    isNot?: ipcWhereInput
+  }
+
+  export type patent_ipcPatent_idIpc_idCompoundUniqueInput = {
+    patent_id: bigint | number
+    ipc_id: bigint | number
+  }
+
+  export type patent_ipcCountOrderByAggregateInput = {
+    patent_id?: SortOrder
+    ipc_id?: SortOrder
+  }
+
+  export type patent_ipcAvgOrderByAggregateInput = {
+    patent_id?: SortOrder
+    ipc_id?: SortOrder
+  }
+
+  export type patent_ipcMaxOrderByAggregateInput = {
+    patent_id?: SortOrder
+    ipc_id?: SortOrder
+  }
+
+  export type patent_ipcMinOrderByAggregateInput = {
+    patent_id?: SortOrder
+    ipc_id?: SortOrder
+  }
+
+  export type patent_ipcSumOrderByAggregateInput = {
+    patent_id?: SortOrder
+    ipc_id?: SortOrder
+  }
+
+  export type KeywordScalarRelationFilter = {
+    is?: keywordWhereInput
+    isNot?: keywordWhereInput
+  }
+
+  export type patent_keywordPatent_idKeyword_idCompoundUniqueInput = {
+    patent_id: bigint | number
+    keyword_id: bigint | number
+  }
+
+  export type patent_keywordCountOrderByAggregateInput = {
+    patent_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type patent_keywordAvgOrderByAggregateInput = {
+    patent_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type patent_keywordMaxOrderByAggregateInput = {
+    patent_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type patent_keywordMinOrderByAggregateInput = {
+    patent_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type patent_keywordSumOrderByAggregateInput = {
+    patent_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type DecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type PublicationListRelationFilter = {
+    every?: publicationWhereInput
+    some?: publicationWhereInput
+    none?: publicationWhereInput
+  }
+
+  export type publicationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type journalCountOrderByAggregateInput = {
+    journal_id?: SortOrder
+    name?: SortOrder
+    publisher?: SortOrder
+    issn?: SortOrder
+    impact_factor?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type journalAvgOrderByAggregateInput = {
+    journal_id?: SortOrder
+    impact_factor?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type journalMaxOrderByAggregateInput = {
+    journal_id?: SortOrder
+    name?: SortOrder
+    publisher?: SortOrder
+    issn?: SortOrder
+    impact_factor?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type journalMinOrderByAggregateInput = {
+    journal_id?: SortOrder
+    name?: SortOrder
+    publisher?: SortOrder
+    issn?: SortOrder
+    impact_factor?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type journalSumOrderByAggregateInput = {
+    journal_id?: SortOrder
+    impact_factor?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type DecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
+  export type JournalNullableScalarRelationFilter = {
+    is?: journalWhereInput | null
+    isNot?: journalWhereInput | null
+  }
+
+  export type Researcher_publicationListRelationFilter = {
+    every?: researcher_publicationWhereInput
+    some?: researcher_publicationWhereInput
+    none?: researcher_publicationWhereInput
+  }
+
+  export type researcher_publicationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type publicationCountOrderByAggregateInput = {
+    publication_id?: SortOrder
+    title?: SortOrder
+    abstract?: SortOrder
+    publication_date?: SortOrder
+    journal_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type publicationAvgOrderByAggregateInput = {
+    publication_id?: SortOrder
+    journal_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type publicationMaxOrderByAggregateInput = {
+    publication_id?: SortOrder
+    title?: SortOrder
+    abstract?: SortOrder
+    publication_date?: SortOrder
+    journal_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type publicationMinOrderByAggregateInput = {
+    publication_id?: SortOrder
+    title?: SortOrder
+    abstract?: SortOrder
+    publication_date?: SortOrder
+    journal_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type publicationSumOrderByAggregateInput = {
+    publication_id?: SortOrder
+    journal_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type PublicationScalarRelationFilter = {
+    is?: publicationWhereInput
+    isNot?: publicationWhereInput
+  }
+
+  export type publication_keywordPublication_idKeyword_idCompoundUniqueInput = {
+    publication_id: bigint | number
+    keyword_id: bigint | number
+  }
+
+  export type publication_keywordCountOrderByAggregateInput = {
+    publication_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type publication_keywordAvgOrderByAggregateInput = {
+    publication_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type publication_keywordMaxOrderByAggregateInput = {
+    publication_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type publication_keywordMinOrderByAggregateInput = {
+    publication_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type publication_keywordSumOrderByAggregateInput = {
+    publication_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type JournalScalarRelationFilter = {
+    is?: journalWhereInput
+    isNot?: journalWhereInput
+  }
+
+  export type journal_keywordJournal_idKeyword_idCompoundUniqueInput = {
+    journal_id: bigint | number
+    keyword_id: bigint | number
+  }
+
+  export type journal_keywordCountOrderByAggregateInput = {
+    journal_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type journal_keywordAvgOrderByAggregateInput = {
+    journal_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type journal_keywordMaxOrderByAggregateInput = {
+    journal_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type journal_keywordMinOrderByAggregateInput = {
+    journal_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type journal_keywordSumOrderByAggregateInput = {
+    journal_id?: SortOrder
+    keyword_id?: SortOrder
+  }
+
+  export type Researcher_domainListRelationFilter = {
+    every?: researcher_domainWhereInput
+    some?: researcher_domainWhereInput
+    none?: researcher_domainWhereInput
+  }
+
+  export type researcher_domainOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type researcherCountOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    name?: SortOrder
+    affiliation?: SortOrder
+    email?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type researcherAvgOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type researcherMaxOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    name?: SortOrder
+    affiliation?: SortOrder
+    email?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type researcherMinOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    name?: SortOrder
+    affiliation?: SortOrder
+    email?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type researcherSumOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type ResearcherScalarRelationFilter = {
+    is?: researcherWhereInput
+    isNot?: researcherWhereInput
+  }
+
+  export type researcher_patentResearcher_idPatent_idCompoundUniqueInput = {
+    researcher_id: bigint | number
+    patent_id: bigint | number
+  }
+
+  export type researcher_patentCountOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    patent_id?: SortOrder
+  }
+
+  export type researcher_patentAvgOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    patent_id?: SortOrder
+  }
+
+  export type researcher_patentMaxOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    patent_id?: SortOrder
+  }
+
+  export type researcher_patentMinOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    patent_id?: SortOrder
+  }
+
+  export type researcher_patentSumOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    patent_id?: SortOrder
+  }
+
+  export type DomainScalarRelationFilter = {
+    is?: domainWhereInput
+    isNot?: domainWhereInput
+  }
+
+  export type researcher_domainResearcher_idDomain_idCompoundUniqueInput = {
+    researcher_id: bigint | number
+    domain_id: bigint | number
+  }
+
+  export type researcher_domainCountOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    domain_id?: SortOrder
+  }
+
+  export type researcher_domainAvgOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    domain_id?: SortOrder
+  }
+
+  export type researcher_domainMaxOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    domain_id?: SortOrder
+  }
+
+  export type researcher_domainMinOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    domain_id?: SortOrder
+  }
+
+  export type researcher_domainSumOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    domain_id?: SortOrder
+  }
+
+  export type researcher_publicationResearcher_idPublication_idCompoundUniqueInput = {
+    researcher_id: bigint | number
+    publication_id: bigint | number
+  }
+
+  export type researcher_publicationCountOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    publication_id?: SortOrder
+  }
+
+  export type researcher_publicationAvgOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    publication_id?: SortOrder
+  }
+
+  export type researcher_publicationMaxOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    publication_id?: SortOrder
+  }
+
+  export type researcher_publicationMinOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    publication_id?: SortOrder
+  }
+
+  export type researcher_publicationSumOrderByAggregateInput = {
+    researcher_id?: SortOrder
+    publication_id?: SortOrder
+  }
+
+  export type domainCountOrderByAggregateInput = {
+    domain_id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type domainAvgOrderByAggregateInput = {
+    domain_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type domainMaxOrderByAggregateInput = {
+    domain_id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type domainMinOrderByAggregateInput = {
+    domain_id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+    insert_timestamp?: SortOrder
+    update_timestamp?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type domainSumOrderByAggregateInput = {
+    domain_id?: SortOrder
+    cno?: SortOrder
+    user_no?: SortOrder
+  }
+
+  export type patent_keywordCreateNestedManyWithoutKeywordInput = {
+    create?: XOR<patent_keywordCreateWithoutKeywordInput, patent_keywordUncheckedCreateWithoutKeywordInput> | patent_keywordCreateWithoutKeywordInput[] | patent_keywordUncheckedCreateWithoutKeywordInput[]
+    connectOrCreate?: patent_keywordCreateOrConnectWithoutKeywordInput | patent_keywordCreateOrConnectWithoutKeywordInput[]
+    createMany?: patent_keywordCreateManyKeywordInputEnvelope
+    connect?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+  }
+
+  export type journal_keywordCreateNestedManyWithoutKeywordInput = {
+    create?: XOR<journal_keywordCreateWithoutKeywordInput, journal_keywordUncheckedCreateWithoutKeywordInput> | journal_keywordCreateWithoutKeywordInput[] | journal_keywordUncheckedCreateWithoutKeywordInput[]
+    connectOrCreate?: journal_keywordCreateOrConnectWithoutKeywordInput | journal_keywordCreateOrConnectWithoutKeywordInput[]
+    createMany?: journal_keywordCreateManyKeywordInputEnvelope
+    connect?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+  }
+
+  export type publication_keywordCreateNestedManyWithoutKeywordInput = {
+    create?: XOR<publication_keywordCreateWithoutKeywordInput, publication_keywordUncheckedCreateWithoutKeywordInput> | publication_keywordCreateWithoutKeywordInput[] | publication_keywordUncheckedCreateWithoutKeywordInput[]
+    connectOrCreate?: publication_keywordCreateOrConnectWithoutKeywordInput | publication_keywordCreateOrConnectWithoutKeywordInput[]
+    createMany?: publication_keywordCreateManyKeywordInputEnvelope
+    connect?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+  }
+
+  export type patent_keywordUncheckedCreateNestedManyWithoutKeywordInput = {
+    create?: XOR<patent_keywordCreateWithoutKeywordInput, patent_keywordUncheckedCreateWithoutKeywordInput> | patent_keywordCreateWithoutKeywordInput[] | patent_keywordUncheckedCreateWithoutKeywordInput[]
+    connectOrCreate?: patent_keywordCreateOrConnectWithoutKeywordInput | patent_keywordCreateOrConnectWithoutKeywordInput[]
+    createMany?: patent_keywordCreateManyKeywordInputEnvelope
+    connect?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+  }
+
+  export type journal_keywordUncheckedCreateNestedManyWithoutKeywordInput = {
+    create?: XOR<journal_keywordCreateWithoutKeywordInput, journal_keywordUncheckedCreateWithoutKeywordInput> | journal_keywordCreateWithoutKeywordInput[] | journal_keywordUncheckedCreateWithoutKeywordInput[]
+    connectOrCreate?: journal_keywordCreateOrConnectWithoutKeywordInput | journal_keywordCreateOrConnectWithoutKeywordInput[]
+    createMany?: journal_keywordCreateManyKeywordInputEnvelope
+    connect?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+  }
+
+  export type publication_keywordUncheckedCreateNestedManyWithoutKeywordInput = {
+    create?: XOR<publication_keywordCreateWithoutKeywordInput, publication_keywordUncheckedCreateWithoutKeywordInput> | publication_keywordCreateWithoutKeywordInput[] | publication_keywordUncheckedCreateWithoutKeywordInput[]
+    connectOrCreate?: publication_keywordCreateOrConnectWithoutKeywordInput | publication_keywordCreateOrConnectWithoutKeywordInput[]
+    createMany?: publication_keywordCreateManyKeywordInputEnvelope
+    connect?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+  }
+
+  export type BigIntFieldUpdateOperationsInput = {
+    set?: bigint | number
+    increment?: bigint | number
+    decrement?: bigint | number
+    multiply?: bigint | number
+    divide?: bigint | number
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type NullableBigIntFieldUpdateOperationsInput = {
+    set?: bigint | number | null
+    increment?: bigint | number
+    decrement?: bigint | number
+    multiply?: bigint | number
+    divide?: bigint | number
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type patent_keywordUpdateManyWithoutKeywordNestedInput = {
+    create?: XOR<patent_keywordCreateWithoutKeywordInput, patent_keywordUncheckedCreateWithoutKeywordInput> | patent_keywordCreateWithoutKeywordInput[] | patent_keywordUncheckedCreateWithoutKeywordInput[]
+    connectOrCreate?: patent_keywordCreateOrConnectWithoutKeywordInput | patent_keywordCreateOrConnectWithoutKeywordInput[]
+    upsert?: patent_keywordUpsertWithWhereUniqueWithoutKeywordInput | patent_keywordUpsertWithWhereUniqueWithoutKeywordInput[]
+    createMany?: patent_keywordCreateManyKeywordInputEnvelope
+    set?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    disconnect?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    delete?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    connect?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    update?: patent_keywordUpdateWithWhereUniqueWithoutKeywordInput | patent_keywordUpdateWithWhereUniqueWithoutKeywordInput[]
+    updateMany?: patent_keywordUpdateManyWithWhereWithoutKeywordInput | patent_keywordUpdateManyWithWhereWithoutKeywordInput[]
+    deleteMany?: patent_keywordScalarWhereInput | patent_keywordScalarWhereInput[]
+  }
+
+  export type journal_keywordUpdateManyWithoutKeywordNestedInput = {
+    create?: XOR<journal_keywordCreateWithoutKeywordInput, journal_keywordUncheckedCreateWithoutKeywordInput> | journal_keywordCreateWithoutKeywordInput[] | journal_keywordUncheckedCreateWithoutKeywordInput[]
+    connectOrCreate?: journal_keywordCreateOrConnectWithoutKeywordInput | journal_keywordCreateOrConnectWithoutKeywordInput[]
+    upsert?: journal_keywordUpsertWithWhereUniqueWithoutKeywordInput | journal_keywordUpsertWithWhereUniqueWithoutKeywordInput[]
+    createMany?: journal_keywordCreateManyKeywordInputEnvelope
+    set?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    disconnect?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    delete?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    connect?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    update?: journal_keywordUpdateWithWhereUniqueWithoutKeywordInput | journal_keywordUpdateWithWhereUniqueWithoutKeywordInput[]
+    updateMany?: journal_keywordUpdateManyWithWhereWithoutKeywordInput | journal_keywordUpdateManyWithWhereWithoutKeywordInput[]
+    deleteMany?: journal_keywordScalarWhereInput | journal_keywordScalarWhereInput[]
+  }
+
+  export type publication_keywordUpdateManyWithoutKeywordNestedInput = {
+    create?: XOR<publication_keywordCreateWithoutKeywordInput, publication_keywordUncheckedCreateWithoutKeywordInput> | publication_keywordCreateWithoutKeywordInput[] | publication_keywordUncheckedCreateWithoutKeywordInput[]
+    connectOrCreate?: publication_keywordCreateOrConnectWithoutKeywordInput | publication_keywordCreateOrConnectWithoutKeywordInput[]
+    upsert?: publication_keywordUpsertWithWhereUniqueWithoutKeywordInput | publication_keywordUpsertWithWhereUniqueWithoutKeywordInput[]
+    createMany?: publication_keywordCreateManyKeywordInputEnvelope
+    set?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    disconnect?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    delete?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    connect?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    update?: publication_keywordUpdateWithWhereUniqueWithoutKeywordInput | publication_keywordUpdateWithWhereUniqueWithoutKeywordInput[]
+    updateMany?: publication_keywordUpdateManyWithWhereWithoutKeywordInput | publication_keywordUpdateManyWithWhereWithoutKeywordInput[]
+    deleteMany?: publication_keywordScalarWhereInput | publication_keywordScalarWhereInput[]
+  }
+
+  export type patent_keywordUncheckedUpdateManyWithoutKeywordNestedInput = {
+    create?: XOR<patent_keywordCreateWithoutKeywordInput, patent_keywordUncheckedCreateWithoutKeywordInput> | patent_keywordCreateWithoutKeywordInput[] | patent_keywordUncheckedCreateWithoutKeywordInput[]
+    connectOrCreate?: patent_keywordCreateOrConnectWithoutKeywordInput | patent_keywordCreateOrConnectWithoutKeywordInput[]
+    upsert?: patent_keywordUpsertWithWhereUniqueWithoutKeywordInput | patent_keywordUpsertWithWhereUniqueWithoutKeywordInput[]
+    createMany?: patent_keywordCreateManyKeywordInputEnvelope
+    set?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    disconnect?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    delete?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    connect?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    update?: patent_keywordUpdateWithWhereUniqueWithoutKeywordInput | patent_keywordUpdateWithWhereUniqueWithoutKeywordInput[]
+    updateMany?: patent_keywordUpdateManyWithWhereWithoutKeywordInput | patent_keywordUpdateManyWithWhereWithoutKeywordInput[]
+    deleteMany?: patent_keywordScalarWhereInput | patent_keywordScalarWhereInput[]
+  }
+
+  export type journal_keywordUncheckedUpdateManyWithoutKeywordNestedInput = {
+    create?: XOR<journal_keywordCreateWithoutKeywordInput, journal_keywordUncheckedCreateWithoutKeywordInput> | journal_keywordCreateWithoutKeywordInput[] | journal_keywordUncheckedCreateWithoutKeywordInput[]
+    connectOrCreate?: journal_keywordCreateOrConnectWithoutKeywordInput | journal_keywordCreateOrConnectWithoutKeywordInput[]
+    upsert?: journal_keywordUpsertWithWhereUniqueWithoutKeywordInput | journal_keywordUpsertWithWhereUniqueWithoutKeywordInput[]
+    createMany?: journal_keywordCreateManyKeywordInputEnvelope
+    set?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    disconnect?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    delete?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    connect?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    update?: journal_keywordUpdateWithWhereUniqueWithoutKeywordInput | journal_keywordUpdateWithWhereUniqueWithoutKeywordInput[]
+    updateMany?: journal_keywordUpdateManyWithWhereWithoutKeywordInput | journal_keywordUpdateManyWithWhereWithoutKeywordInput[]
+    deleteMany?: journal_keywordScalarWhereInput | journal_keywordScalarWhereInput[]
+  }
+
+  export type publication_keywordUncheckedUpdateManyWithoutKeywordNestedInput = {
+    create?: XOR<publication_keywordCreateWithoutKeywordInput, publication_keywordUncheckedCreateWithoutKeywordInput> | publication_keywordCreateWithoutKeywordInput[] | publication_keywordUncheckedCreateWithoutKeywordInput[]
+    connectOrCreate?: publication_keywordCreateOrConnectWithoutKeywordInput | publication_keywordCreateOrConnectWithoutKeywordInput[]
+    upsert?: publication_keywordUpsertWithWhereUniqueWithoutKeywordInput | publication_keywordUpsertWithWhereUniqueWithoutKeywordInput[]
+    createMany?: publication_keywordCreateManyKeywordInputEnvelope
+    set?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    disconnect?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    delete?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    connect?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    update?: publication_keywordUpdateWithWhereUniqueWithoutKeywordInput | publication_keywordUpdateWithWhereUniqueWithoutKeywordInput[]
+    updateMany?: publication_keywordUpdateManyWithWhereWithoutKeywordInput | publication_keywordUpdateManyWithWhereWithoutKeywordInput[]
+    deleteMany?: publication_keywordScalarWhereInput | publication_keywordScalarWhereInput[]
+  }
+
+  export type patent_ipcCreateNestedManyWithoutIpcInput = {
+    create?: XOR<patent_ipcCreateWithoutIpcInput, patent_ipcUncheckedCreateWithoutIpcInput> | patent_ipcCreateWithoutIpcInput[] | patent_ipcUncheckedCreateWithoutIpcInput[]
+    connectOrCreate?: patent_ipcCreateOrConnectWithoutIpcInput | patent_ipcCreateOrConnectWithoutIpcInput[]
+    createMany?: patent_ipcCreateManyIpcInputEnvelope
+    connect?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+  }
+
+  export type patent_ipcUncheckedCreateNestedManyWithoutIpcInput = {
+    create?: XOR<patent_ipcCreateWithoutIpcInput, patent_ipcUncheckedCreateWithoutIpcInput> | patent_ipcCreateWithoutIpcInput[] | patent_ipcUncheckedCreateWithoutIpcInput[]
+    connectOrCreate?: patent_ipcCreateOrConnectWithoutIpcInput | patent_ipcCreateOrConnectWithoutIpcInput[]
+    createMany?: patent_ipcCreateManyIpcInputEnvelope
+    connect?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+  }
+
+  export type patent_ipcUpdateManyWithoutIpcNestedInput = {
+    create?: XOR<patent_ipcCreateWithoutIpcInput, patent_ipcUncheckedCreateWithoutIpcInput> | patent_ipcCreateWithoutIpcInput[] | patent_ipcUncheckedCreateWithoutIpcInput[]
+    connectOrCreate?: patent_ipcCreateOrConnectWithoutIpcInput | patent_ipcCreateOrConnectWithoutIpcInput[]
+    upsert?: patent_ipcUpsertWithWhereUniqueWithoutIpcInput | patent_ipcUpsertWithWhereUniqueWithoutIpcInput[]
+    createMany?: patent_ipcCreateManyIpcInputEnvelope
+    set?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    disconnect?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    delete?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    connect?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    update?: patent_ipcUpdateWithWhereUniqueWithoutIpcInput | patent_ipcUpdateWithWhereUniqueWithoutIpcInput[]
+    updateMany?: patent_ipcUpdateManyWithWhereWithoutIpcInput | patent_ipcUpdateManyWithWhereWithoutIpcInput[]
+    deleteMany?: patent_ipcScalarWhereInput | patent_ipcScalarWhereInput[]
+  }
+
+  export type patent_ipcUncheckedUpdateManyWithoutIpcNestedInput = {
+    create?: XOR<patent_ipcCreateWithoutIpcInput, patent_ipcUncheckedCreateWithoutIpcInput> | patent_ipcCreateWithoutIpcInput[] | patent_ipcUncheckedCreateWithoutIpcInput[]
+    connectOrCreate?: patent_ipcCreateOrConnectWithoutIpcInput | patent_ipcCreateOrConnectWithoutIpcInput[]
+    upsert?: patent_ipcUpsertWithWhereUniqueWithoutIpcInput | patent_ipcUpsertWithWhereUniqueWithoutIpcInput[]
+    createMany?: patent_ipcCreateManyIpcInputEnvelope
+    set?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    disconnect?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    delete?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    connect?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    update?: patent_ipcUpdateWithWhereUniqueWithoutIpcInput | patent_ipcUpdateWithWhereUniqueWithoutIpcInput[]
+    updateMany?: patent_ipcUpdateManyWithWhereWithoutIpcInput | patent_ipcUpdateManyWithWhereWithoutIpcInput[]
+    deleteMany?: patent_ipcScalarWhereInput | patent_ipcScalarWhereInput[]
+  }
+
+  export type patent_ipcCreateNestedManyWithoutPatentInput = {
+    create?: XOR<patent_ipcCreateWithoutPatentInput, patent_ipcUncheckedCreateWithoutPatentInput> | patent_ipcCreateWithoutPatentInput[] | patent_ipcUncheckedCreateWithoutPatentInput[]
+    connectOrCreate?: patent_ipcCreateOrConnectWithoutPatentInput | patent_ipcCreateOrConnectWithoutPatentInput[]
+    createMany?: patent_ipcCreateManyPatentInputEnvelope
+    connect?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+  }
+
+  export type patent_keywordCreateNestedManyWithoutPatentInput = {
+    create?: XOR<patent_keywordCreateWithoutPatentInput, patent_keywordUncheckedCreateWithoutPatentInput> | patent_keywordCreateWithoutPatentInput[] | patent_keywordUncheckedCreateWithoutPatentInput[]
+    connectOrCreate?: patent_keywordCreateOrConnectWithoutPatentInput | patent_keywordCreateOrConnectWithoutPatentInput[]
+    createMany?: patent_keywordCreateManyPatentInputEnvelope
+    connect?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+  }
+
+  export type researcher_patentCreateNestedManyWithoutPatentInput = {
+    create?: XOR<researcher_patentCreateWithoutPatentInput, researcher_patentUncheckedCreateWithoutPatentInput> | researcher_patentCreateWithoutPatentInput[] | researcher_patentUncheckedCreateWithoutPatentInput[]
+    connectOrCreate?: researcher_patentCreateOrConnectWithoutPatentInput | researcher_patentCreateOrConnectWithoutPatentInput[]
+    createMany?: researcher_patentCreateManyPatentInputEnvelope
+    connect?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+  }
+
+  export type patent_ipcUncheckedCreateNestedManyWithoutPatentInput = {
+    create?: XOR<patent_ipcCreateWithoutPatentInput, patent_ipcUncheckedCreateWithoutPatentInput> | patent_ipcCreateWithoutPatentInput[] | patent_ipcUncheckedCreateWithoutPatentInput[]
+    connectOrCreate?: patent_ipcCreateOrConnectWithoutPatentInput | patent_ipcCreateOrConnectWithoutPatentInput[]
+    createMany?: patent_ipcCreateManyPatentInputEnvelope
+    connect?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+  }
+
+  export type patent_keywordUncheckedCreateNestedManyWithoutPatentInput = {
+    create?: XOR<patent_keywordCreateWithoutPatentInput, patent_keywordUncheckedCreateWithoutPatentInput> | patent_keywordCreateWithoutPatentInput[] | patent_keywordUncheckedCreateWithoutPatentInput[]
+    connectOrCreate?: patent_keywordCreateOrConnectWithoutPatentInput | patent_keywordCreateOrConnectWithoutPatentInput[]
+    createMany?: patent_keywordCreateManyPatentInputEnvelope
+    connect?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+  }
+
+  export type researcher_patentUncheckedCreateNestedManyWithoutPatentInput = {
+    create?: XOR<researcher_patentCreateWithoutPatentInput, researcher_patentUncheckedCreateWithoutPatentInput> | researcher_patentCreateWithoutPatentInput[] | researcher_patentUncheckedCreateWithoutPatentInput[]
+    connectOrCreate?: researcher_patentCreateOrConnectWithoutPatentInput | researcher_patentCreateOrConnectWithoutPatentInput[]
+    createMany?: researcher_patentCreateManyPatentInputEnvelope
+    connect?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type patent_ipcUpdateManyWithoutPatentNestedInput = {
+    create?: XOR<patent_ipcCreateWithoutPatentInput, patent_ipcUncheckedCreateWithoutPatentInput> | patent_ipcCreateWithoutPatentInput[] | patent_ipcUncheckedCreateWithoutPatentInput[]
+    connectOrCreate?: patent_ipcCreateOrConnectWithoutPatentInput | patent_ipcCreateOrConnectWithoutPatentInput[]
+    upsert?: patent_ipcUpsertWithWhereUniqueWithoutPatentInput | patent_ipcUpsertWithWhereUniqueWithoutPatentInput[]
+    createMany?: patent_ipcCreateManyPatentInputEnvelope
+    set?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    disconnect?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    delete?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    connect?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    update?: patent_ipcUpdateWithWhereUniqueWithoutPatentInput | patent_ipcUpdateWithWhereUniqueWithoutPatentInput[]
+    updateMany?: patent_ipcUpdateManyWithWhereWithoutPatentInput | patent_ipcUpdateManyWithWhereWithoutPatentInput[]
+    deleteMany?: patent_ipcScalarWhereInput | patent_ipcScalarWhereInput[]
+  }
+
+  export type patent_keywordUpdateManyWithoutPatentNestedInput = {
+    create?: XOR<patent_keywordCreateWithoutPatentInput, patent_keywordUncheckedCreateWithoutPatentInput> | patent_keywordCreateWithoutPatentInput[] | patent_keywordUncheckedCreateWithoutPatentInput[]
+    connectOrCreate?: patent_keywordCreateOrConnectWithoutPatentInput | patent_keywordCreateOrConnectWithoutPatentInput[]
+    upsert?: patent_keywordUpsertWithWhereUniqueWithoutPatentInput | patent_keywordUpsertWithWhereUniqueWithoutPatentInput[]
+    createMany?: patent_keywordCreateManyPatentInputEnvelope
+    set?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    disconnect?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    delete?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    connect?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    update?: patent_keywordUpdateWithWhereUniqueWithoutPatentInput | patent_keywordUpdateWithWhereUniqueWithoutPatentInput[]
+    updateMany?: patent_keywordUpdateManyWithWhereWithoutPatentInput | patent_keywordUpdateManyWithWhereWithoutPatentInput[]
+    deleteMany?: patent_keywordScalarWhereInput | patent_keywordScalarWhereInput[]
+  }
+
+  export type researcher_patentUpdateManyWithoutPatentNestedInput = {
+    create?: XOR<researcher_patentCreateWithoutPatentInput, researcher_patentUncheckedCreateWithoutPatentInput> | researcher_patentCreateWithoutPatentInput[] | researcher_patentUncheckedCreateWithoutPatentInput[]
+    connectOrCreate?: researcher_patentCreateOrConnectWithoutPatentInput | researcher_patentCreateOrConnectWithoutPatentInput[]
+    upsert?: researcher_patentUpsertWithWhereUniqueWithoutPatentInput | researcher_patentUpsertWithWhereUniqueWithoutPatentInput[]
+    createMany?: researcher_patentCreateManyPatentInputEnvelope
+    set?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    disconnect?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    delete?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    connect?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    update?: researcher_patentUpdateWithWhereUniqueWithoutPatentInput | researcher_patentUpdateWithWhereUniqueWithoutPatentInput[]
+    updateMany?: researcher_patentUpdateManyWithWhereWithoutPatentInput | researcher_patentUpdateManyWithWhereWithoutPatentInput[]
+    deleteMany?: researcher_patentScalarWhereInput | researcher_patentScalarWhereInput[]
+  }
+
+  export type patent_ipcUncheckedUpdateManyWithoutPatentNestedInput = {
+    create?: XOR<patent_ipcCreateWithoutPatentInput, patent_ipcUncheckedCreateWithoutPatentInput> | patent_ipcCreateWithoutPatentInput[] | patent_ipcUncheckedCreateWithoutPatentInput[]
+    connectOrCreate?: patent_ipcCreateOrConnectWithoutPatentInput | patent_ipcCreateOrConnectWithoutPatentInput[]
+    upsert?: patent_ipcUpsertWithWhereUniqueWithoutPatentInput | patent_ipcUpsertWithWhereUniqueWithoutPatentInput[]
+    createMany?: patent_ipcCreateManyPatentInputEnvelope
+    set?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    disconnect?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    delete?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    connect?: patent_ipcWhereUniqueInput | patent_ipcWhereUniqueInput[]
+    update?: patent_ipcUpdateWithWhereUniqueWithoutPatentInput | patent_ipcUpdateWithWhereUniqueWithoutPatentInput[]
+    updateMany?: patent_ipcUpdateManyWithWhereWithoutPatentInput | patent_ipcUpdateManyWithWhereWithoutPatentInput[]
+    deleteMany?: patent_ipcScalarWhereInput | patent_ipcScalarWhereInput[]
+  }
+
+  export type patent_keywordUncheckedUpdateManyWithoutPatentNestedInput = {
+    create?: XOR<patent_keywordCreateWithoutPatentInput, patent_keywordUncheckedCreateWithoutPatentInput> | patent_keywordCreateWithoutPatentInput[] | patent_keywordUncheckedCreateWithoutPatentInput[]
+    connectOrCreate?: patent_keywordCreateOrConnectWithoutPatentInput | patent_keywordCreateOrConnectWithoutPatentInput[]
+    upsert?: patent_keywordUpsertWithWhereUniqueWithoutPatentInput | patent_keywordUpsertWithWhereUniqueWithoutPatentInput[]
+    createMany?: patent_keywordCreateManyPatentInputEnvelope
+    set?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    disconnect?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    delete?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    connect?: patent_keywordWhereUniqueInput | patent_keywordWhereUniqueInput[]
+    update?: patent_keywordUpdateWithWhereUniqueWithoutPatentInput | patent_keywordUpdateWithWhereUniqueWithoutPatentInput[]
+    updateMany?: patent_keywordUpdateManyWithWhereWithoutPatentInput | patent_keywordUpdateManyWithWhereWithoutPatentInput[]
+    deleteMany?: patent_keywordScalarWhereInput | patent_keywordScalarWhereInput[]
+  }
+
+  export type researcher_patentUncheckedUpdateManyWithoutPatentNestedInput = {
+    create?: XOR<researcher_patentCreateWithoutPatentInput, researcher_patentUncheckedCreateWithoutPatentInput> | researcher_patentCreateWithoutPatentInput[] | researcher_patentUncheckedCreateWithoutPatentInput[]
+    connectOrCreate?: researcher_patentCreateOrConnectWithoutPatentInput | researcher_patentCreateOrConnectWithoutPatentInput[]
+    upsert?: researcher_patentUpsertWithWhereUniqueWithoutPatentInput | researcher_patentUpsertWithWhereUniqueWithoutPatentInput[]
+    createMany?: researcher_patentCreateManyPatentInputEnvelope
+    set?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    disconnect?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    delete?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    connect?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    update?: researcher_patentUpdateWithWhereUniqueWithoutPatentInput | researcher_patentUpdateWithWhereUniqueWithoutPatentInput[]
+    updateMany?: researcher_patentUpdateManyWithWhereWithoutPatentInput | researcher_patentUpdateManyWithWhereWithoutPatentInput[]
+    deleteMany?: researcher_patentScalarWhereInput | researcher_patentScalarWhereInput[]
+  }
+
+  export type patentCreateNestedOneWithoutPatent_ipcsInput = {
+    create?: XOR<patentCreateWithoutPatent_ipcsInput, patentUncheckedCreateWithoutPatent_ipcsInput>
+    connectOrCreate?: patentCreateOrConnectWithoutPatent_ipcsInput
+    connect?: patentWhereUniqueInput
+  }
+
+  export type ipcCreateNestedOneWithoutPatent_ipcsInput = {
+    create?: XOR<ipcCreateWithoutPatent_ipcsInput, ipcUncheckedCreateWithoutPatent_ipcsInput>
+    connectOrCreate?: ipcCreateOrConnectWithoutPatent_ipcsInput
+    connect?: ipcWhereUniqueInput
+  }
+
+  export type patentUpdateOneRequiredWithoutPatent_ipcsNestedInput = {
+    create?: XOR<patentCreateWithoutPatent_ipcsInput, patentUncheckedCreateWithoutPatent_ipcsInput>
+    connectOrCreate?: patentCreateOrConnectWithoutPatent_ipcsInput
+    upsert?: patentUpsertWithoutPatent_ipcsInput
+    connect?: patentWhereUniqueInput
+    update?: XOR<XOR<patentUpdateToOneWithWhereWithoutPatent_ipcsInput, patentUpdateWithoutPatent_ipcsInput>, patentUncheckedUpdateWithoutPatent_ipcsInput>
+  }
+
+  export type ipcUpdateOneRequiredWithoutPatent_ipcsNestedInput = {
+    create?: XOR<ipcCreateWithoutPatent_ipcsInput, ipcUncheckedCreateWithoutPatent_ipcsInput>
+    connectOrCreate?: ipcCreateOrConnectWithoutPatent_ipcsInput
+    upsert?: ipcUpsertWithoutPatent_ipcsInput
+    connect?: ipcWhereUniqueInput
+    update?: XOR<XOR<ipcUpdateToOneWithWhereWithoutPatent_ipcsInput, ipcUpdateWithoutPatent_ipcsInput>, ipcUncheckedUpdateWithoutPatent_ipcsInput>
+  }
+
+  export type patentCreateNestedOneWithoutPatent_keywordsInput = {
+    create?: XOR<patentCreateWithoutPatent_keywordsInput, patentUncheckedCreateWithoutPatent_keywordsInput>
+    connectOrCreate?: patentCreateOrConnectWithoutPatent_keywordsInput
+    connect?: patentWhereUniqueInput
+  }
+
+  export type keywordCreateNestedOneWithoutPatent_keywordsInput = {
+    create?: XOR<keywordCreateWithoutPatent_keywordsInput, keywordUncheckedCreateWithoutPatent_keywordsInput>
+    connectOrCreate?: keywordCreateOrConnectWithoutPatent_keywordsInput
+    connect?: keywordWhereUniqueInput
+  }
+
+  export type patentUpdateOneRequiredWithoutPatent_keywordsNestedInput = {
+    create?: XOR<patentCreateWithoutPatent_keywordsInput, patentUncheckedCreateWithoutPatent_keywordsInput>
+    connectOrCreate?: patentCreateOrConnectWithoutPatent_keywordsInput
+    upsert?: patentUpsertWithoutPatent_keywordsInput
+    connect?: patentWhereUniqueInput
+    update?: XOR<XOR<patentUpdateToOneWithWhereWithoutPatent_keywordsInput, patentUpdateWithoutPatent_keywordsInput>, patentUncheckedUpdateWithoutPatent_keywordsInput>
+  }
+
+  export type keywordUpdateOneRequiredWithoutPatent_keywordsNestedInput = {
+    create?: XOR<keywordCreateWithoutPatent_keywordsInput, keywordUncheckedCreateWithoutPatent_keywordsInput>
+    connectOrCreate?: keywordCreateOrConnectWithoutPatent_keywordsInput
+    upsert?: keywordUpsertWithoutPatent_keywordsInput
+    connect?: keywordWhereUniqueInput
+    update?: XOR<XOR<keywordUpdateToOneWithWhereWithoutPatent_keywordsInput, keywordUpdateWithoutPatent_keywordsInput>, keywordUncheckedUpdateWithoutPatent_keywordsInput>
+  }
+
+  export type publicationCreateNestedManyWithoutJournalInput = {
+    create?: XOR<publicationCreateWithoutJournalInput, publicationUncheckedCreateWithoutJournalInput> | publicationCreateWithoutJournalInput[] | publicationUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: publicationCreateOrConnectWithoutJournalInput | publicationCreateOrConnectWithoutJournalInput[]
+    createMany?: publicationCreateManyJournalInputEnvelope
+    connect?: publicationWhereUniqueInput | publicationWhereUniqueInput[]
+  }
+
+  export type journal_keywordCreateNestedManyWithoutJournalInput = {
+    create?: XOR<journal_keywordCreateWithoutJournalInput, journal_keywordUncheckedCreateWithoutJournalInput> | journal_keywordCreateWithoutJournalInput[] | journal_keywordUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: journal_keywordCreateOrConnectWithoutJournalInput | journal_keywordCreateOrConnectWithoutJournalInput[]
+    createMany?: journal_keywordCreateManyJournalInputEnvelope
+    connect?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+  }
+
+  export type publicationUncheckedCreateNestedManyWithoutJournalInput = {
+    create?: XOR<publicationCreateWithoutJournalInput, publicationUncheckedCreateWithoutJournalInput> | publicationCreateWithoutJournalInput[] | publicationUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: publicationCreateOrConnectWithoutJournalInput | publicationCreateOrConnectWithoutJournalInput[]
+    createMany?: publicationCreateManyJournalInputEnvelope
+    connect?: publicationWhereUniqueInput | publicationWhereUniqueInput[]
+  }
+
+  export type journal_keywordUncheckedCreateNestedManyWithoutJournalInput = {
+    create?: XOR<journal_keywordCreateWithoutJournalInput, journal_keywordUncheckedCreateWithoutJournalInput> | journal_keywordCreateWithoutJournalInput[] | journal_keywordUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: journal_keywordCreateOrConnectWithoutJournalInput | journal_keywordCreateOrConnectWithoutJournalInput[]
+    createMany?: journal_keywordCreateManyJournalInputEnvelope
+    connect?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+  }
+
+  export type NullableDecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string | null
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type publicationUpdateManyWithoutJournalNestedInput = {
+    create?: XOR<publicationCreateWithoutJournalInput, publicationUncheckedCreateWithoutJournalInput> | publicationCreateWithoutJournalInput[] | publicationUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: publicationCreateOrConnectWithoutJournalInput | publicationCreateOrConnectWithoutJournalInput[]
+    upsert?: publicationUpsertWithWhereUniqueWithoutJournalInput | publicationUpsertWithWhereUniqueWithoutJournalInput[]
+    createMany?: publicationCreateManyJournalInputEnvelope
+    set?: publicationWhereUniqueInput | publicationWhereUniqueInput[]
+    disconnect?: publicationWhereUniqueInput | publicationWhereUniqueInput[]
+    delete?: publicationWhereUniqueInput | publicationWhereUniqueInput[]
+    connect?: publicationWhereUniqueInput | publicationWhereUniqueInput[]
+    update?: publicationUpdateWithWhereUniqueWithoutJournalInput | publicationUpdateWithWhereUniqueWithoutJournalInput[]
+    updateMany?: publicationUpdateManyWithWhereWithoutJournalInput | publicationUpdateManyWithWhereWithoutJournalInput[]
+    deleteMany?: publicationScalarWhereInput | publicationScalarWhereInput[]
+  }
+
+  export type journal_keywordUpdateManyWithoutJournalNestedInput = {
+    create?: XOR<journal_keywordCreateWithoutJournalInput, journal_keywordUncheckedCreateWithoutJournalInput> | journal_keywordCreateWithoutJournalInput[] | journal_keywordUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: journal_keywordCreateOrConnectWithoutJournalInput | journal_keywordCreateOrConnectWithoutJournalInput[]
+    upsert?: journal_keywordUpsertWithWhereUniqueWithoutJournalInput | journal_keywordUpsertWithWhereUniqueWithoutJournalInput[]
+    createMany?: journal_keywordCreateManyJournalInputEnvelope
+    set?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    disconnect?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    delete?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    connect?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    update?: journal_keywordUpdateWithWhereUniqueWithoutJournalInput | journal_keywordUpdateWithWhereUniqueWithoutJournalInput[]
+    updateMany?: journal_keywordUpdateManyWithWhereWithoutJournalInput | journal_keywordUpdateManyWithWhereWithoutJournalInput[]
+    deleteMany?: journal_keywordScalarWhereInput | journal_keywordScalarWhereInput[]
+  }
+
+  export type publicationUncheckedUpdateManyWithoutJournalNestedInput = {
+    create?: XOR<publicationCreateWithoutJournalInput, publicationUncheckedCreateWithoutJournalInput> | publicationCreateWithoutJournalInput[] | publicationUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: publicationCreateOrConnectWithoutJournalInput | publicationCreateOrConnectWithoutJournalInput[]
+    upsert?: publicationUpsertWithWhereUniqueWithoutJournalInput | publicationUpsertWithWhereUniqueWithoutJournalInput[]
+    createMany?: publicationCreateManyJournalInputEnvelope
+    set?: publicationWhereUniqueInput | publicationWhereUniqueInput[]
+    disconnect?: publicationWhereUniqueInput | publicationWhereUniqueInput[]
+    delete?: publicationWhereUniqueInput | publicationWhereUniqueInput[]
+    connect?: publicationWhereUniqueInput | publicationWhereUniqueInput[]
+    update?: publicationUpdateWithWhereUniqueWithoutJournalInput | publicationUpdateWithWhereUniqueWithoutJournalInput[]
+    updateMany?: publicationUpdateManyWithWhereWithoutJournalInput | publicationUpdateManyWithWhereWithoutJournalInput[]
+    deleteMany?: publicationScalarWhereInput | publicationScalarWhereInput[]
+  }
+
+  export type journal_keywordUncheckedUpdateManyWithoutJournalNestedInput = {
+    create?: XOR<journal_keywordCreateWithoutJournalInput, journal_keywordUncheckedCreateWithoutJournalInput> | journal_keywordCreateWithoutJournalInput[] | journal_keywordUncheckedCreateWithoutJournalInput[]
+    connectOrCreate?: journal_keywordCreateOrConnectWithoutJournalInput | journal_keywordCreateOrConnectWithoutJournalInput[]
+    upsert?: journal_keywordUpsertWithWhereUniqueWithoutJournalInput | journal_keywordUpsertWithWhereUniqueWithoutJournalInput[]
+    createMany?: journal_keywordCreateManyJournalInputEnvelope
+    set?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    disconnect?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    delete?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    connect?: journal_keywordWhereUniqueInput | journal_keywordWhereUniqueInput[]
+    update?: journal_keywordUpdateWithWhereUniqueWithoutJournalInput | journal_keywordUpdateWithWhereUniqueWithoutJournalInput[]
+    updateMany?: journal_keywordUpdateManyWithWhereWithoutJournalInput | journal_keywordUpdateManyWithWhereWithoutJournalInput[]
+    deleteMany?: journal_keywordScalarWhereInput | journal_keywordScalarWhereInput[]
+  }
+
+  export type journalCreateNestedOneWithoutPublicationsInput = {
+    create?: XOR<journalCreateWithoutPublicationsInput, journalUncheckedCreateWithoutPublicationsInput>
+    connectOrCreate?: journalCreateOrConnectWithoutPublicationsInput
+    connect?: journalWhereUniqueInput
+  }
+
+  export type publication_keywordCreateNestedManyWithoutPublicationInput = {
+    create?: XOR<publication_keywordCreateWithoutPublicationInput, publication_keywordUncheckedCreateWithoutPublicationInput> | publication_keywordCreateWithoutPublicationInput[] | publication_keywordUncheckedCreateWithoutPublicationInput[]
+    connectOrCreate?: publication_keywordCreateOrConnectWithoutPublicationInput | publication_keywordCreateOrConnectWithoutPublicationInput[]
+    createMany?: publication_keywordCreateManyPublicationInputEnvelope
+    connect?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+  }
+
+  export type researcher_publicationCreateNestedManyWithoutPublicationInput = {
+    create?: XOR<researcher_publicationCreateWithoutPublicationInput, researcher_publicationUncheckedCreateWithoutPublicationInput> | researcher_publicationCreateWithoutPublicationInput[] | researcher_publicationUncheckedCreateWithoutPublicationInput[]
+    connectOrCreate?: researcher_publicationCreateOrConnectWithoutPublicationInput | researcher_publicationCreateOrConnectWithoutPublicationInput[]
+    createMany?: researcher_publicationCreateManyPublicationInputEnvelope
+    connect?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+  }
+
+  export type publication_keywordUncheckedCreateNestedManyWithoutPublicationInput = {
+    create?: XOR<publication_keywordCreateWithoutPublicationInput, publication_keywordUncheckedCreateWithoutPublicationInput> | publication_keywordCreateWithoutPublicationInput[] | publication_keywordUncheckedCreateWithoutPublicationInput[]
+    connectOrCreate?: publication_keywordCreateOrConnectWithoutPublicationInput | publication_keywordCreateOrConnectWithoutPublicationInput[]
+    createMany?: publication_keywordCreateManyPublicationInputEnvelope
+    connect?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+  }
+
+  export type researcher_publicationUncheckedCreateNestedManyWithoutPublicationInput = {
+    create?: XOR<researcher_publicationCreateWithoutPublicationInput, researcher_publicationUncheckedCreateWithoutPublicationInput> | researcher_publicationCreateWithoutPublicationInput[] | researcher_publicationUncheckedCreateWithoutPublicationInput[]
+    connectOrCreate?: researcher_publicationCreateOrConnectWithoutPublicationInput | researcher_publicationCreateOrConnectWithoutPublicationInput[]
+    createMany?: researcher_publicationCreateManyPublicationInputEnvelope
+    connect?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+  }
+
+  export type journalUpdateOneWithoutPublicationsNestedInput = {
+    create?: XOR<journalCreateWithoutPublicationsInput, journalUncheckedCreateWithoutPublicationsInput>
+    connectOrCreate?: journalCreateOrConnectWithoutPublicationsInput
+    upsert?: journalUpsertWithoutPublicationsInput
+    disconnect?: journalWhereInput | boolean
+    delete?: journalWhereInput | boolean
+    connect?: journalWhereUniqueInput
+    update?: XOR<XOR<journalUpdateToOneWithWhereWithoutPublicationsInput, journalUpdateWithoutPublicationsInput>, journalUncheckedUpdateWithoutPublicationsInput>
+  }
+
+  export type publication_keywordUpdateManyWithoutPublicationNestedInput = {
+    create?: XOR<publication_keywordCreateWithoutPublicationInput, publication_keywordUncheckedCreateWithoutPublicationInput> | publication_keywordCreateWithoutPublicationInput[] | publication_keywordUncheckedCreateWithoutPublicationInput[]
+    connectOrCreate?: publication_keywordCreateOrConnectWithoutPublicationInput | publication_keywordCreateOrConnectWithoutPublicationInput[]
+    upsert?: publication_keywordUpsertWithWhereUniqueWithoutPublicationInput | publication_keywordUpsertWithWhereUniqueWithoutPublicationInput[]
+    createMany?: publication_keywordCreateManyPublicationInputEnvelope
+    set?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    disconnect?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    delete?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    connect?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    update?: publication_keywordUpdateWithWhereUniqueWithoutPublicationInput | publication_keywordUpdateWithWhereUniqueWithoutPublicationInput[]
+    updateMany?: publication_keywordUpdateManyWithWhereWithoutPublicationInput | publication_keywordUpdateManyWithWhereWithoutPublicationInput[]
+    deleteMany?: publication_keywordScalarWhereInput | publication_keywordScalarWhereInput[]
+  }
+
+  export type researcher_publicationUpdateManyWithoutPublicationNestedInput = {
+    create?: XOR<researcher_publicationCreateWithoutPublicationInput, researcher_publicationUncheckedCreateWithoutPublicationInput> | researcher_publicationCreateWithoutPublicationInput[] | researcher_publicationUncheckedCreateWithoutPublicationInput[]
+    connectOrCreate?: researcher_publicationCreateOrConnectWithoutPublicationInput | researcher_publicationCreateOrConnectWithoutPublicationInput[]
+    upsert?: researcher_publicationUpsertWithWhereUniqueWithoutPublicationInput | researcher_publicationUpsertWithWhereUniqueWithoutPublicationInput[]
+    createMany?: researcher_publicationCreateManyPublicationInputEnvelope
+    set?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    disconnect?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    delete?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    connect?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    update?: researcher_publicationUpdateWithWhereUniqueWithoutPublicationInput | researcher_publicationUpdateWithWhereUniqueWithoutPublicationInput[]
+    updateMany?: researcher_publicationUpdateManyWithWhereWithoutPublicationInput | researcher_publicationUpdateManyWithWhereWithoutPublicationInput[]
+    deleteMany?: researcher_publicationScalarWhereInput | researcher_publicationScalarWhereInput[]
+  }
+
+  export type publication_keywordUncheckedUpdateManyWithoutPublicationNestedInput = {
+    create?: XOR<publication_keywordCreateWithoutPublicationInput, publication_keywordUncheckedCreateWithoutPublicationInput> | publication_keywordCreateWithoutPublicationInput[] | publication_keywordUncheckedCreateWithoutPublicationInput[]
+    connectOrCreate?: publication_keywordCreateOrConnectWithoutPublicationInput | publication_keywordCreateOrConnectWithoutPublicationInput[]
+    upsert?: publication_keywordUpsertWithWhereUniqueWithoutPublicationInput | publication_keywordUpsertWithWhereUniqueWithoutPublicationInput[]
+    createMany?: publication_keywordCreateManyPublicationInputEnvelope
+    set?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    disconnect?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    delete?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    connect?: publication_keywordWhereUniqueInput | publication_keywordWhereUniqueInput[]
+    update?: publication_keywordUpdateWithWhereUniqueWithoutPublicationInput | publication_keywordUpdateWithWhereUniqueWithoutPublicationInput[]
+    updateMany?: publication_keywordUpdateManyWithWhereWithoutPublicationInput | publication_keywordUpdateManyWithWhereWithoutPublicationInput[]
+    deleteMany?: publication_keywordScalarWhereInput | publication_keywordScalarWhereInput[]
+  }
+
+  export type researcher_publicationUncheckedUpdateManyWithoutPublicationNestedInput = {
+    create?: XOR<researcher_publicationCreateWithoutPublicationInput, researcher_publicationUncheckedCreateWithoutPublicationInput> | researcher_publicationCreateWithoutPublicationInput[] | researcher_publicationUncheckedCreateWithoutPublicationInput[]
+    connectOrCreate?: researcher_publicationCreateOrConnectWithoutPublicationInput | researcher_publicationCreateOrConnectWithoutPublicationInput[]
+    upsert?: researcher_publicationUpsertWithWhereUniqueWithoutPublicationInput | researcher_publicationUpsertWithWhereUniqueWithoutPublicationInput[]
+    createMany?: researcher_publicationCreateManyPublicationInputEnvelope
+    set?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    disconnect?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    delete?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    connect?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    update?: researcher_publicationUpdateWithWhereUniqueWithoutPublicationInput | researcher_publicationUpdateWithWhereUniqueWithoutPublicationInput[]
+    updateMany?: researcher_publicationUpdateManyWithWhereWithoutPublicationInput | researcher_publicationUpdateManyWithWhereWithoutPublicationInput[]
+    deleteMany?: researcher_publicationScalarWhereInput | researcher_publicationScalarWhereInput[]
+  }
+
+  export type publicationCreateNestedOneWithoutPublication_keywordsInput = {
+    create?: XOR<publicationCreateWithoutPublication_keywordsInput, publicationUncheckedCreateWithoutPublication_keywordsInput>
+    connectOrCreate?: publicationCreateOrConnectWithoutPublication_keywordsInput
+    connect?: publicationWhereUniqueInput
+  }
+
+  export type keywordCreateNestedOneWithoutPublication_keywordsInput = {
+    create?: XOR<keywordCreateWithoutPublication_keywordsInput, keywordUncheckedCreateWithoutPublication_keywordsInput>
+    connectOrCreate?: keywordCreateOrConnectWithoutPublication_keywordsInput
+    connect?: keywordWhereUniqueInput
+  }
+
+  export type publicationUpdateOneRequiredWithoutPublication_keywordsNestedInput = {
+    create?: XOR<publicationCreateWithoutPublication_keywordsInput, publicationUncheckedCreateWithoutPublication_keywordsInput>
+    connectOrCreate?: publicationCreateOrConnectWithoutPublication_keywordsInput
+    upsert?: publicationUpsertWithoutPublication_keywordsInput
+    connect?: publicationWhereUniqueInput
+    update?: XOR<XOR<publicationUpdateToOneWithWhereWithoutPublication_keywordsInput, publicationUpdateWithoutPublication_keywordsInput>, publicationUncheckedUpdateWithoutPublication_keywordsInput>
+  }
+
+  export type keywordUpdateOneRequiredWithoutPublication_keywordsNestedInput = {
+    create?: XOR<keywordCreateWithoutPublication_keywordsInput, keywordUncheckedCreateWithoutPublication_keywordsInput>
+    connectOrCreate?: keywordCreateOrConnectWithoutPublication_keywordsInput
+    upsert?: keywordUpsertWithoutPublication_keywordsInput
+    connect?: keywordWhereUniqueInput
+    update?: XOR<XOR<keywordUpdateToOneWithWhereWithoutPublication_keywordsInput, keywordUpdateWithoutPublication_keywordsInput>, keywordUncheckedUpdateWithoutPublication_keywordsInput>
+  }
+
+  export type journalCreateNestedOneWithoutJournal_keywordsInput = {
+    create?: XOR<journalCreateWithoutJournal_keywordsInput, journalUncheckedCreateWithoutJournal_keywordsInput>
+    connectOrCreate?: journalCreateOrConnectWithoutJournal_keywordsInput
+    connect?: journalWhereUniqueInput
+  }
+
+  export type keywordCreateNestedOneWithoutJournal_keywordsInput = {
+    create?: XOR<keywordCreateWithoutJournal_keywordsInput, keywordUncheckedCreateWithoutJournal_keywordsInput>
+    connectOrCreate?: keywordCreateOrConnectWithoutJournal_keywordsInput
+    connect?: keywordWhereUniqueInput
+  }
+
+  export type journalUpdateOneRequiredWithoutJournal_keywordsNestedInput = {
+    create?: XOR<journalCreateWithoutJournal_keywordsInput, journalUncheckedCreateWithoutJournal_keywordsInput>
+    connectOrCreate?: journalCreateOrConnectWithoutJournal_keywordsInput
+    upsert?: journalUpsertWithoutJournal_keywordsInput
+    connect?: journalWhereUniqueInput
+    update?: XOR<XOR<journalUpdateToOneWithWhereWithoutJournal_keywordsInput, journalUpdateWithoutJournal_keywordsInput>, journalUncheckedUpdateWithoutJournal_keywordsInput>
+  }
+
+  export type keywordUpdateOneRequiredWithoutJournal_keywordsNestedInput = {
+    create?: XOR<keywordCreateWithoutJournal_keywordsInput, keywordUncheckedCreateWithoutJournal_keywordsInput>
+    connectOrCreate?: keywordCreateOrConnectWithoutJournal_keywordsInput
+    upsert?: keywordUpsertWithoutJournal_keywordsInput
+    connect?: keywordWhereUniqueInput
+    update?: XOR<XOR<keywordUpdateToOneWithWhereWithoutJournal_keywordsInput, keywordUpdateWithoutJournal_keywordsInput>, keywordUncheckedUpdateWithoutJournal_keywordsInput>
+  }
+
+  export type researcher_patentCreateNestedManyWithoutResearcherInput = {
+    create?: XOR<researcher_patentCreateWithoutResearcherInput, researcher_patentUncheckedCreateWithoutResearcherInput> | researcher_patentCreateWithoutResearcherInput[] | researcher_patentUncheckedCreateWithoutResearcherInput[]
+    connectOrCreate?: researcher_patentCreateOrConnectWithoutResearcherInput | researcher_patentCreateOrConnectWithoutResearcherInput[]
+    createMany?: researcher_patentCreateManyResearcherInputEnvelope
+    connect?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+  }
+
+  export type researcher_domainCreateNestedManyWithoutResearcherInput = {
+    create?: XOR<researcher_domainCreateWithoutResearcherInput, researcher_domainUncheckedCreateWithoutResearcherInput> | researcher_domainCreateWithoutResearcherInput[] | researcher_domainUncheckedCreateWithoutResearcherInput[]
+    connectOrCreate?: researcher_domainCreateOrConnectWithoutResearcherInput | researcher_domainCreateOrConnectWithoutResearcherInput[]
+    createMany?: researcher_domainCreateManyResearcherInputEnvelope
+    connect?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+  }
+
+  export type researcher_publicationCreateNestedManyWithoutResearcherInput = {
+    create?: XOR<researcher_publicationCreateWithoutResearcherInput, researcher_publicationUncheckedCreateWithoutResearcherInput> | researcher_publicationCreateWithoutResearcherInput[] | researcher_publicationUncheckedCreateWithoutResearcherInput[]
+    connectOrCreate?: researcher_publicationCreateOrConnectWithoutResearcherInput | researcher_publicationCreateOrConnectWithoutResearcherInput[]
+    createMany?: researcher_publicationCreateManyResearcherInputEnvelope
+    connect?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+  }
+
+  export type researcher_patentUncheckedCreateNestedManyWithoutResearcherInput = {
+    create?: XOR<researcher_patentCreateWithoutResearcherInput, researcher_patentUncheckedCreateWithoutResearcherInput> | researcher_patentCreateWithoutResearcherInput[] | researcher_patentUncheckedCreateWithoutResearcherInput[]
+    connectOrCreate?: researcher_patentCreateOrConnectWithoutResearcherInput | researcher_patentCreateOrConnectWithoutResearcherInput[]
+    createMany?: researcher_patentCreateManyResearcherInputEnvelope
+    connect?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+  }
+
+  export type researcher_domainUncheckedCreateNestedManyWithoutResearcherInput = {
+    create?: XOR<researcher_domainCreateWithoutResearcherInput, researcher_domainUncheckedCreateWithoutResearcherInput> | researcher_domainCreateWithoutResearcherInput[] | researcher_domainUncheckedCreateWithoutResearcherInput[]
+    connectOrCreate?: researcher_domainCreateOrConnectWithoutResearcherInput | researcher_domainCreateOrConnectWithoutResearcherInput[]
+    createMany?: researcher_domainCreateManyResearcherInputEnvelope
+    connect?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+  }
+
+  export type researcher_publicationUncheckedCreateNestedManyWithoutResearcherInput = {
+    create?: XOR<researcher_publicationCreateWithoutResearcherInput, researcher_publicationUncheckedCreateWithoutResearcherInput> | researcher_publicationCreateWithoutResearcherInput[] | researcher_publicationUncheckedCreateWithoutResearcherInput[]
+    connectOrCreate?: researcher_publicationCreateOrConnectWithoutResearcherInput | researcher_publicationCreateOrConnectWithoutResearcherInput[]
+    createMany?: researcher_publicationCreateManyResearcherInputEnvelope
+    connect?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+  }
+
+  export type researcher_patentUpdateManyWithoutResearcherNestedInput = {
+    create?: XOR<researcher_patentCreateWithoutResearcherInput, researcher_patentUncheckedCreateWithoutResearcherInput> | researcher_patentCreateWithoutResearcherInput[] | researcher_patentUncheckedCreateWithoutResearcherInput[]
+    connectOrCreate?: researcher_patentCreateOrConnectWithoutResearcherInput | researcher_patentCreateOrConnectWithoutResearcherInput[]
+    upsert?: researcher_patentUpsertWithWhereUniqueWithoutResearcherInput | researcher_patentUpsertWithWhereUniqueWithoutResearcherInput[]
+    createMany?: researcher_patentCreateManyResearcherInputEnvelope
+    set?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    disconnect?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    delete?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    connect?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    update?: researcher_patentUpdateWithWhereUniqueWithoutResearcherInput | researcher_patentUpdateWithWhereUniqueWithoutResearcherInput[]
+    updateMany?: researcher_patentUpdateManyWithWhereWithoutResearcherInput | researcher_patentUpdateManyWithWhereWithoutResearcherInput[]
+    deleteMany?: researcher_patentScalarWhereInput | researcher_patentScalarWhereInput[]
+  }
+
+  export type researcher_domainUpdateManyWithoutResearcherNestedInput = {
+    create?: XOR<researcher_domainCreateWithoutResearcherInput, researcher_domainUncheckedCreateWithoutResearcherInput> | researcher_domainCreateWithoutResearcherInput[] | researcher_domainUncheckedCreateWithoutResearcherInput[]
+    connectOrCreate?: researcher_domainCreateOrConnectWithoutResearcherInput | researcher_domainCreateOrConnectWithoutResearcherInput[]
+    upsert?: researcher_domainUpsertWithWhereUniqueWithoutResearcherInput | researcher_domainUpsertWithWhereUniqueWithoutResearcherInput[]
+    createMany?: researcher_domainCreateManyResearcherInputEnvelope
+    set?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    disconnect?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    delete?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    connect?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    update?: researcher_domainUpdateWithWhereUniqueWithoutResearcherInput | researcher_domainUpdateWithWhereUniqueWithoutResearcherInput[]
+    updateMany?: researcher_domainUpdateManyWithWhereWithoutResearcherInput | researcher_domainUpdateManyWithWhereWithoutResearcherInput[]
+    deleteMany?: researcher_domainScalarWhereInput | researcher_domainScalarWhereInput[]
+  }
+
+  export type researcher_publicationUpdateManyWithoutResearcherNestedInput = {
+    create?: XOR<researcher_publicationCreateWithoutResearcherInput, researcher_publicationUncheckedCreateWithoutResearcherInput> | researcher_publicationCreateWithoutResearcherInput[] | researcher_publicationUncheckedCreateWithoutResearcherInput[]
+    connectOrCreate?: researcher_publicationCreateOrConnectWithoutResearcherInput | researcher_publicationCreateOrConnectWithoutResearcherInput[]
+    upsert?: researcher_publicationUpsertWithWhereUniqueWithoutResearcherInput | researcher_publicationUpsertWithWhereUniqueWithoutResearcherInput[]
+    createMany?: researcher_publicationCreateManyResearcherInputEnvelope
+    set?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    disconnect?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    delete?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    connect?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    update?: researcher_publicationUpdateWithWhereUniqueWithoutResearcherInput | researcher_publicationUpdateWithWhereUniqueWithoutResearcherInput[]
+    updateMany?: researcher_publicationUpdateManyWithWhereWithoutResearcherInput | researcher_publicationUpdateManyWithWhereWithoutResearcherInput[]
+    deleteMany?: researcher_publicationScalarWhereInput | researcher_publicationScalarWhereInput[]
+  }
+
+  export type researcher_patentUncheckedUpdateManyWithoutResearcherNestedInput = {
+    create?: XOR<researcher_patentCreateWithoutResearcherInput, researcher_patentUncheckedCreateWithoutResearcherInput> | researcher_patentCreateWithoutResearcherInput[] | researcher_patentUncheckedCreateWithoutResearcherInput[]
+    connectOrCreate?: researcher_patentCreateOrConnectWithoutResearcherInput | researcher_patentCreateOrConnectWithoutResearcherInput[]
+    upsert?: researcher_patentUpsertWithWhereUniqueWithoutResearcherInput | researcher_patentUpsertWithWhereUniqueWithoutResearcherInput[]
+    createMany?: researcher_patentCreateManyResearcherInputEnvelope
+    set?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    disconnect?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    delete?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    connect?: researcher_patentWhereUniqueInput | researcher_patentWhereUniqueInput[]
+    update?: researcher_patentUpdateWithWhereUniqueWithoutResearcherInput | researcher_patentUpdateWithWhereUniqueWithoutResearcherInput[]
+    updateMany?: researcher_patentUpdateManyWithWhereWithoutResearcherInput | researcher_patentUpdateManyWithWhereWithoutResearcherInput[]
+    deleteMany?: researcher_patentScalarWhereInput | researcher_patentScalarWhereInput[]
+  }
+
+  export type researcher_domainUncheckedUpdateManyWithoutResearcherNestedInput = {
+    create?: XOR<researcher_domainCreateWithoutResearcherInput, researcher_domainUncheckedCreateWithoutResearcherInput> | researcher_domainCreateWithoutResearcherInput[] | researcher_domainUncheckedCreateWithoutResearcherInput[]
+    connectOrCreate?: researcher_domainCreateOrConnectWithoutResearcherInput | researcher_domainCreateOrConnectWithoutResearcherInput[]
+    upsert?: researcher_domainUpsertWithWhereUniqueWithoutResearcherInput | researcher_domainUpsertWithWhereUniqueWithoutResearcherInput[]
+    createMany?: researcher_domainCreateManyResearcherInputEnvelope
+    set?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    disconnect?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    delete?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    connect?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    update?: researcher_domainUpdateWithWhereUniqueWithoutResearcherInput | researcher_domainUpdateWithWhereUniqueWithoutResearcherInput[]
+    updateMany?: researcher_domainUpdateManyWithWhereWithoutResearcherInput | researcher_domainUpdateManyWithWhereWithoutResearcherInput[]
+    deleteMany?: researcher_domainScalarWhereInput | researcher_domainScalarWhereInput[]
+  }
+
+  export type researcher_publicationUncheckedUpdateManyWithoutResearcherNestedInput = {
+    create?: XOR<researcher_publicationCreateWithoutResearcherInput, researcher_publicationUncheckedCreateWithoutResearcherInput> | researcher_publicationCreateWithoutResearcherInput[] | researcher_publicationUncheckedCreateWithoutResearcherInput[]
+    connectOrCreate?: researcher_publicationCreateOrConnectWithoutResearcherInput | researcher_publicationCreateOrConnectWithoutResearcherInput[]
+    upsert?: researcher_publicationUpsertWithWhereUniqueWithoutResearcherInput | researcher_publicationUpsertWithWhereUniqueWithoutResearcherInput[]
+    createMany?: researcher_publicationCreateManyResearcherInputEnvelope
+    set?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    disconnect?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    delete?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    connect?: researcher_publicationWhereUniqueInput | researcher_publicationWhereUniqueInput[]
+    update?: researcher_publicationUpdateWithWhereUniqueWithoutResearcherInput | researcher_publicationUpdateWithWhereUniqueWithoutResearcherInput[]
+    updateMany?: researcher_publicationUpdateManyWithWhereWithoutResearcherInput | researcher_publicationUpdateManyWithWhereWithoutResearcherInput[]
+    deleteMany?: researcher_publicationScalarWhereInput | researcher_publicationScalarWhereInput[]
+  }
+
+  export type researcherCreateNestedOneWithoutResearcher_patentsInput = {
+    create?: XOR<researcherCreateWithoutResearcher_patentsInput, researcherUncheckedCreateWithoutResearcher_patentsInput>
+    connectOrCreate?: researcherCreateOrConnectWithoutResearcher_patentsInput
+    connect?: researcherWhereUniqueInput
+  }
+
+  export type patentCreateNestedOneWithoutResearcher_patentsInput = {
+    create?: XOR<patentCreateWithoutResearcher_patentsInput, patentUncheckedCreateWithoutResearcher_patentsInput>
+    connectOrCreate?: patentCreateOrConnectWithoutResearcher_patentsInput
+    connect?: patentWhereUniqueInput
+  }
+
+  export type researcherUpdateOneRequiredWithoutResearcher_patentsNestedInput = {
+    create?: XOR<researcherCreateWithoutResearcher_patentsInput, researcherUncheckedCreateWithoutResearcher_patentsInput>
+    connectOrCreate?: researcherCreateOrConnectWithoutResearcher_patentsInput
+    upsert?: researcherUpsertWithoutResearcher_patentsInput
+    connect?: researcherWhereUniqueInput
+    update?: XOR<XOR<researcherUpdateToOneWithWhereWithoutResearcher_patentsInput, researcherUpdateWithoutResearcher_patentsInput>, researcherUncheckedUpdateWithoutResearcher_patentsInput>
+  }
+
+  export type patentUpdateOneRequiredWithoutResearcher_patentsNestedInput = {
+    create?: XOR<patentCreateWithoutResearcher_patentsInput, patentUncheckedCreateWithoutResearcher_patentsInput>
+    connectOrCreate?: patentCreateOrConnectWithoutResearcher_patentsInput
+    upsert?: patentUpsertWithoutResearcher_patentsInput
+    connect?: patentWhereUniqueInput
+    update?: XOR<XOR<patentUpdateToOneWithWhereWithoutResearcher_patentsInput, patentUpdateWithoutResearcher_patentsInput>, patentUncheckedUpdateWithoutResearcher_patentsInput>
+  }
+
+  export type researcherCreateNestedOneWithoutResearcher_domainsInput = {
+    create?: XOR<researcherCreateWithoutResearcher_domainsInput, researcherUncheckedCreateWithoutResearcher_domainsInput>
+    connectOrCreate?: researcherCreateOrConnectWithoutResearcher_domainsInput
+    connect?: researcherWhereUniqueInput
+  }
+
+  export type domainCreateNestedOneWithoutResearcher_domainsInput = {
+    create?: XOR<domainCreateWithoutResearcher_domainsInput, domainUncheckedCreateWithoutResearcher_domainsInput>
+    connectOrCreate?: domainCreateOrConnectWithoutResearcher_domainsInput
+    connect?: domainWhereUniqueInput
+  }
+
+  export type researcherUpdateOneRequiredWithoutResearcher_domainsNestedInput = {
+    create?: XOR<researcherCreateWithoutResearcher_domainsInput, researcherUncheckedCreateWithoutResearcher_domainsInput>
+    connectOrCreate?: researcherCreateOrConnectWithoutResearcher_domainsInput
+    upsert?: researcherUpsertWithoutResearcher_domainsInput
+    connect?: researcherWhereUniqueInput
+    update?: XOR<XOR<researcherUpdateToOneWithWhereWithoutResearcher_domainsInput, researcherUpdateWithoutResearcher_domainsInput>, researcherUncheckedUpdateWithoutResearcher_domainsInput>
+  }
+
+  export type domainUpdateOneRequiredWithoutResearcher_domainsNestedInput = {
+    create?: XOR<domainCreateWithoutResearcher_domainsInput, domainUncheckedCreateWithoutResearcher_domainsInput>
+    connectOrCreate?: domainCreateOrConnectWithoutResearcher_domainsInput
+    upsert?: domainUpsertWithoutResearcher_domainsInput
+    connect?: domainWhereUniqueInput
+    update?: XOR<XOR<domainUpdateToOneWithWhereWithoutResearcher_domainsInput, domainUpdateWithoutResearcher_domainsInput>, domainUncheckedUpdateWithoutResearcher_domainsInput>
+  }
+
+  export type researcherCreateNestedOneWithoutResearcher_publicationsInput = {
+    create?: XOR<researcherCreateWithoutResearcher_publicationsInput, researcherUncheckedCreateWithoutResearcher_publicationsInput>
+    connectOrCreate?: researcherCreateOrConnectWithoutResearcher_publicationsInput
+    connect?: researcherWhereUniqueInput
+  }
+
+  export type publicationCreateNestedOneWithoutResearcher_publicationsInput = {
+    create?: XOR<publicationCreateWithoutResearcher_publicationsInput, publicationUncheckedCreateWithoutResearcher_publicationsInput>
+    connectOrCreate?: publicationCreateOrConnectWithoutResearcher_publicationsInput
+    connect?: publicationWhereUniqueInput
+  }
+
+  export type researcherUpdateOneRequiredWithoutResearcher_publicationsNestedInput = {
+    create?: XOR<researcherCreateWithoutResearcher_publicationsInput, researcherUncheckedCreateWithoutResearcher_publicationsInput>
+    connectOrCreate?: researcherCreateOrConnectWithoutResearcher_publicationsInput
+    upsert?: researcherUpsertWithoutResearcher_publicationsInput
+    connect?: researcherWhereUniqueInput
+    update?: XOR<XOR<researcherUpdateToOneWithWhereWithoutResearcher_publicationsInput, researcherUpdateWithoutResearcher_publicationsInput>, researcherUncheckedUpdateWithoutResearcher_publicationsInput>
+  }
+
+  export type publicationUpdateOneRequiredWithoutResearcher_publicationsNestedInput = {
+    create?: XOR<publicationCreateWithoutResearcher_publicationsInput, publicationUncheckedCreateWithoutResearcher_publicationsInput>
+    connectOrCreate?: publicationCreateOrConnectWithoutResearcher_publicationsInput
+    upsert?: publicationUpsertWithoutResearcher_publicationsInput
+    connect?: publicationWhereUniqueInput
+    update?: XOR<XOR<publicationUpdateToOneWithWhereWithoutResearcher_publicationsInput, publicationUpdateWithoutResearcher_publicationsInput>, publicationUncheckedUpdateWithoutResearcher_publicationsInput>
+  }
+
+  export type researcher_domainCreateNestedManyWithoutDomainInput = {
+    create?: XOR<researcher_domainCreateWithoutDomainInput, researcher_domainUncheckedCreateWithoutDomainInput> | researcher_domainCreateWithoutDomainInput[] | researcher_domainUncheckedCreateWithoutDomainInput[]
+    connectOrCreate?: researcher_domainCreateOrConnectWithoutDomainInput | researcher_domainCreateOrConnectWithoutDomainInput[]
+    createMany?: researcher_domainCreateManyDomainInputEnvelope
+    connect?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+  }
+
+  export type researcher_domainUncheckedCreateNestedManyWithoutDomainInput = {
+    create?: XOR<researcher_domainCreateWithoutDomainInput, researcher_domainUncheckedCreateWithoutDomainInput> | researcher_domainCreateWithoutDomainInput[] | researcher_domainUncheckedCreateWithoutDomainInput[]
+    connectOrCreate?: researcher_domainCreateOrConnectWithoutDomainInput | researcher_domainCreateOrConnectWithoutDomainInput[]
+    createMany?: researcher_domainCreateManyDomainInputEnvelope
+    connect?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+  }
+
+  export type researcher_domainUpdateManyWithoutDomainNestedInput = {
+    create?: XOR<researcher_domainCreateWithoutDomainInput, researcher_domainUncheckedCreateWithoutDomainInput> | researcher_domainCreateWithoutDomainInput[] | researcher_domainUncheckedCreateWithoutDomainInput[]
+    connectOrCreate?: researcher_domainCreateOrConnectWithoutDomainInput | researcher_domainCreateOrConnectWithoutDomainInput[]
+    upsert?: researcher_domainUpsertWithWhereUniqueWithoutDomainInput | researcher_domainUpsertWithWhereUniqueWithoutDomainInput[]
+    createMany?: researcher_domainCreateManyDomainInputEnvelope
+    set?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    disconnect?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    delete?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    connect?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    update?: researcher_domainUpdateWithWhereUniqueWithoutDomainInput | researcher_domainUpdateWithWhereUniqueWithoutDomainInput[]
+    updateMany?: researcher_domainUpdateManyWithWhereWithoutDomainInput | researcher_domainUpdateManyWithWhereWithoutDomainInput[]
+    deleteMany?: researcher_domainScalarWhereInput | researcher_domainScalarWhereInput[]
+  }
+
+  export type researcher_domainUncheckedUpdateManyWithoutDomainNestedInput = {
+    create?: XOR<researcher_domainCreateWithoutDomainInput, researcher_domainUncheckedCreateWithoutDomainInput> | researcher_domainCreateWithoutDomainInput[] | researcher_domainUncheckedCreateWithoutDomainInput[]
+    connectOrCreate?: researcher_domainCreateOrConnectWithoutDomainInput | researcher_domainCreateOrConnectWithoutDomainInput[]
+    upsert?: researcher_domainUpsertWithWhereUniqueWithoutDomainInput | researcher_domainUpsertWithWhereUniqueWithoutDomainInput[]
+    createMany?: researcher_domainCreateManyDomainInputEnvelope
+    set?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    disconnect?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    delete?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    connect?: researcher_domainWhereUniqueInput | researcher_domainWhereUniqueInput[]
+    update?: researcher_domainUpdateWithWhereUniqueWithoutDomainInput | researcher_domainUpdateWithWhereUniqueWithoutDomainInput[]
+    updateMany?: researcher_domainUpdateManyWithWhereWithoutDomainInput | researcher_domainUpdateManyWithWhereWithoutDomainInput[]
+    deleteMany?: researcher_domainScalarWhereInput | researcher_domainScalarWhereInput[]
+  }
+
+  export type NestedBigIntFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedBigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedBigIntFilter<$PrismaModel>
+    _min?: NestedBigIntFilter<$PrismaModel>
+    _max?: NestedBigIntFilter<$PrismaModel>
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedBigIntNullableFilter<$PrismaModel>
+    _min?: NestedBigIntNullableFilter<$PrismaModel>
+    _max?: NestedBigIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type NestedDecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
+  export type patent_keywordCreateWithoutKeywordInput = {
+    patent: patentCreateNestedOneWithoutPatent_keywordsInput
+  }
+
+  export type patent_keywordUncheckedCreateWithoutKeywordInput = {
+    patent_id: bigint | number
+  }
+
+  export type patent_keywordCreateOrConnectWithoutKeywordInput = {
+    where: patent_keywordWhereUniqueInput
+    create: XOR<patent_keywordCreateWithoutKeywordInput, patent_keywordUncheckedCreateWithoutKeywordInput>
+  }
+
+  export type patent_keywordCreateManyKeywordInputEnvelope = {
+    data: patent_keywordCreateManyKeywordInput | patent_keywordCreateManyKeywordInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type journal_keywordCreateWithoutKeywordInput = {
+    journal: journalCreateNestedOneWithoutJournal_keywordsInput
+  }
+
+  export type journal_keywordUncheckedCreateWithoutKeywordInput = {
+    journal_id: bigint | number
+  }
+
+  export type journal_keywordCreateOrConnectWithoutKeywordInput = {
+    where: journal_keywordWhereUniqueInput
+    create: XOR<journal_keywordCreateWithoutKeywordInput, journal_keywordUncheckedCreateWithoutKeywordInput>
+  }
+
+  export type journal_keywordCreateManyKeywordInputEnvelope = {
+    data: journal_keywordCreateManyKeywordInput | journal_keywordCreateManyKeywordInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type publication_keywordCreateWithoutKeywordInput = {
+    publication: publicationCreateNestedOneWithoutPublication_keywordsInput
+  }
+
+  export type publication_keywordUncheckedCreateWithoutKeywordInput = {
+    publication_id: bigint | number
+  }
+
+  export type publication_keywordCreateOrConnectWithoutKeywordInput = {
+    where: publication_keywordWhereUniqueInput
+    create: XOR<publication_keywordCreateWithoutKeywordInput, publication_keywordUncheckedCreateWithoutKeywordInput>
+  }
+
+  export type publication_keywordCreateManyKeywordInputEnvelope = {
+    data: publication_keywordCreateManyKeywordInput | publication_keywordCreateManyKeywordInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type patent_keywordUpsertWithWhereUniqueWithoutKeywordInput = {
+    where: patent_keywordWhereUniqueInput
+    update: XOR<patent_keywordUpdateWithoutKeywordInput, patent_keywordUncheckedUpdateWithoutKeywordInput>
+    create: XOR<patent_keywordCreateWithoutKeywordInput, patent_keywordUncheckedCreateWithoutKeywordInput>
+  }
+
+  export type patent_keywordUpdateWithWhereUniqueWithoutKeywordInput = {
+    where: patent_keywordWhereUniqueInput
+    data: XOR<patent_keywordUpdateWithoutKeywordInput, patent_keywordUncheckedUpdateWithoutKeywordInput>
+  }
+
+  export type patent_keywordUpdateManyWithWhereWithoutKeywordInput = {
+    where: patent_keywordScalarWhereInput
+    data: XOR<patent_keywordUpdateManyMutationInput, patent_keywordUncheckedUpdateManyWithoutKeywordInput>
+  }
+
+  export type patent_keywordScalarWhereInput = {
+    AND?: patent_keywordScalarWhereInput | patent_keywordScalarWhereInput[]
+    OR?: patent_keywordScalarWhereInput[]
+    NOT?: patent_keywordScalarWhereInput | patent_keywordScalarWhereInput[]
+    patent_id?: BigIntFilter<"patent_keyword"> | bigint | number
+    keyword_id?: BigIntFilter<"patent_keyword"> | bigint | number
+  }
+
+  export type journal_keywordUpsertWithWhereUniqueWithoutKeywordInput = {
+    where: journal_keywordWhereUniqueInput
+    update: XOR<journal_keywordUpdateWithoutKeywordInput, journal_keywordUncheckedUpdateWithoutKeywordInput>
+    create: XOR<journal_keywordCreateWithoutKeywordInput, journal_keywordUncheckedCreateWithoutKeywordInput>
+  }
+
+  export type journal_keywordUpdateWithWhereUniqueWithoutKeywordInput = {
+    where: journal_keywordWhereUniqueInput
+    data: XOR<journal_keywordUpdateWithoutKeywordInput, journal_keywordUncheckedUpdateWithoutKeywordInput>
+  }
+
+  export type journal_keywordUpdateManyWithWhereWithoutKeywordInput = {
+    where: journal_keywordScalarWhereInput
+    data: XOR<journal_keywordUpdateManyMutationInput, journal_keywordUncheckedUpdateManyWithoutKeywordInput>
+  }
+
+  export type journal_keywordScalarWhereInput = {
+    AND?: journal_keywordScalarWhereInput | journal_keywordScalarWhereInput[]
+    OR?: journal_keywordScalarWhereInput[]
+    NOT?: journal_keywordScalarWhereInput | journal_keywordScalarWhereInput[]
+    journal_id?: BigIntFilter<"journal_keyword"> | bigint | number
+    keyword_id?: BigIntFilter<"journal_keyword"> | bigint | number
+  }
+
+  export type publication_keywordUpsertWithWhereUniqueWithoutKeywordInput = {
+    where: publication_keywordWhereUniqueInput
+    update: XOR<publication_keywordUpdateWithoutKeywordInput, publication_keywordUncheckedUpdateWithoutKeywordInput>
+    create: XOR<publication_keywordCreateWithoutKeywordInput, publication_keywordUncheckedCreateWithoutKeywordInput>
+  }
+
+  export type publication_keywordUpdateWithWhereUniqueWithoutKeywordInput = {
+    where: publication_keywordWhereUniqueInput
+    data: XOR<publication_keywordUpdateWithoutKeywordInput, publication_keywordUncheckedUpdateWithoutKeywordInput>
+  }
+
+  export type publication_keywordUpdateManyWithWhereWithoutKeywordInput = {
+    where: publication_keywordScalarWhereInput
+    data: XOR<publication_keywordUpdateManyMutationInput, publication_keywordUncheckedUpdateManyWithoutKeywordInput>
+  }
+
+  export type publication_keywordScalarWhereInput = {
+    AND?: publication_keywordScalarWhereInput | publication_keywordScalarWhereInput[]
+    OR?: publication_keywordScalarWhereInput[]
+    NOT?: publication_keywordScalarWhereInput | publication_keywordScalarWhereInput[]
+    publication_id?: BigIntFilter<"publication_keyword"> | bigint | number
+    keyword_id?: BigIntFilter<"publication_keyword"> | bigint | number
+  }
+
+  export type patent_ipcCreateWithoutIpcInput = {
+    patent: patentCreateNestedOneWithoutPatent_ipcsInput
+  }
+
+  export type patent_ipcUncheckedCreateWithoutIpcInput = {
+    patent_id: bigint | number
+  }
+
+  export type patent_ipcCreateOrConnectWithoutIpcInput = {
+    where: patent_ipcWhereUniqueInput
+    create: XOR<patent_ipcCreateWithoutIpcInput, patent_ipcUncheckedCreateWithoutIpcInput>
+  }
+
+  export type patent_ipcCreateManyIpcInputEnvelope = {
+    data: patent_ipcCreateManyIpcInput | patent_ipcCreateManyIpcInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type patent_ipcUpsertWithWhereUniqueWithoutIpcInput = {
+    where: patent_ipcWhereUniqueInput
+    update: XOR<patent_ipcUpdateWithoutIpcInput, patent_ipcUncheckedUpdateWithoutIpcInput>
+    create: XOR<patent_ipcCreateWithoutIpcInput, patent_ipcUncheckedCreateWithoutIpcInput>
+  }
+
+  export type patent_ipcUpdateWithWhereUniqueWithoutIpcInput = {
+    where: patent_ipcWhereUniqueInput
+    data: XOR<patent_ipcUpdateWithoutIpcInput, patent_ipcUncheckedUpdateWithoutIpcInput>
+  }
+
+  export type patent_ipcUpdateManyWithWhereWithoutIpcInput = {
+    where: patent_ipcScalarWhereInput
+    data: XOR<patent_ipcUpdateManyMutationInput, patent_ipcUncheckedUpdateManyWithoutIpcInput>
+  }
+
+  export type patent_ipcScalarWhereInput = {
+    AND?: patent_ipcScalarWhereInput | patent_ipcScalarWhereInput[]
+    OR?: patent_ipcScalarWhereInput[]
+    NOT?: patent_ipcScalarWhereInput | patent_ipcScalarWhereInput[]
+    patent_id?: BigIntFilter<"patent_ipc"> | bigint | number
+    ipc_id?: BigIntFilter<"patent_ipc"> | bigint | number
+  }
+
+  export type patent_ipcCreateWithoutPatentInput = {
+    ipc: ipcCreateNestedOneWithoutPatent_ipcsInput
+  }
+
+  export type patent_ipcUncheckedCreateWithoutPatentInput = {
+    ipc_id: bigint | number
+  }
+
+  export type patent_ipcCreateOrConnectWithoutPatentInput = {
+    where: patent_ipcWhereUniqueInput
+    create: XOR<patent_ipcCreateWithoutPatentInput, patent_ipcUncheckedCreateWithoutPatentInput>
+  }
+
+  export type patent_ipcCreateManyPatentInputEnvelope = {
+    data: patent_ipcCreateManyPatentInput | patent_ipcCreateManyPatentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type patent_keywordCreateWithoutPatentInput = {
+    keyword: keywordCreateNestedOneWithoutPatent_keywordsInput
+  }
+
+  export type patent_keywordUncheckedCreateWithoutPatentInput = {
+    keyword_id: bigint | number
+  }
+
+  export type patent_keywordCreateOrConnectWithoutPatentInput = {
+    where: patent_keywordWhereUniqueInput
+    create: XOR<patent_keywordCreateWithoutPatentInput, patent_keywordUncheckedCreateWithoutPatentInput>
+  }
+
+  export type patent_keywordCreateManyPatentInputEnvelope = {
+    data: patent_keywordCreateManyPatentInput | patent_keywordCreateManyPatentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type researcher_patentCreateWithoutPatentInput = {
+    researcher: researcherCreateNestedOneWithoutResearcher_patentsInput
+  }
+
+  export type researcher_patentUncheckedCreateWithoutPatentInput = {
+    researcher_id: bigint | number
+  }
+
+  export type researcher_patentCreateOrConnectWithoutPatentInput = {
+    where: researcher_patentWhereUniqueInput
+    create: XOR<researcher_patentCreateWithoutPatentInput, researcher_patentUncheckedCreateWithoutPatentInput>
+  }
+
+  export type researcher_patentCreateManyPatentInputEnvelope = {
+    data: researcher_patentCreateManyPatentInput | researcher_patentCreateManyPatentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type patent_ipcUpsertWithWhereUniqueWithoutPatentInput = {
+    where: patent_ipcWhereUniqueInput
+    update: XOR<patent_ipcUpdateWithoutPatentInput, patent_ipcUncheckedUpdateWithoutPatentInput>
+    create: XOR<patent_ipcCreateWithoutPatentInput, patent_ipcUncheckedCreateWithoutPatentInput>
+  }
+
+  export type patent_ipcUpdateWithWhereUniqueWithoutPatentInput = {
+    where: patent_ipcWhereUniqueInput
+    data: XOR<patent_ipcUpdateWithoutPatentInput, patent_ipcUncheckedUpdateWithoutPatentInput>
+  }
+
+  export type patent_ipcUpdateManyWithWhereWithoutPatentInput = {
+    where: patent_ipcScalarWhereInput
+    data: XOR<patent_ipcUpdateManyMutationInput, patent_ipcUncheckedUpdateManyWithoutPatentInput>
+  }
+
+  export type patent_keywordUpsertWithWhereUniqueWithoutPatentInput = {
+    where: patent_keywordWhereUniqueInput
+    update: XOR<patent_keywordUpdateWithoutPatentInput, patent_keywordUncheckedUpdateWithoutPatentInput>
+    create: XOR<patent_keywordCreateWithoutPatentInput, patent_keywordUncheckedCreateWithoutPatentInput>
+  }
+
+  export type patent_keywordUpdateWithWhereUniqueWithoutPatentInput = {
+    where: patent_keywordWhereUniqueInput
+    data: XOR<patent_keywordUpdateWithoutPatentInput, patent_keywordUncheckedUpdateWithoutPatentInput>
+  }
+
+  export type patent_keywordUpdateManyWithWhereWithoutPatentInput = {
+    where: patent_keywordScalarWhereInput
+    data: XOR<patent_keywordUpdateManyMutationInput, patent_keywordUncheckedUpdateManyWithoutPatentInput>
+  }
+
+  export type researcher_patentUpsertWithWhereUniqueWithoutPatentInput = {
+    where: researcher_patentWhereUniqueInput
+    update: XOR<researcher_patentUpdateWithoutPatentInput, researcher_patentUncheckedUpdateWithoutPatentInput>
+    create: XOR<researcher_patentCreateWithoutPatentInput, researcher_patentUncheckedCreateWithoutPatentInput>
+  }
+
+  export type researcher_patentUpdateWithWhereUniqueWithoutPatentInput = {
+    where: researcher_patentWhereUniqueInput
+    data: XOR<researcher_patentUpdateWithoutPatentInput, researcher_patentUncheckedUpdateWithoutPatentInput>
+  }
+
+  export type researcher_patentUpdateManyWithWhereWithoutPatentInput = {
+    where: researcher_patentScalarWhereInput
+    data: XOR<researcher_patentUpdateManyMutationInput, researcher_patentUncheckedUpdateManyWithoutPatentInput>
+  }
+
+  export type researcher_patentScalarWhereInput = {
+    AND?: researcher_patentScalarWhereInput | researcher_patentScalarWhereInput[]
+    OR?: researcher_patentScalarWhereInput[]
+    NOT?: researcher_patentScalarWhereInput | researcher_patentScalarWhereInput[]
+    researcher_id?: BigIntFilter<"researcher_patent"> | bigint | number
+    patent_id?: BigIntFilter<"researcher_patent"> | bigint | number
+  }
+
+  export type patentCreateWithoutPatent_ipcsInput = {
+    patent_id: bigint | number
+    title?: string | null
+    application_number?: string | null
+    registration_number?: string | null
+    publication_number?: string | null
+    country?: string | null
+    applicant_name?: string | null
+    application_title?: string | null
+    applicant?: string | null
+    application_date?: Date | string | null
+    registration_date?: Date | string | null
+    publication_date?: Date | string | null
+    summary?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_keywords?: patent_keywordCreateNestedManyWithoutPatentInput
+    researcher_patents?: researcher_patentCreateNestedManyWithoutPatentInput
+  }
+
+  export type patentUncheckedCreateWithoutPatent_ipcsInput = {
+    patent_id: bigint | number
+    title?: string | null
+    application_number?: string | null
+    registration_number?: string | null
+    publication_number?: string | null
+    country?: string | null
+    applicant_name?: string | null
+    application_title?: string | null
+    applicant?: string | null
+    application_date?: Date | string | null
+    registration_date?: Date | string | null
+    publication_date?: Date | string | null
+    summary?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_keywords?: patent_keywordUncheckedCreateNestedManyWithoutPatentInput
+    researcher_patents?: researcher_patentUncheckedCreateNestedManyWithoutPatentInput
+  }
+
+  export type patentCreateOrConnectWithoutPatent_ipcsInput = {
+    where: patentWhereUniqueInput
+    create: XOR<patentCreateWithoutPatent_ipcsInput, patentUncheckedCreateWithoutPatent_ipcsInput>
+  }
+
+  export type ipcCreateWithoutPatent_ipcsInput = {
+    ipc_id: bigint | number
+    ipc_code?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+  }
+
+  export type ipcUncheckedCreateWithoutPatent_ipcsInput = {
+    ipc_id: bigint | number
+    ipc_code?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+  }
+
+  export type ipcCreateOrConnectWithoutPatent_ipcsInput = {
+    where: ipcWhereUniqueInput
+    create: XOR<ipcCreateWithoutPatent_ipcsInput, ipcUncheckedCreateWithoutPatent_ipcsInput>
+  }
+
+  export type patentUpsertWithoutPatent_ipcsInput = {
+    update: XOR<patentUpdateWithoutPatent_ipcsInput, patentUncheckedUpdateWithoutPatent_ipcsInput>
+    create: XOR<patentCreateWithoutPatent_ipcsInput, patentUncheckedCreateWithoutPatent_ipcsInput>
+    where?: patentWhereInput
+  }
+
+  export type patentUpdateToOneWithWhereWithoutPatent_ipcsInput = {
+    where?: patentWhereInput
+    data: XOR<patentUpdateWithoutPatent_ipcsInput, patentUncheckedUpdateWithoutPatent_ipcsInput>
+  }
+
+  export type patentUpdateWithoutPatent_ipcsInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    application_number?: NullableStringFieldUpdateOperationsInput | string | null
+    registration_number?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_number?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant_name?: NullableStringFieldUpdateOperationsInput | string | null
+    application_title?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant?: NullableStringFieldUpdateOperationsInput | string | null
+    application_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    registration_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_keywords?: patent_keywordUpdateManyWithoutPatentNestedInput
+    researcher_patents?: researcher_patentUpdateManyWithoutPatentNestedInput
+  }
+
+  export type patentUncheckedUpdateWithoutPatent_ipcsInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    application_number?: NullableStringFieldUpdateOperationsInput | string | null
+    registration_number?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_number?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant_name?: NullableStringFieldUpdateOperationsInput | string | null
+    application_title?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant?: NullableStringFieldUpdateOperationsInput | string | null
+    application_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    registration_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_keywords?: patent_keywordUncheckedUpdateManyWithoutPatentNestedInput
+    researcher_patents?: researcher_patentUncheckedUpdateManyWithoutPatentNestedInput
+  }
+
+  export type ipcUpsertWithoutPatent_ipcsInput = {
+    update: XOR<ipcUpdateWithoutPatent_ipcsInput, ipcUncheckedUpdateWithoutPatent_ipcsInput>
+    create: XOR<ipcCreateWithoutPatent_ipcsInput, ipcUncheckedCreateWithoutPatent_ipcsInput>
+    where?: ipcWhereInput
+  }
+
+  export type ipcUpdateToOneWithWhereWithoutPatent_ipcsInput = {
+    where?: ipcWhereInput
+    data: XOR<ipcUpdateWithoutPatent_ipcsInput, ipcUncheckedUpdateWithoutPatent_ipcsInput>
+  }
+
+  export type ipcUpdateWithoutPatent_ipcsInput = {
+    ipc_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    ipc_code?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ipcUncheckedUpdateWithoutPatent_ipcsInput = {
+    ipc_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    ipc_code?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type patentCreateWithoutPatent_keywordsInput = {
+    patent_id: bigint | number
+    title?: string | null
+    application_number?: string | null
+    registration_number?: string | null
+    publication_number?: string | null
+    country?: string | null
+    applicant_name?: string | null
+    application_title?: string | null
+    applicant?: string | null
+    application_date?: Date | string | null
+    registration_date?: Date | string | null
+    publication_date?: Date | string | null
+    summary?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_ipcs?: patent_ipcCreateNestedManyWithoutPatentInput
+    researcher_patents?: researcher_patentCreateNestedManyWithoutPatentInput
+  }
+
+  export type patentUncheckedCreateWithoutPatent_keywordsInput = {
+    patent_id: bigint | number
+    title?: string | null
+    application_number?: string | null
+    registration_number?: string | null
+    publication_number?: string | null
+    country?: string | null
+    applicant_name?: string | null
+    application_title?: string | null
+    applicant?: string | null
+    application_date?: Date | string | null
+    registration_date?: Date | string | null
+    publication_date?: Date | string | null
+    summary?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_ipcs?: patent_ipcUncheckedCreateNestedManyWithoutPatentInput
+    researcher_patents?: researcher_patentUncheckedCreateNestedManyWithoutPatentInput
+  }
+
+  export type patentCreateOrConnectWithoutPatent_keywordsInput = {
+    where: patentWhereUniqueInput
+    create: XOR<patentCreateWithoutPatent_keywordsInput, patentUncheckedCreateWithoutPatent_keywordsInput>
+  }
+
+  export type keywordCreateWithoutPatent_keywordsInput = {
+    keyword_id: bigint | number
+    keyword_name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    journal_keywords?: journal_keywordCreateNestedManyWithoutKeywordInput
+    publication_keywords?: publication_keywordCreateNestedManyWithoutKeywordInput
+  }
+
+  export type keywordUncheckedCreateWithoutPatent_keywordsInput = {
+    keyword_id: bigint | number
+    keyword_name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    journal_keywords?: journal_keywordUncheckedCreateNestedManyWithoutKeywordInput
+    publication_keywords?: publication_keywordUncheckedCreateNestedManyWithoutKeywordInput
+  }
+
+  export type keywordCreateOrConnectWithoutPatent_keywordsInput = {
+    where: keywordWhereUniqueInput
+    create: XOR<keywordCreateWithoutPatent_keywordsInput, keywordUncheckedCreateWithoutPatent_keywordsInput>
+  }
+
+  export type patentUpsertWithoutPatent_keywordsInput = {
+    update: XOR<patentUpdateWithoutPatent_keywordsInput, patentUncheckedUpdateWithoutPatent_keywordsInput>
+    create: XOR<patentCreateWithoutPatent_keywordsInput, patentUncheckedCreateWithoutPatent_keywordsInput>
+    where?: patentWhereInput
+  }
+
+  export type patentUpdateToOneWithWhereWithoutPatent_keywordsInput = {
+    where?: patentWhereInput
+    data: XOR<patentUpdateWithoutPatent_keywordsInput, patentUncheckedUpdateWithoutPatent_keywordsInput>
+  }
+
+  export type patentUpdateWithoutPatent_keywordsInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    application_number?: NullableStringFieldUpdateOperationsInput | string | null
+    registration_number?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_number?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant_name?: NullableStringFieldUpdateOperationsInput | string | null
+    application_title?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant?: NullableStringFieldUpdateOperationsInput | string | null
+    application_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    registration_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_ipcs?: patent_ipcUpdateManyWithoutPatentNestedInput
+    researcher_patents?: researcher_patentUpdateManyWithoutPatentNestedInput
+  }
+
+  export type patentUncheckedUpdateWithoutPatent_keywordsInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    application_number?: NullableStringFieldUpdateOperationsInput | string | null
+    registration_number?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_number?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant_name?: NullableStringFieldUpdateOperationsInput | string | null
+    application_title?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant?: NullableStringFieldUpdateOperationsInput | string | null
+    application_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    registration_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_ipcs?: patent_ipcUncheckedUpdateManyWithoutPatentNestedInput
+    researcher_patents?: researcher_patentUncheckedUpdateManyWithoutPatentNestedInput
+  }
+
+  export type keywordUpsertWithoutPatent_keywordsInput = {
+    update: XOR<keywordUpdateWithoutPatent_keywordsInput, keywordUncheckedUpdateWithoutPatent_keywordsInput>
+    create: XOR<keywordCreateWithoutPatent_keywordsInput, keywordUncheckedCreateWithoutPatent_keywordsInput>
+    where?: keywordWhereInput
+  }
+
+  export type keywordUpdateToOneWithWhereWithoutPatent_keywordsInput = {
+    where?: keywordWhereInput
+    data: XOR<keywordUpdateWithoutPatent_keywordsInput, keywordUncheckedUpdateWithoutPatent_keywordsInput>
+  }
+
+  export type keywordUpdateWithoutPatent_keywordsInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    journal_keywords?: journal_keywordUpdateManyWithoutKeywordNestedInput
+    publication_keywords?: publication_keywordUpdateManyWithoutKeywordNestedInput
+  }
+
+  export type keywordUncheckedUpdateWithoutPatent_keywordsInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    journal_keywords?: journal_keywordUncheckedUpdateManyWithoutKeywordNestedInput
+    publication_keywords?: publication_keywordUncheckedUpdateManyWithoutKeywordNestedInput
+  }
+
+  export type publicationCreateWithoutJournalInput = {
+    publication_id: bigint | number
+    title?: string | null
+    abstract?: string | null
+    publication_date?: Date | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    publication_keywords?: publication_keywordCreateNestedManyWithoutPublicationInput
+    researcher_publications?: researcher_publicationCreateNestedManyWithoutPublicationInput
+  }
+
+  export type publicationUncheckedCreateWithoutJournalInput = {
+    publication_id: bigint | number
+    title?: string | null
+    abstract?: string | null
+    publication_date?: Date | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    publication_keywords?: publication_keywordUncheckedCreateNestedManyWithoutPublicationInput
+    researcher_publications?: researcher_publicationUncheckedCreateNestedManyWithoutPublicationInput
+  }
+
+  export type publicationCreateOrConnectWithoutJournalInput = {
+    where: publicationWhereUniqueInput
+    create: XOR<publicationCreateWithoutJournalInput, publicationUncheckedCreateWithoutJournalInput>
+  }
+
+  export type publicationCreateManyJournalInputEnvelope = {
+    data: publicationCreateManyJournalInput | publicationCreateManyJournalInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type journal_keywordCreateWithoutJournalInput = {
+    keyword: keywordCreateNestedOneWithoutJournal_keywordsInput
+  }
+
+  export type journal_keywordUncheckedCreateWithoutJournalInput = {
+    keyword_id: bigint | number
+  }
+
+  export type journal_keywordCreateOrConnectWithoutJournalInput = {
+    where: journal_keywordWhereUniqueInput
+    create: XOR<journal_keywordCreateWithoutJournalInput, journal_keywordUncheckedCreateWithoutJournalInput>
+  }
+
+  export type journal_keywordCreateManyJournalInputEnvelope = {
+    data: journal_keywordCreateManyJournalInput | journal_keywordCreateManyJournalInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type publicationUpsertWithWhereUniqueWithoutJournalInput = {
+    where: publicationWhereUniqueInput
+    update: XOR<publicationUpdateWithoutJournalInput, publicationUncheckedUpdateWithoutJournalInput>
+    create: XOR<publicationCreateWithoutJournalInput, publicationUncheckedCreateWithoutJournalInput>
+  }
+
+  export type publicationUpdateWithWhereUniqueWithoutJournalInput = {
+    where: publicationWhereUniqueInput
+    data: XOR<publicationUpdateWithoutJournalInput, publicationUncheckedUpdateWithoutJournalInput>
+  }
+
+  export type publicationUpdateManyWithWhereWithoutJournalInput = {
+    where: publicationScalarWhereInput
+    data: XOR<publicationUpdateManyMutationInput, publicationUncheckedUpdateManyWithoutJournalInput>
+  }
+
+  export type publicationScalarWhereInput = {
+    AND?: publicationScalarWhereInput | publicationScalarWhereInput[]
+    OR?: publicationScalarWhereInput[]
+    NOT?: publicationScalarWhereInput | publicationScalarWhereInput[]
+    publication_id?: BigIntFilter<"publication"> | bigint | number
+    title?: StringNullableFilter<"publication"> | string | null
+    abstract?: StringNullableFilter<"publication"> | string | null
+    publication_date?: DateTimeNullableFilter<"publication"> | Date | string | null
+    journal_id?: BigIntNullableFilter<"publication"> | bigint | number | null
+    cno?: BigIntNullableFilter<"publication"> | bigint | number | null
+    user_no?: BigIntNullableFilter<"publication"> | bigint | number | null
+    insert_timestamp?: DateTimeFilter<"publication"> | Date | string
+    update_timestamp?: DateTimeFilter<"publication"> | Date | string
+    is_deleted?: BoolFilter<"publication"> | boolean
+  }
+
+  export type journal_keywordUpsertWithWhereUniqueWithoutJournalInput = {
+    where: journal_keywordWhereUniqueInput
+    update: XOR<journal_keywordUpdateWithoutJournalInput, journal_keywordUncheckedUpdateWithoutJournalInput>
+    create: XOR<journal_keywordCreateWithoutJournalInput, journal_keywordUncheckedCreateWithoutJournalInput>
+  }
+
+  export type journal_keywordUpdateWithWhereUniqueWithoutJournalInput = {
+    where: journal_keywordWhereUniqueInput
+    data: XOR<journal_keywordUpdateWithoutJournalInput, journal_keywordUncheckedUpdateWithoutJournalInput>
+  }
+
+  export type journal_keywordUpdateManyWithWhereWithoutJournalInput = {
+    where: journal_keywordScalarWhereInput
+    data: XOR<journal_keywordUpdateManyMutationInput, journal_keywordUncheckedUpdateManyWithoutJournalInput>
+  }
+
+  export type journalCreateWithoutPublicationsInput = {
+    journal_id: bigint | number
+    name?: string | null
+    publisher?: string | null
+    issn?: string | null
+    impact_factor?: Decimal | DecimalJsLike | number | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    journal_keywords?: journal_keywordCreateNestedManyWithoutJournalInput
+  }
+
+  export type journalUncheckedCreateWithoutPublicationsInput = {
+    journal_id: bigint | number
+    name?: string | null
+    publisher?: string | null
+    issn?: string | null
+    impact_factor?: Decimal | DecimalJsLike | number | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    journal_keywords?: journal_keywordUncheckedCreateNestedManyWithoutJournalInput
+  }
+
+  export type journalCreateOrConnectWithoutPublicationsInput = {
+    where: journalWhereUniqueInput
+    create: XOR<journalCreateWithoutPublicationsInput, journalUncheckedCreateWithoutPublicationsInput>
+  }
+
+  export type publication_keywordCreateWithoutPublicationInput = {
+    keyword: keywordCreateNestedOneWithoutPublication_keywordsInput
+  }
+
+  export type publication_keywordUncheckedCreateWithoutPublicationInput = {
+    keyword_id: bigint | number
+  }
+
+  export type publication_keywordCreateOrConnectWithoutPublicationInput = {
+    where: publication_keywordWhereUniqueInput
+    create: XOR<publication_keywordCreateWithoutPublicationInput, publication_keywordUncheckedCreateWithoutPublicationInput>
+  }
+
+  export type publication_keywordCreateManyPublicationInputEnvelope = {
+    data: publication_keywordCreateManyPublicationInput | publication_keywordCreateManyPublicationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type researcher_publicationCreateWithoutPublicationInput = {
+    researcher: researcherCreateNestedOneWithoutResearcher_publicationsInput
+  }
+
+  export type researcher_publicationUncheckedCreateWithoutPublicationInput = {
+    researcher_id: bigint | number
+  }
+
+  export type researcher_publicationCreateOrConnectWithoutPublicationInput = {
+    where: researcher_publicationWhereUniqueInput
+    create: XOR<researcher_publicationCreateWithoutPublicationInput, researcher_publicationUncheckedCreateWithoutPublicationInput>
+  }
+
+  export type researcher_publicationCreateManyPublicationInputEnvelope = {
+    data: researcher_publicationCreateManyPublicationInput | researcher_publicationCreateManyPublicationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type journalUpsertWithoutPublicationsInput = {
+    update: XOR<journalUpdateWithoutPublicationsInput, journalUncheckedUpdateWithoutPublicationsInput>
+    create: XOR<journalCreateWithoutPublicationsInput, journalUncheckedCreateWithoutPublicationsInput>
+    where?: journalWhereInput
+  }
+
+  export type journalUpdateToOneWithWhereWithoutPublicationsInput = {
+    where?: journalWhereInput
+    data: XOR<journalUpdateWithoutPublicationsInput, journalUncheckedUpdateWithoutPublicationsInput>
+  }
+
+  export type journalUpdateWithoutPublicationsInput = {
+    journal_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    issn?: NullableStringFieldUpdateOperationsInput | string | null
+    impact_factor?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    journal_keywords?: journal_keywordUpdateManyWithoutJournalNestedInput
+  }
+
+  export type journalUncheckedUpdateWithoutPublicationsInput = {
+    journal_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    issn?: NullableStringFieldUpdateOperationsInput | string | null
+    impact_factor?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    journal_keywords?: journal_keywordUncheckedUpdateManyWithoutJournalNestedInput
+  }
+
+  export type publication_keywordUpsertWithWhereUniqueWithoutPublicationInput = {
+    where: publication_keywordWhereUniqueInput
+    update: XOR<publication_keywordUpdateWithoutPublicationInput, publication_keywordUncheckedUpdateWithoutPublicationInput>
+    create: XOR<publication_keywordCreateWithoutPublicationInput, publication_keywordUncheckedCreateWithoutPublicationInput>
+  }
+
+  export type publication_keywordUpdateWithWhereUniqueWithoutPublicationInput = {
+    where: publication_keywordWhereUniqueInput
+    data: XOR<publication_keywordUpdateWithoutPublicationInput, publication_keywordUncheckedUpdateWithoutPublicationInput>
+  }
+
+  export type publication_keywordUpdateManyWithWhereWithoutPublicationInput = {
+    where: publication_keywordScalarWhereInput
+    data: XOR<publication_keywordUpdateManyMutationInput, publication_keywordUncheckedUpdateManyWithoutPublicationInput>
+  }
+
+  export type researcher_publicationUpsertWithWhereUniqueWithoutPublicationInput = {
+    where: researcher_publicationWhereUniqueInput
+    update: XOR<researcher_publicationUpdateWithoutPublicationInput, researcher_publicationUncheckedUpdateWithoutPublicationInput>
+    create: XOR<researcher_publicationCreateWithoutPublicationInput, researcher_publicationUncheckedCreateWithoutPublicationInput>
+  }
+
+  export type researcher_publicationUpdateWithWhereUniqueWithoutPublicationInput = {
+    where: researcher_publicationWhereUniqueInput
+    data: XOR<researcher_publicationUpdateWithoutPublicationInput, researcher_publicationUncheckedUpdateWithoutPublicationInput>
+  }
+
+  export type researcher_publicationUpdateManyWithWhereWithoutPublicationInput = {
+    where: researcher_publicationScalarWhereInput
+    data: XOR<researcher_publicationUpdateManyMutationInput, researcher_publicationUncheckedUpdateManyWithoutPublicationInput>
+  }
+
+  export type researcher_publicationScalarWhereInput = {
+    AND?: researcher_publicationScalarWhereInput | researcher_publicationScalarWhereInput[]
+    OR?: researcher_publicationScalarWhereInput[]
+    NOT?: researcher_publicationScalarWhereInput | researcher_publicationScalarWhereInput[]
+    researcher_id?: BigIntFilter<"researcher_publication"> | bigint | number
+    publication_id?: BigIntFilter<"researcher_publication"> | bigint | number
+  }
+
+  export type publicationCreateWithoutPublication_keywordsInput = {
+    publication_id: bigint | number
+    title?: string | null
+    abstract?: string | null
+    publication_date?: Date | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    journal?: journalCreateNestedOneWithoutPublicationsInput
+    researcher_publications?: researcher_publicationCreateNestedManyWithoutPublicationInput
+  }
+
+  export type publicationUncheckedCreateWithoutPublication_keywordsInput = {
+    publication_id: bigint | number
+    title?: string | null
+    abstract?: string | null
+    publication_date?: Date | string | null
+    journal_id?: bigint | number | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    researcher_publications?: researcher_publicationUncheckedCreateNestedManyWithoutPublicationInput
+  }
+
+  export type publicationCreateOrConnectWithoutPublication_keywordsInput = {
+    where: publicationWhereUniqueInput
+    create: XOR<publicationCreateWithoutPublication_keywordsInput, publicationUncheckedCreateWithoutPublication_keywordsInput>
+  }
+
+  export type keywordCreateWithoutPublication_keywordsInput = {
+    keyword_id: bigint | number
+    keyword_name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_keywords?: patent_keywordCreateNestedManyWithoutKeywordInput
+    journal_keywords?: journal_keywordCreateNestedManyWithoutKeywordInput
+  }
+
+  export type keywordUncheckedCreateWithoutPublication_keywordsInput = {
+    keyword_id: bigint | number
+    keyword_name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_keywords?: patent_keywordUncheckedCreateNestedManyWithoutKeywordInput
+    journal_keywords?: journal_keywordUncheckedCreateNestedManyWithoutKeywordInput
+  }
+
+  export type keywordCreateOrConnectWithoutPublication_keywordsInput = {
+    where: keywordWhereUniqueInput
+    create: XOR<keywordCreateWithoutPublication_keywordsInput, keywordUncheckedCreateWithoutPublication_keywordsInput>
+  }
+
+  export type publicationUpsertWithoutPublication_keywordsInput = {
+    update: XOR<publicationUpdateWithoutPublication_keywordsInput, publicationUncheckedUpdateWithoutPublication_keywordsInput>
+    create: XOR<publicationCreateWithoutPublication_keywordsInput, publicationUncheckedCreateWithoutPublication_keywordsInput>
+    where?: publicationWhereInput
+  }
+
+  export type publicationUpdateToOneWithWhereWithoutPublication_keywordsInput = {
+    where?: publicationWhereInput
+    data: XOR<publicationUpdateWithoutPublication_keywordsInput, publicationUncheckedUpdateWithoutPublication_keywordsInput>
+  }
+
+  export type publicationUpdateWithoutPublication_keywordsInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    abstract?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    journal?: journalUpdateOneWithoutPublicationsNestedInput
+    researcher_publications?: researcher_publicationUpdateManyWithoutPublicationNestedInput
+  }
+
+  export type publicationUncheckedUpdateWithoutPublication_keywordsInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    abstract?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    journal_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    researcher_publications?: researcher_publicationUncheckedUpdateManyWithoutPublicationNestedInput
+  }
+
+  export type keywordUpsertWithoutPublication_keywordsInput = {
+    update: XOR<keywordUpdateWithoutPublication_keywordsInput, keywordUncheckedUpdateWithoutPublication_keywordsInput>
+    create: XOR<keywordCreateWithoutPublication_keywordsInput, keywordUncheckedCreateWithoutPublication_keywordsInput>
+    where?: keywordWhereInput
+  }
+
+  export type keywordUpdateToOneWithWhereWithoutPublication_keywordsInput = {
+    where?: keywordWhereInput
+    data: XOR<keywordUpdateWithoutPublication_keywordsInput, keywordUncheckedUpdateWithoutPublication_keywordsInput>
+  }
+
+  export type keywordUpdateWithoutPublication_keywordsInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_keywords?: patent_keywordUpdateManyWithoutKeywordNestedInput
+    journal_keywords?: journal_keywordUpdateManyWithoutKeywordNestedInput
+  }
+
+  export type keywordUncheckedUpdateWithoutPublication_keywordsInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_keywords?: patent_keywordUncheckedUpdateManyWithoutKeywordNestedInput
+    journal_keywords?: journal_keywordUncheckedUpdateManyWithoutKeywordNestedInput
+  }
+
+  export type journalCreateWithoutJournal_keywordsInput = {
+    journal_id: bigint | number
+    name?: string | null
+    publisher?: string | null
+    issn?: string | null
+    impact_factor?: Decimal | DecimalJsLike | number | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    publications?: publicationCreateNestedManyWithoutJournalInput
+  }
+
+  export type journalUncheckedCreateWithoutJournal_keywordsInput = {
+    journal_id: bigint | number
+    name?: string | null
+    publisher?: string | null
+    issn?: string | null
+    impact_factor?: Decimal | DecimalJsLike | number | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    publications?: publicationUncheckedCreateNestedManyWithoutJournalInput
+  }
+
+  export type journalCreateOrConnectWithoutJournal_keywordsInput = {
+    where: journalWhereUniqueInput
+    create: XOR<journalCreateWithoutJournal_keywordsInput, journalUncheckedCreateWithoutJournal_keywordsInput>
+  }
+
+  export type keywordCreateWithoutJournal_keywordsInput = {
+    keyword_id: bigint | number
+    keyword_name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_keywords?: patent_keywordCreateNestedManyWithoutKeywordInput
+    publication_keywords?: publication_keywordCreateNestedManyWithoutKeywordInput
+  }
+
+  export type keywordUncheckedCreateWithoutJournal_keywordsInput = {
+    keyword_id: bigint | number
+    keyword_name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_keywords?: patent_keywordUncheckedCreateNestedManyWithoutKeywordInput
+    publication_keywords?: publication_keywordUncheckedCreateNestedManyWithoutKeywordInput
+  }
+
+  export type keywordCreateOrConnectWithoutJournal_keywordsInput = {
+    where: keywordWhereUniqueInput
+    create: XOR<keywordCreateWithoutJournal_keywordsInput, keywordUncheckedCreateWithoutJournal_keywordsInput>
+  }
+
+  export type journalUpsertWithoutJournal_keywordsInput = {
+    update: XOR<journalUpdateWithoutJournal_keywordsInput, journalUncheckedUpdateWithoutJournal_keywordsInput>
+    create: XOR<journalCreateWithoutJournal_keywordsInput, journalUncheckedCreateWithoutJournal_keywordsInput>
+    where?: journalWhereInput
+  }
+
+  export type journalUpdateToOneWithWhereWithoutJournal_keywordsInput = {
+    where?: journalWhereInput
+    data: XOR<journalUpdateWithoutJournal_keywordsInput, journalUncheckedUpdateWithoutJournal_keywordsInput>
+  }
+
+  export type journalUpdateWithoutJournal_keywordsInput = {
+    journal_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    issn?: NullableStringFieldUpdateOperationsInput | string | null
+    impact_factor?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    publications?: publicationUpdateManyWithoutJournalNestedInput
+  }
+
+  export type journalUncheckedUpdateWithoutJournal_keywordsInput = {
+    journal_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    issn?: NullableStringFieldUpdateOperationsInput | string | null
+    impact_factor?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    publications?: publicationUncheckedUpdateManyWithoutJournalNestedInput
+  }
+
+  export type keywordUpsertWithoutJournal_keywordsInput = {
+    update: XOR<keywordUpdateWithoutJournal_keywordsInput, keywordUncheckedUpdateWithoutJournal_keywordsInput>
+    create: XOR<keywordCreateWithoutJournal_keywordsInput, keywordUncheckedCreateWithoutJournal_keywordsInput>
+    where?: keywordWhereInput
+  }
+
+  export type keywordUpdateToOneWithWhereWithoutJournal_keywordsInput = {
+    where?: keywordWhereInput
+    data: XOR<keywordUpdateWithoutJournal_keywordsInput, keywordUncheckedUpdateWithoutJournal_keywordsInput>
+  }
+
+  export type keywordUpdateWithoutJournal_keywordsInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_keywords?: patent_keywordUpdateManyWithoutKeywordNestedInput
+    publication_keywords?: publication_keywordUpdateManyWithoutKeywordNestedInput
+  }
+
+  export type keywordUncheckedUpdateWithoutJournal_keywordsInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    keyword_name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_keywords?: patent_keywordUncheckedUpdateManyWithoutKeywordNestedInput
+    publication_keywords?: publication_keywordUncheckedUpdateManyWithoutKeywordNestedInput
+  }
+
+  export type researcher_patentCreateWithoutResearcherInput = {
+    patent: patentCreateNestedOneWithoutResearcher_patentsInput
+  }
+
+  export type researcher_patentUncheckedCreateWithoutResearcherInput = {
+    patent_id: bigint | number
+  }
+
+  export type researcher_patentCreateOrConnectWithoutResearcherInput = {
+    where: researcher_patentWhereUniqueInput
+    create: XOR<researcher_patentCreateWithoutResearcherInput, researcher_patentUncheckedCreateWithoutResearcherInput>
+  }
+
+  export type researcher_patentCreateManyResearcherInputEnvelope = {
+    data: researcher_patentCreateManyResearcherInput | researcher_patentCreateManyResearcherInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type researcher_domainCreateWithoutResearcherInput = {
+    domain: domainCreateNestedOneWithoutResearcher_domainsInput
+  }
+
+  export type researcher_domainUncheckedCreateWithoutResearcherInput = {
+    domain_id: bigint | number
+  }
+
+  export type researcher_domainCreateOrConnectWithoutResearcherInput = {
+    where: researcher_domainWhereUniqueInput
+    create: XOR<researcher_domainCreateWithoutResearcherInput, researcher_domainUncheckedCreateWithoutResearcherInput>
+  }
+
+  export type researcher_domainCreateManyResearcherInputEnvelope = {
+    data: researcher_domainCreateManyResearcherInput | researcher_domainCreateManyResearcherInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type researcher_publicationCreateWithoutResearcherInput = {
+    publication: publicationCreateNestedOneWithoutResearcher_publicationsInput
+  }
+
+  export type researcher_publicationUncheckedCreateWithoutResearcherInput = {
+    publication_id: bigint | number
+  }
+
+  export type researcher_publicationCreateOrConnectWithoutResearcherInput = {
+    where: researcher_publicationWhereUniqueInput
+    create: XOR<researcher_publicationCreateWithoutResearcherInput, researcher_publicationUncheckedCreateWithoutResearcherInput>
+  }
+
+  export type researcher_publicationCreateManyResearcherInputEnvelope = {
+    data: researcher_publicationCreateManyResearcherInput | researcher_publicationCreateManyResearcherInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type researcher_patentUpsertWithWhereUniqueWithoutResearcherInput = {
+    where: researcher_patentWhereUniqueInput
+    update: XOR<researcher_patentUpdateWithoutResearcherInput, researcher_patentUncheckedUpdateWithoutResearcherInput>
+    create: XOR<researcher_patentCreateWithoutResearcherInput, researcher_patentUncheckedCreateWithoutResearcherInput>
+  }
+
+  export type researcher_patentUpdateWithWhereUniqueWithoutResearcherInput = {
+    where: researcher_patentWhereUniqueInput
+    data: XOR<researcher_patentUpdateWithoutResearcherInput, researcher_patentUncheckedUpdateWithoutResearcherInput>
+  }
+
+  export type researcher_patentUpdateManyWithWhereWithoutResearcherInput = {
+    where: researcher_patentScalarWhereInput
+    data: XOR<researcher_patentUpdateManyMutationInput, researcher_patentUncheckedUpdateManyWithoutResearcherInput>
+  }
+
+  export type researcher_domainUpsertWithWhereUniqueWithoutResearcherInput = {
+    where: researcher_domainWhereUniqueInput
+    update: XOR<researcher_domainUpdateWithoutResearcherInput, researcher_domainUncheckedUpdateWithoutResearcherInput>
+    create: XOR<researcher_domainCreateWithoutResearcherInput, researcher_domainUncheckedCreateWithoutResearcherInput>
+  }
+
+  export type researcher_domainUpdateWithWhereUniqueWithoutResearcherInput = {
+    where: researcher_domainWhereUniqueInput
+    data: XOR<researcher_domainUpdateWithoutResearcherInput, researcher_domainUncheckedUpdateWithoutResearcherInput>
+  }
+
+  export type researcher_domainUpdateManyWithWhereWithoutResearcherInput = {
+    where: researcher_domainScalarWhereInput
+    data: XOR<researcher_domainUpdateManyMutationInput, researcher_domainUncheckedUpdateManyWithoutResearcherInput>
+  }
+
+  export type researcher_domainScalarWhereInput = {
+    AND?: researcher_domainScalarWhereInput | researcher_domainScalarWhereInput[]
+    OR?: researcher_domainScalarWhereInput[]
+    NOT?: researcher_domainScalarWhereInput | researcher_domainScalarWhereInput[]
+    researcher_id?: BigIntFilter<"researcher_domain"> | bigint | number
+    domain_id?: BigIntFilter<"researcher_domain"> | bigint | number
+  }
+
+  export type researcher_publicationUpsertWithWhereUniqueWithoutResearcherInput = {
+    where: researcher_publicationWhereUniqueInput
+    update: XOR<researcher_publicationUpdateWithoutResearcherInput, researcher_publicationUncheckedUpdateWithoutResearcherInput>
+    create: XOR<researcher_publicationCreateWithoutResearcherInput, researcher_publicationUncheckedCreateWithoutResearcherInput>
+  }
+
+  export type researcher_publicationUpdateWithWhereUniqueWithoutResearcherInput = {
+    where: researcher_publicationWhereUniqueInput
+    data: XOR<researcher_publicationUpdateWithoutResearcherInput, researcher_publicationUncheckedUpdateWithoutResearcherInput>
+  }
+
+  export type researcher_publicationUpdateManyWithWhereWithoutResearcherInput = {
+    where: researcher_publicationScalarWhereInput
+    data: XOR<researcher_publicationUpdateManyMutationInput, researcher_publicationUncheckedUpdateManyWithoutResearcherInput>
+  }
+
+  export type researcherCreateWithoutResearcher_patentsInput = {
+    researcher_id: bigint | number
+    name?: string | null
+    affiliation?: string | null
+    email?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    researcher_domains?: researcher_domainCreateNestedManyWithoutResearcherInput
+    researcher_publications?: researcher_publicationCreateNestedManyWithoutResearcherInput
+  }
+
+  export type researcherUncheckedCreateWithoutResearcher_patentsInput = {
+    researcher_id: bigint | number
+    name?: string | null
+    affiliation?: string | null
+    email?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    researcher_domains?: researcher_domainUncheckedCreateNestedManyWithoutResearcherInput
+    researcher_publications?: researcher_publicationUncheckedCreateNestedManyWithoutResearcherInput
+  }
+
+  export type researcherCreateOrConnectWithoutResearcher_patentsInput = {
+    where: researcherWhereUniqueInput
+    create: XOR<researcherCreateWithoutResearcher_patentsInput, researcherUncheckedCreateWithoutResearcher_patentsInput>
+  }
+
+  export type patentCreateWithoutResearcher_patentsInput = {
+    patent_id: bigint | number
+    title?: string | null
+    application_number?: string | null
+    registration_number?: string | null
+    publication_number?: string | null
+    country?: string | null
+    applicant_name?: string | null
+    application_title?: string | null
+    applicant?: string | null
+    application_date?: Date | string | null
+    registration_date?: Date | string | null
+    publication_date?: Date | string | null
+    summary?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_ipcs?: patent_ipcCreateNestedManyWithoutPatentInput
+    patent_keywords?: patent_keywordCreateNestedManyWithoutPatentInput
+  }
+
+  export type patentUncheckedCreateWithoutResearcher_patentsInput = {
+    patent_id: bigint | number
+    title?: string | null
+    application_number?: string | null
+    registration_number?: string | null
+    publication_number?: string | null
+    country?: string | null
+    applicant_name?: string | null
+    application_title?: string | null
+    applicant?: string | null
+    application_date?: Date | string | null
+    registration_date?: Date | string | null
+    publication_date?: Date | string | null
+    summary?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    patent_ipcs?: patent_ipcUncheckedCreateNestedManyWithoutPatentInput
+    patent_keywords?: patent_keywordUncheckedCreateNestedManyWithoutPatentInput
+  }
+
+  export type patentCreateOrConnectWithoutResearcher_patentsInput = {
+    where: patentWhereUniqueInput
+    create: XOR<patentCreateWithoutResearcher_patentsInput, patentUncheckedCreateWithoutResearcher_patentsInput>
+  }
+
+  export type researcherUpsertWithoutResearcher_patentsInput = {
+    update: XOR<researcherUpdateWithoutResearcher_patentsInput, researcherUncheckedUpdateWithoutResearcher_patentsInput>
+    create: XOR<researcherCreateWithoutResearcher_patentsInput, researcherUncheckedCreateWithoutResearcher_patentsInput>
+    where?: researcherWhereInput
+  }
+
+  export type researcherUpdateToOneWithWhereWithoutResearcher_patentsInput = {
+    where?: researcherWhereInput
+    data: XOR<researcherUpdateWithoutResearcher_patentsInput, researcherUncheckedUpdateWithoutResearcher_patentsInput>
+  }
+
+  export type researcherUpdateWithoutResearcher_patentsInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    researcher_domains?: researcher_domainUpdateManyWithoutResearcherNestedInput
+    researcher_publications?: researcher_publicationUpdateManyWithoutResearcherNestedInput
+  }
+
+  export type researcherUncheckedUpdateWithoutResearcher_patentsInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    researcher_domains?: researcher_domainUncheckedUpdateManyWithoutResearcherNestedInput
+    researcher_publications?: researcher_publicationUncheckedUpdateManyWithoutResearcherNestedInput
+  }
+
+  export type patentUpsertWithoutResearcher_patentsInput = {
+    update: XOR<patentUpdateWithoutResearcher_patentsInput, patentUncheckedUpdateWithoutResearcher_patentsInput>
+    create: XOR<patentCreateWithoutResearcher_patentsInput, patentUncheckedCreateWithoutResearcher_patentsInput>
+    where?: patentWhereInput
+  }
+
+  export type patentUpdateToOneWithWhereWithoutResearcher_patentsInput = {
+    where?: patentWhereInput
+    data: XOR<patentUpdateWithoutResearcher_patentsInput, patentUncheckedUpdateWithoutResearcher_patentsInput>
+  }
+
+  export type patentUpdateWithoutResearcher_patentsInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    application_number?: NullableStringFieldUpdateOperationsInput | string | null
+    registration_number?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_number?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant_name?: NullableStringFieldUpdateOperationsInput | string | null
+    application_title?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant?: NullableStringFieldUpdateOperationsInput | string | null
+    application_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    registration_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_ipcs?: patent_ipcUpdateManyWithoutPatentNestedInput
+    patent_keywords?: patent_keywordUpdateManyWithoutPatentNestedInput
+  }
+
+  export type patentUncheckedUpdateWithoutResearcher_patentsInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    application_number?: NullableStringFieldUpdateOperationsInput | string | null
+    registration_number?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_number?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant_name?: NullableStringFieldUpdateOperationsInput | string | null
+    application_title?: NullableStringFieldUpdateOperationsInput | string | null
+    applicant?: NullableStringFieldUpdateOperationsInput | string | null
+    application_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    registration_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    summary?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    patent_ipcs?: patent_ipcUncheckedUpdateManyWithoutPatentNestedInput
+    patent_keywords?: patent_keywordUncheckedUpdateManyWithoutPatentNestedInput
+  }
+
+  export type researcherCreateWithoutResearcher_domainsInput = {
+    researcher_id: bigint | number
+    name?: string | null
+    affiliation?: string | null
+    email?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    researcher_patents?: researcher_patentCreateNestedManyWithoutResearcherInput
+    researcher_publications?: researcher_publicationCreateNestedManyWithoutResearcherInput
+  }
+
+  export type researcherUncheckedCreateWithoutResearcher_domainsInput = {
+    researcher_id: bigint | number
+    name?: string | null
+    affiliation?: string | null
+    email?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    researcher_patents?: researcher_patentUncheckedCreateNestedManyWithoutResearcherInput
+    researcher_publications?: researcher_publicationUncheckedCreateNestedManyWithoutResearcherInput
+  }
+
+  export type researcherCreateOrConnectWithoutResearcher_domainsInput = {
+    where: researcherWhereUniqueInput
+    create: XOR<researcherCreateWithoutResearcher_domainsInput, researcherUncheckedCreateWithoutResearcher_domainsInput>
+  }
+
+  export type domainCreateWithoutResearcher_domainsInput = {
+    domain_id: bigint | number
+    name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+  }
+
+  export type domainUncheckedCreateWithoutResearcher_domainsInput = {
+    domain_id: bigint | number
+    name?: string | null
+    description?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+  }
+
+  export type domainCreateOrConnectWithoutResearcher_domainsInput = {
+    where: domainWhereUniqueInput
+    create: XOR<domainCreateWithoutResearcher_domainsInput, domainUncheckedCreateWithoutResearcher_domainsInput>
+  }
+
+  export type researcherUpsertWithoutResearcher_domainsInput = {
+    update: XOR<researcherUpdateWithoutResearcher_domainsInput, researcherUncheckedUpdateWithoutResearcher_domainsInput>
+    create: XOR<researcherCreateWithoutResearcher_domainsInput, researcherUncheckedCreateWithoutResearcher_domainsInput>
+    where?: researcherWhereInput
+  }
+
+  export type researcherUpdateToOneWithWhereWithoutResearcher_domainsInput = {
+    where?: researcherWhereInput
+    data: XOR<researcherUpdateWithoutResearcher_domainsInput, researcherUncheckedUpdateWithoutResearcher_domainsInput>
+  }
+
+  export type researcherUpdateWithoutResearcher_domainsInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    researcher_patents?: researcher_patentUpdateManyWithoutResearcherNestedInput
+    researcher_publications?: researcher_publicationUpdateManyWithoutResearcherNestedInput
+  }
+
+  export type researcherUncheckedUpdateWithoutResearcher_domainsInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    researcher_patents?: researcher_patentUncheckedUpdateManyWithoutResearcherNestedInput
+    researcher_publications?: researcher_publicationUncheckedUpdateManyWithoutResearcherNestedInput
+  }
+
+  export type domainUpsertWithoutResearcher_domainsInput = {
+    update: XOR<domainUpdateWithoutResearcher_domainsInput, domainUncheckedUpdateWithoutResearcher_domainsInput>
+    create: XOR<domainCreateWithoutResearcher_domainsInput, domainUncheckedCreateWithoutResearcher_domainsInput>
+    where?: domainWhereInput
+  }
+
+  export type domainUpdateToOneWithWhereWithoutResearcher_domainsInput = {
+    where?: domainWhereInput
+    data: XOR<domainUpdateWithoutResearcher_domainsInput, domainUncheckedUpdateWithoutResearcher_domainsInput>
+  }
+
+  export type domainUpdateWithoutResearcher_domainsInput = {
+    domain_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type domainUncheckedUpdateWithoutResearcher_domainsInput = {
+    domain_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type researcherCreateWithoutResearcher_publicationsInput = {
+    researcher_id: bigint | number
+    name?: string | null
+    affiliation?: string | null
+    email?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    researcher_patents?: researcher_patentCreateNestedManyWithoutResearcherInput
+    researcher_domains?: researcher_domainCreateNestedManyWithoutResearcherInput
+  }
+
+  export type researcherUncheckedCreateWithoutResearcher_publicationsInput = {
+    researcher_id: bigint | number
+    name?: string | null
+    affiliation?: string | null
+    email?: string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    researcher_patents?: researcher_patentUncheckedCreateNestedManyWithoutResearcherInput
+    researcher_domains?: researcher_domainUncheckedCreateNestedManyWithoutResearcherInput
+  }
+
+  export type researcherCreateOrConnectWithoutResearcher_publicationsInput = {
+    where: researcherWhereUniqueInput
+    create: XOR<researcherCreateWithoutResearcher_publicationsInput, researcherUncheckedCreateWithoutResearcher_publicationsInput>
+  }
+
+  export type publicationCreateWithoutResearcher_publicationsInput = {
+    publication_id: bigint | number
+    title?: string | null
+    abstract?: string | null
+    publication_date?: Date | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    journal?: journalCreateNestedOneWithoutPublicationsInput
+    publication_keywords?: publication_keywordCreateNestedManyWithoutPublicationInput
+  }
+
+  export type publicationUncheckedCreateWithoutResearcher_publicationsInput = {
+    publication_id: bigint | number
+    title?: string | null
+    abstract?: string | null
+    publication_date?: Date | string | null
+    journal_id?: bigint | number | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+    publication_keywords?: publication_keywordUncheckedCreateNestedManyWithoutPublicationInput
+  }
+
+  export type publicationCreateOrConnectWithoutResearcher_publicationsInput = {
+    where: publicationWhereUniqueInput
+    create: XOR<publicationCreateWithoutResearcher_publicationsInput, publicationUncheckedCreateWithoutResearcher_publicationsInput>
+  }
+
+  export type researcherUpsertWithoutResearcher_publicationsInput = {
+    update: XOR<researcherUpdateWithoutResearcher_publicationsInput, researcherUncheckedUpdateWithoutResearcher_publicationsInput>
+    create: XOR<researcherCreateWithoutResearcher_publicationsInput, researcherUncheckedCreateWithoutResearcher_publicationsInput>
+    where?: researcherWhereInput
+  }
+
+  export type researcherUpdateToOneWithWhereWithoutResearcher_publicationsInput = {
+    where?: researcherWhereInput
+    data: XOR<researcherUpdateWithoutResearcher_publicationsInput, researcherUncheckedUpdateWithoutResearcher_publicationsInput>
+  }
+
+  export type researcherUpdateWithoutResearcher_publicationsInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    researcher_patents?: researcher_patentUpdateManyWithoutResearcherNestedInput
+    researcher_domains?: researcher_domainUpdateManyWithoutResearcherNestedInput
+  }
+
+  export type researcherUncheckedUpdateWithoutResearcher_publicationsInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    affiliation?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    researcher_patents?: researcher_patentUncheckedUpdateManyWithoutResearcherNestedInput
+    researcher_domains?: researcher_domainUncheckedUpdateManyWithoutResearcherNestedInput
+  }
+
+  export type publicationUpsertWithoutResearcher_publicationsInput = {
+    update: XOR<publicationUpdateWithoutResearcher_publicationsInput, publicationUncheckedUpdateWithoutResearcher_publicationsInput>
+    create: XOR<publicationCreateWithoutResearcher_publicationsInput, publicationUncheckedCreateWithoutResearcher_publicationsInput>
+    where?: publicationWhereInput
+  }
+
+  export type publicationUpdateToOneWithWhereWithoutResearcher_publicationsInput = {
+    where?: publicationWhereInput
+    data: XOR<publicationUpdateWithoutResearcher_publicationsInput, publicationUncheckedUpdateWithoutResearcher_publicationsInput>
+  }
+
+  export type publicationUpdateWithoutResearcher_publicationsInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    abstract?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    journal?: journalUpdateOneWithoutPublicationsNestedInput
+    publication_keywords?: publication_keywordUpdateManyWithoutPublicationNestedInput
+  }
+
+  export type publicationUncheckedUpdateWithoutResearcher_publicationsInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    abstract?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    journal_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    publication_keywords?: publication_keywordUncheckedUpdateManyWithoutPublicationNestedInput
+  }
+
+  export type researcher_domainCreateWithoutDomainInput = {
+    researcher: researcherCreateNestedOneWithoutResearcher_domainsInput
+  }
+
+  export type researcher_domainUncheckedCreateWithoutDomainInput = {
+    researcher_id: bigint | number
+  }
+
+  export type researcher_domainCreateOrConnectWithoutDomainInput = {
+    where: researcher_domainWhereUniqueInput
+    create: XOR<researcher_domainCreateWithoutDomainInput, researcher_domainUncheckedCreateWithoutDomainInput>
+  }
+
+  export type researcher_domainCreateManyDomainInputEnvelope = {
+    data: researcher_domainCreateManyDomainInput | researcher_domainCreateManyDomainInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type researcher_domainUpsertWithWhereUniqueWithoutDomainInput = {
+    where: researcher_domainWhereUniqueInput
+    update: XOR<researcher_domainUpdateWithoutDomainInput, researcher_domainUncheckedUpdateWithoutDomainInput>
+    create: XOR<researcher_domainCreateWithoutDomainInput, researcher_domainUncheckedCreateWithoutDomainInput>
+  }
+
+  export type researcher_domainUpdateWithWhereUniqueWithoutDomainInput = {
+    where: researcher_domainWhereUniqueInput
+    data: XOR<researcher_domainUpdateWithoutDomainInput, researcher_domainUncheckedUpdateWithoutDomainInput>
+  }
+
+  export type researcher_domainUpdateManyWithWhereWithoutDomainInput = {
+    where: researcher_domainScalarWhereInput
+    data: XOR<researcher_domainUpdateManyMutationInput, researcher_domainUncheckedUpdateManyWithoutDomainInput>
+  }
+
+  export type patent_keywordCreateManyKeywordInput = {
+    patent_id: bigint | number
+  }
+
+  export type journal_keywordCreateManyKeywordInput = {
+    journal_id: bigint | number
+  }
+
+  export type publication_keywordCreateManyKeywordInput = {
+    publication_id: bigint | number
+  }
+
+  export type patent_keywordUpdateWithoutKeywordInput = {
+    patent?: patentUpdateOneRequiredWithoutPatent_keywordsNestedInput
+  }
+
+  export type patent_keywordUncheckedUpdateWithoutKeywordInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type patent_keywordUncheckedUpdateManyWithoutKeywordInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type journal_keywordUpdateWithoutKeywordInput = {
+    journal?: journalUpdateOneRequiredWithoutJournal_keywordsNestedInput
+  }
+
+  export type journal_keywordUncheckedUpdateWithoutKeywordInput = {
+    journal_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type journal_keywordUncheckedUpdateManyWithoutKeywordInput = {
+    journal_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type publication_keywordUpdateWithoutKeywordInput = {
+    publication?: publicationUpdateOneRequiredWithoutPublication_keywordsNestedInput
+  }
+
+  export type publication_keywordUncheckedUpdateWithoutKeywordInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type publication_keywordUncheckedUpdateManyWithoutKeywordInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type patent_ipcCreateManyIpcInput = {
+    patent_id: bigint | number
+  }
+
+  export type patent_ipcUpdateWithoutIpcInput = {
+    patent?: patentUpdateOneRequiredWithoutPatent_ipcsNestedInput
+  }
+
+  export type patent_ipcUncheckedUpdateWithoutIpcInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type patent_ipcUncheckedUpdateManyWithoutIpcInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type patent_ipcCreateManyPatentInput = {
+    ipc_id: bigint | number
+  }
+
+  export type patent_keywordCreateManyPatentInput = {
+    keyword_id: bigint | number
+  }
+
+  export type researcher_patentCreateManyPatentInput = {
+    researcher_id: bigint | number
+  }
+
+  export type patent_ipcUpdateWithoutPatentInput = {
+    ipc?: ipcUpdateOneRequiredWithoutPatent_ipcsNestedInput
+  }
+
+  export type patent_ipcUncheckedUpdateWithoutPatentInput = {
+    ipc_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type patent_ipcUncheckedUpdateManyWithoutPatentInput = {
+    ipc_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type patent_keywordUpdateWithoutPatentInput = {
+    keyword?: keywordUpdateOneRequiredWithoutPatent_keywordsNestedInput
+  }
+
+  export type patent_keywordUncheckedUpdateWithoutPatentInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type patent_keywordUncheckedUpdateManyWithoutPatentInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_patentUpdateWithoutPatentInput = {
+    researcher?: researcherUpdateOneRequiredWithoutResearcher_patentsNestedInput
+  }
+
+  export type researcher_patentUncheckedUpdateWithoutPatentInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_patentUncheckedUpdateManyWithoutPatentInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type publicationCreateManyJournalInput = {
+    publication_id: bigint | number
+    title?: string | null
+    abstract?: string | null
+    publication_date?: Date | string | null
+    cno?: bigint | number | null
+    user_no?: bigint | number | null
+    insert_timestamp?: Date | string
+    update_timestamp?: Date | string
+    is_deleted?: boolean
+  }
+
+  export type journal_keywordCreateManyJournalInput = {
+    keyword_id: bigint | number
+  }
+
+  export type publicationUpdateWithoutJournalInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    abstract?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    publication_keywords?: publication_keywordUpdateManyWithoutPublicationNestedInput
+    researcher_publications?: researcher_publicationUpdateManyWithoutPublicationNestedInput
+  }
+
+  export type publicationUncheckedUpdateWithoutJournalInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    abstract?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    publication_keywords?: publication_keywordUncheckedUpdateManyWithoutPublicationNestedInput
+    researcher_publications?: researcher_publicationUncheckedUpdateManyWithoutPublicationNestedInput
+  }
+
+  export type publicationUncheckedUpdateManyWithoutJournalInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    abstract?: NullableStringFieldUpdateOperationsInput | string | null
+    publication_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    cno?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    user_no?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    insert_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    update_timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type journal_keywordUpdateWithoutJournalInput = {
+    keyword?: keywordUpdateOneRequiredWithoutJournal_keywordsNestedInput
+  }
+
+  export type journal_keywordUncheckedUpdateWithoutJournalInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type journal_keywordUncheckedUpdateManyWithoutJournalInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type publication_keywordCreateManyPublicationInput = {
+    keyword_id: bigint | number
+  }
+
+  export type researcher_publicationCreateManyPublicationInput = {
+    researcher_id: bigint | number
+  }
+
+  export type publication_keywordUpdateWithoutPublicationInput = {
+    keyword?: keywordUpdateOneRequiredWithoutPublication_keywordsNestedInput
+  }
+
+  export type publication_keywordUncheckedUpdateWithoutPublicationInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type publication_keywordUncheckedUpdateManyWithoutPublicationInput = {
+    keyword_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_publicationUpdateWithoutPublicationInput = {
+    researcher?: researcherUpdateOneRequiredWithoutResearcher_publicationsNestedInput
+  }
+
+  export type researcher_publicationUncheckedUpdateWithoutPublicationInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_publicationUncheckedUpdateManyWithoutPublicationInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_patentCreateManyResearcherInput = {
+    patent_id: bigint | number
+  }
+
+  export type researcher_domainCreateManyResearcherInput = {
+    domain_id: bigint | number
+  }
+
+  export type researcher_publicationCreateManyResearcherInput = {
+    publication_id: bigint | number
+  }
+
+  export type researcher_patentUpdateWithoutResearcherInput = {
+    patent?: patentUpdateOneRequiredWithoutResearcher_patentsNestedInput
+  }
+
+  export type researcher_patentUncheckedUpdateWithoutResearcherInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_patentUncheckedUpdateManyWithoutResearcherInput = {
+    patent_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_domainUpdateWithoutResearcherInput = {
+    domain?: domainUpdateOneRequiredWithoutResearcher_domainsNestedInput
+  }
+
+  export type researcher_domainUncheckedUpdateWithoutResearcherInput = {
+    domain_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_domainUncheckedUpdateManyWithoutResearcherInput = {
+    domain_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_publicationUpdateWithoutResearcherInput = {
+    publication?: publicationUpdateOneRequiredWithoutResearcher_publicationsNestedInput
+  }
+
+  export type researcher_publicationUncheckedUpdateWithoutResearcherInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_publicationUncheckedUpdateManyWithoutResearcherInput = {
+    publication_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_domainCreateManyDomainInput = {
+    researcher_id: bigint | number
+  }
+
+  export type researcher_domainUpdateWithoutDomainInput = {
+    researcher?: researcherUpdateOneRequiredWithoutResearcher_domainsNestedInput
+  }
+
+  export type researcher_domainUncheckedUpdateWithoutDomainInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type researcher_domainUncheckedUpdateManyWithoutDomainInput = {
+    researcher_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+
+
+  /**
+   * Batch Payload for updateMany & deleteMany & createMany
+   */
+
+  export type BatchPayload = {
+    count: number
+  }
+
+  /**
+   * DMMF
+   */
+  export const dmmf: runtime.BaseDMMF
+}

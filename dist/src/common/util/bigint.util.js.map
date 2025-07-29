@@ -1,0 +1,1 @@
+{"version":3,"file":"bigint.util.js","sourceRoot":"","sources":["../../../../src/common/util/bigint.util.ts"],"names":[],"mappings":";;AAKA,wCAMC;AAND,SAAgB,cAAc,CAAC,GAAQ;IACrC,OAAO,IAAI,CAAC,KAAK,CACf,IAAI,CAAC,SAAS,CAAC,GAAG,EAAE,CAAC,GAAG,EAAE,KAAK,EAAE,EAAE,CACjC,OAAO,KAAK,KAAK,QAAQ,CAAC,CAAC,CAAC,KAAK,CAAC,QAAQ,EAAE,CAAC,CAAC,CAAC,KAAK,CACrD,CACF,CAAC;AACJ,CAAC"}

@@ -1,0 +1,186 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model keyword {
+  keyword_id           BigInt                @id
+  keyword_name         String?
+  description          String?
+  cno                  BigInt?
+  user_no              BigInt?
+  insert_timestamp     DateTime              @default(now())
+  update_timestamp     DateTime              @default(now())
+  is_deleted           Boolean               @default(false)
+  patent_keywords      patent_keyword[]
+  journal_keywords     journal_keyword[]
+  publication_keywords publication_keyword[]
+}
+
+model ipc {
+  ipc_id           BigInt       @id
+  ipc_code         String?
+  description      String?
+  cno              BigInt?
+  user_no          BigInt?
+  insert_timestamp DateTime     @default(now())
+  update_timestamp DateTime     @default(now())
+  is_deleted       Boolean      @default(false)
+  patent_ipcs      patent_ipc[]
+}
+
+model patent {
+  patent_id           BigInt              @id
+  title               String?
+  application_number  String?
+  registration_number String?
+  publication_number  String?
+  country             String?             @db.VarChar(10)
+  applicant_name      String?
+  application_title   String?
+  applicant           String?
+  application_date    DateTime?
+  registration_date   DateTime?
+  publication_date    DateTime?
+  summary             String?
+  cno                 BigInt?
+  user_no             BigInt?
+  insert_timestamp    DateTime            @default(now())
+  update_timestamp    DateTime            @default(now())
+  is_deleted          Boolean             @default(false)
+  patent_ipcs         patent_ipc[]
+  patent_keywords     patent_keyword[]
+  researcher_patents  researcher_patent[]
+}
+
+model patent_ipc {
+  patent    patent @relation(fields: [patent_id], references: [patent_id])
+  patent_id BigInt
+  ipc       ipc    @relation(fields: [ipc_id], references: [ipc_id])
+  ipc_id    BigInt
+
+  @@id([patent_id, ipc_id])
+}
+
+model patent_keyword {
+  patent     patent  @relation(fields: [patent_id], references: [patent_id])
+  patent_id  BigInt
+  keyword    keyword @relation(fields: [keyword_id], references: [keyword_id])
+  keyword_id BigInt
+
+  @@id([patent_id, keyword_id])
+}
+
+model journal {
+  journal_id       BigInt            @id
+  name             String?
+  publisher        String?
+  issn             String?
+  impact_factor    Decimal?
+  cno              BigInt?
+  user_no          BigInt?
+  insert_timestamp DateTime          @default(now())
+  update_timestamp DateTime          @default(now())
+  is_deleted       Boolean           @default(false)
+  publications     publication[]
+  journal_keywords journal_keyword[]
+}
+
+model publication {
+  publication_id          BigInt                   @id
+  title                   String?
+  abstract                String?
+  publication_date        DateTime?
+  journal                 journal?                 @relation(fields: [journal_id], references: [journal_id])
+  journal_id              BigInt?
+  cno                     BigInt?
+  user_no                 BigInt?
+  insert_timestamp        DateTime                 @default(now())
+  update_timestamp        DateTime                 @default(now())
+  is_deleted              Boolean                  @default(false)
+  publication_keywords    publication_keyword[]
+  researcher_publications researcher_publication[]
+}
+
+model publication_keyword {
+  publication    publication @relation(fields: [publication_id], references: [publication_id])
+  publication_id BigInt
+  keyword        keyword     @relation(fields: [keyword_id], references: [keyword_id])
+  keyword_id     BigInt
+
+  @@id([publication_id, keyword_id])
+}
+
+model journal_keyword {
+  journal    journal @relation(fields: [journal_id], references: [journal_id])
+  journal_id BigInt
+  keyword    keyword @relation(fields: [keyword_id], references: [keyword_id])
+  keyword_id BigInt
+
+  @@id([journal_id, keyword_id])
+}
+
+model researcher {
+  researcher_id           BigInt                   @id
+  name                    String?
+  affiliation             String?
+  email                   String?
+  cno                     BigInt?
+  user_no                 BigInt?
+  insert_timestamp        DateTime                 @default(now())
+  update_timestamp        DateTime                 @default(now())
+  is_deleted              Boolean                  @default(false)
+  researcher_patents      researcher_patent[]
+  researcher_domains      researcher_domain[]
+  researcher_publications researcher_publication[]
+}
+
+model researcher_patent {
+  researcher    researcher @relation(fields: [researcher_id], references: [researcher_id])
+  researcher_id BigInt
+  patent        patent     @relation(fields: [patent_id], references: [patent_id])
+  patent_id     BigInt
+
+  @@id([researcher_id, patent_id])
+}
+
+model researcher_domain {
+  researcher    researcher @relation(fields: [researcher_id], references: [researcher_id])
+  researcher_id BigInt
+  domain        domain     @relation(fields: [domain_id], references: [domain_id])
+  domain_id     BigInt
+
+  @@id([researcher_id, domain_id])
+}
+
+model researcher_publication {
+  researcher     researcher  @relation(fields: [researcher_id], references: [researcher_id])
+  researcher_id  BigInt
+  publication    publication @relation(fields: [publication_id], references: [publication_id])
+  publication_id BigInt
+
+  @@id([researcher_id, publication_id])
+}
+
+model domain {
+  domain_id          BigInt              @id
+  name               String?
+  description        String?
+  cno                BigInt?
+  user_no            BigInt?
+  insert_timestamp   DateTime            @default(now())
+  update_timestamp   DateTime            @default(now())
+  is_deleted         Boolean             @default(false)
+  researcher_domains researcher_domain[]
+}
