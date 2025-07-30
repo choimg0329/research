@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PatentController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
 const patent_service_1 = require("../service/patent.service");
 const create_patent_dto_1 = require("../dto/create-patent.dto");
 const update_patent_dto_1 = require("../dto/update-patent.dto");
@@ -28,19 +29,23 @@ let PatentController = class PatentController {
     findAll() {
         return this.patentService.findAll();
     }
-    findOne(id) {
-        return this.patentService.findOne(+id);
+    findOne(patent_id) {
+        return this.patentService.findOne(parseInt(patent_id));
     }
-    update(id, updatePatentDto) {
-        return this.patentService.update(+id, updatePatentDto);
+    update(patent_id, updatePatentDto) {
+        return this.patentService.update(parseInt(patent_id), updatePatentDto);
     }
-    remove(id) {
-        return this.patentService.remove(+id);
+    remove(patent_id) {
+        return this.patentService.remove(parseInt(patent_id));
     }
 };
 exports.PatentController = PatentController;
 __decorate([
     (0, common_1.Post)(),
+    (0, swagger_1.ApiOperation)({ summary: 'Create a new patent' }),
+    (0, swagger_1.ApiResponse)({ status: 201, description: 'Patent created successfully' }),
+    (0, swagger_1.ApiResponse)({ status: 400, description: 'Bad request' }),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_patent_dto_1.CreatePatentDto]),
@@ -48,33 +53,49 @@ __decorate([
 ], PatentController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
+    (0, swagger_1.ApiOperation)({ summary: 'Get all patents' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'Return all patents' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], PatentController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Get)(':patent_id'),
+    (0, swagger_1.ApiOperation)({ summary: 'Get a patent by ID' }),
+    (0, swagger_1.ApiParam)({ name: 'patent_id', description: 'Patent ID' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'Return the patent' }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: 'Patent not found' }),
+    __param(0, (0, common_1.Param)('patent_id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], PatentController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Put)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Put)(':patent_id'),
+    (0, swagger_1.ApiOperation)({ summary: 'Update a patent' }),
+    (0, swagger_1.ApiParam)({ name: 'patent_id', description: 'Patent ID' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'Patent updated successfully' }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: 'Patent not found' }),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })),
+    __param(0, (0, common_1.Param)('patent_id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_patent_dto_1.UpdatePatentDto]),
     __metadata("design:returntype", void 0)
 ], PatentController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Delete)(':patent_id'),
+    (0, swagger_1.ApiOperation)({ summary: 'Delete a patent' }),
+    (0, swagger_1.ApiParam)({ name: 'patent_id', description: 'Patent ID' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'Patent deleted successfully' }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: 'Patent not found' }),
+    __param(0, (0, common_1.Param)('patent_id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], PatentController.prototype, "remove", null);
 exports.PatentController = PatentController = __decorate([
+    (0, swagger_1.ApiTags)('patents'),
     (0, common_1.Controller)('research/patents'),
     __metadata("design:paramtypes", [patent_service_1.PatentService])
 ], PatentController);

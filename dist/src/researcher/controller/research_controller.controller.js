@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResearchControllerController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
 const research_service_service_1 = require("../service/research_service.service");
 const create_researcher_dto_1 = require("../dto/create-researcher.dto");
 let ResearchControllerController = class ResearchControllerController {
@@ -28,6 +29,9 @@ let ResearchControllerController = class ResearchControllerController {
 exports.ResearchControllerController = ResearchControllerController;
 __decorate([
     (0, common_1.Post)(),
+    (0, swagger_1.ApiOperation)({ summary: 'Create a new researcher' }),
+    (0, swagger_1.ApiResponse)({ status: 201, description: 'Researcher created successfully' }),
+    (0, swagger_1.ApiResponse)({ status: 400, description: 'Bad request' }),
     (0, common_1.UsePipes)(new common_1.ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -35,6 +39,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ResearchControllerController.prototype, "create", null);
 exports.ResearchControllerController = ResearchControllerController = __decorate([
+    (0, swagger_1.ApiTags)('researchers'),
     (0, common_1.Controller)('research/researcher'),
     __metadata("design:paramtypes", [research_service_service_1.ResearchServiceService])
 ], ResearchControllerController);

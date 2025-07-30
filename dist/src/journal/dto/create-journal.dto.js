@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateJournalDto = void 0;
 const class_validator_1 = require("class-validator");
+const swagger_1 = require("@nestjs/swagger");
 class CreateJournalDto {
     name;
     publisher;
@@ -21,31 +22,37 @@ class CreateJournalDto {
 }
 exports.CreateJournalDto = CreateJournalDto;
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Journal name', required: false }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreateJournalDto.prototype, "name", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Publisher', required: false }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreateJournalDto.prototype, "publisher", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: 'ISSN', required: false }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreateJournalDto.prototype, "issn", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Impact factor', required: false }),
     (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], CreateJournalDto.prototype, "impact_factor", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Company number', required: false }),
     (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], CreateJournalDto.prototype, "cno", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: 'User number', required: false }),
     (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)

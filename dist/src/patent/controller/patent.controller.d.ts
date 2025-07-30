@@ -5,11 +5,7 @@ export declare class PatentController {
     private readonly patentService;
     constructor(patentService: PatentService);
     create(createPatentDto: CreatePatentDto): Promise<{
-        cno: bigint | null;
-        user_no: bigint | null;
-        insert_timestamp: Date;
-        update_timestamp: Date;
-        is_deleted: boolean;
+        patent_id: bigint;
         title: string | null;
         application_number: string | null;
         registration_number: string | null;
@@ -22,14 +18,14 @@ export declare class PatentController {
         registration_date: Date | null;
         publication_date: Date | null;
         summary: string | null;
-        patent_id: bigint;
+        cno: bigint | null;
+        user_no: bigint | null;
+        insert_timestamp: Date;
+        update_timestamp: Date;
+        is_deleted: boolean;
     }>;
     findAll(): Promise<{
-        cno: bigint | null;
-        user_no: bigint | null;
-        insert_timestamp: Date;
-        update_timestamp: Date;
-        is_deleted: boolean;
+        patent_id: bigint;
         title: string | null;
         application_number: string | null;
         registration_number: string | null;
@@ -42,14 +38,14 @@ export declare class PatentController {
         registration_date: Date | null;
         publication_date: Date | null;
         summary: string | null;
-        patent_id: bigint;
+        cno: bigint | null;
+        user_no: bigint | null;
+        insert_timestamp: Date;
+        update_timestamp: Date;
+        is_deleted: boolean;
     }[]>;
-    findOne(id: string): Promise<{
-        cno: bigint | null;
-        user_no: bigint | null;
-        insert_timestamp: Date;
-        update_timestamp: Date;
-        is_deleted: boolean;
+    findOne(patent_id: string): Promise<{
+        patent_id: bigint;
         title: string | null;
         application_number: string | null;
         registration_number: string | null;
@@ -62,14 +58,14 @@ export declare class PatentController {
         registration_date: Date | null;
         publication_date: Date | null;
         summary: string | null;
-        patent_id: bigint;
+        cno: bigint | null;
+        user_no: bigint | null;
+        insert_timestamp: Date;
+        update_timestamp: Date;
+        is_deleted: boolean;
     } | null>;
-    update(id: string, updatePatentDto: UpdatePatentDto): Promise<{
-        cno: bigint | null;
-        user_no: bigint | null;
-        insert_timestamp: Date;
-        update_timestamp: Date;
-        is_deleted: boolean;
+    update(patent_id: string, updatePatentDto: UpdatePatentDto): Promise<{
+        patent_id: bigint;
         title: string | null;
         application_number: string | null;
         registration_number: string | null;
@@ -82,14 +78,14 @@ export declare class PatentController {
         registration_date: Date | null;
         publication_date: Date | null;
         summary: string | null;
-        patent_id: bigint;
+        cno: bigint | null;
+        user_no: bigint | null;
+        insert_timestamp: Date;
+        update_timestamp: Date;
+        is_deleted: boolean;
     }>;
-    remove(id: string): Promise<{
-        cno: bigint | null;
-        user_no: bigint | null;
-        insert_timestamp: Date;
-        update_timestamp: Date;
-        is_deleted: boolean;
+    remove(patent_id: string): Promise<{
+        patent_id: bigint;
         title: string | null;
         application_number: string | null;
         registration_number: string | null;
@@ -102,6 +98,10 @@ export declare class PatentController {
         registration_date: Date | null;
         publication_date: Date | null;
         summary: string | null;
-        patent_id: bigint;
+        cno: bigint | null;
+        user_no: bigint | null;
+        insert_timestamp: Date;
+        update_timestamp: Date;
+        is_deleted: boolean;
     }>;
 }

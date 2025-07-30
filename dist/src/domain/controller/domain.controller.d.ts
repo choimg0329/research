@@ -5,53 +5,53 @@ export declare class DomainController {
     private readonly domainService;
     constructor(domainService: DomainService);
     create(createDomainDto: CreateDomainDto): Promise<{
+        domain_id: bigint;
         name: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        description: string | null;
-        domain_id: bigint;
     }>;
     findAll(): Promise<{
+        domain_id: bigint;
         name: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        description: string | null;
-        domain_id: bigint;
     }[]>;
-    findOne(id: string): Promise<{
+    findOne(domain_id: string): Promise<{
+        domain_id: bigint;
         name: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        description: string | null;
-        domain_id: bigint;
     } | null>;
-    update(id: string, updateDomainDto: UpdateDomainDto): Promise<{
+    update(domain_id: string, updateDomainDto: UpdateDomainDto): Promise<{
+        domain_id: bigint;
         name: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        description: string | null;
-        domain_id: bigint;
     }>;
-    remove(id: string): Promise<{
+    remove(domain_id: string): Promise<{
+        domain_id: bigint;
         name: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        description: string | null;
-        domain_id: bigint;
     }>;
 }

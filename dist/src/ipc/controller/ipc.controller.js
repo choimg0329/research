@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IpcController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
 const ipc_service_1 = require("../service/ipc.service");
 const create_ipc_dto_1 = require("../dto/create-ipc.dto");
 const update_ipc_dto_1 = require("../dto/update-ipc.dto");
@@ -28,19 +29,23 @@ let IpcController = class IpcController {
     findAll() {
         return this.ipcService.findAll();
     }
-    findOne(id) {
-        return this.ipcService.findOne(+id);
+    findOne(ipc_id) {
+        return this.ipcService.findOne(parseInt(ipc_id));
     }
-    update(id, updateIpcDto) {
-        return this.ipcService.update(+id, updateIpcDto);
+    update(ipc_id, updateIpcDto) {
+        return this.ipcService.update(parseInt(ipc_id), updateIpcDto);
     }
-    remove(id) {
-        return this.ipcService.remove(+id);
+    remove(ipc_id) {
+        return this.ipcService.remove(parseInt(ipc_id));
     }
 };
 exports.IpcController = IpcController;
 __decorate([
     (0, common_1.Post)(),
+    (0, swagger_1.ApiOperation)({ summary: 'Create a new IPC' }),
+    (0, swagger_1.ApiResponse)({ status: 201, description: 'IPC created successfully' }),
+    (0, swagger_1.ApiResponse)({ status: 400, description: 'Bad request' }),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_ipc_dto_1.CreateIpcDto]),
@@ -48,33 +53,49 @@ __decorate([
 ], IpcController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
+    (0, swagger_1.ApiOperation)({ summary: 'Get all IPCs' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'Return all IPCs' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], IpcController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Get)(':ipc_id'),
+    (0, swagger_1.ApiOperation)({ summary: 'Get an IPC by ID' }),
+    (0, swagger_1.ApiParam)({ name: 'ipc_id', description: 'IPC ID' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'Return the IPC' }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: 'IPC not found' }),
+    __param(0, (0, common_1.Param)('ipc_id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], IpcController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Put)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Put)(':ipc_id'),
+    (0, swagger_1.ApiOperation)({ summary: 'Update an IPC' }),
+    (0, swagger_1.ApiParam)({ name: 'ipc_id', description: 'IPC ID' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'IPC updated successfully' }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: 'IPC not found' }),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })),
+    __param(0, (0, common_1.Param)('ipc_id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_ipc_dto_1.UpdateIpcDto]),
     __metadata("design:returntype", void 0)
 ], IpcController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Delete)(':ipc_id'),
+    (0, swagger_1.ApiOperation)({ summary: 'Delete an IPC' }),
+    (0, swagger_1.ApiParam)({ name: 'ipc_id', description: 'IPC ID' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'IPC deleted successfully' }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: 'IPC not found' }),
+    __param(0, (0, common_1.Param)('ipc_id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], IpcController.prototype, "remove", null);
 exports.IpcController = IpcController = __decorate([
+    (0, swagger_1.ApiTags)('ipc'),
     (0, common_1.Controller)('research/ipc'),
     __metadata("design:paramtypes", [ipc_service_1.IpcService])
 ], IpcController);

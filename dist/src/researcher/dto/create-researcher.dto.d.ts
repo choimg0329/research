@@ -3,5 +3,5 @@ export declare class CreateResearcherDto {
     affiliation?: string;
     email?: string;
     cno?: number;
-    user_no?: number;
+    user_no: number;
 }

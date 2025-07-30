@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateKeywordDto = void 0;
 const class_validator_1 = require("class-validator");
+const swagger_1 = require("@nestjs/swagger");
 class CreateKeywordDto {
     keyword_name;
     description;
@@ -19,21 +20,25 @@ class CreateKeywordDto {
 }
 exports.CreateKeywordDto = CreateKeywordDto;
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Keyword name', required: false }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreateKeywordDto.prototype, "keyword_name", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Description', required: false }),
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreateKeywordDto.prototype, "description", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: 'Company number', required: false }),
     (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], CreateKeywordDto.prototype, "cno", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: 'User number', required: false }),
     (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)

@@ -5,53 +5,53 @@ export declare class KeywordController {
     private readonly keywordService;
     constructor(keywordService: KeywordService);
     create(createKeywordDto: CreateKeywordDto): Promise<{
+        keyword_id: bigint;
+        keyword_name: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        keyword_name: string | null;
-        description: string | null;
-        keyword_id: bigint;
     }>;
     findAll(): Promise<{
+        keyword_id: bigint;
+        keyword_name: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        keyword_name: string | null;
-        description: string | null;
-        keyword_id: bigint;
     }[]>;
-    findOne(id: string): Promise<{
+    findOne(keyword_id: string): Promise<{
+        keyword_id: bigint;
+        keyword_name: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        keyword_name: string | null;
-        description: string | null;
-        keyword_id: bigint;
     } | null>;
-    update(id: string, updateKeywordDto: UpdateKeywordDto): Promise<{
+    update(keyword_id: string, updateKeywordDto: UpdateKeywordDto): Promise<{
+        keyword_id: bigint;
+        keyword_name: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        keyword_name: string | null;
-        description: string | null;
-        keyword_id: bigint;
     }>;
-    remove(id: string): Promise<{
+    remove(keyword_id: string): Promise<{
+        keyword_id: bigint;
+        keyword_name: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        keyword_name: string | null;
-        description: string | null;
-        keyword_id: bigint;
     }>;
 }

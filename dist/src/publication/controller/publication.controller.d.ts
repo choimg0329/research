@@ -5,63 +5,63 @@ export declare class PublicationController {
     private readonly publicationService;
     constructor(publicationService: PublicationService);
     create(createPublicationDto: CreatePublicationDto): Promise<{
+        publication_id: bigint;
+        title: string | null;
+        abstract: string | null;
+        publication_date: Date | null;
+        journal_id: bigint | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        title: string | null;
-        publication_date: Date | null;
-        abstract: string | null;
-        journal_id: bigint | null;
-        publication_id: bigint;
     }>;
     findAll(): Promise<{
+        publication_id: bigint;
+        title: string | null;
+        abstract: string | null;
+        publication_date: Date | null;
+        journal_id: bigint | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        title: string | null;
-        publication_date: Date | null;
-        abstract: string | null;
-        journal_id: bigint | null;
-        publication_id: bigint;
     }[]>;
-    findOne(id: string): Promise<{
+    findOne(publication_id: string): Promise<{
+        publication_id: bigint;
+        title: string | null;
+        abstract: string | null;
+        publication_date: Date | null;
+        journal_id: bigint | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        title: string | null;
-        publication_date: Date | null;
-        abstract: string | null;
-        journal_id: bigint | null;
-        publication_id: bigint;
     } | null>;
-    update(id: string, updatePublicationDto: UpdatePublicationDto): Promise<{
+    update(publication_id: string, updatePublicationDto: UpdatePublicationDto): Promise<{
+        publication_id: bigint;
+        title: string | null;
+        abstract: string | null;
+        publication_date: Date | null;
+        journal_id: bigint | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        title: string | null;
-        publication_date: Date | null;
-        abstract: string | null;
-        journal_id: bigint | null;
-        publication_id: bigint;
     }>;
-    remove(id: string): Promise<{
+    remove(publication_id: string): Promise<{
+        publication_id: bigint;
+        title: string | null;
+        abstract: string | null;
+        publication_date: Date | null;
+        journal_id: bigint | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        title: string | null;
-        publication_date: Date | null;
-        abstract: string | null;
-        journal_id: bigint | null;
-        publication_id: bigint;
     }>;
 }

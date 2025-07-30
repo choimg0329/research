@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.KeywordController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
 const keyword_service_1 = require("../service/keyword.service");
 const create_keyword_dto_1 = require("../dto/create-keyword.dto");
 const update_keyword_dto_1 = require("../dto/update-keyword.dto");
@@ -28,19 +29,23 @@ let KeywordController = class KeywordController {
     findAll() {
         return this.keywordService.findAll();
     }
-    findOne(id) {
-        return this.keywordService.findOne(+id);
+    findOne(keyword_id) {
+        return this.keywordService.findOne(parseInt(keyword_id));
     }
-    update(id, updateKeywordDto) {
-        return this.keywordService.update(+id, updateKeywordDto);
+    update(keyword_id, updateKeywordDto) {
+        return this.keywordService.update(parseInt(keyword_id), updateKeywordDto);
     }
-    remove(id) {
-        return this.keywordService.remove(+id);
+    remove(keyword_id) {
+        return this.keywordService.remove(parseInt(keyword_id));
     }
 };
 exports.KeywordController = KeywordController;
 __decorate([
     (0, common_1.Post)(),
+    (0, swagger_1.ApiOperation)({ summary: 'Create a new keyword' }),
+    (0, swagger_1.ApiResponse)({ status: 201, description: 'Keyword created successfully' }),
+    (0, swagger_1.ApiResponse)({ status: 400, description: 'Bad request' }),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_keyword_dto_1.CreateKeywordDto]),
@@ -48,33 +53,49 @@ __decorate([
 ], KeywordController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
+    (0, swagger_1.ApiOperation)({ summary: 'Get all keywords' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'Return all keywords' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], KeywordController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Get)(':keyword_id'),
+    (0, swagger_1.ApiOperation)({ summary: 'Get a keyword by ID' }),
+    (0, swagger_1.ApiParam)({ name: 'keyword_id', description: 'Keyword ID' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'Return the keyword' }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: 'Keyword not found' }),
+    __param(0, (0, common_1.Param)('keyword_id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], KeywordController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Put)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Put)(':keyword_id'),
+    (0, swagger_1.ApiOperation)({ summary: 'Update a keyword' }),
+    (0, swagger_1.ApiParam)({ name: 'keyword_id', description: 'Keyword ID' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'Keyword updated successfully' }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: 'Keyword not found' }),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })),
+    __param(0, (0, common_1.Param)('keyword_id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_keyword_dto_1.UpdateKeywordDto]),
     __metadata("design:returntype", void 0)
 ], KeywordController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Delete)(':keyword_id'),
+    (0, swagger_1.ApiOperation)({ summary: 'Delete a keyword' }),
+    (0, swagger_1.ApiParam)({ name: 'keyword_id', description: 'Keyword ID' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'Keyword deleted successfully' }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: 'Keyword not found' }),
+    __param(0, (0, common_1.Param)('keyword_id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], KeywordController.prototype, "remove", null);
 exports.KeywordController = KeywordController = __decorate([
+    (0, swagger_1.ApiTags)('keywords'),
     (0, common_1.Controller)('research/keywords'),
     __metadata("design:paramtypes", [keyword_service_1.KeywordService])
 ], KeywordController);

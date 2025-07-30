@@ -5,53 +5,53 @@ export declare class IpcService {
     private readonly prisma;
     constructor(prisma: PrismaService);
     create(createIpcDto: CreateIpcDto): Promise<{
+        ipc_id: bigint;
+        ipc_code: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        description: string | null;
-        ipc_code: string | null;
-        ipc_id: bigint;
     }>;
     findAll(): Promise<{
+        ipc_id: bigint;
+        ipc_code: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        description: string | null;
-        ipc_code: string | null;
-        ipc_id: bigint;
     }[]>;
     findOne(id: number): Promise<{
+        ipc_id: bigint;
+        ipc_code: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        description: string | null;
-        ipc_code: string | null;
-        ipc_id: bigint;
     } | null>;
     update(id: number, updateIpcDto: UpdateIpcDto): Promise<{
+        ipc_id: bigint;
+        ipc_code: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        description: string | null;
-        ipc_code: string | null;
-        ipc_id: bigint;
     }>;
     remove(id: number): Promise<{
+        ipc_id: bigint;
+        ipc_code: string | null;
+        description: string | null;
         cno: bigint | null;
         user_no: bigint | null;
         insert_timestamp: Date;
         update_timestamp: Date;
         is_deleted: boolean;
-        description: string | null;
-        ipc_code: string | null;
-        ipc_id: bigint;
     }>;
 }
